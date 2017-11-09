@@ -1,0 +1,19 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 0003CH 0003DH _TEXT              CODE
+
+
+Detailed map of segments
+
+ 0000:0000 003D C=CODE   S=_TEXT          G=(none)  M=NANOSO.ASM ACBP=28
+
+  Address         Publics by Name
+
+
+  Address         Publics by Value
+
+
+Program entry point at 0000:0000
+Warning: No stack
+

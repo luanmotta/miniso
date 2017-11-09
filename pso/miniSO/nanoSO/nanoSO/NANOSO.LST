@@ -1,0 +1,110 @@
+Turbo Assembler	 Version 3.1	    10/25/17 20:09:31	    Page 1
+nanoSO.ASM
+
+
+
+      1				     ; Arquivo:	nanoSO.asm
+      2				     ; Autor:	Roland Teodorowitsch
+      3				     ;
+      4
+      5
+      6	0000			     _TEXT   segment byte public 'CODE'
+      7					     assume  cs:_TEXT
+      8
+      9
+     10	0000			     _main   proc near
+     11
+     12					     ; desabilita interrupções
+     13	0000  FA			     cli
+     14
+     15					     ; define a	pilha
+     16	0001  B8 7C00			     mov ax,7c00h
+     17	0004  8B E0			     mov sp,ax
+     18	0006  B8 0000			     mov ax,0
+     19	0009  8E D0			     mov ss,ax
+     20
+     21					     ; desvia a	interrupção 22h
+     22	000B  33 C0			     xor ax,ax
+     23	000D  8E D8			     mov ds,ax
+     24	000F  B8 0026r			     mov ax,offset _scall
+     25	0012  A3 0088			     mov ds:[22h*4],ax
+     26	0015  B8 07E0			     mov ax,07e0h
+     27	0018  A3 008A			     mov ds:[22h*4+2],ax
+     28
+     29					     ; habilita	interrupções
+     30	001B  FB			     sti
+     31
+     32					     ; laço principal
+     33	001C  B4 00		     laco:   mov ah,0
+     34	001E  CD 22			     int 22h
+     35	0020  B4 01			     mov ah,1
+     36	0022  CD 22			     int 22h
+     37	0024  EB F6			     jmp laco
+     38
+     39	0026			     _main   endp
+     40
+     41
+     42	0026			     _scall  proc near
+     43
+     44	0026  80 FC 00			     cmp     ah,0
+     45	0029  75 05			     jnz     nao_eh_servico_0
+     46
+     47	002B			     servico_0:
+     48	002B  B4 10			     mov     ah,10h
+     49	002D  CD 16			     int     16h
+     50	002F  CF			     iret
+     51
+     52	0030			     nao_eh_servico_0:
+     53	0030  80 FC 01			     cmp     ah,1
+     54	0033  75 07			     jnz     tambem_nao_eh_servico_1
+     55
+     56	0035			     servico_1:
+     57	0035  B4 0E			     mov     ah,0eh
+Turbo Assembler	 Version 3.1	    10/25/17 20:09:31	    Page 2
+nanoSO.ASM
+
+
+
+     58	0037  32 FF			     xor     bh,bh
+     59	0039  CD 10			     int     10h
+     60	003B  CF			     iret
+     61
+     62	003C			     tambem_nao_eh_servico_1:
+     63	003C  CF			     iret
+     64
+     65	003D			     _scall  endp
+     66
+     67
+     68	003D			     _TEXT   ends
+     69
+     70
+     71					     end
+Turbo Assembler	 Version 3.1	    10/25/17 20:09:31	    Page 3
+Symbol Table
+
+
+
+
+Symbol Name		Type   Value			   Cref	(defined at #)
+
+??DATE			Text   "10/25/17"
+??FILENAME		Text   "nanoSO	"
+??TIME			Text   "20:09:31"
+??VERSION		Number 030A
+@CPU			Text   0101H
+@CURSEG			Text   _TEXT			   #6
+@FILENAME		Text   NANOSO
+@WORDSIZE		Text   2			   #6
+LACO			Near   _TEXT:001C		   #33	37
+NAO_EH_SERVICO_0	Near   _TEXT:0030		   45  #52
+SERVICO_0		Near   _TEXT:002B		   #47
+SERVICO_1		Near   _TEXT:0035		   #56
+TAMBEM_NAO_EH_SERVICO_	Near   _TEXT:003C		   54  #62
+1
+_MAIN			Near   _TEXT:0000		   #10
+_SCALL			Near   _TEXT:0026		   24  #42
+
+Groups & Segments	Bit Size Align	Combine	Class	   Cref	(defined at #)
+
+_TEXT			16  003D Byte	Public	CODE	   #6  7
+

@@ -1,0 +1,10 @@
+boot(size=512,signature=0xaa55,segment=0x07c0)
+{
+  fat(oem="nanoSO",volume="BOOTDISK",disk=FD1440);
+  setstack(0x0000,0x7c00);
+  setcolor(0x07);
+  putstr("Carregando nanoSistema Operacional Vs 1.0...");
+  readdisk_chs(0x00,0,1,16,2,0x07e0,0x0000);
+  putstr("\n");
+  jump(0x07e0,0x0000);
+}

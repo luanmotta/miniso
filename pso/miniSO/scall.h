@@ -11,7 +11,7 @@
 
 
 /* Numero de chamadas de sistema */
-#define miniSO_NUMSCALL 25
+#define miniSO_NUMSCALL 27
 
 #define SC_PUTCH        0
 #define SC_GETCH        1
@@ -38,6 +38,8 @@
 #define SC_SEMUP	22
 #define SC_SEMDOWN	23
 #define SC_SEMDESTROY	24
+#define SC_STOP     25
+#define SC_RESUME   26
 
 
 typedef int	(*scfun0_t)(void);
@@ -82,4 +84,6 @@ int	sc_semset	(semid_t s,int value);
 int	sc_semup	(semid_t s);
 int	sc_semdown	(semid_t s);
 int	sc_semdestroy	(semid_t s);
+int sc_stop     (pid_t pid);
+int sc_resume   (pid_t pid);
 

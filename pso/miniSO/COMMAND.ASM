@@ -14,10 +14,10 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E996987E4709636F6D6D616E642E63
-	?debug	C E9EE217847086D696E69534F2E68
-	?debug	C E99C987E4709636F6D6D616E642E68
-	?debug	C E9E3AB614B056C69622E68
+	?debug	C E969AE6C4B09636F6D6D616E642E63
+	?debug	C E94FAE6C4B086D696E69534F2E68
+	?debug	C E9BA9C6C4B09636F6D6D616E642E68
+	?debug	C E990AC6C4B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -104,6 +104,12 @@ commands	label	word
 	dw	DGROUP:s@+1010
 	dw	DGROUP:s@+1021
 	dw	_cmd_semdestroy
+	dw	DGROUP:s@+1051
+	dw	DGROUP:s@+1056
+	dw	_cmd_stop
+	dw	DGROUP:s@+1099
+	dw	DGROUP:s@+1106
+	dw	_cmd_resume
 _DATA	ends
 _TEXT	segment byte public 'CODE'
    ;	
@@ -167,7 +173,7 @@ _command	proc	near
    ;	  putstr("                  ÜÜÜÜÜÜÜ  ÜÜÜÜÜÜ\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1051
+	mov	ax,offset DGROUP:s@+1147
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -176,7 +182,7 @@ _command	proc	near
    ;	  putstr(" ÜÜÜÜÜ  Ü  ÜÜÜ  Ü ÛÛ   ßß  ÛÛ  ÛÛ  "); setcolor(7); putstr("MinisSistema Operacional\n"); setcolor(LOGOCOLOR);
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1086
+	mov	ax,offset DGROUP:s@+1182
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -186,7 +192,7 @@ _command	proc	near
 	call	near ptr _setcolor
 	pop	cx
 	push	ds
-	mov	ax,offset DGROUP:s@+1122
+	mov	ax,offset DGROUP:s@+1218
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -199,7 +205,7 @@ _command	proc	near
    ;	  putstr("ÜÛ Û Û ÜÛ ÜÛ Û ÜÛ ßßßßÛÛÛ ÛÛÛ  ÛÛ  "); setcolor(7); putstr("Vs "); putstr(miniSO_VERSION); putstr("\n"); setcolor(LOGO
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1148
+	mov	ax,offset DGROUP:s@+1244
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -209,19 +215,19 @@ _command	proc	near
 	call	near ptr _setcolor
 	pop	cx
 	push	ds
-	mov	ax,offset DGROUP:s@+1184
+	mov	ax,offset DGROUP:s@+1280
 	push	ax
 	call	near ptr _putstr
 	pop	cx
 	pop	cx
 	push	ds
-	mov	ax,offset DGROUP:s@+1188
+	mov	ax,offset DGROUP:s@+1284
 	push	ax
 	call	near ptr _putstr
 	pop	cx
 	pop	cx
 	push	ds
-	mov	ax,offset DGROUP:s@+1193
+	mov	ax,offset DGROUP:s@+1289
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -234,7 +240,7 @@ _command	proc	near
    ;	  putstr("ÛÛ Û Û ÛÛ ÛÛ Û ÛÛ ÛÛÜÜÛÛÛ ÛÛÛÜÜÛÛ  "); setcolor(7); putstr("por Roland Teodorowitsch\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1195
+	mov	ax,offset DGROUP:s@+1291
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -244,7 +250,7 @@ _command	proc	near
 	call	near ptr _setcolor
 	pop	cx
 	push	ds
-	mov	ax,offset DGROUP:s@+1231
+	mov	ax,offset DGROUP:s@+1327
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -254,7 +260,7 @@ _command	proc	near
    ;	  putstr("\nDigite 'help' ou '?' para ajuda...\n\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1257
+	mov	ax,offset DGROUP:s@+1353
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -268,10 +274,10 @@ _command	proc	near
    ;	  command_var_set("PROMPT","miniSO>");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1302
+	mov	ax,offset DGROUP:s@+1398
 	push	ax
 	push	ds
-	mov	ax,offset DGROUP:s@+1295
+	mov	ax,offset DGROUP:s@+1391
 	push	ax
 	call	near ptr command_var_set
 	add	sp,8
@@ -279,10 +285,10 @@ _command	proc	near
    ;	  command_var_set("ERRORLEVEL","0");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1321
+	mov	ax,offset DGROUP:s@+1417
 	push	ax
 	push	ds
-	mov	ax,offset DGROUP:s@+1310
+	mov	ax,offset DGROUP:s@+1406
 	push	ax
 	call	near ptr command_var_set
 	add	sp,8
@@ -1131,7 +1137,7 @@ _command	proc	near
 @1@3082:
 	inc	di
 @1@3110:
-	cmp	di,23
+	cmp	di,25
 	jl	short @1@3026
 @1@3138:
    ;	
@@ -1173,7 +1179,7 @@ _command	proc	near
 	lea	ax,word ptr [bp-12]
 	push	ax
 	push	ds
-	mov	ax,offset DGROUP:s@+1323
+	mov	ax,offset DGROUP:s@+1419
 	push	ax
 	call	near ptr command_var_set
 	add	sp,8
@@ -1187,7 +1193,7 @@ _command	proc	near
    ;	                       putstr("Erro: comando desconhecido!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1334
+	mov	ax,offset DGROUP:s@+1430
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -1354,7 +1360,7 @@ command_showprompt	proc	near
    ;	  prompt = command_var_value("PROMPT");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1363
+	mov	ax,offset DGROUP:s@+1459
 	push	ax
 	call	near ptr command_var_value
 	pop	cx
@@ -2006,7 +2012,7 @@ _cmd_help	proc	near
    ;	  putstr("Comandos do minisSistema Operacional:\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1370
+	mov	ax,offset DGROUP:s@+1466
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2050,7 +2056,7 @@ _cmd_help	proc	near
 	pop	cx
 	inc	si
 @13@114:
-	cmp	si,23
+	cmp	si,25
 	jl	short @13@58
    ;	
    ;	  }
@@ -2406,7 +2412,7 @@ _cmd_ver	proc	near
    ;	  putstr("minisSistema Operacional - Vs ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1409
+	mov	ax,offset DGROUP:s@+1505
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2415,7 +2421,7 @@ _cmd_ver	proc	near
    ;	  putstr(miniSO_VERSION);
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1440
+	mov	ax,offset DGROUP:s@+1536
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2474,7 +2480,7 @@ _cmd_ps	proc	near
    ;	  putstr(" BCP   PID   PPID  STATUS   WAIT   ZLIST  PREV   NEXT\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1445
+	mov	ax,offset DGROUP:s@+1541
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2483,7 +2489,7 @@ _cmd_ps	proc	near
    ;	  for (i=0;i<miniSO_MAXTHREADS;++i)  {
    ;	
 	xor	di,di
-	jmp	@18@1066
+	jmp	@18@1094
 @18@58:
    ;	
    ;	      if (miniSO_thread[i].status!=FREE)  {
@@ -2494,7 +2500,7 @@ _cmd_ps	proc	near
 	mov	bx,ax
 	cmp	word ptr DGROUP:_miniSO_thread[bx+4],-1
 	jne	@@4
-	jmp	@18@1038
+	jmp	@18@1066
 @@4:
    ;	
    ;	         inttostr(str,i);
@@ -2543,7 +2549,7 @@ _cmd_ps	proc	near
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1500
+	mov	ax,offset DGROUP:s@+1596
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2599,7 +2605,7 @@ _cmd_ps	proc	near
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1503
+	mov	ax,offset DGROUP:s@+1599
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2655,7 +2661,7 @@ _cmd_ps	proc	near
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1506
+	mov	ax,offset DGROUP:s@+1602
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2669,71 +2675,78 @@ _cmd_ps	proc	near
 	mov	bx,ax
 	mov	bx,word ptr DGROUP:_miniSO_thread[bx+4]
 	inc	bx
-	cmp	bx,6
-	ja	short @18@674
+	cmp	bx,7
+	ja	short @18@702
 	shl	bx,1
-	jmp	word ptr cs:@18@C1234[bx]
+	jmp	word ptr cs:@18@C1266[bx]
 @18@450:
    ;	
    ;	               case FREE:    putstr(strFREE);    break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1509
+	mov	ax,offset DGROUP:s@+1605
 @18@478:
 	push	ax
 	call	near ptr _putstr
 	pop	cx
 	pop	cx
-	jmp	short @18@674
+	jmp	short @18@702
 @18@506:
    ;	
    ;	               case READY:   putstr(strREADY);   break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1517
+	mov	ax,offset DGROUP:s@+1613
 	jmp	short @18@478
 @18@534:
    ;	
    ;	               case RUNNING: putstr(strRUNNING); break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1525
+	mov	ax,offset DGROUP:s@+1621
 	jmp	short @18@478
 @18@562:
    ;	
    ;	               case ZOMBIE:  putstr(strZOMBIE);  break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1533
+	mov	ax,offset DGROUP:s@+1629
 	jmp	short @18@478
 @18@590:
    ;	
    ;	               case WAIT:    putstr(strWAIT);    break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1541
+	mov	ax,offset DGROUP:s@+1637
 	jmp	short @18@478
 @18@618:
    ;	
    ;	               case WAITSIG: putstr(strWAITSIG); break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1549
+	mov	ax,offset DGROUP:s@+1645
 	jmp	short @18@478
 @18@646:
    ;	
    ;	               case WAITSEM: putstr(strWAITSEM); break;
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1557
+	mov	ax,offset DGROUP:s@+1653
 	jmp	short @18@478
 @18@674:
+   ;	
+   ;	               case STOPPED: putstr(strSTOPPED); break;
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+1661
+	jmp	short @18@478
+@18@702:
    ;	
    ;	         }
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1565
+	mov	ax,offset DGROUP:s@+1669
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2761,8 +2774,8 @@ _cmd_ps	proc	near
 	pop	cx
 	pop	cx
 	mov	si,ax
-	jmp	short @18@730
-@18@702:
+	jmp	short @18@758
+@18@730:
    ;	
    ;	         while (l++<5)
    ;	               putch(' ');
@@ -2771,11 +2784,11 @@ _cmd_ps	proc	near
 	push	ax
 	call	near ptr _putch
 	pop	cx
-@18@730:
+@18@758:
 	mov	ax,si
 	inc	si
 	cmp	ax,5
-	jl	short @18@702
+	jl	short @18@730
    ;	
    ;	         putstr(str);
    ;	
@@ -2790,7 +2803,7 @@ _cmd_ps	proc	near
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1568
+	mov	ax,offset DGROUP:s@+1672
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2818,8 +2831,8 @@ _cmd_ps	proc	near
 	pop	cx
 	pop	cx
 	mov	si,ax
-	jmp	short @18@814
-@18@786:
+	jmp	short @18@842
+@18@814:
    ;	
    ;	         while (l++<5)
    ;	               putch(' ');
@@ -2828,11 +2841,11 @@ _cmd_ps	proc	near
 	push	ax
 	call	near ptr _putch
 	pop	cx
-@18@814:
+@18@842:
 	mov	ax,si
 	inc	si
 	cmp	ax,5
-	jl	short @18@786
+	jl	short @18@814
    ;	
    ;	         putstr(str);
    ;	
@@ -2847,7 +2860,7 @@ _cmd_ps	proc	near
    ;	         putstr(" ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1571
+	mov	ax,offset DGROUP:s@+1675
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2875,8 +2888,8 @@ _cmd_ps	proc	near
 	pop	cx
 	pop	cx
 	mov	si,ax
-	jmp	short @18@898
-@18@870:
+	jmp	short @18@926
+@18@898:
    ;	
    ;	         while (l++<5)
    ;	               putch(' ');
@@ -2885,11 +2898,11 @@ _cmd_ps	proc	near
 	push	ax
 	call	near ptr _putch
 	pop	cx
-@18@898:
+@18@926:
 	mov	ax,si
 	inc	si
 	cmp	ax,5
-	jl	short @18@870
+	jl	short @18@898
    ;	
    ;	         putstr(str);
    ;	
@@ -2904,7 +2917,7 @@ _cmd_ps	proc	near
    ;	         putstr("  ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1573
+	mov	ax,offset DGROUP:s@+1677
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -2932,8 +2945,8 @@ _cmd_ps	proc	near
 	pop	cx
 	pop	cx
 	mov	si,ax
-	jmp	short @18@982
-@18@954:
+	jmp	short @18@1010
+@18@982:
    ;	
    ;	         while (l++<5)
    ;	               putch(' ');
@@ -2942,11 +2955,11 @@ _cmd_ps	proc	near
 	push	ax
 	call	near ptr _putch
 	pop	cx
-@18@982:
+@18@1010:
 	mov	ax,si
 	inc	si
 	cmp	ax,5
-	jl	short @18@954
+	jl	short @18@982
    ;	
    ;	         putstr(str);
    ;	
@@ -2963,9 +2976,9 @@ _cmd_ps	proc	near
 	push	ax
 	call	near ptr _putch
 	pop	cx
-@18@1038:
-	inc	di
 @18@1066:
+	inc	di
+@18@1094:
 	cmp	di,16
 	jge	@@5
 	jmp	@18@58
@@ -2976,8 +2989,8 @@ _cmd_ps	proc	near
    ;	  return 0;
    ;	
 	xor	ax,ax
-	jmp	short @18@1122
-@18@1122:
+	jmp	short @18@1150
+@18@1150:
    ;	
    ;	}
    ;	
@@ -2986,7 +2999,7 @@ _cmd_ps	proc	near
 	pop	bp
 	ret	
 _cmd_ps	endp
-@18@C1234	label	word
+@18@C1266	label	word
 	dw	@18@450
 	dw	@18@506
 	dw	@18@534
@@ -2994,6 +3007,7 @@ _cmd_ps	endp
 	dw	@18@590
 	dw	@18@618
 	dw	@18@646
+	dw	@18@674
    ;	
    ;	int cmd_kill(int argc, char far *argv[])
    ;	
@@ -3023,7 +3037,7 @@ _cmd_kill	proc	near
    ;	     putstr("Erro em kill: parametro nao fornecido!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1576
+	mov	ax,offset DGROUP:s@+1680
 @19@86:
 	push	ax
 	call	near ptr _putstr
@@ -3063,7 +3077,7 @@ _cmd_kill	proc	near
    ;	     putstr("kill: impossivel matar o processo/thread\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1616
+	mov	ax,offset DGROUP:s@+1720
 	jmp	short @19@86
 @19@198:
    ;	
@@ -3124,7 +3138,7 @@ _cmd_set	proc	near
    ;	     res = command_var_set(argv[1],"");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1658
+	mov	ax,offset DGROUP:s@+1762
 	push	ax
 	push	word ptr [di+6]
 	push	word ptr [di+4]
@@ -3171,7 +3185,7 @@ _cmd_set	proc	near
    ;	              putstr("Erro em set: nao ha espaco para novas variaveis!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1659
+	mov	ax,offset DGROUP:s@+1763
 	jmp	short @20@478
 @20@394:
    ;	
@@ -3180,7 +3194,7 @@ _cmd_set	proc	near
    ;	              putstr("Erro em set: o tamanho do nome da variavel e muito grande!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1709
+	mov	ax,offset DGROUP:s@+1813
 	jmp	short @20@478
 @20@422:
    ;	
@@ -3189,7 +3203,7 @@ _cmd_set	proc	near
    ;	              putstr("Erro em set: o tamanho do conteudo da variavel e muito grande!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1769
+	mov	ax,offset DGROUP:s@+1873
 	jmp	short @20@478
 @20@450:
    ;	
@@ -3198,7 +3212,7 @@ _cmd_set	proc	near
    ;	              putstr("Erro em set: argumentos demais na linha de comando!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1833
+	mov	ax,offset DGROUP:s@+1937
 @20@478:
 	push	ax
 	call	near ptr _putstr
@@ -3248,7 +3262,7 @@ _cmd_unset	proc	near
    ;	     putstr("Erro em unset: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1886
+	mov	ax,offset DGROUP:s@+1990
 @21@86:
 	push	ax
 	call	near ptr _putstr
@@ -3281,7 +3295,7 @@ _cmd_unset	proc	near
    ;	     putstr("Erro em unset: variavel inexistente!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1933
+	mov	ax,offset DGROUP:s@+2037
 	jmp	short @21@86
 @21@198:
    ;	
@@ -3325,7 +3339,7 @@ _cmd_echo	proc	near
    ;	     if (strcmp(argv[1],"-n")==0)
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1971
+	mov	ax,offset DGROUP:s@+2075
 	push	ax
 	push	word ptr [di+6]
 	push	word ptr [di+4]
@@ -3456,7 +3470,7 @@ demo	proc	near
    ;	  putstrxy(65,ini+0,"ÚÄÄ Thread ÄÄÄÄ¿");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1974
+	mov	ax,offset DGROUP:s@+2078
 	push	ax
 	push	di
 	mov	ax,65
@@ -3467,7 +3481,7 @@ demo	proc	near
    ;	  putstrxy(65,ini+1,"³ PID  =       ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+1991
+	mov	ax,offset DGROUP:s@+2095
 	push	ax
 	mov	ax,di
 	inc	ax
@@ -3480,7 +3494,7 @@ demo	proc	near
    ;	  putstrxy(65,ini+2,"³ Execucao:    ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2008
+	mov	ax,offset DGROUP:s@+2112
 	push	ax
 	mov	ax,di
 	add	ax,2
@@ -3493,7 +3507,7 @@ demo	proc	near
    ;	  putstrxy(65,ini+3,"³              ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2025
+	mov	ax,offset DGROUP:s@+2129
 	push	ax
 	mov	ax,di
 	add	ax,3
@@ -3506,7 +3520,7 @@ demo	proc	near
    ;	  putstrxy(65,ini+4,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2042
+	mov	ax,offset DGROUP:s@+2146
 	push	ax
 	mov	ax,di
 	add	ax,4
@@ -3796,7 +3810,7 @@ _cmd_demo	proc	near
    ;			putstr("Erro em demo: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2059
+	mov	ax,offset DGROUP:s@+2163
 @24@86:
 	push	ax
 	call	near ptr _putstr
@@ -3847,7 +3861,7 @@ _cmd_demo	proc	near
    ;			putstr("Erro em demo: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2105
+	mov	ax,offset DGROUP:s@+2209
 	jmp	short @24@86
 @24@254:
    ;	
@@ -3887,7 +3901,7 @@ _cmd_waitpid	proc	near
    ;			putstr("Erro em waitpid: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2155
+	mov	ax,offset DGROUP:s@+2259
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -3924,7 +3938,7 @@ _cmd_waitpid	proc	near
    ;		putstr("Processo ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2204
+	mov	ax,offset DGROUP:s@+2308
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -3951,7 +3965,7 @@ _cmd_waitpid	proc	near
    ;		putstr(" encerrado com codigo de fim ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2214
+	mov	ax,offset DGROUP:s@+2318
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -3978,7 +3992,7 @@ _cmd_waitpid	proc	near
    ;		putstr("!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2244
+	mov	ax,offset DGROUP:s@+2348
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4037,7 +4051,7 @@ _cmd_wait	proc	near
    ;		putstr("Processo ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2247
+	mov	ax,offset DGROUP:s@+2351
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4064,7 +4078,7 @@ _cmd_wait	proc	near
    ;		putstr(" encerrado com codigo de fim ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2257
+	mov	ax,offset DGROUP:s@+2361
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4091,7 +4105,7 @@ _cmd_wait	proc	near
    ;		putstr("!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2287
+	mov	ax,offset DGROUP:s@+2391
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4143,7 +4157,7 @@ _cmd_semls	proc	near
    ;		putstr("Semaphores:\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2290
+	mov	ax,offset DGROUP:s@+2394
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4168,7 +4182,7 @@ _cmd_semls	proc	near
    ;				putstr("- id=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2303
+	mov	ax,offset DGROUP:s@+2407
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4198,7 +4212,7 @@ _cmd_semls	proc	near
    ;				putstr(" value=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2309
+	mov	ax,offset DGROUP:s@+2413
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4228,7 +4242,7 @@ _cmd_semls	proc	near
    ;				putstr(" queue=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2317
+	mov	ax,offset DGROUP:s@+2421
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4277,7 +4291,7 @@ _cmd_semls	proc	near
    ;		putstr("TOTAL=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2325
+	mov	ax,offset DGROUP:s@+2429
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4304,7 +4318,7 @@ _cmd_semls	proc	near
    ;		putstr("\n\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2332
+	mov	ax,offset DGROUP:s@+2436
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4348,7 +4362,7 @@ _cmd_semcreate	proc	near
    ;			putstr("Erro em semcreate: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2335
+	mov	ax,offset DGROUP:s@+2439
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4391,7 +4405,7 @@ _cmd_semcreate	proc	near
    ;		putstr("Semaforo id=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2386
+	mov	ax,offset DGROUP:s@+2490
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4418,7 +4432,7 @@ _cmd_semcreate	proc	near
    ;		putstr(" criado (value=");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2399
+	mov	ax,offset DGROUP:s@+2503
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4445,7 +4459,7 @@ _cmd_semcreate	proc	near
    ;		putstr(")\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2415
+	mov	ax,offset DGROUP:s@+2519
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4489,7 +4503,7 @@ _sem_aplic	proc	near
    ;		putstrxy(65,ini+0,"ÚÄÄ Thread ÄÄÄÄ¿");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2418
+	mov	ax,offset DGROUP:s@+2522
 	push	ax
 	push	di
 	mov	ax,65
@@ -4500,7 +4514,7 @@ _sem_aplic	proc	near
    ;		putstrxy(65,ini+1,"³ PID  =       ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2435
+	mov	ax,offset DGROUP:s@+2539
 	push	ax
 	mov	ax,di
 	inc	ax
@@ -4513,7 +4527,7 @@ _sem_aplic	proc	near
    ;		putstrxy(65,ini+2,"³ Execucao:    ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2452
+	mov	ax,offset DGROUP:s@+2556
 	push	ax
 	mov	ax,di
 	add	ax,2
@@ -4526,7 +4540,7 @@ _sem_aplic	proc	near
    ;		putstrxy(65,ini+3,"³              ³");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2469
+	mov	ax,offset DGROUP:s@+2573
 	push	ax
 	mov	ax,di
 	add	ax,3
@@ -4539,7 +4553,7 @@ _sem_aplic	proc	near
    ;		putstrxy(65,ini+4,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2486
+	mov	ax,offset DGROUP:s@+2590
 	push	ax
 	mov	ax,di
 	add	ax,4
@@ -4685,7 +4699,7 @@ _cmd_semtest	proc	near
    ;			putstr("Erro em semtest: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2503
+	mov	ax,offset DGROUP:s@+2607
 @30@86:
 	push	ax
 	call	near ptr _putstr
@@ -4736,7 +4750,7 @@ _cmd_semtest	proc	near
    ;			putstr("Erro em demo: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2552
+	mov	ax,offset DGROUP:s@+2656
 	jmp	short @30@86
 @30@254:
    ;	
@@ -4773,7 +4787,7 @@ _cmd_semup	proc	near
    ;			putstr("Erro em semtest: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2602
+	mov	ax,offset DGROUP:s@+2706
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4831,7 +4845,7 @@ _cmd_semdestroy	proc	near
    ;			putstr("Erro em semtest: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+2651
+	mov	ax,offset DGROUP:s@+2755
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -4869,6 +4883,180 @@ _cmd_semdestroy	proc	near
 	pop	bp
 	ret	
 _cmd_semdestroy	endp
+   ;	
+   ;	int cmd_stop(int argc, char far *argv[])
+   ;	
+	assume	cs:_TEXT
+_cmd_stop	proc	near
+	push	bp
+	mov	bp,sp
+	push	si
+	push	di
+   ;	
+   ;	{
+   ;	    int t=0;
+   ;	
+	xor	si,si
+   ;	
+   ;	    pid_t pid=0;
+   ;	
+	xor	di,di
+   ;	
+   ;	    
+   ;	    if (argc<2) {
+   ;	
+	cmp	word ptr [bp+4],2
+	jge	short @33@114
+   ;	
+   ;	        putstr("stop: nenhum parametro foi fornecido\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+2804
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+   ;	
+   ;	        return miniSO_ERROR;
+   ;	
+	mov	ax,-1
+@33@86:
+	jmp	short @33@198
+@33@114:
+   ;	
+   ;	    }
+   ;	    pid = atoi(argv[1]);
+   ;	
+	mov	bx,word ptr [bp+6]
+	push	word ptr [bx+6]
+	push	word ptr [bx+4]
+	call	near ptr _atoi
+	pop	cx
+	pop	cx
+	mov	di,ax
+   ;	
+   ;	    t = stop(pid);
+   ;	
+	push	di
+	call	near ptr _stop
+	pop	cx
+	mov	si,ax
+   ;	
+   ;	    if (t==miniSO_ERROR)
+   ;	
+	cmp	si,-1
+	jne	short @33@170
+   ;	
+   ;	        putstr("stop: impossivel suspender a thread\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+2842
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+@33@170:
+   ;	
+   ;	    return t;
+   ;	
+	mov	ax,si
+	jmp	short @33@86
+@33@198:
+   ;	
+   ;	}
+   ;	
+	pop	di
+	pop	si
+	pop	bp
+	ret	
+_cmd_stop	endp
+   ;	
+   ;	int cmd_resume(int argc, char far *argv[])
+   ;	
+	assume	cs:_TEXT
+_cmd_resume	proc	near
+	push	bp
+	mov	bp,sp
+	push	si
+	push	di
+   ;	
+   ;	{
+   ;	    int t=0;
+   ;	
+	xor	si,si
+   ;	
+   ;	    pid_t pid=0;
+   ;	
+	xor	di,di
+   ;	
+   ;	    
+   ;	    if (argc<2) {
+   ;	
+	cmp	word ptr [bp+4],2
+	jge	short @34@114
+   ;	
+   ;	        putstr("resume: nenhum parametro foi fornecido\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+2879
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+   ;	
+   ;	        return miniSO_ERROR;
+   ;	
+	mov	ax,-1
+@34@86:
+	jmp	short @34@198
+@34@114:
+   ;	
+   ;	    }
+   ;	    pid = atoi(argv[1]);
+   ;	
+	mov	bx,word ptr [bp+6]
+	push	word ptr [bx+6]
+	push	word ptr [bx+4]
+	call	near ptr _atoi
+	pop	cx
+	pop	cx
+	mov	di,ax
+   ;	
+   ;	    t = resume(pid);
+   ;	
+	push	di
+	call	near ptr _resume
+	pop	cx
+	mov	si,ax
+   ;	
+   ;	    if (t==miniSO_ERROR)
+   ;	
+	cmp	si,-1
+	jne	short @34@170
+   ;	
+   ;	        putstr("resume: impossivel reiniciar a thread\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+2919
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+@34@170:
+   ;	
+   ;	    return t;
+   ;	
+	mov	ax,si
+	jmp	short @34@86
+@34@198:
+   ;	
+   ;	}
+   ;	
+	pop	di
+	pop	si
+	pop	bp
+	ret	
+_cmd_resume	endp
 _TEXT	ends
 _BSS	segment word public 'BSS'
 _semid	label	word
@@ -4992,6 +5180,14 @@ s@	label	byte
 	db	'semdestroy'
 	db	0
 	db	' <semid>  destroi um semaforo'
+	db	0
+	db	'stop'
+	db	0
+	db	'<pid>          suspende um processo/thread'
+	db	0
+	db	'resume'
+	db	0
+	db	'<pid>        reinicia um processo/thread'
 	db	0
 	db	'                  '
 	db	-36
@@ -5177,6 +5373,8 @@ s@	label	byte
 	db	0
 	db	'WAITSEM'
 	db	0
+	db	'STOPPED'
+	db	0
 	db	'  '
 	db	0
 	db	'  '
@@ -5350,6 +5548,18 @@ s@	label	byte
 	db	'Erro em semtest: numero invalido de argumentos!'
 	db	10
 	db	0
+	db	'stop: nenhum parametro foi fornecido'
+	db	10
+	db	0
+	db	'stop: impossivel suspender a thread'
+	db	10
+	db	0
+	db	'resume: nenhum parametro foi fornecido'
+	db	10
+	db	0
+	db	'resume: impossivel reiniciar a thread'
+	db	10
+	db	0
 _DATA	ends
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
@@ -5373,6 +5583,8 @@ _argline	equ	argline
 _palavra	equ	palavra
 _cmdline	equ	cmdline
 _end_command	equ	end_command
+	extrn	_resume:near
+	extrn	_stop:near
 	extrn	_semdestroy:near
 	extrn	_semdown:near
 	extrn	_semup:near
@@ -5402,6 +5614,8 @@ _end_command	equ	end_command
 	extrn	_clrscr:near
 	extrn	_getch:near
 	extrn	_putch:near
+	public	_cmd_resume
+	public	_cmd_stop
 	public	_cmd_semdestroy
 	public	_cmd_semup
 	public	_cmd_semtest

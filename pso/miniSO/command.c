@@ -58,7 +58,9 @@ static command_t commands[MAXCOMMANDS] = {
   "semcreate"," <value>   cria um semaforo",					cmd_semcreate,
   "semtest"," <semid>     aplicacao para teste de semaforos",			cmd_semtest,
   "semup"," <semid>       incrementa o valor de um semaforo",			cmd_semup,
-  "semdestroy"," <semid>  destroi um semaforo",					cmd_semdestroy
+  "semdestroy"," <semid>  destroi um semaforo",					cmd_semdestroy,
+  "stop", "<pid>          suspende um processo/thread",         cmd_stop,
+  "resume", "<pid>        reinicia um processo/thread",         cmd_resume
 };
 
 
@@ -579,6 +581,7 @@ int cmd_ps(int argc, char far *argv[])
                case WAIT:    putstr(strWAIT);    break;
                case WAITSIG: putstr(strWAITSIG); break;
                case WAITSEM: putstr(strWAITSEM); break;
+               case STOPPED: putstr(strSTOPPED); break;
          }
          putstr("  ");
          inttostr(str,miniSO_thread[i].wait);
@@ -949,5 +952,37 @@ int cmd_semdestroy(int argc, char far *argv[])
 	}
 	semid = atoi(argv[1]);
 	return semdestroy(semid);
+}
+
+int cmd_stop(int argc, char far *argv[])
+{
+    int t=0;
+    pid_t pid=0;
+    
+    if (argc<2) {
+        putstr("stop: nenhum parametro foi fornecido\n");
+        return miniSO_ERROR;
+    }
+    pid = atoi(argv[1]);
+    t = stop(pid);
+    if (t==miniSO_ERROR)
+        putstr("stop: impossivel suspender a thread\n");
+    return t;
+}
+
+int cmd_resume(int argc, char far *argv[])
+{
+    int t=0;
+    pid_t pid=0;
+    
+    if (argc<2) {
+        putstr("resume: nenhum parametro foi fornecido\n");
+        return miniSO_ERROR;
+    }
+    pid = atoi(argv[1]);
+    t = resume(pid);
+    if (t==miniSO_ERROR)
+        putstr("resume: impossivel reiniciar a thread\n");
+    return t;
 }
 

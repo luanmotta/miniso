@@ -34,6 +34,7 @@
 #define WAIT        3     /* O processo esta' esperando por algum filho */
 #define WAITSIG     4     /* O processo esta' na lista de espera por sinais */
 #define WAITSEM     5     /* O processo esta' esperando por semaforos */ /*S*/
+#define STOPPED     6     /* O processo esta' suspenso */
 
 /* Strings de estados de processos */
 #define strFREE    "FREE   "
@@ -43,6 +44,7 @@
 #define strWAIT    "WAIT   "
 #define strWAITSIG "WAITSIG"
 #define strWAITSEM "WAITSEM"
+#define strSTOPPED "STOPPED"
 
 /* Interrupção do relógio */
 #define miniSO_CLOCKINT    0x1c

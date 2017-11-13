@@ -644,3 +644,23 @@ int semdestroy (semid_t s)
 	return _AX;
 }
 
+int stop(pid_t pid)
+{
+    _BX = pid;
+    asm {
+        mov ah,SC_STOP
+        int 22h
+    }
+    return _AX;
+}
+
+int resume(pid_t pid)
+{
+    _BX = pid;
+    asm {
+        mov ah,SC_RESUME
+        int 22h
+    }
+    return _AX;
+}
+

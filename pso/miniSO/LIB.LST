@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 1
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 1
 lib.ASM
 
 
@@ -8,10 +8,10 @@ lib.ASM
       3					     endm
       4					     ?debug  V 300h
       5					     ?debug  S "lib.c"
-      6					     ?debug  C E925548441056C69622E63
-      7					     ?debug  C E9EE217847086D696E69534F2E68
-      8					     ?debug  C E9E3AB614B056C69622E68
-      9					     ?debug  C E925548441077363616C6C2E68
+      6					     ?debug  C E991AD6C4B056C69622E63
+      7					     ?debug  C E94FAE6C4B086D696E69534F2E68
+      8					     ?debug  C E990AC6C4B056C69622E68
+      9					     ?debug  C E90BAD6C4B077363616C6C2E68
      10	0000			     _TEXT   segment byte public 'CODE'
      11	0000			     _TEXT   ends
      12				     DGROUP  group   _DATA,_BSS
@@ -60,7 +60,7 @@ lib.ASM
      55	000C			     _getch  proc    near
      56	000C  55			     push    bp
      57	000D  8B EC			     mov     bp,sp
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 2
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 2
 lib.ASM
 
 
@@ -122,7 +122,7 @@ lib.ASM
     112	0025			     @4@58:
     113					;
     114					;    {
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 3
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 3
 lib.ASM
 
 
@@ -184,7 +184,7 @@ lib.ASM
     169	006D			     @5@58:
     170					;
     171					;      while (*string != '\0')	{
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 4
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 4
 lib.ASM
 
 
@@ -246,7 +246,7 @@ lib.ASM
     226					;    void setcolor (int	cor)
     227					;
     228					     assume  cs:_TEXT
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 5
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 5
 lib.ASM
 
 
@@ -308,7 +308,7 @@ lib.ASM
     283					;    int  wherey()
     284					;
     285					     assume  cs:_TEXT
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 6
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 6
 lib.ASM
 
 
@@ -370,7 +370,7 @@ lib.ASM
     340	00C9  5D			     pop     bp
     341	00CA  C3			     ret
     342	00CB			     _gotoxy endp
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 7
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 7
 lib.ASM
 
 
@@ -432,7 +432,7 @@ lib.ASM
     397	00F4  FF 76 04			     push    word ptr [bp+4]
     398	00F7  E8 0000e			     call    near ptr _FP_SEG
     399	00FA  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 8
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 8
 lib.ASM
 
 
@@ -494,7 +494,7 @@ lib.ASM
     454	012E  26: 88 07			     mov     byte ptr es:[bx],al
     455	0131  FF 46 08			     inc     word ptr [bp+8]
     456	0134  FF 46 04			     inc     word ptr [bp+4]
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 9
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 9
 lib.ASM
 
 
@@ -556,7 +556,7 @@ lib.ASM
     511	0170  26: 8A 07			     mov     al,byte ptr es:[bx]
     512	0173  C4 5E 04			     les     bx,dword ptr [bp+4]
     513	0176  26: 88 07			     mov     byte ptr es:[bx],al
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 10
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 10
 lib.ASM
 
 
@@ -618,7 +618,7 @@ lib.ASM
     568	01AB  8B 46 06			     mov     ax,word ptr [bp+6]
     569	01AE  8B 56 04			     mov     dx,word ptr [bp+4]
     570	01B1  89 46 FE			     mov     word ptr [bp-2],ax
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 11
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 11
 lib.ASM
 
 
@@ -680,7 +680,7 @@ lib.ASM
     625					;    {
     626					;      char far	*res;
     627					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 12
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 12
 lib.ASM
 
 
@@ -742,7 +742,7 @@ lib.ASM
     682	023D			     _strcmp proc    near
     683	023D  55			     push    bp
     684	023E  8B EC			     mov     bp,sp
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 13
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 13
 lib.ASM
 
 
@@ -804,7 +804,7 @@ lib.ASM
     739					;
     740					;    }
     741					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 14
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 14
 lib.ASM
 
 
@@ -866,7 +866,7 @@ lib.ASM
     796	02A4  80 FA 39			     cmp     dl,57
     797	02A7  7E 06			     jle     short @19@170
     798	02A9			     @19@86:
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 15
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 15
 lib.ASM
 
 
@@ -928,7 +928,7 @@ lib.ASM
     853					;
     854	02D7  33 C0			     xor     ax,ax
     855	02D9  EB F8			     jmp     short @20@170
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 16
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 16
 lib.ASM
 
 
@@ -990,7 +990,7 @@ lib.ASM
     910					;
     911	0310  BF FFFF			     mov     di,-1
     912					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 17
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 17
 lib.ASM
 
 
@@ -1052,7 +1052,7 @@ lib.ASM
     967					;    }
     968					;
     969	0353  5F			     pop     di
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 18
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 18
 lib.ASM
 
 
@@ -1114,7 +1114,7 @@ lib.ASM
    1024	0385  BF 0003			     mov     di,3
    1025	0388  EB 0D			     jmp     short @22@282
    1026	038A			     @22@198:
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 19
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 19
 lib.ASM
 
 
@@ -1176,7 +1176,7 @@ lib.ASM
    1081	03C0  48			     dec     ax
    1082	03C1  3B 46 FE			     cmp     ax,word ptr [bp-2]
    1083	03C4  77 EB			     ja	     short @22@422
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 20
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 20
 lib.ASM
 
 
@@ -1238,7 +1238,7 @@ lib.ASM
    1138					;
    1139					;	       i = i % div;
    1140					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 21
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 21
 lib.ASM
 
 
@@ -1300,7 +1300,7 @@ lib.ASM
    1195					;
    1196	0442  C7 46 FC 0000		     mov     word ptr [bp-4],0
    1197					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 22
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 22
 lib.ASM
 
 
@@ -1362,7 +1362,7 @@ lib.ASM
    1252					;		if (i>999999)
    1253					;
    1254	0493  83 7E 0A 0F		     cmp     word ptr [bp+10],15
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 23
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 23
 lib.ASM
 
 
@@ -1424,7 +1424,7 @@ lib.ASM
    1309					;			    tamreal = 4;
    1310					;
    1311	04DE  BE 0004			     mov     si,4
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 24
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 24
 lib.ASM
 
 
@@ -1486,7 +1486,7 @@ lib.ASM
    1366	0516  76 02			     jbe     short @23@1178
    1367					;
    1368					;	  tam =	tamreal;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 25
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 25
 lib.ASM
 
 
@@ -1548,7 +1548,7 @@ lib.ASM
    1423					;		  *str++='0';
    1424					;
    1425	0566  C4 5E 04			     les     bx,dword ptr [bp+4]
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 26
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 26
 lib.ASM
 
 
@@ -1610,7 +1610,7 @@ lib.ASM
    1480	05C2			     @23@1598:
    1481	05C2  83 7E FA 00		     cmp     word ptr [bp-6],0
    1482	05C6  76 03			     jbe     @@0
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 27
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 27
 lib.ASM
 
 
@@ -1672,7 +1672,7 @@ lib.ASM
    1537					;
    1538					;	       *str++='0';
    1539					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 28
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 28
 lib.ASM
 
 
@@ -1734,7 +1734,7 @@ lib.ASM
    1594					;
    1595					;      }
    1596					;      if (i<10)
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 29
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 29
 lib.ASM
 
 
@@ -1796,7 +1796,7 @@ lib.ASM
    1651	0681  81 F9 8000		     cmp     cx,-32768
    1652	0685  75 3B			     jne     short @25@86
    1653					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 30
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 30
 lib.ASM
 
 
@@ -1858,7 +1858,7 @@ lib.ASM
    1708	06D4  8B C8			     mov     cx,ax
    1709	06D6			     @25@142:
    1710	06D6  EB 3E			     jmp     short @25@338
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 31
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 31
 lib.ASM
 
 
@@ -1920,7 +1920,7 @@ lib.ASM
    1765					;		}
    1766					;		div = div/10;
    1767					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 32
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 32
 lib.ASM
 
 
@@ -1982,7 +1982,7 @@ lib.ASM
    1822	073C  5D			     pop     bp
    1823	073D  C3			     ret
    1824	073E			     _reboot endp
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 33
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 33
 lib.ASM
 
 
@@ -2044,7 +2044,7 @@ lib.ASM
    1879					;
    1880					;	 int 22h
    1881					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 34
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 34
 lib.ASM
 
 
@@ -2106,7 +2106,7 @@ lib.ASM
    1936					;
    1937					;    }
    1938					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 35
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 35
 lib.ASM
 
 
@@ -2168,7 +2168,7 @@ lib.ASM
    1993					;
    1994					;    void exit(int codfim)
    1995					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 36
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 36
 lib.ASM
 
 
@@ -2230,7 +2230,7 @@ lib.ASM
    2050					;
    2051					;    pid_t getppid()
    2052					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 37
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 37
 lib.ASM
 
 
@@ -2292,7 +2292,7 @@ lib.ASM
    2107					;      return _AX;
    2108					;
    2109	07D9  EB 00			     jmp     short @34@142
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 38
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 38
 lib.ASM
 
 
@@ -2354,7 +2354,7 @@ lib.ASM
    2164					;
    2165	07F1  CD 22			     int       22h
    2166					;
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 39
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 39
 lib.ASM
 
 
@@ -2416,7 +2416,7 @@ lib.ASM
    2221	0809  8B EC			     mov     bp,sp
    2222					;
    2223					;    {
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 40
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 40
 lib.ASM
 
 
@@ -2478,7 +2478,7 @@ lib.ASM
    2278	0822  5D			     pop     bp
    2279	0823  C3			     ret
    2280	0824			     _semdown	     endp
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 41
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 41
 lib.ASM
 
 
@@ -2516,67 +2516,140 @@ lib.ASM
    2311	0830  5D			     pop     bp
    2312	0831  C3			     ret
    2313	0832			     _semdestroy     endp
-   2314					     ?debug  C E9
-   2315					     ?debug  C FA00000000
-   2316	0832			     _TEXT   ends
-   2317	0000			     _DATA   segment word public 'DATA'
-   2318	0000			     s@	     label   byte
-   2319	0000			     _DATA   ends
-   2320	0832			     _TEXT   segment byte public 'CODE'
-   2321	0832			     _TEXT   ends
-   2322					     extrn   N_LUMOD@:far
-   2323					     extrn   N_LUDIV@:far
-   2324					     extrn   N_LXMUL@:far
-   2325					     public  _isalpha
-   2326					     public  _semdestroy
-   2327					     public  _semdown
-   2328					     public  _semup
-   2329					     public  _semset
-   2330					     public  _semcreate
-   2331					     public  _waitsignal
-   2332					     public  _sendsignal
-   2333					     public  _getppid
-   2334					     public  _getpid
-   2335					     public  _exit
-   2336					     public  _waitpid
-   2337					     public  _wait
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 42
+   2314					;
+   2315					;    int stop(pid_t pid)
+   2316					;
+   2317					     assume  cs:_TEXT
+   2318	0832			     _stop   proc    near
+   2319	0832  55			     push    bp
+   2320	0833  8B EC			     mov     bp,sp
+   2321					;
+   2322					;    {
+   2323					;	 _BX = pid;
+   2324					;
+   2325	0835  8B 5E 04			     mov     bx,word ptr [bp+4]
+   2326					;
+   2327					;	 asm {
+   2328					;	     mov ah,SC_STOP
+   2329					;
+   2330	0838  B4 19			     mov      ah,25
+   2331					;
+   2332					;	     int 22h
+   2333					;
+   2334	083A  CD 22			     int      22h
+   2335					;
+   2336					;	 }
+   2337					;	 return	_AX;
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 42
 lib.ASM
 
 
 
-   2338					     public  _kill
-   2339					     public  _fork
-   2340					     public  _reboot
-   2341					     public  _inttostr
-   2342					     public  _unsignedtostrhexa
-   2343					     public  _unsignedlongtostr
-   2344					     public  _unsignedtostr
-   2345					     public  _atoi
-   2346					     public  _isdigit
-   2347					     public  _strlen
-   2348					     public  _strcmp
-   2349					     public  _strlwr
-   2350					     public  _strupr
-   2351					     public  _strncpy
-   2352					     public  _strcpy
-   2353					     public  _gettime
-   2354					     public  _getdate
-   2355					     public  _gotoxy
-   2356					     public  _wherey
-   2357					     public  _wherex
-   2358					     public  _setcolor
-   2359					     public  _getcolor
-   2360					     public  _putstrxy
-   2361					     public  _putstr
-   2362					     public  _clrscr
-   2363					     public  _getch
-   2364					     public  _putch
-   2365					     extrn   _FP_OFF:near
-   2366					     extrn   _FP_SEG:near
-   2367				     _s@     equ     s@
-   2368					     end
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 43
+   2338					;
+   2339	083C  EB 00			     jmp     short @41@142
+   2340	083E			     @41@142:
+   2341					;
+   2342					;    }
+   2343					;
+   2344	083E  5D			     pop     bp
+   2345	083F  C3			     ret
+   2346	0840			     _stop   endp
+   2347					;
+   2348					;    int resume(pid_t pid)
+   2349					;
+   2350					     assume  cs:_TEXT
+   2351	0840			     _resume proc    near
+   2352	0840  55			     push    bp
+   2353	0841  8B EC			     mov     bp,sp
+   2354					;
+   2355					;    {
+   2356					;	 _BX = pid;
+   2357					;
+   2358	0843  8B 5E 04			     mov     bx,word ptr [bp+4]
+   2359					;
+   2360					;	 asm {
+   2361					;	     mov ah,SC_RESUME
+   2362					;
+   2363	0846  B4 1A			     mov      ah,26
+   2364					;
+   2365					;	     int 22h
+   2366					;
+   2367	0848  CD 22			     int      22h
+   2368					;
+   2369					;	 }
+   2370					;	 return	_AX;
+   2371					;
+   2372	084A  EB 00			     jmp     short @42@142
+   2373	084C			     @42@142:
+   2374					;
+   2375					;    }
+   2376					;
+   2377	084C  5D			     pop     bp
+   2378	084D  C3			     ret
+   2379	084E			     _resume endp
+   2380					     ?debug  C E9
+   2381					     ?debug  C FA00000000
+   2382	084E			     _TEXT   ends
+   2383	0000			     _DATA   segment word public 'DATA'
+   2384	0000			     s@	     label   byte
+   2385	0000			     _DATA   ends
+   2386	084E			     _TEXT   segment byte public 'CODE'
+   2387	084E			     _TEXT   ends
+   2388					     extrn   N_LUMOD@:far
+   2389					     extrn   N_LUDIV@:far
+   2390					     extrn   N_LXMUL@:far
+   2391					     public  _isalpha
+   2392					     public  _resume
+   2393					     public  _stop
+   2394					     public  _semdestroy
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 43
+lib.ASM
+
+
+
+   2395					     public  _semdown
+   2396					     public  _semup
+   2397					     public  _semset
+   2398					     public  _semcreate
+   2399					     public  _waitsignal
+   2400					     public  _sendsignal
+   2401					     public  _getppid
+   2402					     public  _getpid
+   2403					     public  _exit
+   2404					     public  _waitpid
+   2405					     public  _wait
+   2406					     public  _kill
+   2407					     public  _fork
+   2408					     public  _reboot
+   2409					     public  _inttostr
+   2410					     public  _unsignedtostrhexa
+   2411					     public  _unsignedlongtostr
+   2412					     public  _unsignedtostr
+   2413					     public  _atoi
+   2414					     public  _isdigit
+   2415					     public  _strlen
+   2416					     public  _strcmp
+   2417					     public  _strlwr
+   2418					     public  _strupr
+   2419					     public  _strncpy
+   2420					     public  _strcpy
+   2421					     public  _gettime
+   2422					     public  _getdate
+   2423					     public  _gotoxy
+   2424					     public  _wherey
+   2425					     public  _wherex
+   2426					     public  _setcolor
+   2427					     public  _getcolor
+   2428					     public  _putstrxy
+   2429					     public  _putstr
+   2430					     public  _clrscr
+   2431					     public  _getch
+   2432					     public  _putch
+   2433					     extrn   _FP_OFF:near
+   2434					     extrn   _FP_SEG:near
+   2435				     _s@     equ     s@
+   2436					     end
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 44
 Symbol Table
 
 
@@ -2584,9 +2657,9 @@ Symbol Table
 
 Symbol Name		Type   Value			   Cref	(defined at #)
 
-??DATE			Text   "11/01/17"
+??DATE			Text   "11/12/17"
 ??FILENAME		Text   "lib	"
-??TIME			Text   "22:46:20"
+??TIME			Text   "21:56:42"
 ??VERSION		Number 030A
 @13@142			Near   _TEXT:014F		   471	#472
 @13@58			Near   _TEXT:0125		   #446	 460
@@ -2638,7 +2711,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 @22@394			Near   _TEXT:03AA		   1059	 #1064
 @22@422			Near   _TEXT:03B1		   #1070  1083
 @22@478			Near   _TEXT:03BD		   1069	 #1079
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 44
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 45
 Symbol Table
 
 
@@ -2700,7 +2773,7 @@ Symbol Table
 @27@142			Near   _TEXT:074D		   1854	 #1855
 @28@142			Near   _TEXT:075B		   1887	 #1888
 @29@142			Near   _TEXT:0780		   1934	 #1935
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 45
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 46
 Symbol Table
 
 
@@ -2715,6 +2788,8 @@ Symbol Table
 @38@142			Near   _TEXT:0814		   2240	 #2241
 @39@142			Near   _TEXT:0822		   2273	 #2274
 @40@142			Near   _TEXT:0830		   2306	 #2307
+@41@142			Near   _TEXT:083E		   2339	 #2340
+@42@142			Near   _TEXT:084C		   2372	 #2373
 @4@58			Near   _TEXT:0025		   #112	 128
 @4@86			Near   _TEXT:0034		   111	#125
 @5@58			Near   _TEXT:006D		   #169	 187
@@ -2725,65 +2800,67 @@ Symbol Table
 @@0			Near   _TEXT:05CB		   1482	 #1484
 @@1			Near   _TEXT:05D6		   1487	 #1489
 @CPU			Text   0101H
-@CURSEG			Text   _TEXT			   #10	#14  #18  #22  #2317  #2320
+@CURSEG			Text   _TEXT			   #10	#14  #18  #22  #2383  #2386
 @FILENAME		Text   LIB
-@WORDSIZE		Text   2			   #10	#14  #18  #22  #2317  #2320
+@WORDSIZE		Text   2			   #10	#14  #18  #22  #2383  #2386
 B@			Byte   _BSS:0000		   #19
 B@W			Word   _BSS:0000		   #20
 D@			Byte   _DATA:0000		   #15
 D@W			Word   _DATA:0000		   #16
-N_LUDIV@		Far    ----:---- Extern		   1446	 1477  #2323
-N_LUMOD@		Far    ----:---- Extern		   1463	 #2322
-N_LXMUL@		Far    ----:---- Extern		   1385	 #2324
-S@			Byte   _DATA:0000		   #2318
-_ATOI			Near   _TEXT:02DD		   #867	 2345
-_CLRSCR			Near   _TEXT:0017		   #84	2362
-_EXIT			Near   _TEXT:07AA		   #1997  2335
-_FORK			Near   _TEXT:073E		   #1829  2339
-_FP_OFF			Near   ----:---- Extern		   365	407  1917  1968	 #2365
-_FP_SEG			Near   ----:---- Extern		   356	398  1908  1959	 #2366
-_GETCH			Near   _TEXT:000C		   #55	2363
-_GETCOLOR		Near   _TEXT:008F		   #200	 2359
-_GETDATE		Near   _TEXT:00CB		   #347	 2354
-_GETPID			Near   _TEXT:07B6		   #2025  2334
-_GETPPID		Near   _TEXT:07C1		   #2054  2333
-_GETTIME		Near   _TEXT:00EE		   #389	 2353
-_GOTOXY			Near   _TEXT:00BC		   #315	 2355
-_INTTOSTR		Near   _TEXT:0671		   #1634  2341
-_ISALPHA		Near   _TEXT:02B6		   #824	 2325
-_ISDIGIT		Near   _TEXT:0299		   #786	 954  2346
-_KILL			Near   _TEXT:074F		   #1866  2338
-_PUTCH			Near   _TEXT:0000		   #27	123  2364
-_PUTSTR			Near   _TEXT:0020		   #108	 2361
-_PUTSTRXY		Near   _TEXT:003F		   #139	 2360
-_REBOOT			Near   _TEXT:0735		   #1805  2340
-_S@			Alias  S@			   #2367
-_SEMCREATE		Near   _TEXT:07E9		   #2149  2330
-_SEMDESTROY		Near   _TEXT:0824		   #2285  2326
-_SEMDOWN		Near   _TEXT:0816		   #2252  2327
-_SEMSET			Near   _TEXT:07F7		   #2182  2329
-Turbo Assembler	 Version 3.1	    11/01/17 22:46:20	    Page 46
+N_LUDIV@		Far    ----:---- Extern		   1446	 1477  #2389
+N_LUMOD@		Far    ----:---- Extern		   1463	 #2388
+N_LXMUL@		Far    ----:---- Extern		   1385	 #2390
+S@			Byte   _DATA:0000		   #2384
+_ATOI			Near   _TEXT:02DD		   #867	 2413
+_CLRSCR			Near   _TEXT:0017		   #84	2430
+_EXIT			Near   _TEXT:07AA		   #1997  2403
+_FORK			Near   _TEXT:073E		   #1829  2407
+_FP_OFF			Near   ----:---- Extern		   365	407  1917  1968	 #2433
+_FP_SEG			Near   ----:---- Extern		   356	398  1908  1959	 #2434
+_GETCH			Near   _TEXT:000C		   #55	2431
+_GETCOLOR		Near   _TEXT:008F		   #200	 2427
+_GETDATE		Near   _TEXT:00CB		   #347	 2422
+_GETPID			Near   _TEXT:07B6		   #2025  2402
+_GETPPID		Near   _TEXT:07C1		   #2054  2401
+_GETTIME		Near   _TEXT:00EE		   #389	 2421
+_GOTOXY			Near   _TEXT:00BC		   #315	 2423
+_INTTOSTR		Near   _TEXT:0671		   #1634  2409
+_ISALPHA		Near   _TEXT:02B6		   #824	 2391
+_ISDIGIT		Near   _TEXT:0299		   #786	 954  2414
+_KILL			Near   _TEXT:074F		   #1866  2406
+_PUTCH			Near   _TEXT:0000		   #27	123  2432
+_PUTSTR			Near   _TEXT:0020		   #108	 2429
+_PUTSTRXY		Near   _TEXT:003F		   #139	 2428
+_REBOOT			Near   _TEXT:0735		   #1805  2408
+_RESUME			Near   _TEXT:0840		   #2351  2392
+_S@			Alias  S@			   #2435
+_SEMCREATE		Near   _TEXT:07E9		   #2149  2398
+Turbo Assembler	 Version 3.1	    11/12/17 21:56:43	    Page 47
 Symbol Table
 
 
 
-_SEMUP			Near   _TEXT:0808		   #2219  2328
-_SENDSIGNAL		Near   _TEXT:07CC		   #2083  2332
-_SETCOLOR		Near   _TEXT:009A		   #229	 2358
-_STRCMP			Near   _TEXT:023D		   #682	 2348
-_STRCPY			Near   _TEXT:0111		   #431	 2352
-_STRLEN			Near   _TEXT:027F		   #749	 2347
-_STRLWR			Near   _TEXT:01F1		   #620	 2349
-_STRNCPY		Near   _TEXT:0153		   #484	 2351
-_STRUPR			Near   _TEXT:01A5		   #558	 2350
-_UNSIGNEDLONGTOSTR	Near   _TEXT:0437		   #1185  2343
-_UNSIGNEDTOSTR		Near   _TEXT:0357		   #978	 2344
-_UNSIGNEDTOSTRHEXA	Near   _TEXT:05F1		   #1518  2342
-_WAIT			Near   _TEXT:075D		   #1899  2337
-_WAITPID		Near   _TEXT:0782		   #1946  2336
-_WAITSIGNAL		Near   _TEXT:07DD		   #2121  2331
-_WHEREX			Near   _TEXT:00A6		   #257	 2357
-_WHEREY			Near   _TEXT:00B1		   #286	 2356
+_SEMDESTROY		Near   _TEXT:0824		   #2285  2394
+_SEMDOWN		Near   _TEXT:0816		   #2252  2395
+_SEMSET			Near   _TEXT:07F7		   #2182  2397
+_SEMUP			Near   _TEXT:0808		   #2219  2396
+_SENDSIGNAL		Near   _TEXT:07CC		   #2083  2400
+_SETCOLOR		Near   _TEXT:009A		   #229	 2426
+_STOP			Near   _TEXT:0832		   #2318  2393
+_STRCMP			Near   _TEXT:023D		   #682	 2416
+_STRCPY			Near   _TEXT:0111		   #431	 2420
+_STRLEN			Near   _TEXT:027F		   #749	 2415
+_STRLWR			Near   _TEXT:01F1		   #620	 2417
+_STRNCPY		Near   _TEXT:0153		   #484	 2419
+_STRUPR			Near   _TEXT:01A5		   #558	 2418
+_UNSIGNEDLONGTOSTR	Near   _TEXT:0437		   #1185  2411
+_UNSIGNEDTOSTR		Near   _TEXT:0357		   #978	 2412
+_UNSIGNEDTOSTRHEXA	Near   _TEXT:05F1		   #1518  2410
+_WAIT			Near   _TEXT:075D		   #1899  2405
+_WAITPID		Near   _TEXT:0782		   #1946  2404
+_WAITSIGNAL		Near   _TEXT:07DD		   #2121  2399
+_WHEREX			Near   _TEXT:00A6		   #257	 2425
+_WHEREY			Near   _TEXT:00B1		   #286	 2424
 
 Macro Name						   Cref	(defined at #)
 
@@ -2793,9 +2870,9 @@ Groups & Segments	Bit Size Align	Combine	Class	   Cref	(defined at #)
 
 DGROUP			Group				   #12	13
   _BSS			16  0000 Word	Public	BSS	   12  #18
-  _DATA			16  0000 Word	Public	DATA	   12  #14  #2317
-_TEXT			16  0832 Byte	Public	CODE	   #10	13  #22	 26  54	 83  107  138  199  228	 256  285  314	346  388  +
+  _DATA			16  0000 Word	Public	DATA	   12  #14  #2383
+_TEXT			16  084E Byte	Public	CODE	   #10	13  #22	 26  54	 83  107  138  199  228	 256  285  314	346  388  +
 							   430	483  557  619  681  748	 785  823  866	977  1184  1517	 1633	  +
 							   1804	 1828  1865  1898  1945	 1996  2024  2053  2082	 2120  2148  2181 +
-							   2218	 2251  2284  #2320
+							   2218	 2251  2284  2317  2350	 #2386
 

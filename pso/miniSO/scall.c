@@ -94,7 +94,9 @@ scall_t miniSO_scall_table[miniSO_NUMSCALL] = {
 	{ SC_SEMSET,		2, (scfun0_t)sc_semset		},
 	{ SC_SEMUP,		1, (scfun0_t)sc_semup		},
 	{ SC_SEMDOWN,		1, (scfun0_t)sc_semdown		},
-	{ SC_SEMDESTROY,	1, (scfun0_t)sc_semdestroy	}
+	{ SC_SEMDESTROY,	1, (scfun0_t)sc_semdestroy	},
+	{ SC_STOP,          1, (scfun0_t)sc_stop        },
+	{ SC_RESUME,        1, (scfun0_t)sc_resume      }
 };
 
 
@@ -543,6 +545,7 @@ int sc_kill(pid_t pid)
 			break;
 		case	WAIT:
 		case	WAITSIG:
+		case	STOPPED:
 			break;
 		case	ZOMBIE:
 		default:
@@ -1005,5 +1008,49 @@ int sc_semdestroy (semid_t s)
 		return miniSO_ERROR;
 	miniSO_sem[sem].status = FREE;
 	return miniSO_OK;
+}
+
+int sc_stop(pid_t pid)
+{
+    pcb_t pcb,prevthread,nextthread;
+    
+    /* Tem que verificar se existe a thread */
+    pcb = get_pcb(pid);
+    /* Se nao existe uma thread com este numero ou se o estado dela não é READY, retorna erro */
+    if (pcb==-1 || miniSO_thread[pcb].status != READY)  {
+        enable();
+        return miniSO_ERROR;
+    }
+    prevthread = miniSO_thread[pcb].prev;
+    nextthread = miniSO_thread[pcb].next;
+    miniSO_thread[pcb].next = -1;
+    miniSO_thread[pcb].prev  = -1;
+    /* Exclui o nodo da lista de prontos */
+    miniSO_thread[prevthread].next=nextthread;
+    miniSO_thread[nextthread].prev=prevthread;
+    miniSO_thread[pcb].status = STOPPED;
+    enable();
+    return miniSO_OK;
+}
+
+int sc_resume(pid_t pid)
+{
+    pcb_t pcb,prevthread,nextthread,last;
+    
+    /* Tem que verificar se existe a thread */
+    pcb = get_pcb(pid);
+    /* Se nao existe uma thread com este numero ou se o estado dela não é STOPPED, retorna erro */
+    if (pcb==-1 || miniSO_thread[pcb].status != STOPPED)  {
+        enable();
+        return miniSO_ERROR;
+    }
+    last = miniSO_thread[miniSO_ready].prev;
+    miniSO_thread[pcb].prev = last;
+    miniSO_thread[last].next=pcb;
+    miniSO_thread[miniSO_ready].prev=pcb;
+    miniSO_thread[pcb].next=miniSO_ready;
+    miniSO_thread[pcb].status = READY;
+    enable();
+    return miniSO_OK;
 }
 

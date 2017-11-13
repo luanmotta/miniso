@@ -14,10 +14,10 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "scall.c"
-	?debug	C E903197847077363616C6C2E63
-	?debug	C E9EE217847086D696E69534F2E68
-	?debug	C E925548441077363616C6C2E68
-	?debug	C E925548441056C69622E68
+	?debug	C E977AF6C4B077363616C6C2E63
+	?debug	C E94FAE6C4B086D696E69534F2E68
+	?debug	C E90BAD6C4B077363616C6C2E68
+	?debug	C E990AC6C4B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -151,6 +151,14 @@ _miniSO_scall_table	label	word
 	db	1
 	db	0
 	dw	_sc_semdestroy
+	db	25
+	db	1
+	db	0
+	dw	_sc_stop
+	db	26
+	db	1
+	db	0
+	dw	_sc_resume
 _DATA	ends
 _TEXT	segment byte public 'CODE'
    ;	
@@ -253,7 +261,7 @@ _scall	proc	near
 @1@310:
 	inc	si
 @1@338:
-	cmp	si,25
+	cmp	si,27
 	jge	@@0
 	jmp	@1@58
 @@0:
@@ -1603,7 +1611,7 @@ _sc_fork	proc	near
    ;		while	(pcb!=-1)  {
    ;			pcb = get_pcb (nextpid);
    ;	
-	push	word ptr DGROUP:d@w+136
+	push	word ptr DGROUP:d@w+146
 	call	near ptr get_pcb
 	pop	cx
 	mov	si,ax
@@ -1615,24 +1623,24 @@ _sc_fork	proc	near
    ;	
    ;				pid = nextpid;
    ;	
-	mov	di,word ptr DGROUP:d@w+136
+	mov	di,word ptr DGROUP:d@w+146
 @21@198:
    ;	
    ;			if	(nextpid==32767)
    ;	
-	cmp	word ptr DGROUP:d@w+136,32767
+	cmp	word ptr DGROUP:d@w+146,32767
 	jne	short @21@254
    ;	
    ;				nextpid=1;
    ;	
-	mov	word ptr DGROUP:d@w+136,1
+	mov	word ptr DGROUP:d@w+146,1
 	jmp	short @21@282
 @21@254:
    ;	
    ;			else
    ;				nextpid++;
    ;	
-	inc	word ptr DGROUP:d@w+136
+	inc	word ptr DGROUP:d@w+146
 @21@282:
 	cmp	si,-1
 	jne	short @21@142
@@ -1767,7 +1775,7 @@ _sc_fork	proc	near
    ;	
 	sub	word ptr [bp-6],2
 	les	bx,dword ptr [bp-6]
-	mov	word ptr es:[bx],2876
+	mov	word ptr es:[bx],2907
    ;	
    ;		*(--stack)=0;             /* SI */
    ;	
@@ -2130,10 +2138,10 @@ _sc_kill	proc	near
 	imul	dx
 	mov	bx,ax
 	mov	bx,word ptr DGROUP:_miniSO_thread[bx+4]
-	cmp	bx,5
+	cmp	bx,6
 	ja	short @22@758
 	shl	bx,1
-	jmp	word ptr cs:@22@C1250[bx]
+	jmp	word ptr cs:@22@C1266[bx]
 @22@562:
    ;	
    ;			case	READY:
@@ -2204,6 +2212,7 @@ _sc_kill	proc	near
    ;	
    ;			case	WAIT:
    ;			case	WAITSIG:
+   ;			case	STOPPED:
    ;				break;
    ;	
 	jmp	short @22@786
@@ -2480,13 +2489,14 @@ _sc_kill	proc	near
 	pop	bp
 	ret	
 _sc_kill	endp
-@22@C1250	label	word
+@22@C1266	label	word
 	dw	@22@562
 	dw	@22@562
 	dw	@22@758
 	dw	@22@730
 	dw	@22@730
 	dw	@22@702
+	dw	@22@730
    ;	
    ;	int sc_waitpid(pid_t pid,unsigned seg,unsigned off)
    ;	
@@ -4623,6 +4633,242 @@ _sc_semdestroy	proc	near
 	pop	bp
 	ret	
 _sc_semdestroy	endp
+   ;	
+   ;	int sc_stop(pid_t pid)
+   ;	
+	assume	cs:_TEXT
+_sc_stop	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,2
+	push	si
+	push	di
+   ;	
+   ;	{
+   ;	    pcb_t pcb,prevthread,nextthread;
+   ;	    
+   ;	    /* Tem que verificar se existe a thread */
+   ;	    pcb = get_pcb(pid);
+   ;	
+	push	word ptr [bp+4]
+	call	near ptr get_pcb
+	pop	cx
+	mov	si,ax
+   ;	
+   ;	    /* Se nao existe uma thread com este numero ou se o estado dela não é READY, retorna erro */
+   ;	    if (pcb==-1 || miniSO_thread[pcb].status != READY)  {
+   ;	
+	cmp	si,-1
+	je	short @36@86
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	cmp	word ptr DGROUP:_miniSO_thread[bx+4],0
+	je	short @36@142
+@36@86:
+   ;	
+   ;	        enable();
+   ;	
+	call	near ptr _enable
+   ;	
+   ;	        return miniSO_ERROR;
+   ;	
+	mov	ax,-1
+@36@114:
+	jmp	short @36@170
+@36@142:
+   ;	
+   ;	    }
+   ;	    prevthread = miniSO_thread[pcb].prev;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	di,word ptr DGROUP:_miniSO_thread[bx+22]
+   ;	
+   ;	    nextthread = miniSO_thread[pcb].next;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	ax,word ptr DGROUP:_miniSO_thread[bx+24]
+	mov	word ptr [bp-2],ax
+   ;	
+   ;	    miniSO_thread[pcb].next = -1;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+24],-1
+   ;	
+   ;	    miniSO_thread[pcb].prev  = -1;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+22],-1
+   ;	
+   ;	    /* Exclui o nodo da lista de prontos */
+   ;	    miniSO_thread[prevthread].next=nextthread;
+   ;	
+	mov	ax,di
+	mov	dx,26
+	imul	dx
+	mov	dx,word ptr [bp-2]
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+24],dx
+   ;	
+   ;	    miniSO_thread[nextthread].prev=prevthread;
+   ;	
+	mov	ax,word ptr [bp-2]
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+22],di
+   ;	
+   ;	    miniSO_thread[pcb].status = STOPPED;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+4],6
+   ;	
+   ;	    enable();
+   ;	
+	call	near ptr _enable
+   ;	
+   ;	    return miniSO_OK;
+   ;	
+	mov	ax,1
+	jmp	short @36@114
+@36@170:
+   ;	
+   ;	}
+   ;	
+	pop	di
+	pop	si
+	mov	sp,bp
+	pop	bp
+	ret	
+_sc_stop	endp
+   ;	
+   ;	int sc_resume(pid_t pid)
+   ;	
+	assume	cs:_TEXT
+_sc_resume	proc	near
+	push	bp
+	mov	bp,sp
+	push	si
+	push	di
+   ;	
+   ;	{
+   ;	    pcb_t pcb,prevthread,nextthread,last;
+   ;	    
+   ;	    /* Tem que verificar se existe a thread */
+   ;	    pcb = get_pcb(pid);
+   ;	
+	push	word ptr [bp+4]
+	call	near ptr get_pcb
+	pop	cx
+	mov	si,ax
+   ;	
+   ;	    /* Se nao existe uma thread com este numero ou se o estado dela não é STOPPED, retorna erro */
+   ;	    if (pcb==-1 || miniSO_thread[pcb].status != STOPPED)  {
+   ;	
+	cmp	si,-1
+	je	short @37@86
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	cmp	word ptr DGROUP:_miniSO_thread[bx+4],6
+	je	short @37@142
+@37@86:
+   ;	
+   ;	        enable();
+   ;	
+	call	near ptr _enable
+   ;	
+   ;	        return miniSO_ERROR;
+   ;	
+	mov	ax,-1
+@37@114:
+	jmp	short @37@170
+@37@142:
+   ;	
+   ;	    }
+   ;	    last = miniSO_thread[miniSO_ready].prev;
+   ;	
+	mov	ax,word ptr DGROUP:_miniSO_ready
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	di,word ptr DGROUP:_miniSO_thread[bx+22]
+   ;	
+   ;	    miniSO_thread[pcb].prev = last;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+22],di
+   ;	
+   ;	    miniSO_thread[last].next=pcb;
+   ;	
+	mov	ax,di
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+24],si
+   ;	
+   ;	    miniSO_thread[miniSO_ready].prev=pcb;
+   ;	
+	mov	ax,word ptr DGROUP:_miniSO_ready
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+22],si
+   ;	
+   ;	    miniSO_thread[pcb].next=miniSO_ready;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	dx,word ptr DGROUP:_miniSO_ready
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+24],dx
+   ;	
+   ;	    miniSO_thread[pcb].status = READY;
+   ;	
+	mov	ax,si
+	mov	dx,26
+	imul	dx
+	mov	bx,ax
+	mov	word ptr DGROUP:_miniSO_thread[bx+4],0
+   ;	
+   ;	    enable();
+   ;	
+	call	near ptr _enable
+   ;	
+   ;	    return miniSO_OK;
+   ;	
+	mov	ax,1
+	jmp	short @37@114
+@37@170:
+   ;	
+   ;	}
+   ;	
+	pop	di
+	pop	si
+	pop	bp
+	ret	
+_sc_resume	endp
 _TEXT	ends
 _BSS	segment word public 'BSS'
 _miniSO_oldisr	label	dword
@@ -4705,6 +4951,8 @@ _miniSO_col	equ	miniSO_col
 	extrn	_putstr:near
 	extrn	_getch:near
 	extrn	_putch:near
+	public	_sc_resume
+	public	_sc_stop
 	public	_sc_semdestroy
 	public	_sc_semdown
 	public	_sc_semup

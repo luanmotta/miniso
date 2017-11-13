@@ -55,3 +55,6 @@ extern	int		   semset		         (semid_t s,int value);	/*S*/
 extern	int		   semup		         (semid_t s);		        /*S*/
 extern	int		   semdown	         (semid_t s);		        /*S*/
 extern	int		   semdestroy	     	 (semid_t s);		        /*S*/
+extern  int        stop              (pid_t pid);
+extern  int        resume            (pid_t pid);
+

@@ -15,8 +15,8 @@ $comm	macro	name,dist,size,count
 	?debug	V 300h
 	?debug	S "init.c"
 	?debug	C E92554844106696E69742E63
-	?debug	C E9EE217847086D696E69534F2E68
-	?debug	C E9E3AB614B056C69622E68
+	?debug	C E94FAE6C4B086D696E69534F2E68
+	?debug	C E990AC6C4B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -62,7 +62,7 @@ _main	proc	near
    ;		/* Inicializa o registrador DS */
    ;		init_ds(miniSO_DATASEGMENT);
    ;	
-	mov	ax,2876
+	mov	ax,2907
 	push	ax
 	call	near ptr _init_ds
 	pop	cx

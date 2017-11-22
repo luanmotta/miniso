@@ -60,7 +60,8 @@ static command_t commands[MAXCOMMANDS] = {
   "semup"," <semid>       incrementa o valor de um semaforo",			cmd_semup,
   "semdestroy"," <semid>  destroi um semaforo",					cmd_semdestroy,
   "stop", "<pid>          suspende um processo/thread",         cmd_stop,
-  "resume", "<pid>        reinicia um processo/thread",         cmd_resume
+  "resume", "<pid>        reinicia um processo/thread",         cmd_resume,
+  "prodcons", "<args>     inicia produtor consumidor",          cmd_prodcons
 };
 
 
@@ -984,5 +985,34 @@ int cmd_resume(int argc, char far *argv[])
     if (t==miniSO_ERROR)
         putstr("resume: impossivel reiniciar a thread\n");
     return t;
+}
+
+void produtor()
+{
+  putstr("TESTE");
+}
+
+
+int cmd_prodcons(int argc, char far *argv[])
+{
+
+	if	(argc != 2)  {
+		putstr("Erro em prodcons: numero invalido de argumentos!\n");
+		return 1;
+	}
+	
+	/* Get arguments
+	int cons_time     = atoi(argv[1]);
+	int prod_time     = atoi(argv[2]);
+    int buffer_length = atoi(argv[3]);
+    */
+    
+    /* Criar consumidor e produtor*/
+    if	(fork(produtor)==miniSO_ERROR)  {
+	    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
+	    return 1;
+    }
+    
+	return 0;
 }
 

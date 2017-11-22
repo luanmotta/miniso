@@ -21,7 +21,7 @@
 /* Cor do logotipo */
 #define LOGOCOLOR 0x01
 /* Número máximo de comandos */
-#define MAXCOMMANDS	25
+#define MAXCOMMANDS	26
 /* Número máximo de argumentos na linha de comandos */
 #define MAXARGS (MAXLINE/2 + 1)
 /* Número máximo de caracteres do nome de variáveis */
@@ -84,4 +84,5 @@ int	cmd_semup	(int argc, char far *argv[]);
 int	cmd_semdestroy	(int argc, char far *argv[]);
 int cmd_stop       (int argc, char far *argv[]);
 int cmd_resume     (int argc, char far *argv[]);
+int cmd_prodcons       (int argc, char far *argv[]);
 

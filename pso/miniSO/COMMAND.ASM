@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E951AA764B09636F6D6D616E642E63
+	?debug	C E92FAE764B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5060,16 +5060,58 @@ _cmd_resume	proc	near
 	pop	bp
 	ret	
 _cmd_resume	endp
+_TEXT	ends
+_DATA	segment word public 'DATA'
+itens	label	word
+	db	0
+	db	0
+cicloProdutor	label	word
+	db	0
+	db	0
+posicaoProdutor	label	word
+	db	0
+	db	0
+_DATA	ends
+_TEXT	segment byte public 'CODE'
    ;	
-   ;	void produtor()
+   ;	void imprimeLista (int tamanho) {
    ;	
 	assume	cs:_TEXT
-_produtor	proc	near
+_imprimeLista	proc	near
 	push	bp
 	mov	bp,sp
+	sub	sp,2
+	push	si
    ;	
-   ;	{
-   ;	  putstr("TESTE");
+   ;	  int i;
+   ;	  char str[1];
+   ;	  
+   ;	  for (i = 0; i < tamanho; i++) {
+   ;	
+	xor	si,si
+	jmp	short @35@114
+@35@58:
+   ;	
+   ;	    str[0] = vetor[i];
+   ;	
+	mov	al,byte ptr DGROUP:vetor[si]
+	mov	byte ptr [bp-2],al
+   ;	
+   ;	    putstr(str);
+   ;	
+	push	ss
+	lea	ax,word ptr [bp-2]
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+	inc	si
+@35@114:
+	cmp	si,word ptr [bp+4]
+	jl	short @35@58
+   ;	
+   ;	  }
+   ;	  putstr("\n");
    ;	
 	push	ds
 	mov	ax,offset DGROUP:s@+3005
@@ -5080,9 +5122,104 @@ _produtor	proc	near
    ;	
    ;	}
    ;	
+	pop	si
+	mov	sp,bp
+	pop	bp
+	ret	
+_imprimeLista	endp
+   ;	
+   ;	void inicializaLista (int tamanho) {
+   ;	
+	assume	cs:_TEXT
+_inicializaLista	proc	near
+	push	bp
+	mov	bp,sp
+	push	si
+   ;	
+   ;	  int i;
+   ;	
+   ;	  for (i = 0; i < tamanho; i++) {
+   ;	
+	xor	si,si
+	jmp	short @36@114
+@36@58:
+   ;	
+   ;	    vetor[i] = 'O';
+   ;	
+	mov	byte ptr DGROUP:vetor[si],79
+	inc	si
+@36@114:
+	cmp	si,word ptr [bp+4]
+	jl	short @36@58
+   ;	
+   ;	  }
+   ;	}
+   ;	
+	pop	si
+	pop	bp
+	ret	
+_inicializaLista	endp
+   ;	
+   ;	void produtor()
+   ;	
+	assume	cs:_TEXT
+_produtor	proc	near
+	push	bp
+	mov	bp,sp
+   ;	
+   ;	{
+   ;	  putstr("SOU O PRODUTOR");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3007
+	jmp	short @37@86
+@37@58:
+   ;	
+   ;	  
+   ;	  while(++cicloProdutor < 10) {
+   ;	    putstr("SOU O PRODUTOR");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3022
+@37@86:
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+	inc	word ptr DGROUP:cicloProdutor
+	mov	ax,word ptr DGROUP:cicloProdutor
+	cmp	ax,10
+	jl	short @37@58
+   ;	
+   ;	  }
+   ;	}
+   ;	
 	pop	bp
 	ret	
 _produtor	endp
+   ;	
+   ;	void consumidor()
+   ;	
+	assume	cs:_TEXT
+_consumidor	proc	near
+	push	bp
+	mov	bp,sp
+   ;	
+   ;	{
+   ;	  putstr("SOU O CONSUMIDOR");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3037
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+   ;	
+   ;	}
+   ;	
+	pop	bp
+	ret	
+_consumidor	endp
    ;	
    ;	int cmd_prodcons(int argc, char far *argv[])
    ;	
@@ -5096,13 +5233,13 @@ _cmd_prodcons	proc	near
    ;		if	(argc != 2)  {
    ;	
 	cmp	word ptr [bp+4],2
-	je	short @36@142
+	je	short @39@142
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3011
-@36@86:
+	mov	ax,offset DGROUP:s@+3054
+@39@86:
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5111,9 +5248,9 @@ _cmd_prodcons	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-@36@114:
-	jmp	short @36@226
-@36@142:
+@39@114:
+	jmp	short @39@282
+@39@142:
    ;	
    ;		}
    ;		
@@ -5123,6 +5260,24 @@ _cmd_prodcons	proc	near
    ;	    int buffer_length = atoi(argv[3]);
    ;	    */
    ;	    
+   ;	    // Inicializa Vetor
+   ;	    inicializaLista(10);
+   ;	
+	mov	ax,10
+	push	ax
+	call	near ptr _inicializaLista
+	pop	cx
+   ;	
+   ;	    
+   ;	    // Printa Vetor Inicial
+   ;	    imprimeLista(10);
+   ;	
+	mov	ax,10
+	push	ax
+	call	near ptr _imprimeLista
+	pop	cx
+   ;	
+   ;	    
    ;	    /* Criar consumidor e produtor*/
    ;	    if	(fork(produtor)==miniSO_ERROR)  {
    ;	
@@ -5131,14 +5286,32 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @36@198
+	jne	short @39@198
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3061
-	jmp	short @36@86
-@36@198:
+	mov	ax,offset DGROUP:s@+3104
+	jmp	short @39@86
+@39@198:
+   ;	
+   ;		    return 1;
+   ;	    }
+   ;	    if	(fork(consumidor)==miniSO_ERROR)  {
+   ;	
+	mov	ax,offset _consumidor
+	push	ax
+	call	near ptr _fork
+	pop	cx
+	cmp	ax,-1
+	jne	short @39@254
+   ;	
+   ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3158
+	jmp	short @39@86
+@39@254:
    ;	
    ;		    return 1;
    ;	    }
@@ -5146,8 +5319,8 @@ _cmd_prodcons	proc	near
    ;		return 0;
    ;	
 	xor	ax,ax
-	jmp	short @36@114
-@36@226:
+	jmp	short @39@114
+@39@282:
    ;	
    ;	}
    ;	
@@ -5156,6 +5329,8 @@ _cmd_prodcons	proc	near
 _cmd_prodcons	endp
 _TEXT	ends
 _BSS	segment word public 'BSS'
+vetor	label	byte
+	db	20 dup (?)
 _semid	label	word
 	db	2 dup (?)
 var	label	word
@@ -5661,9 +5836,18 @@ s@	label	byte
 	db	'resume: impossivel reiniciar a thread'
 	db	10
 	db	0
-	db	'TESTE'
+	db	10
+	db	0
+	db	'SOU O PRODUTOR'
+	db	0
+	db	'SOU O PRODUTOR'
+	db	0
+	db	'SOU O CONSUMIDOR'
 	db	0
 	db	'Erro em prodcons: numero invalido de argumentos!'
+	db	10
+	db	0
+	db	'Erro em prodcons: fork() nao conseguiu criar thread!'
 	db	10
 	db	0
 	db	'Erro em prodcons: fork() nao conseguiu criar thread!'
@@ -5672,7 +5856,14 @@ s@	label	byte
 _DATA	ends
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
+	public	_consumidor
 	public	_produtor
+	public	_inicializaLista
+	public	_imprimeLista
+_posicaoProdutor	equ	posicaoProdutor
+_cicloProdutor	equ	cicloProdutor
+_vetor	equ	vetor
+_itens	equ	itens
 	public	_sem_aplic
 	public	_semid
 	extrn	_miniSO_sem:word

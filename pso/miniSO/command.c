@@ -987,9 +987,42 @@ int cmd_resume(int argc, char far *argv[])
     return t;
 }
 
+static int itens = 0;
+static char vetor[20];
+static int cicloProdutor = 0;
+static int posicaoProdutor = 0;
+
+void imprimeLista (int tamanho) {
+  int i;
+  char str[1];
+  
+  for (i = 0; i < tamanho; i++) {
+    str[0] = vetor[i];
+    putstr(str);
+  }
+  putstr("\n");
+}
+
+void inicializaLista (int tamanho) {
+  int i;
+
+  for (i = 0; i < tamanho; i++) {
+    vetor[i] = 'O';
+  }
+}
+
 void produtor()
 {
-  putstr("TESTE");
+  putstr("SOU O PRODUTOR");
+  
+  while(++cicloProdutor < 10) {
+    putstr("SOU O PRODUTOR");
+  }
+}
+
+void consumidor()
+{
+  putstr("SOU O CONSUMIDOR");
 }
 
 
@@ -1007,8 +1040,18 @@ int cmd_prodcons(int argc, char far *argv[])
     int buffer_length = atoi(argv[3]);
     */
     
+    // Inicializa Vetor
+    inicializaLista(10);
+    
+    // Printa Vetor Inicial
+    imprimeLista(10);
+    
     /* Criar consumidor e produtor*/
     if	(fork(produtor)==miniSO_ERROR)  {
+	    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
+	    return 1;
+    }
+    if	(fork(consumidor)==miniSO_ERROR)  {
 	    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
 	    return 1;
     }

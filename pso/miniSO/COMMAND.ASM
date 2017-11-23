@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E92FAE764B09636F6D6D616E642E63
+	?debug	C E97BBA764B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5065,16 +5065,25 @@ _DATA	segment word public 'DATA'
 itens	label	word
 	db	0
 	db	0
+tamanho_buffer	label	word
+	db	0
+	db	0
 cicloProdutor	label	word
 	db	0
 	db	0
 posicaoProdutor	label	word
 	db	0
 	db	0
+cicloConsumidor	label	word
+	db	0
+	db	0
+posicaoConsumidor	label	word
+	db	0
+	db	0
 _DATA	ends
 _TEXT	segment byte public 'CODE'
    ;	
-   ;	void imprimeLista (int tamanho) {
+   ;	void imprimeLista () {
    ;	
 	assume	cs:_TEXT
 _imprimeLista	proc	near
@@ -5086,7 +5095,7 @@ _imprimeLista	proc	near
    ;	  int i;
    ;	  char str[1];
    ;	  
-   ;	  for (i = 0; i < tamanho; i++) {
+   ;	  for (i = 0; i < tamanho_buffer; i++) {
    ;	
 	xor	si,si
 	jmp	short @35@114
@@ -5105,16 +5114,25 @@ _imprimeLista	proc	near
 	call	near ptr _putstr
 	pop	cx
 	pop	cx
+   ;	
+   ;	    putstr(" ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3005
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
 	inc	si
 @35@114:
-	cmp	si,word ptr [bp+4]
+	cmp	si,word ptr DGROUP:tamanho_buffer
 	jl	short @35@58
    ;	
    ;	  }
    ;	  putstr("\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3005
+	mov	ax,offset DGROUP:s@+3007
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5128,7 +5146,7 @@ _imprimeLista	proc	near
 	ret	
 _imprimeLista	endp
    ;	
-   ;	void inicializaLista (int tamanho) {
+   ;	void inicializaLista () {
    ;	
 	assume	cs:_TEXT
 _inicializaLista	proc	near
@@ -5138,7 +5156,7 @@ _inicializaLista	proc	near
    ;	
    ;	  int i;
    ;	
-   ;	  for (i = 0; i < tamanho; i++) {
+   ;	  for (i = 0; i < tamanho_buffer; i++) {
    ;	
 	xor	si,si
 	jmp	short @36@114
@@ -5149,7 +5167,7 @@ _inicializaLista	proc	near
 	mov	byte ptr DGROUP:vetor[si],79
 	inc	si
 @36@114:
-	cmp	si,word ptr [bp+4]
+	cmp	si,word ptr DGROUP:tamanho_buffer
 	jl	short @36@58
    ;	
    ;	  }
@@ -5160,6 +5178,81 @@ _inicializaLista	proc	near
 	ret	
 _inicializaLista	endp
    ;	
+   ;	int avanca(int posicaoAtual) {
+   ;	
+	assume	cs:_TEXT
+_avanca	proc	near
+	push	bp
+	mov	bp,sp
+	mov	dx,word ptr [bp+4]
+   ;	
+   ;	  if (posicaoAtual == tamanho_buffer - 1) {
+   ;	
+	mov	ax,word ptr DGROUP:tamanho_buffer
+	dec	ax
+	cmp	ax,dx
+	jne	short @37@142
+   ;	
+   ;	    return 0;
+   ;	
+	xor	ax,ax
+@37@86:
+	jmp	short @37@170
+   ;	
+   ;	  } else {
+   ;	
+	jmp	short @37@170
+@37@142:
+   ;	
+   ;	    return posicaoAtual + 1;
+   ;	
+	mov	ax,dx
+	inc	ax
+	jmp	short @37@86
+@37@170:
+   ;	
+   ;	  }
+   ;	}
+   ;	
+	pop	bp
+	ret	
+_avanca	endp
+   ;	
+   ;	void produz () {
+   ;	
+	assume	cs:_TEXT
+_produz	proc	near
+	push	bp
+	mov	bp,sp
+   ;	
+   ;	  itens = itens + 1;
+   ;	
+	mov	ax,word ptr DGROUP:itens
+	inc	ax
+	mov	word ptr DGROUP:itens,ax
+   ;	
+   ;	  vetor[posicaoProdutor] = 'X';
+   ;	
+	mov	bx,word ptr DGROUP:posicaoProdutor
+	mov	byte ptr DGROUP:vetor[bx],88
+   ;	
+   ;	  posicaoProdutor = avanca(posicaoProdutor);
+   ;	
+	push	word ptr DGROUP:posicaoProdutor
+	call	near ptr _avanca
+	pop	cx
+	mov	word ptr DGROUP:posicaoProdutor,ax
+   ;	
+   ;	  imprimeLista();
+   ;	
+	call	near ptr _imprimeLista
+   ;	
+   ;	}
+   ;	
+	pop	bp
+	ret	
+_produz	endp
+   ;	
    ;	void produtor()
    ;	
 	assume	cs:_TEXT
@@ -5168,28 +5261,52 @@ _produtor	proc	near
 	mov	bp,sp
    ;	
    ;	{
-   ;	  putstr("SOU O PRODUTOR");
+   ;	  putstr("SOU O PRODUTOR ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3007
-	jmp	short @37@86
-@37@58:
-   ;	
-   ;	  
-   ;	  while(++cicloProdutor < 10) {
-   ;	    putstr("SOU O PRODUTOR");
-   ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3022
-@37@86:
+	mov	ax,offset DGROUP:s@+3009
 	push	ax
 	call	near ptr _putstr
 	pop	cx
 	pop	cx
+	jmp	short @39@170
+@39@58:
+   ;	
+   ;	  
+   ;	  while(cicloProdutor < tamanho_buffer) {
+   ;	    if (itens < tamanho_buffer) {
+   ;	
+	mov	ax,word ptr DGROUP:itens
+	cmp	ax,word ptr DGROUP:tamanho_buffer
+	jge	short @39@114
+   ;	
+   ;	      produz();
+   ;	
+	call	near ptr _produz
+   ;	
+   ;	    } else {
+   ;	
+	jmp	short @39@142
+@39@114:
+   ;	
+   ;	      putstr("Nao ha mais espaco para produzir\n");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3025
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+@39@142:
+   ;	
+   ;	    }
+   ;	    cicloProdutor++;
+   ;	
 	inc	word ptr DGROUP:cicloProdutor
+@39@170:
 	mov	ax,word ptr DGROUP:cicloProdutor
-	cmp	ax,10
-	jl	short @37@58
+	cmp	ax,word ptr DGROUP:tamanho_buffer
+	jl	short @39@58
    ;	
    ;	  }
    ;	}
@@ -5206,10 +5323,10 @@ _consumidor	proc	near
 	mov	bp,sp
    ;	
    ;	{
-   ;	  putstr("SOU O CONSUMIDOR");
+   ;	  putstr("SOU O CONSUMIDOR ");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3037
+	mov	ax,offset DGROUP:s@+3059
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5233,13 +5350,13 @@ _cmd_prodcons	proc	near
    ;		if	(argc != 2)  {
    ;	
 	cmp	word ptr [bp+4],2
-	je	short @39@142
+	je	short @41@142
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3054
-@39@86:
+	mov	ax,offset DGROUP:s@+3077
+@41@86:
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5248,34 +5365,45 @@ _cmd_prodcons	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-@39@114:
-	jmp	short @39@282
-@39@142:
+@41@114:
+	jmp	short @41@282
+@41@142:
    ;	
    ;		}
+   ;		
+   ;		tamanho_buffer = atoi(argv[1]);
+   ;	
+	mov	bx,word ptr [bp+6]
+	push	word ptr [bx+6]
+	push	word ptr [bx+4]
+	call	near ptr _atoi
+	pop	cx
+	pop	cx
+	mov	word ptr DGROUP:tamanho_buffer,ax
+   ;	
+   ;		
+   ;		/*
+   ;		char str[10];
+   ;		
+   ;		inttostr(str,tamanho_buffer);
+   ;		putstr(str);
+   ;		*/
    ;		
    ;		/* Get arguments
    ;		int cons_time     = atoi(argv[1]);
    ;		int prod_time     = atoi(argv[2]);
-   ;	    int buffer_length = atoi(argv[3]);
    ;	    */
    ;	    
    ;	    // Inicializa Vetor
-   ;	    inicializaLista(10);
+   ;	    inicializaLista();
    ;	
-	mov	ax,10
-	push	ax
 	call	near ptr _inicializaLista
-	pop	cx
    ;	
    ;	    
    ;	    // Printa Vetor Inicial
-   ;	    imprimeLista(10);
+   ;	    imprimeLista();
    ;	
-	mov	ax,10
-	push	ax
 	call	near ptr _imprimeLista
-	pop	cx
    ;	
    ;	    
    ;	    /* Criar consumidor e produtor*/
@@ -5286,14 +5414,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @39@198
+	jne	short @41@198
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3104
-	jmp	short @39@86
-@39@198:
+	mov	ax,offset DGROUP:s@+3127
+	jmp	short @41@86
+@41@198:
    ;	
    ;		    return 1;
    ;	    }
@@ -5304,14 +5432,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @39@254
+	jne	short @41@254
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3158
-	jmp	short @39@86
-@39@254:
+	mov	ax,offset DGROUP:s@+3181
+	jmp	short @41@86
+@41@254:
    ;	
    ;		    return 1;
    ;	    }
@@ -5319,8 +5447,8 @@ _cmd_prodcons	proc	near
    ;		return 0;
    ;	
 	xor	ax,ax
-	jmp	short @39@114
-@39@282:
+	jmp	short @41@114
+@41@282:
    ;	
    ;	}
    ;	
@@ -5836,13 +5964,16 @@ s@	label	byte
 	db	'resume: impossivel reiniciar a thread'
 	db	10
 	db	0
+	db	' '
+	db	0
 	db	10
 	db	0
-	db	'SOU O PRODUTOR'
+	db	'SOU O PRODUTOR '
 	db	0
-	db	'SOU O PRODUTOR'
+	db	'Nao ha mais espaco para produzir'
+	db	10
 	db	0
-	db	'SOU O CONSUMIDOR'
+	db	'SOU O CONSUMIDOR '
 	db	0
 	db	'Erro em prodcons: numero invalido de argumentos!'
 	db	10
@@ -5858,11 +5989,16 @@ _TEXT	segment byte public 'CODE'
 _TEXT	ends
 	public	_consumidor
 	public	_produtor
+	public	_produz
+	public	_avanca
 	public	_inicializaLista
 	public	_imprimeLista
+_posicaoConsumidor	equ	posicaoConsumidor
+_cicloConsumidor	equ	cicloConsumidor
 _posicaoProdutor	equ	posicaoProdutor
 _cicloProdutor	equ	cicloProdutor
 _vetor	equ	vetor
+_tamanho_buffer	equ	tamanho_buffer
 _itens	equ	itens
 	public	_sem_aplic
 	public	_semid

@@ -988,41 +988,74 @@ int cmd_resume(int argc, char far *argv[])
 }
 
 static int itens = 0;
+static int tamanho_buffer = 0;
 static char vetor[20];
 static int cicloProdutor = 0;
 static int posicaoProdutor = 0;
+static int cicloConsumidor = 0;
+static int posicaoConsumidor = 0;
 
-void imprimeLista (int tamanho) {
+void imprimeLista () {
   int i;
   char str[1];
   
-  for (i = 0; i < tamanho; i++) {
+  for (i = 0; i < tamanho_buffer; i++) {
     str[0] = vetor[i];
     putstr(str);
+    putstr(" ");
   }
   putstr("\n");
 }
 
-void inicializaLista (int tamanho) {
+void inicializaLista () {
   int i;
 
-  for (i = 0; i < tamanho; i++) {
+  for (i = 0; i < tamanho_buffer; i++) {
     vetor[i] = 'O';
   }
 }
 
+int avanca(int posicaoAtual) {
+  if (posicaoAtual == tamanho_buffer - 1) {
+    return 0;
+  } else {
+    return posicaoAtual + 1;
+  }
+}
+
+void produz () {
+  itens = itens + 1;
+  vetor[posicaoProdutor] = 'X';
+  posicaoProdutor = avanca(posicaoProdutor);
+  imprimeLista();
+}
+
+/*
+void consome () {
+  itens = itens - 1;
+  vetor[posicaoConsumidor] = ')';
+  posicaoConsumidor = avanca(posicaoConsumidor);
+  imprimeLista();
+}
+*/
+
 void produtor()
 {
-  putstr("SOU O PRODUTOR");
+  putstr("SOU O PRODUTOR ");
   
-  while(++cicloProdutor < 10) {
-    putstr("SOU O PRODUTOR");
+  while(cicloProdutor < tamanho_buffer) {
+    if (itens < tamanho_buffer) {
+      produz();
+    } else {
+      putstr("Nao ha mais espaco para produzir\n");
+    }
+    cicloProdutor++;
   }
 }
 
 void consumidor()
 {
-  putstr("SOU O CONSUMIDOR");
+  putstr("SOU O CONSUMIDOR ");
 }
 
 
@@ -1034,17 +1067,25 @@ int cmd_prodcons(int argc, char far *argv[])
 		return 1;
 	}
 	
+	tamanho_buffer = atoi(argv[1]);
+	
+	/*
+	char str[10];
+	
+	inttostr(str,tamanho_buffer);
+	putstr(str);
+	*/
+	
 	/* Get arguments
 	int cons_time     = atoi(argv[1]);
 	int prod_time     = atoi(argv[2]);
-    int buffer_length = atoi(argv[3]);
     */
     
     // Inicializa Vetor
-    inicializaLista(10);
+    inicializaLista();
     
     // Printa Vetor Inicial
-    imprimeLista(10);
+    imprimeLista();
     
     /* Criar consumidor e produtor*/
     if	(fork(produtor)==miniSO_ERROR)  {

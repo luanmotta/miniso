@@ -989,7 +989,7 @@ int cmd_resume(int argc, char far *argv[])
 
 static int itens = 0;
 static int tamanho_buffer = 0;
-static char vetor[20];
+static int vetor[20];
 static int cicloProdutor = 0;
 static int posicaoProdutor = 0;
 static int cicloConsumidor = 0;
@@ -1000,7 +1000,7 @@ void imprimeLista () {
   char str[1];
   
   for (i = 0; i < tamanho_buffer; i++) {
-    str[0] = vetor[i];
+    inttostr(str, vetor[i]);
     putstr(str);
     putstr(" ");
   }
@@ -1011,7 +1011,7 @@ void inicializaLista () {
   int i;
 
   for (i = 0; i < tamanho_buffer; i++) {
-    vetor[i] = 'O';
+    vetor[i] = 0;
   }
 }
 
@@ -1025,7 +1025,7 @@ int avanca(int posicaoAtual) {
 
 void produz () {
   itens = itens + 1;
-  vetor[posicaoProdutor] = 'X';
+  vetor[posicaoProdutor] = 1;
   posicaoProdutor = avanca(posicaoProdutor);
   imprimeLista();
 }
@@ -1040,9 +1040,7 @@ void consome () {
 */
 
 void produtor()
-{
-  putstr("SOU O PRODUTOR ");
-  
+{ 
   while(cicloProdutor < tamanho_buffer) {
     if (itens < tamanho_buffer) {
       produz();
@@ -1068,13 +1066,6 @@ int cmd_prodcons(int argc, char far *argv[])
 	}
 	
 	tamanho_buffer = atoi(argv[1]);
-	
-	/*
-	char str[10];
-	
-	inttostr(str,tamanho_buffer);
-	putstr(str);
-	*/
 	
 	/* Get arguments
 	int cons_time     = atoi(argv[1]);

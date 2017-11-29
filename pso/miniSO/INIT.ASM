@@ -62,7 +62,7 @@ _main	proc	near
    ;		/* Inicializa o registrador DS */
    ;		init_ds(miniSO_DATASEGMENT);
    ;	
-	mov	ax,2926
+	mov	ax,2927
 	push	ax
 	call	near ptr _init_ds
 	pop	cx

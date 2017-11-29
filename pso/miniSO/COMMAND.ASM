@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E97BBA764B09636F6D6D616E642E63
+	?debug	C E92F967A4B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5101,10 +5101,16 @@ _imprimeLista	proc	near
 	jmp	short @35@114
 @35@58:
    ;	
-   ;	    str[0] = vetor[i];
+   ;	    inttostr(str, vetor[i]);
    ;	
-	mov	al,byte ptr DGROUP:vetor[si]
-	mov	byte ptr [bp-2],al
+	mov	bx,si
+	shl	bx,1
+	push	word ptr DGROUP:vetor[bx]
+	push	ss
+	lea	ax,word ptr [bp-2]
+	push	ax
+	call	near ptr _inttostr
+	add	sp,6
    ;	
    ;	    putstr(str);
    ;	
@@ -5152,28 +5158,28 @@ _imprimeLista	endp
 _inicializaLista	proc	near
 	push	bp
 	mov	bp,sp
-	push	si
    ;	
    ;	  int i;
    ;	
    ;	  for (i = 0; i < tamanho_buffer; i++) {
    ;	
-	xor	si,si
+	xor	dx,dx
 	jmp	short @36@114
 @36@58:
    ;	
-   ;	    vetor[i] = 'O';
+   ;	    vetor[i] = 0;
    ;	
-	mov	byte ptr DGROUP:vetor[si],79
-	inc	si
+	mov	bx,dx
+	shl	bx,1
+	mov	word ptr DGROUP:vetor[bx],0
+	inc	dx
 @36@114:
-	cmp	si,word ptr DGROUP:tamanho_buffer
+	cmp	dx,word ptr DGROUP:tamanho_buffer
 	jl	short @36@58
    ;	
    ;	  }
    ;	}
    ;	
-	pop	si
 	pop	bp
 	ret	
 _inicializaLista	endp
@@ -5231,10 +5237,11 @@ _produz	proc	near
 	inc	ax
 	mov	word ptr DGROUP:itens,ax
    ;	
-   ;	  vetor[posicaoProdutor] = 'X';
+   ;	  vetor[posicaoProdutor] = 1;
    ;	
 	mov	bx,word ptr DGROUP:posicaoProdutor
-	mov	byte ptr DGROUP:vetor[bx],88
+	shl	bx,1
+	mov	word ptr DGROUP:vetor[bx],1
    ;	
    ;	  posicaoProdutor = avanca(posicaoProdutor);
    ;	
@@ -5382,13 +5389,6 @@ _cmd_prodcons	proc	near
 	mov	word ptr DGROUP:tamanho_buffer,ax
    ;	
    ;		
-   ;		/*
-   ;		char str[10];
-   ;		
-   ;		inttostr(str,tamanho_buffer);
-   ;		putstr(str);
-   ;		*/
-   ;		
    ;		/* Get arguments
    ;		int cons_time     = atoi(argv[1]);
    ;		int prod_time     = atoi(argv[2]);
@@ -5457,8 +5457,8 @@ _cmd_prodcons	proc	near
 _cmd_prodcons	endp
 _TEXT	ends
 _BSS	segment word public 'BSS'
-vetor	label	byte
-	db	20 dup (?)
+vetor	label	word
+	db	40 dup (?)
 _semid	label	word
 	db	2 dup (?)
 var	label	word

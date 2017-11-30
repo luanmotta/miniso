@@ -990,10 +990,22 @@ int cmd_resume(int argc, char far *argv[])
 static int itens = 0;
 static int tamanho_buffer = 0;
 static int vetor[20];
+
 static int cicloProdutor = 0;
 static int posicaoProdutor = 0;
+
 static int cicloConsumidor = 0;
 static int posicaoConsumidor = 0;
+
+static long tamanhoSegundo = 490000;
+
+void sleep (int segundos) {
+    long i;
+    long j;
+    for (i = 0; i < segundos; i++) {
+        for (j = 0; j < tamanhoSegundo; ++);
+    }
+}
 
 void imprimeLista () {
   int i;
@@ -1030,30 +1042,39 @@ void produz () {
   imprimeLista();
 }
 
-/*
+
 void consome () {
   itens = itens - 1;
-  vetor[posicaoConsumidor] = ')';
+  vetor[posicaoConsumidor] = 0;
   posicaoConsumidor = avanca(posicaoConsumidor);
   imprimeLista();
 }
-*/
+
 
 void produtor()
-{ 
-  while(cicloProdutor < tamanho_buffer) {
+{
+  while(cicloProdutor < 20) {
     if (itens < tamanho_buffer) {
       produz();
     } else {
       putstr("Nao ha mais espaco para produzir\n");
     }
+    sleep(1);
     cicloProdutor++;
   }
 }
 
 void consumidor()
 {
-  putstr("SOU O CONSUMIDOR ");
+  while(cicloConsumidor < 20) {
+    if (itens > 0) {
+      consome();
+    } else {
+      putstr("Nao ha nada para consumir\n");
+    }
+    sleep(2);
+    cicloConsumidor++;
+  }
 }
 
 

@@ -1,0 +1,20 @@
+readdisk_chs(0x00,0,1,16,3,0x07e0,0x0000);
+
+Como inicializar (DS - Data Segment)?
+    0x07e00+tamanho do código
+   
+
+Etapas para desenvolver um comando interno, uma funcao na biblioteca 
+e uma chamada de sistema.
+
+
+
+Sobre modulo: Ele só é trazido para memoria quando se é necessario, ou seja, são carregados dinamicamente.
+
+O acesso só fica mais lento na primeira vez que é referenciado, depois que ta na memoria, o acesso é sempre na mesma velocidade.
+
+
+
+Major device number (qual o driver do nucleo que ira executar)
+Minor device number (
+

@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 1
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 1
 command.ASM
 
 
@@ -8,7 +8,7 @@ command.ASM
       3					     endm
       4					     ?debug  V 300h
       5					     ?debug  S "command.c"
-      6					     ?debug  C E92F967A4B09636F6D6D616E642E63
+      6					     ?debug  C E934AE7D4B09636F6D6D616E642E63
       7					     ?debug  C E94FAE6C4B086D696E69534F2E68
       8					     ?debug  C E963AA764B09636F6D6D616E642E68
       9					     ?debug  C E990AC6C4B056C69622E68
@@ -29,89 +29,89 @@ command.ASM
      24	0000  00			     db	     0
      25	0001  00			     db	     0
      26	0002			     commands	     label   word
-     27	0002  00AEr			     dw	     DGROUP:s@
-     28	0004  00B0r			     dw	     DGROUP:s@+2
+     27	0002  00B2r			     dw	     DGROUP:s@
+     28	0004  00B4r			     dw	     DGROUP:s@+2
      29	0006  07EDr			     dw	     _cmd_help
-     30	0008  00DBr			     dw	     DGROUP:s@+45
-     31	000A  00E0r			     dw	     DGROUP:s@+50
+     30	0008  00DFr			     dw	     DGROUP:s@+45
+     31	000A  00E4r			     dw	     DGROUP:s@+50
      32	000C  07EDr			     dw	     _cmd_help
-     33	000E  0108r			     dw	     DGROUP:s@+90
-     34	0010  010Cr			     dw	     DGROUP:s@+94
+     33	000E  010Cr			     dw	     DGROUP:s@+90
+     34	0010  0110r			     dw	     DGROUP:s@+94
      35	0012  0996r			     dw	     _cmd_ver
-     36	0014  0134r			     dw	     DGROUP:s@+134
-     37	0016  0139r			     dw	     DGROUP:s@+139
+     36	0014  0138r			     dw	     DGROUP:s@+134
+     37	0016  013Dr			     dw	     DGROUP:s@+139
      38	0018  0845r			     dw	     _cmd_date
-     39	001A  0157r			     dw	     DGROUP:s@+169
-     40	001C  015Cr			     dw	     DGROUP:s@+174
+     39	001A  015Br			     dw	     DGROUP:s@+169
+     40	001C  0160r			     dw	     DGROUP:s@+174
      41	001E  08E0r			     dw	     _cmd_time
-     42	0020  017Ar			     dw	     DGROUP:s@+204
-     43	0022  017Er			     dw	     DGROUP:s@+208
+     42	0020  017Er			     dw	     DGROUP:s@+204
+     43	0022  0182r			     dw	     DGROUP:s@+208
      44	0024  0980r			     dw	     _cmd_cls
-     45	0026  019Cr			     dw	     DGROUP:s@+238
-     46	0028  01A2r			     dw	     DGROUP:s@+244
+     45	0026  01A0r			     dw	     DGROUP:s@+238
+     46	0028  01A6r			     dw	     DGROUP:s@+244
      47	002A  0980r			     dw	     _cmd_cls
-     48	002C  01BEr			     dw	     DGROUP:s@+272
-     49	002E  01C5r			     dw	     DGROUP:s@+279
+     48	002C  01C2r			     dw	     DGROUP:s@+272
+     49	002E  01C9r			     dw	     DGROUP:s@+279
      50	0030  07C2r			     dw	     _cmd_reboot
-     51	0032  01EAr			     dw	     DGROUP:s@+316
-     52	0034  01EFr			     dw	     DGROUP:s@+321
+     51	0032  01EEr			     dw	     DGROUP:s@+316
+     52	0034  01F3r			     dw	     DGROUP:s@+321
      53	0036  07D8r			     dw	     _cmd_exit
-     54	0038  0212r			     dw	     DGROUP:s@+356
-     55	003A  0217r			     dw	     DGROUP:s@+361
+     54	0038  0216r			     dw	     DGROUP:s@+356
+     55	003A  021Br			     dw	     DGROUP:s@+361
      56	003C  07D8r			     dw	     _cmd_exit
-     57	003E  023Ar			     dw	     DGROUP:s@+396
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 2
+     57	003E  023Er			     dw	     DGROUP:s@+396
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 2
 command.ASM
 
 
 
-     58	0040  023Dr			     dw	     DGROUP:s@+399
+     58	0040  0241r			     dw	     DGROUP:s@+399
      59	0042  09C5r			     dw	     _cmd_ps
-     60	0044  0273r			     dw	     DGROUP:s@+453
-     61	0046  0278r			     dw	     DGROUP:s@+458
+     60	0044  0277r			     dw	     DGROUP:s@+453
+     61	0046  027Cr			     dw	     DGROUP:s@+458
      62	0048  0C6Br			     dw	     _cmd_kill
-     63	004A  02A3r			     dw	     DGROUP:s@+501
-     64	004C  02A8r			     dw	     DGROUP:s@+506
+     63	004A  02A7r			     dw	     DGROUP:s@+501
+     64	004C  02ACr			     dw	     DGROUP:s@+506
      65	004E  0FE4r			     dw	     _cmd_demo
-     66	0050  02E1r			     dw	     DGROUP:s@+563
-     67	0052  02E5r			     dw	     DGROUP:s@+567
+     66	0050  02E5r			     dw	     DGROUP:s@+563
+     67	0052  02E9r			     dw	     DGROUP:s@+567
      68	0054  0CB3r			     dw	     _cmd_set
-     69	0056  0324r			     dw	     DGROUP:s@+630
-     70	0058  032Ar			     dw	     DGROUP:s@+636
+     69	0056  0328r			     dw	     DGROUP:s@+630
+     70	0058  032Er			     dw	     DGROUP:s@+636
      71	005A  0D4Cr			     dw	     _cmd_unset
-     72	005C  034Ar			     dw	     DGROUP:s@+668
-     73	005E  034Fr			     dw	     DGROUP:s@+673
+     72	005C  034Er			     dw	     DGROUP:s@+668
+     73	005E  0353r			     dw	     DGROUP:s@+673
      74	0060  0D8Cr			     dw	     _cmd_echo
-     75	0062  0372r			     dw	     DGROUP:s@+708
-     76	0064  037Ar			     dw	     DGROUP:s@+716
+     75	0062  0376r			     dw	     DGROUP:s@+708
+     76	0064  037Er			     dw	     DGROUP:s@+716
      77	0066  1038r			     dw	     _cmd_waitpid
-     78	0068  03ABr			     dw	     DGROUP:s@+765
-     79	006A  03B0r			     dw	     DGROUP:s@+770
+     78	0068  03AFr			     dw	     DGROUP:s@+765
+     79	006A  03B4r			     dw	     DGROUP:s@+770
      80	006C  10C7r			     dw	     _cmd_wait
-     81	006E  03DDr			     dw	     DGROUP:s@+815
-     82	0070  03E3r			     dw	     DGROUP:s@+821
+     81	006E  03E1r			     dw	     DGROUP:s@+815
+     82	0070  03E7r			     dw	     DGROUP:s@+821
      83	0072  113Fr			     dw	     _cmd_semls
-     84	0074  040Cr			     dw	     DGROUP:s@+862
-     85	0076  0416r			     dw	     DGROUP:s@+872
+     84	0074  0410r			     dw	     DGROUP:s@+862
+     85	0076  041Ar			     dw	     DGROUP:s@+872
      86	0078  1235r			     dw	     _cmd_semcreate
-     87	007A  0432r			     dw	     DGROUP:s@+900
-     88	007C  043Ar			     dw	     DGROUP:s@+908
+     87	007A  0436r			     dw	     DGROUP:s@+900
+     88	007C  043Er			     dw	     DGROUP:s@+908
      89	007E  13CDr			     dw	     _cmd_semtest
-     90	0080  0469r			     dw	     DGROUP:s@+955
-     91	0082  046Fr			     dw	     DGROUP:s@+961
+     90	0080  046Dr			     dw	     DGROUP:s@+955
+     91	0082  0473r			     dw	     DGROUP:s@+961
      92	0084  1421r			     dw	     _cmd_semup
-     93	0086  04A0r			     dw	     DGROUP:s@+1010
-     94	0088  04ABr			     dw	     DGROUP:s@+1021
+     93	0086  04A4r			     dw	     DGROUP:s@+1010
+     94	0088  04AFr			     dw	     DGROUP:s@+1021
      95	008A  145Ar			     dw	     _cmd_semdestroy
-     96	008C  04C9r			     dw	     DGROUP:s@+1051
-     97	008E  04CEr			     dw	     DGROUP:s@+1056
+     96	008C  04CDr			     dw	     DGROUP:s@+1051
+     97	008E  04D2r			     dw	     DGROUP:s@+1056
      98	0090  1493r			     dw	     _cmd_stop
-     99	0092  04F9r			     dw	     DGROUP:s@+1099
-    100	0094  0500r			     dw	     DGROUP:s@+1106
+     99	0092  04FDr			     dw	     DGROUP:s@+1099
+    100	0094  0504r			     dw	     DGROUP:s@+1106
     101	0096  14DFr			     dw	     _cmd_resume
-    102	0098  0529r			     dw	     DGROUP:s@+1147
-    103	009A  0532r			     dw	     DGROUP:s@+1156
-    104	009C  1613r			     dw	     _cmd_prodcons
+    102	0098  052Dr			     dw	     DGROUP:s@+1147
+    103	009A  0536r			     dw	     DGROUP:s@+1156
+    104	009C  16ACr			     dw	     _cmd_prodcons
     105	009E			     _DATA   ends
     106	0000			     _TEXT   segment byte public 'CODE'
     107					;
@@ -122,7 +122,7 @@ command.ASM
     112	0000  55			     push    bp
     113	0001  8B EC			     mov     bp,sp
     114	0003  83 EC 22			     sub     sp,34
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 3
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 3
 command.ASM
 
 
@@ -180,11 +180,11 @@ command.ASM
     165					;      putstr("			 ÜÜÜÜÜÜÜ  ÜÜÜÜÜÜ\n");
     166					;
     167	0035  1E			     push    ds
-    168	0036  B8 0558r			     mov     ax,offset DGROUP:s@+1194
+    168	0036  B8 055Cr			     mov     ax,offset DGROUP:s@+1194
     169	0039  50			     push    ax
     170	003A  E8 0000e			     call    near ptr _putstr
     171	003D  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 4
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 4
 command.ASM
 
 
@@ -195,7 +195,7 @@ command.ASM
     175				     Operacional\n"); setcolor(LOGOCOLOR);
     176					;
     177	003F  1E			     push    ds
-    178	0040  B8 057Br			     mov     ax,offset DGROUP:s@+1229
+    178	0040  B8 057Fr			     mov     ax,offset DGROUP:s@+1229
     179	0043  50			     push    ax
     180	0044  E8 0000e			     call    near ptr _putstr
     181	0047  59			     pop     cx
@@ -205,7 +205,7 @@ command.ASM
     185	004D  E8 0000e			     call    near ptr _setcolor
     186	0050  59			     pop     cx
     187	0051  1E			     push    ds
-    188	0052  B8 059Fr			     mov     ax,offset DGROUP:s@+1265
+    188	0052  B8 05A3r			     mov     ax,offset DGROUP:s@+1265
     189	0055  50			     push    ax
     190	0056  E8 0000e			     call    near ptr _putstr
     191	0059  59			     pop     cx
@@ -219,7 +219,7 @@ command.ASM
     199				     (miniSO_VERSION); putstr("\n"); setcolor(LOGO
     200					;
     201	0063  1E			     push    ds
-    202	0064  B8 05B9r			     mov     ax,offset DGROUP:s@+1291
+    202	0064  B8 05BDr			     mov     ax,offset DGROUP:s@+1291
     203	0067  50			     push    ax
     204	0068  E8 0000e			     call    near ptr _putstr
     205	006B  59			     pop     cx
@@ -229,24 +229,24 @@ command.ASM
     209	0071  E8 0000e			     call    near ptr _setcolor
     210	0074  59			     pop     cx
     211	0075  1E			     push    ds
-    212	0076  B8 05DDr			     mov     ax,offset DGROUP:s@+1327
+    212	0076  B8 05E1r			     mov     ax,offset DGROUP:s@+1327
     213	0079  50			     push    ax
     214	007A  E8 0000e			     call    near ptr _putstr
     215	007D  59			     pop     cx
     216	007E  59			     pop     cx
     217	007F  1E			     push    ds
-    218	0080  B8 05E1r			     mov     ax,offset DGROUP:s@+1331
+    218	0080  B8 05E5r			     mov     ax,offset DGROUP:s@+1331
     219	0083  50			     push    ax
     220	0084  E8 0000e			     call    near ptr _putstr
     221	0087  59			     pop     cx
     222	0088  59			     pop     cx
     223	0089  1E			     push    ds
-    224	008A  B8 05E6r			     mov     ax,offset DGROUP:s@+1336
+    224	008A  B8 05EAr			     mov     ax,offset DGROUP:s@+1336
     225	008D  50			     push    ax
     226	008E  E8 0000e			     call    near ptr _putstr
     227	0091  59			     pop     cx
     228	0092  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 5
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 5
 command.ASM
 
 
@@ -260,7 +260,7 @@ command.ASM
     235				     Teodorowitsch\n");
     236					;
     237	009B  1E			     push    ds
-    238	009C  B8 05E8r			     mov     ax,offset DGROUP:s@+1338
+    238	009C  B8 05ECr			     mov     ax,offset DGROUP:s@+1338
     239	009F  50			     push    ax
     240	00A0  E8 0000e			     call    near ptr _putstr
     241	00A3  59			     pop     cx
@@ -270,7 +270,7 @@ command.ASM
     245	00A9  E8 0000e			     call    near ptr _setcolor
     246	00AC  59			     pop     cx
     247	00AD  1E			     push    ds
-    248	00AE  B8 060Cr			     mov     ax,offset DGROUP:s@+1374
+    248	00AE  B8 0610r			     mov     ax,offset DGROUP:s@+1374
     249	00B1  50			     push    ax
     250	00B2  E8 0000e			     call    near ptr _putstr
     251	00B5  59			     pop     cx
@@ -280,7 +280,7 @@ command.ASM
     255					;      putstr("\nDigite	'help' ou '?' para ajuda...\n\n");
     256					;
     257	00B7  1E			     push    ds
-    258	00B8  B8 0626r			     mov     ax,offset DGROUP:s@+1400
+    258	00B8  B8 062Ar			     mov     ax,offset DGROUP:s@+1400
     259	00BB  50			     push    ax
     260	00BC  E8 0000e			     call    near ptr _putstr
     261	00BF  59			     pop     cx
@@ -294,10 +294,10 @@ command.ASM
     269					;      command_var_set("PROMPT","miniSO>");
     270					;
     271	00C4  1E			     push    ds
-    272	00C5  B8 0653r			     mov     ax,offset DGROUP:s@+1445
+    272	00C5  B8 0657r			     mov     ax,offset DGROUP:s@+1445
     273	00C8  50			     push    ax
     274	00C9  1E			     push    ds
-    275	00CA  B8 064Cr			     mov     ax,offset DGROUP:s@+1438
+    275	00CA  B8 0650r			     mov     ax,offset DGROUP:s@+1438
     276	00CD  50			     push    ax
     277	00CE  E8 066B			     call    near ptr command_var_set
     278	00D1  83 C4 08			     add     sp,8
@@ -305,15 +305,15 @@ command.ASM
     280					;      command_var_set("ERRORLEVEL","0");
     281					;
     282	00D4  1E			     push    ds
-    283	00D5  B8 0666r			     mov     ax,offset DGROUP:s@+1464
+    283	00D5  B8 066Ar			     mov     ax,offset DGROUP:s@+1464
     284	00D8  50			     push    ax
     285	00D9  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 6
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 6
 command.ASM
 
 
 
-    286	00DA  B8 065Br			     mov     ax,offset DGROUP:s@+1453
+    286	00DA  B8 065Fr			     mov     ax,offset DGROUP:s@+1453
     287	00DD  50			     push    ax
     288	00DE  E8 065B			     call    near ptr command_var_set
     289	00E1  83 C4 08			     add     sp,8
@@ -370,7 +370,7 @@ command.ASM
     340					;
     341	0119  E8 0429			     call    near ptr command_backspace
     342	011C			     @1@338:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 7
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 7
 command.ASM
 
 
@@ -432,7 +432,7 @@ command.ASM
     397					;				     history_pos = -1;
     398					;
     399	0153  C7 06 0232r FFFF		     mov     word ptr DGROUP:history_pos,-1
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 8
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 8
 command.ASM
 
 
@@ -494,7 +494,7 @@ command.ASM
     454	0193  47			     inc     di
     455	0194			     @1@842:
     456	0194  3B 3E 0238r		     cmp     di,word ptr DGROUP:history_len
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 9
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 9
 command.ASM
 
 
@@ -556,7 +556,7 @@ command.ASM
     511					;
     512					;					      history_pos=history_nxt-1;
     513					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 10
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 10
 command.ASM
 
 
@@ -618,7 +618,7 @@ command.ASM
     568	01FD  C7 06 0232r 0009		     mov     word ptr DGROUP:history_pos,9
     569	0203			     @1@1262:
     570					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 11
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 11
 command.ASM
 
 
@@ -680,7 +680,7 @@ command.ASM
     625					;					if (novalinha)	{
     626					;
     627	023A  83 7E EE 00		     cmp     word ptr [bp-18],0
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 12
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 12
 command.ASM
 
 
@@ -742,7 +742,7 @@ command.ASM
     682					;				     break;
     683					;
     684	0278  E9 0094			     jmp     @1@2102
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 13
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 13
 command.ASM
 
 
@@ -804,7 +804,7 @@ command.ASM
     739					;
     740	02B9  C7 06 0232r 0000		     mov     word ptr DGROUP:history_pos,0
     741	02BF			     @1@1878:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 14
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 14
 command.ASM
 
 
@@ -866,7 +866,7 @@ command.ASM
     796	02FF  59			     pop     cx
     797	0300  59			     pop     cx
     798					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 15
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 15
 command.ASM
 
 
@@ -928,7 +928,7 @@ command.ASM
     853	0337  EB 03			     jmp     short @1@2214
     854	0339			     @1@2186:
     855					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 16
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 16
 command.ASM
 
 
@@ -990,7 +990,7 @@ command.ASM
     910	038E  75 D7			     jne     short @1@2382
     911	0390			     @1@2494:
     912					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 17
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 17
 command.ASM
 
 
@@ -1052,7 +1052,7 @@ command.ASM
     967					;
     968	03D3  EB 3F			     jmp     short @1@2690
     969	03D5			     @1@2606:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 18
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 18
 command.ASM
 
 
@@ -1114,7 +1114,7 @@ command.ASM
    1024	0417  83 7E EA 00		     cmp     word ptr [bp-22],0
    1025	041B  75 06			     jne     short @1@2774
    1026					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 19
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 19
 command.ASM
 
 
@@ -1176,7 +1176,7 @@ command.ASM
    1081					;			 }
    1082					;			 if (history_nxt==MAXHISTORY-1)
    1083					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 20
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 20
 command.ASM
 
 
@@ -1238,7 +1238,7 @@ command.ASM
    1138					;
    1139					;			     }
    1140					;			 }
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 21
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 21
 command.ASM
 
 
@@ -1279,7 +1279,7 @@ command.ASM
    1174	04D2  8D 46 F4			     lea     ax,word ptr [bp-12]
    1175	04D5  50			     push    ax
    1176	04D6  1E			     push    ds
-   1177	04D7  B8 0668r			     mov     ax,offset DGROUP:s@+1466
+   1177	04D7  B8 066Cr			     mov     ax,offset DGROUP:s@+1466
    1178	04DA  50			     push    ax
    1179	04DB  E8 025E			     call    near ptr command_var_set
    1180	04DE  83 C4 08			     add     sp,8
@@ -1293,14 +1293,14 @@ command.ASM
    1188					;			    putstr("Erro: comando desconhecido!\n");
    1189					;
    1190	04E3  1E			     push    ds
-   1191	04E4  B8 0673r			     mov     ax,offset DGROUP:s@+1477
+   1191	04E4  B8 0677r			     mov     ax,offset DGROUP:s@+1477
    1192	04E7  50			     push    ax
    1193	04E8  E8 0000e			     call    near ptr _putstr
    1194	04EB  59			     pop     cx
    1195	04EC  59			     pop     cx
    1196	04ED			     @1@3222:
    1197					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 22
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 22
 command.ASM
 
 
@@ -1362,7 +1362,7 @@ command.ASM
    1252	051D  8B E5			     mov     sp,bp
    1253	051F  5D			     pop     bp
    1254	0520  C3			     ret
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 23
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 23
 command.ASM
 
 
@@ -1424,7 +1424,7 @@ command.ASM
    1309					;
    1310	0554  4E			     dec     si
    1311					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 24
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 24
 command.ASM
 
 
@@ -1475,7 +1475,7 @@ command.ASM
    1355					;      prompt =	command_var_value("PROMPT");
    1356					;
    1357	0575  1E			     push    ds
-   1358	0576  B8 0690r			     mov     ax,offset DGROUP:s@+1506
+   1358	0576  B8 0694r			     mov     ax,offset DGROUP:s@+1506
    1359	0579  50			     push    ax
    1360	057A  E8 0192			     call    near ptr command_var_value
    1361	057D  59			     pop     cx
@@ -1486,7 +1486,7 @@ command.ASM
    1366					;      if (prompt!=NULL)  {
    1367					;
    1368	0585  8B 46 FA			     mov     ax,word ptr [bp-6]
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 25
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 25
 command.ASM
 
 
@@ -1548,7 +1548,7 @@ command.ASM
    1423					;    {
    1424					;      int i;
    1425					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 26
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 26
 command.ASM
 
 
@@ -1610,7 +1610,7 @@ command.ASM
    1480					;
    1481	05F6  B8 FFFF			     mov     ax,-1
    1482	05F9			     @5@86:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 27
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 27
 command.ASM
 
 
@@ -1672,7 +1672,7 @@ command.ASM
    1537					;
    1538					;      for (i=0;i<VAR_MAX;++i)	{
    1539					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 28
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 28
 command.ASM
 
 
@@ -1734,7 +1734,7 @@ command.ASM
    1594	0673  98			     cbw
    1595	0674  50			     push    ax
    1596	0675  E8 0000e			     call    near ptr _setcolor
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 29
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 29
 command.ASM
 
 
@@ -1796,7 +1796,7 @@ command.ASM
    1651					;
    1652					;	   if (strcmp(nome,var[i].name)==0)
    1653					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 30
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 30
 command.ASM
 
 
@@ -1858,7 +1858,7 @@ command.ASM
    1708					;      if (i==-1)
    1709					;
    1710	06DE  83 FE FF			     cmp     si,-1
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 31
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 31
 command.ASM
 
 
@@ -1920,7 +1920,7 @@ command.ASM
    1765					;
    1766	0713  FF 76 06			     push    word ptr [bp+6]
    1767	0716  FF 76 04			     push    word ptr [bp+4]
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 32
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 32
 command.ASM
 
 
@@ -1982,7 +1982,7 @@ command.ASM
    1822	074E  76 05			     jbe     short @10@114
    1823					;
    1824					;	  return -3;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 33
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 33
 command.ASM
 
 
@@ -2044,7 +2044,7 @@ command.ASM
    1879	078B  FF 76 06			     push    word ptr [bp+6]
    1880	078E  FF 76 04			     push    word ptr [bp+4]
    1881	0791  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 34
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 34
 command.ASM
 
 
@@ -2106,7 +2106,7 @@ command.ASM
    1936					;      reboot();
    1937					;
    1938	07CD  E8 0000e			     call    near ptr _reboot
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 35
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 35
 command.ASM
 
 
@@ -2168,7 +2168,7 @@ command.ASM
    1993	07F1  57			     push    di
    1994	07F2  8B 7E 04			     mov     di,word ptr [bp+4]
    1995					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 36
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 36
 command.ASM
 
 
@@ -2187,7 +2187,7 @@ command.ASM
    2007					;      putstr("Comandos	do minisSistema	Operacional:\n");
    2008					;
    2009	07FB  1E			     push    ds
-   2010	07FC  B8 0697r			     mov     ax,offset DGROUP:s@+1513
+   2010	07FC  B8 069Br			     mov     ax,offset DGROUP:s@+1513
    2011	07FF  50			     push    ax
    2012	0800  E8 0000e			     call    near ptr _putstr
    2013	0803  59			     pop     cx
@@ -2230,7 +2230,7 @@ command.ASM
    2050	0833  E8 0000e			     call    near ptr _putch
    2051	0836  59			     pop     cx
    2052	0837  46			     inc     si
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 37
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 37
 command.ASM
 
 
@@ -2292,7 +2292,7 @@ command.ASM
    2107					;
    2108	085D  B0 30			     mov     al,48
    2109	085F  50			     push    ax
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 38
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 38
 command.ASM
 
 
@@ -2354,7 +2354,7 @@ command.ASM
    2164	08AA  50			     push    ax
    2165	08AB  E8 0000e			     call    near ptr _putch
    2166	08AE  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 39
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 39
 command.ASM
 
 
@@ -2416,7 +2416,7 @@ command.ASM
    2221	08E8  8B 76 04			     mov     si,word ptr [bp+4]
    2222	08EB  8B 7E 06			     mov     di,word ptr [bp+6]
    2223					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 40
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 40
 command.ASM
 
 
@@ -2478,7 +2478,7 @@ command.ASM
    2278	0922  B0 30			     mov     al,48
    2279	0924  50			     push    ax
    2280	0925  B8 0002			     mov     ax,2
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 41
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 41
 command.ASM
 
 
@@ -2540,7 +2540,7 @@ command.ASM
    2335	0972  E8 0000e			     call    near ptr _putch
    2336	0975  59			     pop     cx
    2337					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 42
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 42
 command.ASM
 
 
@@ -2602,7 +2602,7 @@ command.ASM
    2392	0996			     _cmd_ver	     proc    near
    2393	0996  55			     push    bp
    2394	0997  8B EC			     mov     bp,sp
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 43
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 43
 command.ASM
 
 
@@ -2622,7 +2622,7 @@ command.ASM
    2407					;      putstr("minisSistema Operacional	- Vs ");
    2408					;
    2409	09A1  1E			     push    ds
-   2410	09A2  B8 06BEr			     mov     ax,offset DGROUP:s@+1552
+   2410	09A2  B8 06C2r			     mov     ax,offset DGROUP:s@+1552
    2411	09A5  50			     push    ax
    2412	09A6  E8 0000e			     call    near ptr _putstr
    2413	09A9  59			     pop     cx
@@ -2631,7 +2631,7 @@ command.ASM
    2416					;      putstr(miniSO_VERSION);
    2417					;
    2418	09AB  1E			     push    ds
-   2419	09AC  B8 06DDr			     mov     ax,offset DGROUP:s@+1583
+   2419	09AC  B8 06E1r			     mov     ax,offset DGROUP:s@+1583
    2420	09AF  50			     push    ax
    2421	09B0  E8 0000e			     call    near ptr _putstr
    2422	09B3  59			     pop     cx
@@ -2664,7 +2664,7 @@ command.ASM
    2449	09C5			     _TEXT   segment byte public 'CODE'
    2450					;
    2451					;    int cmd_ps(int argc, char far *argv[])
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 44
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 44
 command.ASM
 
 
@@ -2695,7 +2695,7 @@ command.ASM
    2475					;      putstr("	BCP   PID   PPID  STATUS   WAIT	  ZLIST	 PREV	NEXT\n");
    2476					;
    2477	09D6  1E			     push    ds
-   2478	09D7  B8 06E2r			     mov     ax,offset DGROUP:s@+1588
+   2478	09D7  B8 06E6r			     mov     ax,offset DGROUP:s@+1588
    2479	09DA  50			     push    ax
    2480	09DB  E8 0000e			     call    near ptr _putstr
    2481	09DE  59			     pop     cx
@@ -2726,7 +2726,7 @@ command.ASM
    2506	09FD  50			     push    ax
    2507	09FE  E8 0000e			     call    near ptr _inttostr
    2508	0A01  83 C4 06			     add     sp,6
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 45
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 45
 command.ASM
 
 
@@ -2769,7 +2769,7 @@ command.ASM
    2544					;	      putstr("	");
    2545					;
    2546	0A2C  1E			     push    ds
-   2547	0A2D  B8 0719r			     mov     ax,offset DGROUP:s@+1643
+   2547	0A2D  B8 071Dr			     mov     ax,offset DGROUP:s@+1643
    2548	0A30  50			     push    ax
    2549	0A31  E8 0000e			     call    near ptr _putstr
    2550	0A34  59			     pop     cx
@@ -2788,7 +2788,7 @@ command.ASM
    2563	0A48  E8 0000e			     call    near ptr _inttostr
    2564	0A4B  83 C4 06			     add     sp,6
    2565					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 46
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 46
 command.ASM
 
 
@@ -2830,7 +2830,7 @@ command.ASM
    2600					;	      putstr("	");
    2601					;
    2602	0A76  1E			     push    ds
-   2603	0A77  B8 071Cr			     mov     ax,offset DGROUP:s@+1646
+   2603	0A77  B8 0720r			     mov     ax,offset DGROUP:s@+1646
    2604	0A7A  50			     push    ax
    2605	0A7B  E8 0000e			     call    near ptr _putstr
    2606	0A7E  59			     pop     cx
@@ -2850,7 +2850,7 @@ command.ASM
    2620	0A95  83 C4 06			     add     sp,6
    2621					;
    2622					;	      l=strlen(str);
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 47
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 47
 command.ASM
 
 
@@ -2891,7 +2891,7 @@ command.ASM
    2656					;	      putstr("	");
    2657					;
    2658	0AC0  1E			     push    ds
-   2659	0AC1  B8 071Fr			     mov     ax,offset DGROUP:s@+1649
+   2659	0AC1  B8 0723r			     mov     ax,offset DGROUP:s@+1649
    2660	0AC4  50			     push    ax
    2661	0AC5  E8 0000e			     call    near ptr _putstr
    2662	0AC8  59			     pop     cx
@@ -2912,14 +2912,14 @@ command.ASM
    2677	0AE4			     @18@450:
    2678					;
    2679					;		    case FREE:	  putstr(strFREE);    break;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 48
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 48
 command.ASM
 
 
 
    2680					;
    2681	0AE4  1E			     push    ds
-   2682	0AE5  B8 0722r			     mov     ax,offset DGROUP:s@+1652
+   2682	0AE5  B8 0726r			     mov     ax,offset DGROUP:s@+1652
    2683	0AE8			     @18@478:
    2684	0AE8  50			     push    ax
    2685	0AE9  E8 0000e			     call    near ptr _putstr
@@ -2931,50 +2931,50 @@ command.ASM
    2691					;		    case READY:	  putstr(strREADY);   break;
    2692					;
    2693	0AF0  1E			     push    ds
-   2694	0AF1  B8 072Ar			     mov     ax,offset DGROUP:s@+1660
+   2694	0AF1  B8 072Er			     mov     ax,offset DGROUP:s@+1660
    2695	0AF4  EB F2			     jmp     short @18@478
    2696	0AF6			     @18@534:
    2697					;
    2698					;		    case RUNNING: putstr(strRUNNING); break;
    2699					;
    2700	0AF6  1E			     push    ds
-   2701	0AF7  B8 0732r			     mov     ax,offset DGROUP:s@+1668
+   2701	0AF7  B8 0736r			     mov     ax,offset DGROUP:s@+1668
    2702	0AFA  EB EC			     jmp     short @18@478
    2703	0AFC			     @18@562:
    2704					;
    2705					;		    case ZOMBIE:  putstr(strZOMBIE);  break;
    2706					;
    2707	0AFC  1E			     push    ds
-   2708	0AFD  B8 073Ar			     mov     ax,offset DGROUP:s@+1676
+   2708	0AFD  B8 073Er			     mov     ax,offset DGROUP:s@+1676
    2709	0B00  EB E6			     jmp     short @18@478
    2710	0B02			     @18@590:
    2711					;
    2712					;		    case WAIT:	  putstr(strWAIT);    break;
    2713					;
    2714	0B02  1E			     push    ds
-   2715	0B03  B8 0742r			     mov     ax,offset DGROUP:s@+1684
+   2715	0B03  B8 0746r			     mov     ax,offset DGROUP:s@+1684
    2716	0B06  EB E0			     jmp     short @18@478
    2717	0B08			     @18@618:
    2718					;
    2719					;		    case WAITSIG: putstr(strWAITSIG); break;
    2720					;
    2721	0B08  1E			     push    ds
-   2722	0B09  B8 074Ar			     mov     ax,offset DGROUP:s@+1692
+   2722	0B09  B8 074Er			     mov     ax,offset DGROUP:s@+1692
    2723	0B0C  EB DA			     jmp     short @18@478
    2724	0B0E			     @18@646:
    2725					;
    2726					;		    case WAITSEM: putstr(strWAITSEM); break;
    2727					;
    2728	0B0E  1E			     push    ds
-   2729	0B0F  B8 0752r			     mov     ax,offset DGROUP:s@+1700
+   2729	0B0F  B8 0756r			     mov     ax,offset DGROUP:s@+1700
    2730	0B12  EB D4			     jmp     short @18@478
    2731	0B14			     @18@674:
    2732					;
    2733					;		    case STOPPED: putstr(strSTOPPED); break;
    2734					;
    2735	0B14  1E			     push    ds
-   2736	0B15  B8 075Ar			     mov     ax,offset DGROUP:s@+1708
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 49
+   2736	0B15  B8 075Er			     mov     ax,offset DGROUP:s@+1708
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 49
 command.ASM
 
 
@@ -2986,7 +2986,7 @@ command.ASM
    2741					;	      putstr("	");
    2742					;
    2743	0B1A  1E			     push    ds
-   2744	0B1B  B8 0762r			     mov     ax,offset DGROUP:s@+1716
+   2744	0B1B  B8 0766r			     mov     ax,offset DGROUP:s@+1716
    2745	0B1E  50			     push    ax
    2746	0B1F  E8 0000e			     call    near ptr _putstr
    2747	0B22  59			     pop     cx
@@ -3036,7 +3036,7 @@ command.ASM
    2791	0B5B  B8 0000r			     mov     ax,offset DGROUP:b@w+0
    2792	0B5E  50			     push    ax
    2793	0B5F  E8 0000e			     call    near ptr _putstr
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 50
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 50
 command.ASM
 
 
@@ -3048,7 +3048,7 @@ command.ASM
    2798					;	      putstr("	");
    2799					;
    2800	0B64  1E			     push    ds
-   2801	0B65  B8 0765r			     mov     ax,offset DGROUP:s@+1719
+   2801	0B65  B8 0769r			     mov     ax,offset DGROUP:s@+1719
    2802	0B68  50			     push    ax
    2803	0B69  E8 0000e			     call    near ptr _putstr
    2804	0B6C  59			     pop     cx
@@ -3098,7 +3098,7 @@ command.ASM
    2848	0BA5  B8 0000r			     mov     ax,offset DGROUP:b@w+0
    2849	0BA8  50			     push    ax
    2850	0BA9  E8 0000e			     call    near ptr _putstr
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 51
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 51
 command.ASM
 
 
@@ -3110,7 +3110,7 @@ command.ASM
    2855					;	      putstr(" ");
    2856					;
    2857	0BAE  1E			     push    ds
-   2858	0BAF  B8 0768r			     mov     ax,offset DGROUP:s@+1722
+   2858	0BAF  B8 076Cr			     mov     ax,offset DGROUP:s@+1722
    2859	0BB2  50			     push    ax
    2860	0BB3  E8 0000e			     call    near ptr _putstr
    2861	0BB6  59			     pop     cx
@@ -3160,7 +3160,7 @@ command.ASM
    2905	0BEF  B8 0000r			     mov     ax,offset DGROUP:b@w+0
    2906	0BF2  50			     push    ax
    2907	0BF3  E8 0000e			     call    near ptr _putstr
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 52
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 52
 command.ASM
 
 
@@ -3172,7 +3172,7 @@ command.ASM
    2912					;	      putstr("	");
    2913					;
    2914	0BF8  1E			     push    ds
-   2915	0BF9  B8 076Ar			     mov     ax,offset DGROUP:s@+1724
+   2915	0BF9  B8 076Er			     mov     ax,offset DGROUP:s@+1724
    2916	0BFC  50			     push    ax
    2917	0BFD  E8 0000e			     call    near ptr _putstr
    2918	0C00  59			     pop     cx
@@ -3222,7 +3222,7 @@ command.ASM
    2962	0C39  B8 0000r			     mov     ax,offset DGROUP:b@w+0
    2963	0C3C  50			     push    ax
    2964	0C3D  E8 0000e			     call    near ptr _putstr
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 53
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 53
 command.ASM
 
 
@@ -3284,7 +3284,7 @@ command.ASM
    3019	0C70  33 F6			     xor     si,si
    3020					;
    3021					;      pid_t pid=0;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 54
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 54
 command.ASM
 
 
@@ -3302,7 +3302,7 @@ command.ASM
    3032					;	  putstr("Erro em kill:	parametro nao fornecido!\n");
    3033					;
    3034	0C7A  1E			     push    ds
-   3035	0C7B  B8 076Dr			     mov     ax,offset DGROUP:s@+1727
+   3035	0C7B  B8 0771r			     mov     ax,offset DGROUP:s@+1727
    3036	0C7E			     @19@86:
    3037	0C7E  50			     push    ax
    3038	0C7F  E8 0000e			     call    near ptr _putstr
@@ -3342,11 +3342,11 @@ command.ASM
    3072					;	  putstr("kill:	impossivel matar o processo/thread\n");
    3073					;
    3074	0CA5  1E			     push    ds
-   3075	0CA6  B8 0795r			     mov     ax,offset DGROUP:s@+1767
+   3075	0CA6  B8 0799r			     mov     ax,offset DGROUP:s@+1767
    3076	0CA9  EB D3			     jmp     short @19@86
    3077	0CAB			     @19@198:
    3078					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 55
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 55
 command.ASM
 
 
@@ -3408,12 +3408,12 @@ command.ASM
    3133					;	  res =	command_var_set(argv[1],"");
    3134					;
    3135	0CD2  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 56
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 56
 command.ASM
 
 
 
-   3136	0CD3  B8 07BFr			     mov     ax,offset DGROUP:s@+1809
+   3136	0CD3  B8 07C3r			     mov     ax,offset DGROUP:s@+1809
    3137	0CD6  50			     push    ax
    3138	0CD7  FF 75 06			     push    word ptr [di+6]
    3139	0CDA  FF 75 04			     push    word ptr [di+4]
@@ -3460,7 +3460,7 @@ command.ASM
    3180					;		   putstr("Erro	em set:	nao ha espaco para novas variaveis!\n");
    3181					;
    3182	0D1B  1E			     push    ds
-   3183	0D1C  B8 07C0r			     mov     ax,offset DGROUP:s@+1810
+   3183	0D1C  B8 07C4r			     mov     ax,offset DGROUP:s@+1810
    3184	0D1F  EB 10			     jmp     short @20@478
    3185	0D21			     @20@394:
    3186					;
@@ -3469,8 +3469,8 @@ command.ASM
    3189					;		   putstr("Erro	em set:	o tamanho do nome da variavel e	muito grande!\n");
    3190					;
    3191	0D21  1E			     push    ds
-   3192	0D22  B8 07F2r			     mov     ax,offset DGROUP:s@+1860
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 57
+   3192	0D22  B8 07F6r			     mov     ax,offset DGROUP:s@+1860
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 57
 command.ASM
 
 
@@ -3484,7 +3484,7 @@ command.ASM
    3199				     grande!\n");
    3200					;
    3201	0D27  1E			     push    ds
-   3202	0D28  B8 082Er			     mov     ax,offset DGROUP:s@+1920
+   3202	0D28  B8 0832r			     mov     ax,offset DGROUP:s@+1920
    3203	0D2B  EB 04			     jmp     short @20@478
    3204	0D2D			     @20@450:
    3205					;
@@ -3493,7 +3493,7 @@ command.ASM
    3208					;		   putstr("Erro	em set:	argumentos demais na linha de comando!\n");
    3209					;
    3210	0D2D  1E			     push    ds
-   3211	0D2E  B8 086Er			     mov     ax,offset DGROUP:s@+1984
+   3211	0D2E  B8 0872r			     mov     ax,offset DGROUP:s@+1984
    3212	0D31			     @20@478:
    3213	0D31  50			     push    ax
    3214	0D32  E8 0000e			     call    near ptr _putstr
@@ -3532,7 +3532,7 @@ command.ASM
    3247	0D4D  8B EC			     mov     bp,sp
    3248	0D4F  83 EC 02			     sub     sp,2
    3249					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 58
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 58
 command.ASM
 
 
@@ -3548,7 +3548,7 @@ command.ASM
    3258					;	  putstr("Erro em unset: numero	invalido de argumentos!\n");
    3259					;
    3260	0D58  1E			     push    ds
-   3261	0D59  B8 08A3r			     mov     ax,offset DGROUP:s@+2037
+   3261	0D59  B8 08A7r			     mov     ax,offset DGROUP:s@+2037
    3262	0D5C			     @21@86:
    3263	0D5C  50			     push    ax
    3264	0D5D  E8 0000e			     call    near ptr _putstr
@@ -3581,7 +3581,7 @@ command.ASM
    3291					;	  putstr("Erro em unset: variavel inexistente!\n");
    3292					;
    3293	0D7E  1E			     push    ds
-   3294	0D7F  B8 08D2r			     mov     ax,offset DGROUP:s@+2084
+   3294	0D7F  B8 08D6r			     mov     ax,offset DGROUP:s@+2084
    3295	0D82  EB D8			     jmp     short @21@86
    3296	0D84			     @21@198:
    3297					;
@@ -3594,7 +3594,7 @@ command.ASM
    3304	0D88			     @21@226:
    3305					;
    3306					;    }
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 59
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 59
 command.ASM
 
 
@@ -3630,7 +3630,7 @@ command.ASM
    3335					;	  if (strcmp(argv[1],"-n")==0)
    3336					;
    3337	0DA2  1E			     push    ds
-   3338	0DA3  B8 08F8r			     mov     ax,offset DGROUP:s@+2122
+   3338	0DA3  B8 08FCr			     mov     ax,offset DGROUP:s@+2122
    3339	0DA6  50			     push    ax
    3340	0DA7  FF 75 06			     push    word ptr [di+6]
    3341	0DAA  FF 75 04			     push    word ptr [di+4]
@@ -3656,7 +3656,7 @@ command.ASM
    3361	0DC9			     @22@142:
    3362					;
    3363					;	  for (i=2;i<argc;++i)	{
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 60
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 60
 command.ASM
 
 
@@ -3718,7 +3718,7 @@ command.ASM
    3418	0E05  33 C0			     xor     ax,ax
    3419	0E07  EB 00			     jmp     short @22@422
    3420	0E09			     @22@422:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 61
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 61
 command.ASM
 
 
@@ -3772,7 +3772,7 @@ command.ASM
    3466					;      putstrxy(65,ini+0,"ÚÄÄ Thread ÄÄÄÄ¿");
    3467					;
    3468	0E21  1E			     push    ds
-   3469	0E22  B8 08FBr			     mov     ax,offset DGROUP:s@+2125
+   3469	0E22  B8 08FFr			     mov     ax,offset DGROUP:s@+2125
    3470	0E25  50			     push    ax
    3471	0E26  57			     push    di
    3472	0E27  B8 0041			     mov     ax,65
@@ -3780,7 +3780,7 @@ command.ASM
    3474	0E2B  E8 0000e			     call    near ptr _putstrxy
    3475	0E2E  83 C4 08			     add     sp,8
    3476					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 62
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 62
 command.ASM
 
 
@@ -3788,7 +3788,7 @@ command.ASM
    3477					;      putstrxy(65,ini+1,"³ PID	 =	 ³");
    3478					;
    3479	0E31  1E			     push    ds
-   3480	0E32  B8 090Cr			     mov     ax,offset DGROUP:s@+2142
+   3480	0E32  B8 0910r			     mov     ax,offset DGROUP:s@+2142
    3481	0E35  50			     push    ax
    3482	0E36  8B C7			     mov     ax,di
    3483	0E38  40			     inc     ax
@@ -3801,7 +3801,7 @@ command.ASM
    3490					;      putstrxy(65,ini+2,"³ Execucao:	 ³");
    3491					;
    3492	0E44  1E			     push    ds
-   3493	0E45  B8 091Dr			     mov     ax,offset DGROUP:s@+2159
+   3493	0E45  B8 0921r			     mov     ax,offset DGROUP:s@+2159
    3494	0E48  50			     push    ax
    3495	0E49  8B C7			     mov     ax,di
    3496	0E4B  05 0002			     add     ax,2
@@ -3814,7 +3814,7 @@ command.ASM
    3503					;      putstrxy(65,ini+3,"³		 ³");
    3504					;
    3505	0E59  1E			     push    ds
-   3506	0E5A  B8 092Er			     mov     ax,offset DGROUP:s@+2176
+   3506	0E5A  B8 0932r			     mov     ax,offset DGROUP:s@+2176
    3507	0E5D  50			     push    ax
    3508	0E5E  8B C7			     mov     ax,di
    3509	0E60  05 0003			     add     ax,3
@@ -3827,7 +3827,7 @@ command.ASM
    3516					;      putstrxy(65,ini+4,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
    3517					;
    3518	0E6E  1E			     push    ds
-   3519	0E6F  B8 093Fr			     mov     ax,offset DGROUP:s@+2193
+   3519	0E6F  B8 0943r			     mov     ax,offset DGROUP:s@+2193
    3520	0E72  50			     push    ax
    3521	0E73  8B C7			     mov     ax,di
    3522	0E75  05 0004			     add     ax,4
@@ -3842,7 +3842,7 @@ command.ASM
    3531					;
    3532	0E83  E8 0000e			     call    near ptr _getpid
    3533	0E86  50			     push    ax
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 63
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 63
 command.ASM
 
 
@@ -3904,7 +3904,7 @@ command.ASM
    3588	0ED6  72 D1			     jb	     short @23@58
    3589					;
    3590					;      }
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 64
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 64
 command.ASM
 
 
@@ -3966,7 +3966,7 @@ command.ASM
    3645	0F1F  83 C4 0A			     add     sp,10
    3646					;
    3647					;	   putstrxy(70,ini+3,str);
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 65
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 65
 command.ASM
 
 
@@ -4028,7 +4028,7 @@ command.ASM
    3702					;      for (i=0;i<60000U;++i)  {
    3703					;
    3704	0F71  33 F6			     xor     si,si
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 66
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 66
 command.ASM
 
 
@@ -4090,7 +4090,7 @@ command.ASM
    3759					;
    3760	0FBB  16			     push    ss
    3761	0FBC  8D 46 EA			     lea     ax,word ptr [bp-22]
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 67
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 67
 command.ASM
 
 
@@ -4142,7 +4142,7 @@ command.ASM
    3806					;		     putstr("Erro em demo: numero invalido de argumentos!\n");
    3807					;
    3808	0FED  1E			     push    ds
-   3809	0FEE  B8 0950r			     mov     ax,offset DGROUP:s@+2210
+   3809	0FEE  B8 0954r			     mov     ax,offset DGROUP:s@+2210
    3810	0FF1			     @24@86:
    3811	0FF1  50			     push    ax
    3812	0FF2  E8 0000e			     call    near ptr _putstr
@@ -4152,7 +4152,7 @@ command.ASM
    3816					;		     return 1;
    3817					;
    3818	0FF7  B8 0001			     mov     ax,1
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 68
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 68
 command.ASM
 
 
@@ -4198,7 +4198,7 @@ command.ASM
    3857					;		     putstr("Erro em demo: fork() nao conseguiu	criar thread!\n");
    3858					;
    3859	102C  1E			     push    ds
-   3860	102D  B8 097Er			     mov     ax,offset DGROUP:s@+2256
+   3860	102D  B8 0982r			     mov     ax,offset DGROUP:s@+2256
    3861	1030  EB BF			     jmp     short @24@86
    3862	1032			     @24@254:
    3863					;
@@ -4214,7 +4214,7 @@ command.ASM
    3873					;
    3874	1036  5D			     pop     bp
    3875	1037  C3			     ret
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 69
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 69
 command.ASM
 
 
@@ -4243,7 +4243,7 @@ command.ASM
    3897					;		     putstr("Erro em waitpid: numero invalido de argumentos!\n");
    3898					;
    3899	1045  1E			     push    ds
-   3900	1046  B8 09B0r			     mov     ax,offset DGROUP:s@+2306
+   3900	1046  B8 09B4r			     mov     ax,offset DGROUP:s@+2306
    3901	1049  50			     push    ax
    3902	104A  E8 0000e			     call    near ptr _putstr
    3903	104D  59			     pop     cx
@@ -4276,7 +4276,7 @@ command.ASM
    3930	106A  E8 0000e			     call    near ptr _waitpid
    3931	106D  83 C4 06			     add     sp,6
    3932	1070  8B F0			     mov     si,ax
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 70
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 70
 command.ASM
 
 
@@ -4285,7 +4285,7 @@ command.ASM
    3934					;	     putstr("Processo ");
    3935					;
    3936	1072  1E			     push    ds
-   3937	1073  B8 09E1r			     mov     ax,offset DGROUP:s@+2355
+   3937	1073  B8 09E5r			     mov     ax,offset DGROUP:s@+2355
    3938	1076  50			     push    ax
    3939	1077  E8 0000e			     call    near ptr _putstr
    3940	107A  59			     pop     cx
@@ -4312,7 +4312,7 @@ command.ASM
    3961					;	     putstr(" encerrado	com codigo de fim ");
    3962					;
    3963	1092  1E			     push    ds
-   3964	1093  B8 09EBr			     mov     ax,offset DGROUP:s@+2365
+   3964	1093  B8 09EFr			     mov     ax,offset DGROUP:s@+2365
    3965	1096  50			     push    ax
    3966	1097  E8 0000e			     call    near ptr _putstr
    3967	109A  59			     pop     cx
@@ -4338,13 +4338,13 @@ command.ASM
    3987					;
    3988					;	     putstr("!\n");
    3989					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 71
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 71
 command.ASM
 
 
 
    3990	10B4  1E			     push    ds
-   3991	10B5  B8 0A09r			     mov     ax,offset DGROUP:s@+2395
+   3991	10B5  B8 0A0Dr			     mov     ax,offset DGROUP:s@+2395
    3992	10B8  50			     push    ax
    3993	10B9  E8 0000e			     call    near ptr _putstr
    3994	10BC  59			     pop     cx
@@ -4400,7 +4400,7 @@ command.ASM
    4044	10E3  59			     pop     cx
    4045	10E4  89 46 FC			     mov     word ptr [bp-4],ax
    4046					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 72
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 72
 command.ASM
 
 
@@ -4408,7 +4408,7 @@ command.ASM
    4047					;	     putstr("Processo ");
    4048					;
    4049	10E7  1E			     push    ds
-   4050	10E8  B8 0A0Cr			     mov     ax,offset DGROUP:s@+2398
+   4050	10E8  B8 0A10r			     mov     ax,offset DGROUP:s@+2398
    4051	10EB  50			     push    ax
    4052	10EC  E8 0000e			     call    near ptr _putstr
    4053	10EF  59			     pop     cx
@@ -4435,7 +4435,7 @@ command.ASM
    4074					;	     putstr(" encerrado	com codigo de fim ");
    4075					;
    4076	1109  1E			     push    ds
-   4077	110A  B8 0A16r			     mov     ax,offset DGROUP:s@+2408
+   4077	110A  B8 0A1Ar			     mov     ax,offset DGROUP:s@+2408
    4078	110D  50			     push    ax
    4079	110E  E8 0000e			     call    near ptr _putstr
    4080	1111  59			     pop     cx
@@ -4462,12 +4462,12 @@ command.ASM
    4101					;	     putstr("!\n");
    4102					;
    4103	112B  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 73
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 73
 command.ASM
 
 
 
-   4104	112C  B8 0A34r			     mov     ax,offset DGROUP:s@+2438
+   4104	112C  B8 0A38r			     mov     ax,offset DGROUP:s@+2438
    4105	112F  50			     push    ax
    4106	1130  E8 0000e			     call    near ptr _putstr
    4107	1133  59			     pop     cx
@@ -4519,12 +4519,12 @@ command.ASM
    4153					;	     putstr("Semaphores:\n");
    4154					;
    4155	1155  1E			     push    ds
-   4156	1156  B8 0A37r			     mov     ax,offset DGROUP:s@+2441
+   4156	1156  B8 0A3Br			     mov     ax,offset DGROUP:s@+2441
    4157	1159  50			     push    ax
    4158	115A  E8 0000e			     call    near ptr _putstr
    4159	115D  59			     pop     cx
    4160	115E  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 74
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 74
 command.ASM
 
 
@@ -4549,7 +4549,7 @@ command.ASM
    4178					;			     putstr("- id=");
    4179					;
    4180	1174  1E			     push    ds
-   4181	1175  B8 0A44r			     mov     ax,offset DGROUP:s@+2454
+   4181	1175  B8 0A48r			     mov     ax,offset DGROUP:s@+2454
    4182	1178  50			     push    ax
    4183	1179  E8 0000e			     call    near ptr _putstr
    4184	117C  59			     pop     cx
@@ -4579,14 +4579,14 @@ command.ASM
    4208					;			     putstr(" value=");
    4209					;
    4210	119D  1E			     push    ds
-   4211	119E  B8 0A4Ar			     mov     ax,offset DGROUP:s@+2460
+   4211	119E  B8 0A4Er			     mov     ax,offset DGROUP:s@+2460
    4212	11A1  50			     push    ax
    4213	11A2  E8 0000e			     call    near ptr _putstr
    4214	11A5  59			     pop     cx
    4215	11A6  59			     pop     cx
    4216					;
    4217					;			     inttostr(str,miniSO_sem[i].value);
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 75
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 75
 command.ASM
 
 
@@ -4614,7 +4614,7 @@ command.ASM
    4238					;			     putstr(" queue=");
    4239					;
    4240	11C6  1E			     push    ds
-   4241	11C7  B8 0A52r			     mov     ax,offset DGROUP:s@+2468
+   4241	11C7  B8 0A56r			     mov     ax,offset DGROUP:s@+2468
    4242	11CA  50			     push    ax
    4243	11CB  E8 0000e			     call    near ptr _putstr
    4244	11CE  59			     pop     cx
@@ -4648,7 +4648,7 @@ command.ASM
    4272	11F3  E8 0000e			     call    near ptr _putch
    4273	11F6  59			     pop     cx
    4274					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 76
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 76
 command.ASM
 
 
@@ -4668,7 +4668,7 @@ command.ASM
    4287					;	     putstr("TOTAL=");
    4288					;
    4289	1201  1E			     push    ds
-   4290	1202  B8 0A5Ar			     mov     ax,offset DGROUP:s@+2476
+   4290	1202  B8 0A5Er			     mov     ax,offset DGROUP:s@+2476
    4291	1205  50			     push    ax
    4292	1206  E8 0000e			     call    near ptr _putstr
    4293	1209  59			     pop     cx
@@ -4695,7 +4695,7 @@ command.ASM
    4314					;	     putstr("\n\n");
    4315					;
    4316	1221  1E			     push    ds
-   4317	1222  B8 0A61r			     mov     ax,offset DGROUP:s@+2483
+   4317	1222  B8 0A65r			     mov     ax,offset DGROUP:s@+2483
    4318	1225  50			     push    ax
    4319	1226  E8 0000e			     call    near ptr _putstr
    4320	1229  59			     pop     cx
@@ -4710,7 +4710,7 @@ command.ASM
    4329					;    }
    4330					;
    4331	122F  5F			     pop     di
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 77
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 77
 command.ASM
 
 
@@ -4744,7 +4744,7 @@ command.ASM
    4358					;		     putstr("Erro em semcreate:	numero invalido	de argumentos!\n");
    4359					;
    4360	1243  1E			     push    ds
-   4361	1244  B8 0A64r			     mov     ax,offset DGROUP:s@+2486
+   4361	1244  B8 0A68r			     mov     ax,offset DGROUP:s@+2486
    4362	1247  50			     push    ax
    4363	1248  E8 0000e			     call    near ptr _putstr
    4364	124B  59			     pop     cx
@@ -4772,7 +4772,7 @@ command.ASM
    4386					;	     semid = semcreate(value);
    4387					;
    4388	1262  56			     push    si
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 78
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 78
 command.ASM
 
 
@@ -4792,7 +4792,7 @@ command.ASM
    4401					;	     putstr("Semaforo id=");
    4402					;
    4403	1270  1E			     push    ds
-   4404	1271  B8 0A97r			     mov     ax,offset DGROUP:s@+2537
+   4404	1271  B8 0A9Br			     mov     ax,offset DGROUP:s@+2537
    4405	1274  50			     push    ax
    4406	1275  E8 0000e			     call    near ptr _putstr
    4407	1278  59			     pop     cx
@@ -4819,7 +4819,7 @@ command.ASM
    4428					;	     putstr(" criado (value=");
    4429					;
    4430	1290  1E			     push    ds
-   4431	1291  B8 0AA4r			     mov     ax,offset DGROUP:s@+2550
+   4431	1291  B8 0AA8r			     mov     ax,offset DGROUP:s@+2550
    4432	1294  50			     push    ax
    4433	1295  E8 0000e			     call    near ptr _putstr
    4434	1298  59			     pop     cx
@@ -4834,7 +4834,7 @@ command.ASM
    4443	12A0  E8 0000e			     call    near ptr _inttostr
    4444	12A3  83 C4 06			     add     sp,6
    4445					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 79
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 79
 command.ASM
 
 
@@ -4851,7 +4851,7 @@ command.ASM
    4455					;	     putstr(")\n");
    4456					;
    4457	12B0  1E			     push    ds
-   4458	12B1  B8 0AB4r			     mov     ax,offset DGROUP:s@+2566
+   4458	12B1  B8 0AB8r			     mov     ax,offset DGROUP:s@+2566
    4459	12B4  50			     push    ax
    4460	12B5  E8 0000e			     call    near ptr _putstr
    4461	12B8  59			     pop     cx
@@ -4895,8 +4895,8 @@ command.ASM
    4499					;	     putstrxy(65,ini+0,"ÚÄÄ Thread ÄÄÄÄ¿");
    4500					;
    4501	12D0  1E			     push    ds
-   4502	12D1  B8 0AB7r			     mov     ax,offset DGROUP:s@+2569
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 80
+   4502	12D1  B8 0ABBr			     mov     ax,offset DGROUP:s@+2569
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 80
 command.ASM
 
 
@@ -4911,7 +4911,7 @@ command.ASM
    4510					;	     putstrxy(65,ini+1,"³ PID  =       ³");
    4511					;
    4512	12E0  1E			     push    ds
-   4513	12E1  B8 0AC8r			     mov     ax,offset DGROUP:s@+2586
+   4513	12E1  B8 0ACCr			     mov     ax,offset DGROUP:s@+2586
    4514	12E4  50			     push    ax
    4515	12E5  8B C7			     mov     ax,di
    4516	12E7  40			     inc     ax
@@ -4924,7 +4924,7 @@ command.ASM
    4523					;	     putstrxy(65,ini+2,"³ Execucao:    ³");
    4524					;
    4525	12F3  1E			     push    ds
-   4526	12F4  B8 0AD9r			     mov     ax,offset DGROUP:s@+2603
+   4526	12F4  B8 0ADDr			     mov     ax,offset DGROUP:s@+2603
    4527	12F7  50			     push    ax
    4528	12F8  8B C7			     mov     ax,di
    4529	12FA  05 0002			     add     ax,2
@@ -4937,7 +4937,7 @@ command.ASM
    4536					;	     putstrxy(65,ini+3,"³	       ³");
    4537					;
    4538	1308  1E			     push    ds
-   4539	1309  B8 0AEAr			     mov     ax,offset DGROUP:s@+2620
+   4539	1309  B8 0AEEr			     mov     ax,offset DGROUP:s@+2620
    4540	130C  50			     push    ax
    4541	130D  8B C7			     mov     ax,di
    4542	130F  05 0003			     add     ax,3
@@ -4950,7 +4950,7 @@ command.ASM
    4549					;	     putstrxy(65,ini+4,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
    4550					;
    4551	131D  1E			     push    ds
-   4552	131E  B8 0AFBr			     mov     ax,offset DGROUP:s@+2637
+   4552	131E  B8 0AFFr			     mov     ax,offset DGROUP:s@+2637
    4553	1321  50			     push    ax
    4554	1322  8B C7			     mov     ax,di
    4555	1324  05 0004			     add     ax,4
@@ -4958,7 +4958,7 @@ command.ASM
    4557	1328  B8 0041			     mov     ax,65
    4558	132B  50			     push    ax
    4559	132C  E8 0000e			     call    near ptr _putstrxy
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 81
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 81
 command.ASM
 
 
@@ -5020,7 +5020,7 @@ command.ASM
    4614	1379  50			     push    ax
    4615	137A  E8 0000e			     call    near ptr _putstrxy
    4616	137D  83 C4 08			     add     sp,8
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 82
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 82
 command.ASM
 
 
@@ -5082,7 +5082,7 @@ command.ASM
    4671					;
    4672	13C7  5F			     pop     di
    4673	13C8  5E			     pop     si
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 83
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 83
 command.ASM
 
 
@@ -5111,7 +5111,7 @@ command.ASM
    4695					;		     putstr("Erro em semtest: numero invalido de argumentos!\n");
    4696					;
    4697	13D6  1E			     push    ds
-   4698	13D7  B8 0B0Cr			     mov     ax,offset DGROUP:s@+2654
+   4698	13D7  B8 0B10r			     mov     ax,offset DGROUP:s@+2654
    4699	13DA			     @30@86:
    4700	13DA  50			     push    ax
    4701	13DB  E8 0000e			     call    near ptr _putstr
@@ -5144,7 +5144,7 @@ command.ASM
    4728					;
    4729	13FB  83 3E 009Er 15		     cmp     word ptr DGROUP:demo_linha,21
    4730	1400  7E 06			     jle     short @30@198
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 84
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 84
 command.ASM
 
 
@@ -5167,7 +5167,7 @@ command.ASM
    4746					;		     putstr("Erro em demo: fork() nao conseguiu	criar thread!\n");
    4747					;
    4748	1415  1E			     push    ds
-   4749	1416  B8 0B3Dr			     mov     ax,offset DGROUP:s@+2703
+   4749	1416  B8 0B41r			     mov     ax,offset DGROUP:s@+2703
    4750	1419  EB BF			     jmp     short @30@86
    4751	141B			     @30@254:
    4752					;
@@ -5204,9 +5204,9 @@ command.ASM
    4783					;		     putstr("Erro em semtest: numero invalido de argumentos!\n");
    4784					;
    4785	142D  1E			     push    ds
-   4786	142E  B8 0B6Fr			     mov     ax,offset DGROUP:s@+2753
+   4786	142E  B8 0B73r			     mov     ax,offset DGROUP:s@+2753
    4787	1431  50			     push    ax
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 85
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 85
 command.ASM
 
 
@@ -5267,8 +5267,8 @@ command.ASM
    4841					;		     putstr("Erro em semtest: numero invalido de argumentos!\n");
    4842					;
    4843	1466  1E			     push    ds
-   4844	1467  B8 0BA0r			     mov     ax,offset DGROUP:s@+2802
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 86
+   4844	1467  B8 0BA4r			     mov     ax,offset DGROUP:s@+2802
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 86
 command.ASM
 
 
@@ -5330,7 +5330,7 @@ command.ASM
    4899	149A  33 FF			     xor     di,di
    4900					;
    4901					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 87
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 87
 command.ASM
 
 
@@ -5343,7 +5343,7 @@ command.ASM
    4907					;	     putstr("stop: nenhum parametro foi	fornecido\n");
    4908					;
    4909	14A2  1E			     push    ds
-   4910	14A3  B8 0BD1r			     mov     ax,offset DGROUP:s@+2851
+   4910	14A3  B8 0BD5r			     mov     ax,offset DGROUP:s@+2851
    4911	14A6  50			     push    ax
    4912	14A7  E8 0000e			     call    near ptr _putstr
    4913	14AA  59			     pop     cx
@@ -5382,7 +5382,7 @@ command.ASM
    4946					;	     putstr("stop: impossivel suspender	a thread\n");
    4947					;
    4948	14CD  1E			     push    ds
-   4949	14CE  B8 0BF7r			     mov     ax,offset DGROUP:s@+2889
+   4949	14CE  B8 0BFBr			     mov     ax,offset DGROUP:s@+2889
    4950	14D1  50			     push    ax
    4951	14D2  E8 0000e			     call    near ptr _putstr
    4952	14D5  59			     pop     cx
@@ -5392,7 +5392,7 @@ command.ASM
    4956					;	 return	t;
    4957					;
    4958	14D7  8B C6			     mov     ax,si
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 88
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 88
 command.ASM
 
 
@@ -5435,7 +5435,7 @@ command.ASM
    4994					;	     putstr("resume: nenhum parametro foi fornecido\n");
    4995					;
    4996	14EE  1E			     push    ds
-   4997	14EF  B8 0C1Cr			     mov     ax,offset DGROUP:s@+2926
+   4997	14EF  B8 0C20r			     mov     ax,offset DGROUP:s@+2926
    4998	14F2  50			     push    ax
    4999	14F3  E8 0000e			     call    near ptr _putstr
    5000	14F6  59			     pop     cx
@@ -5454,7 +5454,7 @@ command.ASM
    5013	14FD  8B 5E 06			     mov     bx,word ptr [bp+6]
    5014	1500  FF 77 06			     push    word ptr [bx+6]
    5015	1503  FF 77 04			     push    word ptr [bx+4]
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 89
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 89
 command.ASM
 
 
@@ -5479,7 +5479,7 @@ command.ASM
    5033					;	     putstr("resume: impossivel	reiniciar a thread\n");
    5034					;
    5035	1519  1E			     push    ds
-   5036	151A  B8 0C44r			     mov     ax,offset DGROUP:s@+2966
+   5036	151A  B8 0C48r			     mov     ax,offset DGROUP:s@+2966
    5037	151D  50			     push    ax
    5038	151E  E8 0000e			     call    near ptr _putstr
    5039	1521  59			     pop     cx
@@ -5516,7 +5516,7 @@ command.ASM
    5070	00AA			     cicloConsumidor label   word
    5071	00AA  00			     db	     0
    5072	00AB  00			     db	     0
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 90
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 90
 command.ASM
 
 
@@ -5524,1457 +5524,1593 @@ command.ASM
    5073	00AC			     posicaoConsumidor	     label   word
    5074	00AC  00			     db	     0
    5075	00AD  00			     db	     0
-   5076	00AE			     _DATA   ends
-   5077	152B			     _TEXT   segment byte public 'CODE'
-   5078					;
-   5079					;    void imprimeLista () {
-   5080					;
-   5081					     assume  cs:_TEXT
-   5082	152B			     _imprimeLista   proc    near
-   5083	152B  55			     push    bp
-   5084	152C  8B EC			     mov     bp,sp
-   5085	152E  83 EC 02			     sub     sp,2
-   5086	1531  56			     push    si
-   5087					;
-   5088					;      int i;
-   5089					;      char str[1];
-   5090					;
-   5091					;      for (i =	0; i < tamanho_buffer; i++) {
-   5092					;
-   5093	1532  33 F6			     xor     si,si
-   5094	1534  EB 28			     jmp     short @35@114
-   5095	1536			     @35@58:
-   5096					;
-   5097					;	 inttostr(str, vetor[i]);
-   5098					;
-   5099	1536  8B DE			     mov     bx,si
-   5100	1538  D1 E3			     shl     bx,1
-   5101	153A  FF B7 0014r		     push    word ptr DGROUP:vetor[bx]
-   5102	153E  16			     push    ss
-   5103	153F  8D 46 FE			     lea     ax,word ptr [bp-2]
-   5104	1542  50			     push    ax
-   5105	1543  E8 0000e			     call    near ptr _inttostr
-   5106	1546  83 C4 06			     add     sp,6
-   5107					;
-   5108					;	 putstr(str);
-   5109					;
-   5110	1549  16			     push    ss
-   5111	154A  8D 46 FE			     lea     ax,word ptr [bp-2]
-   5112	154D  50			     push    ax
-   5113	154E  E8 0000e			     call    near ptr _putstr
-   5114	1551  59			     pop     cx
-   5115	1552  59			     pop     cx
-   5116					;
-   5117					;	 putstr(" ");
-   5118					;
-   5119	1553  1E			     push    ds
-   5120	1554  B8 0C6Br			     mov     ax,offset DGROUP:s@+3005
-   5121	1557  50			     push    ax
-   5122	1558  E8 0000e			     call    near ptr _putstr
-   5123	155B  59			     pop     cx
-   5124	155C  59			     pop     cx
-   5125	155D  46			     inc     si
-   5126	155E			     @35@114:
-   5127	155E  3B 36 00A4r		     cmp     si,word ptr DGROUP:tamanho_buffer
-   5128	1562  7C D2			     jl	     short @35@58
+   5076	00AE			     tamanhoSegundo  label   word
+   5077	00AE  10			     db	     16
+   5078	00AF  7A			     db	     122
+   5079	00B0  07			     db	     7
+   5080	00B1  00			     db	     0
+   5081	00B2			     _DATA   ends
+   5082	152B			     _TEXT   segment byte public 'CODE'
+   5083					;
+   5084					;    void sleep	(int segundos) {
+   5085					;
+   5086					     assume  cs:_TEXT
+   5087	152B			     _sleep  proc    near
+   5088	152B  55			     push    bp
+   5089	152C  8B EC			     mov     bp,sp
+   5090	152E  83 EC 08			     sub     sp,8
+   5091					;
+   5092					;	 long i;
+   5093					;	 long j;
+   5094					;	 for (i	= 0; i < segundos; i++)	{
+   5095					;
+   5096	1531  C7 46 FE 0000		     mov     word ptr [bp-2],0
+   5097	1536  C7 46 FC 0000		     mov     word ptr [bp-4],0
+   5098	153B  EB 30			     jmp     short @35@226
+   5099	153D			     @35@58:
+   5100					;
+   5101					;	     for (j = 0; j < tamanhoSegundo; j++);
+   5102					;
+   5103	153D  C7 46 FA 0000		     mov     word ptr [bp-6],0
+   5104	1542  C7 46 F8 0000		     mov     word ptr [bp-8],0
+   5105	1547  EB 08			     jmp     short @35@114
+   5106	1549			     @35@86:
+   5107	1549  83 46 F8 01		     add     word ptr [bp-8],1
+   5108	154D  83 56 FA 00		     adc     word ptr [bp-6],0
+   5109	1551			     @35@114:
+   5110	1551  8B 46 FA			     mov     ax,word ptr [bp-6]
+   5111	1554  8B 56 F8			     mov     dx,word ptr [bp-8]
+   5112	1557  3B 06 00B0r		     cmp     ax,word ptr DGROUP:tamanhoSegundo+2
+   5113	155B  7C EC			     jl	     short @35@86
+   5114	155D  75 06			     jne     short @35@198
+   5115	155F  3B 16 00AEr		     cmp     dx,word ptr DGROUP:tamanhoSegundo
+   5116	1563  72 E4			     jb	     short @35@86
+   5117	1565			     @35@198:
+   5118	1565  83 46 FC 01		     add     word ptr [bp-4],1
+   5119	1569  83 56 FE 00		     adc     word ptr [bp-2],0
+   5120	156D			     @35@226:
+   5121	156D  8B 46 04			     mov     ax,word ptr [bp+4]
+   5122	1570  99			     cwd
+   5123	1571  3B 56 FE			     cmp     dx,word ptr [bp-2]
+   5124	1574  7F C7			     jg	     short @35@58
+   5125	1576  75 05			     jne     short @35@310
+   5126	1578  3B 46 FC			     cmp     ax,word ptr [bp-4]
+   5127	157B  77 C0			     ja	     short @35@58
+   5128	157D			     @35@310:
    5129					;
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 91
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 91
 command.ASM
 
 
 
-   5130					;      }
-   5131					;      putstr("\n");
+   5130					;	 }
+   5131					;    }
    5132					;
-   5133	1564  1E			     push    ds
-   5134	1565  B8 0C6Dr			     mov     ax,offset DGROUP:s@+3007
-   5135	1568  50			     push    ax
-   5136	1569  E8 0000e			     call    near ptr _putstr
-   5137	156C  59			     pop     cx
-   5138	156D  59			     pop     cx
+   5133	157D  8B E5			     mov     sp,bp
+   5134	157F  5D			     pop     bp
+   5135	1580  C3			     ret
+   5136	1581			     _sleep  endp
+   5137					;
+   5138					;    void imprimeLista () {
    5139					;
-   5140					;    }
-   5141					;
-   5142	156E  5E			     pop     si
-   5143	156F  8B E5			     mov     sp,bp
-   5144	1571  5D			     pop     bp
-   5145	1572  C3			     ret
-   5146	1573			     _imprimeLista   endp
-   5147					;
-   5148					;    void inicializaLista () {
+   5140					     assume  cs:_TEXT
+   5141	1581			     _imprimeLista   proc    near
+   5142	1581  55			     push    bp
+   5143	1582  8B EC			     mov     bp,sp
+   5144	1584  83 EC 02			     sub     sp,2
+   5145	1587  56			     push    si
+   5146					;
+   5147					;      int i;
+   5148					;      char str[1];
    5149					;
-   5150					     assume  cs:_TEXT
-   5151	1573			     _inicializaLista	     proc    near
-   5152	1573  55			     push    bp
-   5153	1574  8B EC			     mov     bp,sp
-   5154					;
-   5155					;      int i;
-   5156					;
-   5157					;      for (i =	0; i < tamanho_buffer; i++) {
-   5158					;
-   5159	1576  33 D2			     xor     dx,dx
-   5160	1578  EB 0B			     jmp     short @36@114
-   5161	157A			     @36@58:
-   5162					;
-   5163					;	 vetor[i] = 0;
-   5164					;
-   5165	157A  8B DA			     mov     bx,dx
-   5166	157C  D1 E3			     shl     bx,1
-   5167	157E  C7 87 0014r 0000		     mov     word ptr DGROUP:vetor[bx],0
-   5168	1584  42			     inc     dx
-   5169	1585			     @36@114:
-   5170	1585  3B 16 00A4r		     cmp     dx,word ptr DGROUP:tamanho_buffer
-   5171	1589  7C EF			     jl	     short @36@58
-   5172					;
-   5173					;      }
-   5174					;    }
+   5150					;      for (i =	0; i < tamanho_buffer; i++) {
+   5151					;
+   5152	1588  33 F6			     xor     si,si
+   5153	158A  EB 28			     jmp     short @36@114
+   5154	158C			     @36@58:
+   5155					;
+   5156					;	 inttostr(str, vetor[i]);
+   5157					;
+   5158	158C  8B DE			     mov     bx,si
+   5159	158E  D1 E3			     shl     bx,1
+   5160	1590  FF B7 0014r		     push    word ptr DGROUP:vetor[bx]
+   5161	1594  16			     push    ss
+   5162	1595  8D 46 FE			     lea     ax,word ptr [bp-2]
+   5163	1598  50			     push    ax
+   5164	1599  E8 0000e			     call    near ptr _inttostr
+   5165	159C  83 C4 06			     add     sp,6
+   5166					;
+   5167					;	 putstr(str);
+   5168					;
+   5169	159F  16			     push    ss
+   5170	15A0  8D 46 FE			     lea     ax,word ptr [bp-2]
+   5171	15A3  50			     push    ax
+   5172	15A4  E8 0000e			     call    near ptr _putstr
+   5173	15A7  59			     pop     cx
+   5174	15A8  59			     pop     cx
    5175					;
-   5176	158B  5D			     pop     bp
-   5177	158C  C3			     ret
-   5178	158D			     _inicializaLista	     endp
-   5179					;
-   5180					;    int avanca(int posicaoAtual) {
-   5181					;
-   5182					     assume  cs:_TEXT
-   5183	158D			     _avanca proc    near
-   5184	158D  55			     push    bp
-   5185	158E  8B EC			     mov     bp,sp
-   5186	1590  8B 56 04			     mov     dx,word ptr [bp+4]
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 92
+   5176					;	 putstr(" ");
+   5177					;
+   5178	15A9  1E			     push    ds
+   5179	15AA  B8 0C6Fr			     mov     ax,offset DGROUP:s@+3005
+   5180	15AD  50			     push    ax
+   5181	15AE  E8 0000e			     call    near ptr _putstr
+   5182	15B1  59			     pop     cx
+   5183	15B2  59			     pop     cx
+   5184	15B3  46			     inc     si
+   5185	15B4			     @36@114:
+   5186	15B4  3B 36 00A4r		     cmp     si,word ptr DGROUP:tamanho_buffer
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 92
 command.ASM
 
 
 
-   5187					;
-   5188					;      if (posicaoAtual	== tamanho_buffer - 1) {
-   5189					;
-   5190	1593  A1 00A4r			     mov     ax,word ptr DGROUP:tamanho_buffer
-   5191	1596  48			     dec     ax
-   5192	1597  3B C2			     cmp     ax,dx
-   5193	1599  75 06			     jne     short @37@142
-   5194					;
-   5195					;	 return	0;
-   5196					;
-   5197	159B  33 C0			     xor     ax,ax
-   5198	159D			     @37@86:
-   5199	159D  EB 07			     jmp     short @37@170
+   5187	15B8  7C D2			     jl	     short @36@58
+   5188					;
+   5189					;      }
+   5190					;      putstr("\n");
+   5191					;
+   5192	15BA  1E			     push    ds
+   5193	15BB  B8 0C71r			     mov     ax,offset DGROUP:s@+3007
+   5194	15BE  50			     push    ax
+   5195	15BF  E8 0000e			     call    near ptr _putstr
+   5196	15C2  59			     pop     cx
+   5197	15C3  59			     pop     cx
+   5198					;
+   5199					;    }
    5200					;
-   5201					;      } else {
-   5202					;
-   5203	159F  EB 05			     jmp     short @37@170
-   5204	15A1			     @37@142:
-   5205					;
-   5206					;	 return	posicaoAtual + 1;
-   5207					;
-   5208	15A1  8B C2			     mov     ax,dx
-   5209	15A3  40			     inc     ax
-   5210	15A4  EB F7			     jmp     short @37@86
-   5211	15A6			     @37@170:
-   5212					;
-   5213					;      }
-   5214					;    }
+   5201	15C4  5E			     pop     si
+   5202	15C5  8B E5			     mov     sp,bp
+   5203	15C7  5D			     pop     bp
+   5204	15C8  C3			     ret
+   5205	15C9			     _imprimeLista   endp
+   5206					;
+   5207					;    void inicializaLista () {
+   5208					;
+   5209					     assume  cs:_TEXT
+   5210	15C9			     _inicializaLista	     proc    near
+   5211	15C9  55			     push    bp
+   5212	15CA  8B EC			     mov     bp,sp
+   5213					;
+   5214					;      int i;
    5215					;
-   5216	15A6  5D			     pop     bp
-   5217	15A7  C3			     ret
-   5218	15A8			     _avanca endp
-   5219					;
-   5220					;    void produz () {
+   5216					;      for (i =	0; i < tamanho_buffer; i++) {
+   5217					;
+   5218	15CC  33 D2			     xor     dx,dx
+   5219	15CE  EB 0B			     jmp     short @37@114
+   5220	15D0			     @37@58:
    5221					;
-   5222					     assume  cs:_TEXT
-   5223	15A8			     _produz proc    near
-   5224	15A8  55			     push    bp
-   5225	15A9  8B EC			     mov     bp,sp
-   5226					;
-   5227					;      itens = itens + 1;
-   5228					;
-   5229	15AB  A1 00A2r			     mov     ax,word ptr DGROUP:itens
-   5230	15AE  40			     inc     ax
-   5231	15AF  A3 00A2r			     mov     word ptr DGROUP:itens,ax
-   5232					;
-   5233					;      vetor[posicaoProdutor] =	1;
+   5222					;	 vetor[i] = 0;
+   5223					;
+   5224	15D0  8B DA			     mov     bx,dx
+   5225	15D2  D1 E3			     shl     bx,1
+   5226	15D4  C7 87 0014r 0000		     mov     word ptr DGROUP:vetor[bx],0
+   5227	15DA  42			     inc     dx
+   5228	15DB			     @37@114:
+   5229	15DB  3B 16 00A4r		     cmp     dx,word ptr DGROUP:tamanho_buffer
+   5230	15DF  7C EF			     jl	     short @37@58
+   5231					;
+   5232					;      }
+   5233					;    }
    5234					;
-   5235	15B2  8B 1E 00A8r		     mov     bx,word ptr DGROUP:posicaoProdutor
-   5236	15B6  D1 E3			     shl     bx,1
-   5237	15B8  C7 87 0014r 0001		     mov     word ptr DGROUP:vetor[bx],1
+   5235	15E1  5D			     pop     bp
+   5236	15E2  C3			     ret
+   5237	15E3			     _inicializaLista	     endp
    5238					;
-   5239					;      posicaoProdutor = avanca(posicaoProdutor);
+   5239					;    int avanca(int posicaoAtual) {
    5240					;
-   5241	15BE  FF 36 00A8r		     push    word ptr DGROUP:posicaoProdutor
-   5242	15C2  E8 FFC8			     call    near ptr _avanca
-   5243	15C5  59			     pop     cx
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 93
+   5241					     assume  cs:_TEXT
+   5242	15E3			     _avanca proc    near
+   5243	15E3  55			     push    bp
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 93
 command.ASM
 
 
 
-   5244	15C6  A3 00A8r			     mov     word ptr DGROUP:posicaoProdutor,ax
-   5245					;
-   5246					;      imprimeLista();
-   5247					;
-   5248	15C9  E8 FF5F			     call    near ptr _imprimeLista
-   5249					;
-   5250					;    }
-   5251					;
-   5252	15CC  5D			     pop     bp
-   5253	15CD  C3			     ret
-   5254	15CE			     _produz endp
+   5244	15E4  8B EC			     mov     bp,sp
+   5245	15E6  8B 56 04			     mov     dx,word ptr [bp+4]
+   5246					;
+   5247					;      if (posicaoAtual	== tamanho_buffer - 1) {
+   5248					;
+   5249	15E9  A1 00A4r			     mov     ax,word ptr DGROUP:tamanho_buffer
+   5250	15EC  48			     dec     ax
+   5251	15ED  3B C2			     cmp     ax,dx
+   5252	15EF  75 06			     jne     short @38@142
+   5253					;
+   5254					;	 return	0;
    5255					;
-   5256					;    void produtor()
-   5257					;
-   5258					     assume  cs:_TEXT
-   5259	15CE			     _produtor	     proc    near
-   5260	15CE  55			     push    bp
-   5261	15CF  8B EC			     mov     bp,sp
-   5262					;
-   5263					;    {
-   5264					;      putstr("SOU O PRODUTOR ");
-   5265					;
-   5266	15D1  1E			     push    ds
-   5267	15D2  B8 0C6Fr			     mov     ax,offset DGROUP:s@+3009
-   5268	15D5  50			     push    ax
-   5269	15D6  E8 0000e			     call    near ptr _putstr
-   5270	15D9  59			     pop     cx
-   5271	15DA  59			     pop     cx
-   5272	15DB  EB 1C			     jmp     short @39@170
-   5273	15DD			     @39@58:
+   5256	15F1  33 C0			     xor     ax,ax
+   5257	15F3			     @38@86:
+   5258	15F3  EB 07			     jmp     short @38@170
+   5259					;
+   5260					;      } else {
+   5261					;
+   5262	15F5  EB 05			     jmp     short @38@170
+   5263	15F7			     @38@142:
+   5264					;
+   5265					;	 return	posicaoAtual + 1;
+   5266					;
+   5267	15F7  8B C2			     mov     ax,dx
+   5268	15F9  40			     inc     ax
+   5269	15FA  EB F7			     jmp     short @38@86
+   5270	15FC			     @38@170:
+   5271					;
+   5272					;      }
+   5273					;    }
    5274					;
-   5275					;
-   5276					;      while(cicloProdutor < tamanho_buffer) {
-   5277					;	 if (itens < tamanho_buffer) {
+   5275	15FC  5D			     pop     bp
+   5276	15FD  C3			     ret
+   5277	15FE			     _avanca endp
    5278					;
-   5279	15DD  A1 00A2r			     mov     ax,word ptr DGROUP:itens
-   5280	15E0  3B 06 00A4r		     cmp     ax,word ptr DGROUP:tamanho_buffer
-   5281	15E4  7D 05			     jge     short @39@114
-   5282					;
-   5283					;	   produz();
-   5284					;
-   5285	15E6  E8 FFBF			     call    near ptr _produz
-   5286					;
-   5287					;	 } else	{
-   5288					;
-   5289	15E9  EB 0A			     jmp     short @39@142
-   5290	15EB			     @39@114:
+   5279					;    void produz () {
+   5280					;
+   5281					     assume  cs:_TEXT
+   5282	15FE			     _produz proc    near
+   5283	15FE  55			     push    bp
+   5284	15FF  8B EC			     mov     bp,sp
+   5285					;
+   5286					;      itens = itens + 1;
+   5287					;
+   5288	1601  A1 00A2r			     mov     ax,word ptr DGROUP:itens
+   5289	1604  40			     inc     ax
+   5290	1605  A3 00A2r			     mov     word ptr DGROUP:itens,ax
    5291					;
-   5292					;	   putstr("Nao ha mais espaco para produzir\n");
+   5292					;      vetor[posicaoProdutor] =	1;
    5293					;
-   5294	15EB  1E			     push    ds
-   5295	15EC  B8 0C7Fr			     mov     ax,offset DGROUP:s@+3025
-   5296	15EF  50			     push    ax
-   5297	15F0  E8 0000e			     call    near ptr _putstr
-   5298	15F3  59			     pop     cx
-   5299	15F4  59			     pop     cx
-   5300	15F5			     @39@142:
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 94
+   5294	1608  8B 1E 00A8r		     mov     bx,word ptr DGROUP:posicaoProdutor
+   5295	160C  D1 E3			     shl     bx,1
+   5296	160E  C7 87 0014r 0001		     mov     word ptr DGROUP:vetor[bx],1
+   5297					;
+   5298					;      posicaoProdutor = avanca(posicaoProdutor);
+   5299					;
+   5300	1614  FF 36 00A8r		     push    word ptr DGROUP:posicaoProdutor
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 94
 command.ASM
 
 
 
-   5301					;
-   5302					;	 }
-   5303					;	 cicloProdutor++;
+   5301	1618  E8 FFC8			     call    near ptr _avanca
+   5302	161B  59			     pop     cx
+   5303	161C  A3 00A8r			     mov     word ptr DGROUP:posicaoProdutor,ax
    5304					;
-   5305	15F5  FF 06 00A6r		     inc     word ptr DGROUP:cicloProdutor
-   5306	15F9			     @39@170:
-   5307	15F9  A1 00A6r			     mov     ax,word ptr DGROUP:cicloProdutor
-   5308	15FC  3B 06 00A4r		     cmp     ax,word ptr DGROUP:tamanho_buffer
-   5309	1600  7C DB			     jl	     short @39@58
+   5305					;      imprimeLista();
+   5306					;
+   5307	161F  E8 FF5F			     call    near ptr _imprimeLista
+   5308					;
+   5309					;    }
    5310					;
-   5311					;      }
-   5312					;    }
-   5313					;
-   5314	1602  5D			     pop     bp
-   5315	1603  C3			     ret
-   5316	1604			     _produtor	     endp
-   5317					;
-   5318					;    void consumidor()
-   5319					;
-   5320					     assume  cs:_TEXT
-   5321	1604			     _consumidor     proc    near
-   5322	1604  55			     push    bp
-   5323	1605  8B EC			     mov     bp,sp
-   5324					;
-   5325					;    {
-   5326					;      putstr("SOU O CONSUMIDOR	");
+   5311	1622  5D			     pop     bp
+   5312	1623  C3			     ret
+   5313	1624			     _produz endp
+   5314					;
+   5315					;    void consome () {
+   5316					;
+   5317					     assume  cs:_TEXT
+   5318	1624			     _consome	     proc    near
+   5319	1624  55			     push    bp
+   5320	1625  8B EC			     mov     bp,sp
+   5321					;
+   5322					;      itens = itens - 1;
+   5323					;
+   5324	1627  A1 00A2r			     mov     ax,word ptr DGROUP:itens
+   5325	162A  48			     dec     ax
+   5326	162B  A3 00A2r			     mov     word ptr DGROUP:itens,ax
    5327					;
-   5328	1607  1E			     push    ds
-   5329	1608  B8 0CA1r			     mov     ax,offset DGROUP:s@+3059
-   5330	160B  50			     push    ax
-   5331	160C  E8 0000e			     call    near ptr _putstr
-   5332	160F  59			     pop     cx
-   5333	1610  59			     pop     cx
-   5334					;
-   5335					;    }
-   5336					;
-   5337	1611  5D			     pop     bp
-   5338	1612  C3			     ret
-   5339	1613			     _consumidor     endp
+   5328					;      vetor[posicaoConsumidor]	= 0;
+   5329					;
+   5330	162E  8B 1E 00ACr		     mov     bx,word ptr DGROUP:posicaoConsumidor
+   5331	1632  D1 E3			     shl     bx,1
+   5332	1634  C7 87 0014r 0000		     mov     word ptr DGROUP:vetor[bx],0
+   5333					;
+   5334					;      posicaoConsumidor = avanca(posicaoConsumidor);
+   5335					;
+   5336	163A  FF 36 00ACr		     push    word ptr DGROUP:posicaoConsumidor
+   5337	163E  E8 FFA2			     call    near ptr _avanca
+   5338	1641  59			     pop     cx
+   5339	1642  A3 00ACr			     mov     word ptr DGROUP:posicaoConsumidor,ax
    5340					;
-   5341					;    int cmd_prodcons(int argc,	char far *argv[])
+   5341					;      imprimeLista();
    5342					;
-   5343					     assume  cs:_TEXT
-   5344	1613			     _cmd_prodcons   proc    near
-   5345	1613  55			     push    bp
-   5346	1614  8B EC			     mov     bp,sp
-   5347					;
-   5348					;    {
-   5349					;
-   5350					;	     if	     (argc != 2)  {
-   5351					;
-   5352	1616  83 7E 04 02		     cmp     word ptr [bp+4],2
-   5353	161A  74 0F			     je	     short @41@142
-   5354					;
-   5355					;		     putstr("Erro em prodcons: numero invalido de argumentos!\n");
-   5356					;
-   5357	161C  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 95
+   5343	1645  E8 FF39			     call    near ptr _imprimeLista
+   5344					;
+   5345					;    }
+   5346					;
+   5347	1648  5D			     pop     bp
+   5348	1649  C3			     ret
+   5349	164A			     _consome	     endp
+   5350					;
+   5351					;    void produtor()
+   5352					;
+   5353					     assume  cs:_TEXT
+   5354	164A			     _produtor	     proc    near
+   5355	164A  55			     push    bp
+   5356	164B  8B EC			     mov     bp,sp
+   5357	164D  EB 24			     jmp     short @41@170
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 95
 command.ASM
 
 
 
-   5358	161D  B8 0CB3r			     mov     ax,offset DGROUP:s@+3077
-   5359	1620			     @41@86:
-   5360	1620  50			     push    ax
-   5361	1621  E8 0000e			     call    near ptr _putstr
-   5362	1624  59			     pop     cx
-   5363	1625  59			     pop     cx
-   5364					;
-   5365					;		     return 1;
-   5366					;
-   5367	1626  B8 0001			     mov     ax,1
-   5368	1629			     @41@114:
-   5369	1629  EB 41			     jmp     short @41@282
-   5370	162B			     @41@142:
+   5358	164F			     @41@58:
+   5359					;
+   5360					;    {
+   5361					;      while(cicloProdutor < 20) {
+   5362					;	 if (itens < tamanho_buffer) {
+   5363					;
+   5364	164F  A1 00A2r			     mov     ax,word ptr DGROUP:itens
+   5365	1652  3B 06 00A4r		     cmp     ax,word ptr DGROUP:tamanho_buffer
+   5366	1656  7D 05			     jge     short @41@114
+   5367					;
+   5368					;	   produz();
+   5369					;
+   5370	1658  E8 FFA3			     call    near ptr _produz
    5371					;
-   5372					;	     }
+   5372					;	 } else	{
    5373					;
-   5374					;	     tamanho_buffer = atoi(argv[1]);
-   5375					;
-   5376	162B  8B 5E 06			     mov     bx,word ptr [bp+6]
-   5377	162E  FF 77 06			     push    word ptr [bx+6]
-   5378	1631  FF 77 04			     push    word ptr [bx+4]
-   5379	1634  E8 0000e			     call    near ptr _atoi
-   5380	1637  59			     pop     cx
-   5381	1638  59			     pop     cx
-   5382	1639  A3 00A4r			     mov     word ptr DGROUP:tamanho_buffer,ax
-   5383					;
-   5384					;
-   5385					;	     /*	Get arguments
-   5386					;	     int cons_time     = atoi(argv[1]);
-   5387					;	     int prod_time     = atoi(argv[2]);
-   5388					;	 */
+   5374	165B  EB 0A			     jmp     short @41@142
+   5375	165D			     @41@114:
+   5376					;
+   5377					;	   putstr("Nao ha mais espaco para produzir\n");
+   5378					;
+   5379	165D  1E			     push    ds
+   5380	165E  B8 0C73r			     mov     ax,offset DGROUP:s@+3009
+   5381	1661  50			     push    ax
+   5382	1662  E8 0000e			     call    near ptr _putstr
+   5383	1665  59			     pop     cx
+   5384	1666  59			     pop     cx
+   5385	1667			     @41@142:
+   5386					;
+   5387					;	 }
+   5388					;	 sleep(1);
    5389					;
-   5390					;	 // Inicializa Vetor
-   5391					;	 inicializaLista();
-   5392					;
-   5393	163C  E8 FF34			     call    near ptr _inicializaLista
+   5390	1667  B8 0001			     mov     ax,1
+   5391	166A  50			     push    ax
+   5392	166B  E8 FEBD			     call    near ptr _sleep
+   5393	166E  59			     pop     cx
    5394					;
-   5395					;
-   5396					;	 // Printa Vetor Inicial
-   5397					;	 imprimeLista();
-   5398					;
-   5399	163F  E8 FEE9			     call    near ptr _imprimeLista
-   5400					;
+   5395					;	 cicloProdutor++;
+   5396					;
+   5397	166F  FF 06 00A6r		     inc     word ptr DGROUP:cicloProdutor
+   5398	1673			     @41@170:
+   5399	1673  83 3E 00A6r 14		     cmp     word ptr DGROUP:cicloProdutor,20
+   5400	1678  7C D5			     jl	     short @41@58
    5401					;
-   5402					;	 /* Criar consumidor e produtor*/
-   5403					;	 if  (fork(produtor)==miniSO_ERROR)  {
+   5402					;      }
+   5403					;    }
    5404					;
-   5405	1642  B8 15CEr			     mov     ax,offset _produtor
-   5406	1645  50			     push    ax
-   5407	1646  E8 0000e			     call    near ptr _fork
-   5408	1649  59			     pop     cx
-   5409	164A  3D FFFF			     cmp     ax,-1
-   5410	164D  75 06			     jne     short @41@198
-   5411					;
-   5412					;		 putstr("Erro em prodcons: fork() nao conseguiu	criar thread!\n");
-   5413					;
-   5414	164F  1E			     push    ds
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 96
+   5405	167A  5D			     pop     bp
+   5406	167B  C3			     ret
+   5407	167C			     _produtor	     endp
+   5408					;
+   5409					;    void consumidor()
+   5410					;
+   5411					     assume  cs:_TEXT
+   5412	167C			     _consumidor     proc    near
+   5413	167C  55			     push    bp
+   5414	167D  8B EC			     mov     bp,sp
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 96
 command.ASM
 
 
 
-   5415	1650  B8 0CE5r			     mov     ax,offset DGROUP:s@+3127
-   5416	1653  EB CB			     jmp     short @41@86
-   5417	1655			     @41@198:
-   5418					;
-   5419					;		 return	1;
-   5420					;	 }
-   5421					;	 if  (fork(consumidor)==miniSO_ERROR)  {
-   5422					;
-   5423	1655  B8 1604r			     mov     ax,offset _consumidor
-   5424	1658  50			     push    ax
-   5425	1659  E8 0000e			     call    near ptr _fork
-   5426	165C  59			     pop     cx
-   5427	165D  3D FFFF			     cmp     ax,-1
-   5428	1660  75 06			     jne     short @41@254
-   5429					;
-   5430					;		 putstr("Erro em prodcons: fork() nao conseguiu	criar thread!\n");
-   5431					;
-   5432	1662  1E			     push    ds
-   5433	1663  B8 0D1Br			     mov     ax,offset DGROUP:s@+3181
-   5434	1666  EB B8			     jmp     short @41@86
-   5435	1668			     @41@254:
-   5436					;
-   5437					;		 return	1;
-   5438					;	 }
-   5439					;
-   5440					;	     return 0;
-   5441					;
-   5442	1668  33 C0			     xor     ax,ax
-   5443	166A  EB BD			     jmp     short @41@114
-   5444	166C			     @41@282:
-   5445					;
-   5446					;    }
-   5447					;
-   5448	166C  5D			     pop     bp
-   5449	166D  C3			     ret
-   5450	166E			     _cmd_prodcons   endp
-   5451	166E			     _TEXT   ends
-   5452	0014			     _BSS    segment word public 'BSS'
-   5453	0014			     vetor   label   word
-   5454	0014  28*(??)			     db	     40	dup (?)
-   5455	003C			     _semid  label   word
-   5456	003C  02*(??)			     db	     2 dup (?)
-   5457	003E			     var     label   word
-   5458	003E  01F4*(??)			     db	     500 dup (?)
-   5459	0232			     history_pos     label   word
-   5460	0232  02*(??)			     db	     2 dup (?)
-   5461	0234			     history_nxt     label   word
-   5462	0234  02*(??)			     db	     2 dup (?)
-   5463	0236			     history_ini     label   word
-   5464	0236  02*(??)			     db	     2 dup (?)
-   5465	0238			     history_len     label   word
-   5466	0238  02*(??)			     db	     2 dup (?)
-   5467	023A			     history label   byte
-   5468	023A  0136*(??)			     db	     310 dup (?)
-   5469	0370			     argv    label   dword
-   5470	0370  40*(??)			     db	     64	dup (?)
-   5471	03B0			     argline label   byte
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 97
+   5415	167F  EB 22			     jmp     short @42@170
+   5416	1681			     @42@58:
+   5417					;
+   5418					;    {
+   5419					;      while(cicloConsumidor < 20) {
+   5420					;	 if (itens > 0)	{
+   5421					;
+   5422	1681  83 3E 00A2r 00		     cmp     word ptr DGROUP:itens,0
+   5423	1686  7E 05			     jle     short @42@114
+   5424					;
+   5425					;	   consome();
+   5426					;
+   5427	1688  E8 FF99			     call    near ptr _consome
+   5428					;
+   5429					;	 } else	{
+   5430					;
+   5431	168B  EB 0A			     jmp     short @42@142
+   5432	168D			     @42@114:
+   5433					;
+   5434					;	   putstr("Nao ha nada para consumir\n");
+   5435					;
+   5436	168D  1E			     push    ds
+   5437	168E  B8 0C95r			     mov     ax,offset DGROUP:s@+3043
+   5438	1691  50			     push    ax
+   5439	1692  E8 0000e			     call    near ptr _putstr
+   5440	1695  59			     pop     cx
+   5441	1696  59			     pop     cx
+   5442	1697			     @42@142:
+   5443					;
+   5444					;	 }
+   5445					;	 sleep(2);
+   5446					;
+   5447	1697  B8 0002			     mov     ax,2
+   5448	169A  50			     push    ax
+   5449	169B  E8 FE8D			     call    near ptr _sleep
+   5450	169E  59			     pop     cx
+   5451					;
+   5452					;	 cicloConsumidor++;
+   5453					;
+   5454	169F  FF 06 00AAr		     inc     word ptr DGROUP:cicloConsumidor
+   5455	16A3			     @42@170:
+   5456	16A3  83 3E 00AAr 14		     cmp     word ptr DGROUP:cicloConsumidor,20
+   5457	16A8  7C D7			     jl	     short @42@58
+   5458					;
+   5459					;      }
+   5460					;    }
+   5461					;
+   5462	16AA  5D			     pop     bp
+   5463	16AB  C3			     ret
+   5464	16AC			     _consumidor     endp
+   5465					;
+   5466					;    int cmd_prodcons(int argc,	char far *argv[])
+   5467					;
+   5468					     assume  cs:_TEXT
+   5469	16AC			     _cmd_prodcons   proc    near
+   5470	16AC  55			     push    bp
+   5471	16AD  8B EC			     mov     bp,sp
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 97
 command.ASM
 
 
 
-   5472	03B0  025F*(??)			     db	     607 dup (?)
-   5473	060F			     palavra label   byte
-   5474	060F  1F*(??)			     db	     31	dup (?)
-   5475	062E			     cmdline label   byte
-   5476	062E  1F*(??)			     db	     31	dup (?)
-   5477	064D			     end_command     label   word
-   5478	064D  02*(??)			     db	     2 dup (?)
-   5479					     ?debug  C E9
-   5480					     ?debug  C FA00000000
-   5481	064F			     _BSS    ends
-   5482	00AE			     _DATA   segment word public 'DATA'
-   5483	00AE			     s@	     label   byte
-   5484	00AE  3F			     db	     '?'
-   5485	00AF  00			     db	     0
-   5486	00B0  20 20 20 20 20 20	20+	     db	     '			 exibe estas informacoes'
-   5487	      20 20 20 20 20 20	20+
-   5488	      20 20 20 20 20 65	78+
-   5489	      69 62 65 20 65 73	74+
-   5490	      61 73 20 69 6E 66	6F+
-   5491	      72 6D 61 63 6F 65	73
-   5492	00DA  00			     db	     0
-   5493	00DB  68 65 6C 70		     db	     'help'
-   5494	00DF  00			     db	     0
-   5495	00E0  20 20 20 20 20 20	20+	     db	     '		      exibe estas informacoes'
-   5496	      20 20 20 20 20 20	20+
-   5497	      20 20 65 78 69 62	65+
-   5498	      20 65 73 74 61 73	20+
-   5499	      69 6E 66 6F 72 6D	61+
-   5500	      63 6F 65 73
-   5501	0107  00			     db	     0
-   5502	0108  76 65 72			     db	     'ver'
-   5503	010B  00			     db	     0
-   5504	010C  20 20 20 20 20 20	20+	     db	     '		       mostra a	versao do MSO'
-   5505	      20 20 20 20 20 20	20+
-   5506	      20 20 20 6D 6F 73	74+
-   5507	      72 61 20 61 20 76	65+
-   5508	      72 73 61 6F 20 64	6F+
-   5509	      20 4D 53 4F
-   5510	0133  00			     db	     0
-   5511	0134  64 61 74 65		     db	     'date'
-   5512	0138  00			     db	     0
-   5513	0139  20 20 20 20 20 20	20+	     db	     '		      mostra a data'
-   5514	      20 20 20 20 20 20	20+
-   5515	      20 20 6D 6F 73 74	72+
-   5516	      61 20 61 20 64 61	74+
-   5517	      61
-   5518	0156  00			     db	     0
-   5519	0157  74 69 6D 65		     db	     'time'
-   5520	015B  00			     db	     0
-   5521	015C  20 20 20 20 20 20	20+	     db	     '		      mostra a hora'
-   5522	      20 20 20 20 20 20	20+
-   5523	      20 20 6D 6F 73 74	72+
-   5524	      61 20 61 20 68 6F	72+
-   5525	      61
-   5526	0179  00			     db	     0
-   5527	017A  63 6C 73			     db	     'cls'
-   5528	017D  00			     db	     0
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 98
+   5472					;
+   5473					;    {
+   5474					;
+   5475					;	     if	     (argc != 2)  {
+   5476					;
+   5477	16AF  83 7E 04 02		     cmp     word ptr [bp+4],2
+   5478	16B3  74 0F			     je	     short @43@142
+   5479					;
+   5480					;		     putstr("Erro em prodcons: numero invalido de argumentos!\n");
+   5481					;
+   5482	16B5  1E			     push    ds
+   5483	16B6  B8 0CB0r			     mov     ax,offset DGROUP:s@+3070
+   5484	16B9			     @43@86:
+   5485	16B9  50			     push    ax
+   5486	16BA  E8 0000e			     call    near ptr _putstr
+   5487	16BD  59			     pop     cx
+   5488	16BE  59			     pop     cx
+   5489					;
+   5490					;		     return 1;
+   5491					;
+   5492	16BF  B8 0001			     mov     ax,1
+   5493	16C2			     @43@114:
+   5494	16C2  EB 41			     jmp     short @43@282
+   5495	16C4			     @43@142:
+   5496					;
+   5497					;	     }
+   5498					;
+   5499					;	     tamanho_buffer = atoi(argv[1]);
+   5500					;
+   5501	16C4  8B 5E 06			     mov     bx,word ptr [bp+6]
+   5502	16C7  FF 77 06			     push    word ptr [bx+6]
+   5503	16CA  FF 77 04			     push    word ptr [bx+4]
+   5504	16CD  E8 0000e			     call    near ptr _atoi
+   5505	16D0  59			     pop     cx
+   5506	16D1  59			     pop     cx
+   5507	16D2  A3 00A4r			     mov     word ptr DGROUP:tamanho_buffer,ax
+   5508					;
+   5509					;
+   5510					;	     /*	Get arguments
+   5511					;	     int cons_time     = atoi(argv[1]);
+   5512					;	     int prod_time     = atoi(argv[2]);
+   5513					;	 */
+   5514					;
+   5515					;	 // Inicializa Vetor
+   5516					;	 inicializaLista();
+   5517					;
+   5518	16D5  E8 FEF1			     call    near ptr _inicializaLista
+   5519					;
+   5520					;
+   5521					;	 // Printa Vetor Inicial
+   5522					;	 imprimeLista();
+   5523					;
+   5524	16D8  E8 FEA6			     call    near ptr _imprimeLista
+   5525					;
+   5526					;
+   5527					;	 /* Criar consumidor e produtor*/
+   5528					;	 if  (fork(produtor)==miniSO_ERROR)  {
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 98
 command.ASM
 
 
 
-   5529	017E  20 20 20 20 20 20	20+	     db	     '		       limpa a tela'
-   5530	      20 20 20 20 20 20	20+
-   5531	      20 20 20 6C 69 6D	70+
-   5532	      61 20 61 20 74 65	6C+
-   5533	      61
-   5534	019B  00			     db	     0
-   5535	019C  63 6C 65 61 72		     db	     'clear'
-   5536	01A1  00			     db	     0
-   5537	01A2  20 20 20 20 20 20	20+	     db	     '		     limpa a tela'
-   5538	      20 20 20 20 20 20	20+
-   5539	      20 6C 69 6D 70 61	20+
-   5540	      61 20 74 65 6C 61
-   5541	01BD  00			     db	     0
-   5542	01BE  72 65 62 6F 6F 74		     db	     'reboot'
-   5543	01C4  00			     db	     0
-   5544	01C5  20 20 20 20 20 20	20+	     db	     '		    reinicializa o sistema'
-   5545	      20 20 20 20 20 20	20+
-   5546	      72 65 69 6E 69 63	69+
-   5547	      61 6C 69 7A 61 20	6F+
-   5548	      20 73 69 73 74 65	6D+
-   5549	      61
-   5550	01E9  00			     db	     0
-   5551	01EA  65 78 69 74		     db	     'exit'
-   5552	01EE  00			     db	     0
-   5553	01EF  20 20 20 20 20 20	20+	     db	     '		      abandona o sistema'
-   5554	      20 20 20 20 20 20	20+
-   5555	      20 20 61 62 61 6E	64+
-   5556	      6F 6E 61 20 6F 20	73+
-   5557	      69 73 74 65 6D 61
-   5558	0211  00			     db	     0
-   5559	0212  71 75 69 74		     db	     'quit'
-   5560	0216  00			     db	     0
-   5561	0217  20 20 20 20 20 20	20+	     db	     '		      abandona o sistema'
-   5562	      20 20 20 20 20 20	20+
-   5563	      20 20 61 62 61 6E	64+
-   5564	      6F 6E 61 20 6F 20	73+
-   5565	      69 73 74 65 6D 61
-   5566	0239  00			     db	     0
-   5567	023A  70 73			     db	     'ps'
-   5568	023C  00			     db	     0
-   5569	023D  20 20 20 20 20 20	20+	     db	     '			exibe processos/threads	em execucao'
-   5570	      20 20 20 20 20 20	20+
-   5571	      20 20 20 20 65 78	69+
-   5572	      62 65 20 70 72 6F	63+
-   5573	      65 73 73 6F 73 2F	74+
-   5574	      68 72 65 61 64 73	20+
-   5575	      65 6D 20 65 78 65	63+
-   5576	      75 63 61 6F
-   5577	0272  00			     db	     0
-   5578	0273  6B 69 6C 6C		     db	     'kill'
-   5579	0277  00			     db	     0
-   5580	0278  20 3C 70 69 64 3E	20+	     db	     ' <pid>	      encerra um processo/thread'
-   5581	      20 20 20 20 20 20	20+
-   5582	      20 20 65 6E 63 65	72+
-   5583	      72 61 20 75 6D 20	70+
-   5584	      72 6F 63 65 73 73	6F+
-   5585	      2F 74 68 72 65 61	64
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 99
+   5529					;
+   5530	16DB  B8 164Ar			     mov     ax,offset _produtor
+   5531	16DE  50			     push    ax
+   5532	16DF  E8 0000e			     call    near ptr _fork
+   5533	16E2  59			     pop     cx
+   5534	16E3  3D FFFF			     cmp     ax,-1
+   5535	16E6  75 06			     jne     short @43@198
+   5536					;
+   5537					;		 putstr("Erro em prodcons: fork() nao conseguiu	criar thread!\n");
+   5538					;
+   5539	16E8  1E			     push    ds
+   5540	16E9  B8 0CE2r			     mov     ax,offset DGROUP:s@+3120
+   5541	16EC  EB CB			     jmp     short @43@86
+   5542	16EE			     @43@198:
+   5543					;
+   5544					;		 return	1;
+   5545					;	 }
+   5546					;	 if  (fork(consumidor)==miniSO_ERROR)  {
+   5547					;
+   5548	16EE  B8 167Cr			     mov     ax,offset _consumidor
+   5549	16F1  50			     push    ax
+   5550	16F2  E8 0000e			     call    near ptr _fork
+   5551	16F5  59			     pop     cx
+   5552	16F6  3D FFFF			     cmp     ax,-1
+   5553	16F9  75 06			     jne     short @43@254
+   5554					;
+   5555					;		 putstr("Erro em prodcons: fork() nao conseguiu	criar thread!\n");
+   5556					;
+   5557	16FB  1E			     push    ds
+   5558	16FC  B8 0D18r			     mov     ax,offset DGROUP:s@+3174
+   5559	16FF  EB B8			     jmp     short @43@86
+   5560	1701			     @43@254:
+   5561					;
+   5562					;		 return	1;
+   5563					;	 }
+   5564					;
+   5565					;	     return 0;
+   5566					;
+   5567	1701  33 C0			     xor     ax,ax
+   5568	1703  EB BD			     jmp     short @43@114
+   5569	1705			     @43@282:
+   5570					;
+   5571					;    }
+   5572					;
+   5573	1705  5D			     pop     bp
+   5574	1706  C3			     ret
+   5575	1707			     _cmd_prodcons   endp
+   5576	1707			     _TEXT   ends
+   5577	0014			     _BSS    segment word public 'BSS'
+   5578	0014			     vetor   label   word
+   5579	0014  28*(??)			     db	     40	dup (?)
+   5580	003C			     _semid  label   word
+   5581	003C  02*(??)			     db	     2 dup (?)
+   5582	003E			     var     label   word
+   5583	003E  01F4*(??)			     db	     500 dup (?)
+   5584	0232			     history_pos     label   word
+   5585	0232  02*(??)			     db	     2 dup (?)
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 99
 command.ASM
 
 
 
-   5586	02A2  00			     db	     0
-   5587	02A3  64 65 6D 6F		     db	     'demo'
-   5588	02A7  00			     db	     0
-   5589	02A8  20 3C 65 78 69 74	63+	     db	     ' <exitcode>     inicia processos/threads de demonstracao'
-   5590	      6F 64 65 3E 20 20	20+
-   5591	      20 20 69 6E 69 63	69+
-   5592	      61 20 70 72 6F 63	65+
-   5593	      73 73 6F 73 2F 74	68+
-   5594	      72 65 61 64 73 20	64+
-   5595	      65 20 64 65 6D 6F	6E+
-   5596	      73 74 72 61 63 61	6F
-   5597	02E0  00			     db	     0
-   5598	02E1  73 65 74			     db	     'set'
-   5599	02E4  00			     db	     0
-   5600	02E5  20 5B 3C 76 61 72	3E+	     db	     ' [<var> [<val>]] define o	valor da variavel ou exibe variavei'
-   5601	      20 5B 3C 76 61 6C	3E+
-   5602	      5D 5D 20 64 65 66	69+
-   5603	      6E 65 20 6F 20 76	61+
-   5604	      6C 6F 72 20 64 61	20+
-   5605	      76 61 72 69 61 76	65+
-   5606	      6C 20 6F 75 20 65	78+
-   5607	      69 62 65 20 76 61	72+
-   5608	      69 61 76 65 69
-   5609	0322  73			     db	     's'
-   5610	0323  00			     db	     0
-   5611	0324  75 6E 73 65 74		     db	     'unset'
-   5612	0329  00			     db	     0
-   5613	032A  20 3C 76 61 72 3E	20+	     db	     ' <var>	     apaga a variavel'
-   5614	      20 20 20 20 20 20	20+
-   5615	      20 61 70 61 67 61	20+
-   5616	      61 20 76 61 72 69	61+
-   5617	      76 65 6C
-   5618	0349  00			     db	     0
-   5619	034A  65 63 68 6F		     db	     'echo'
-   5620	034E  00			     db	     0
-   5621	034F  20 5B 2D 6E 5D 20	3C+	     db	     ' [-n] <args>... imprime argumentos'
-   5622	      61 72 67 73 3E 2E	2E+
-   5623	      2E 20 69 6D 70 72	69+
-   5624	      6D 65 20 61 72 67	75+
-   5625	      6D 65 6E 74 6F 73
-   5626	0371  00			     db	     0
-   5627	0372  77 61 69 74 70 69	64	     db	     'waitpid'
-   5628	0379  00			     db	     0
-   5629	037A  20 3C 70 69 64 3E	20+	     db	     ' <pid>	   espera pelo processo-filho indicado'
-   5630	      20 20 20 20 20 20	65+
-   5631	      73 70 65 72 61 20	70+
-   5632	      65 6C 6F 20 70 72	6F+
-   5633	      63 65 73 73 6F 2D	66+
-   5634	      69 6C 68 6F 20 69	6E+
-   5635	      64 69 63 61 64 6F
-   5636	03AA  00			     db	     0
-   5637	03AB  77 61 69 74		     db	     'wait'
-   5638	03AF  00			     db	     0
-   5639	03B0  20 20 20 20 20 20	20+	     db	     '		      espera por um processo-filho'
-   5640	      20 20 20 20 20 20	20+
-   5641	      20 20 65 73 70 65	72+
-   5642	      61 20 70 6F 72 20	75+
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 100
+   5586	0234			     history_nxt     label   word
+   5587	0234  02*(??)			     db	     2 dup (?)
+   5588	0236			     history_ini     label   word
+   5589	0236  02*(??)			     db	     2 dup (?)
+   5590	0238			     history_len     label   word
+   5591	0238  02*(??)			     db	     2 dup (?)
+   5592	023A			     history label   byte
+   5593	023A  0136*(??)			     db	     310 dup (?)
+   5594	0370			     argv    label   dword
+   5595	0370  40*(??)			     db	     64	dup (?)
+   5596	03B0			     argline label   byte
+   5597	03B0  025F*(??)			     db	     607 dup (?)
+   5598	060F			     palavra label   byte
+   5599	060F  1F*(??)			     db	     31	dup (?)
+   5600	062E			     cmdline label   byte
+   5601	062E  1F*(??)			     db	     31	dup (?)
+   5602	064D			     end_command     label   word
+   5603	064D  02*(??)			     db	     2 dup (?)
+   5604					     ?debug  C E9
+   5605					     ?debug  C FA00000000
+   5606	064F			     _BSS    ends
+   5607	00B2			     _DATA   segment word public 'DATA'
+   5608	00B2			     s@	     label   byte
+   5609	00B2  3F			     db	     '?'
+   5610	00B3  00			     db	     0
+   5611	00B4  20 20 20 20 20 20	20+	     db	     '			 exibe estas informacoes'
+   5612	      20 20 20 20 20 20	20+
+   5613	      20 20 20 20 20 65	78+
+   5614	      69 62 65 20 65 73	74+
+   5615	      61 73 20 69 6E 66	6F+
+   5616	      72 6D 61 63 6F 65	73
+   5617	00DE  00			     db	     0
+   5618	00DF  68 65 6C 70		     db	     'help'
+   5619	00E3  00			     db	     0
+   5620	00E4  20 20 20 20 20 20	20+	     db	     '		      exibe estas informacoes'
+   5621	      20 20 20 20 20 20	20+
+   5622	      20 20 65 78 69 62	65+
+   5623	      20 65 73 74 61 73	20+
+   5624	      69 6E 66 6F 72 6D	61+
+   5625	      63 6F 65 73
+   5626	010B  00			     db	     0
+   5627	010C  76 65 72			     db	     'ver'
+   5628	010F  00			     db	     0
+   5629	0110  20 20 20 20 20 20	20+	     db	     '		       mostra a	versao do MSO'
+   5630	      20 20 20 20 20 20	20+
+   5631	      20 20 20 6D 6F 73	74+
+   5632	      72 61 20 61 20 76	65+
+   5633	      72 73 61 6F 20 64	6F+
+   5634	      20 4D 53 4F
+   5635	0137  00			     db	     0
+   5636	0138  64 61 74 65		     db	     'date'
+   5637	013C  00			     db	     0
+   5638	013D  20 20 20 20 20 20	20+	     db	     '		      mostra a data'
+   5639	      20 20 20 20 20 20	20+
+   5640	      20 20 6D 6F 73 74	72+
+   5641	      61 20 61 20 64 61	74+
+   5642	      61
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 100
 command.ASM
 
 
 
-   5643	      6D 20 70 72 6F 63	65+
-   5644	      73 73 6F 2D 66 69	6C+
-   5645	      68 6F
-   5646	03DC  00			     db	     0
-   5647	03DD  73 65 6D 6C 73		     db	     'semls'
-   5648	03E2  00			     db	     0
-   5649	03E3  20 20 20 20 20 20	20+	     db	     '		     lista tabela de semaforos'
-   5650	      20 20 20 20 20 20	20+
-   5651	      20 6C 69 73 74 61	20+
-   5652	      74 61 62 65 6C 61	20+
-   5653	      64 65 20 73 65 6D	61+
-   5654	      66 6F 72 6F 73
-   5655	040B  00			     db	     0
-   5656	040C  73 65 6D 63 72 65	61+	     db	     'semcreate'
-   5657	      74 65
-   5658	0415  00			     db	     0
-   5659	0416  20 3C 76 61 6C 75	65+	     db	     ' <value>	 cria um semaforo'
-   5660	      3E 20 20 20 63 72	69+
-   5661	      61 20 75 6D 20 73	65+
-   5662	      6D 61 66 6F 72 6F
-   5663	0431  00			     db	     0
-   5664	0432  73 65 6D 74 65 73	74	     db	     'semtest'
-   5665	0439  00			     db	     0
-   5666	043A  20 3C 73 65 6D 69	64+	     db	     ' <semid>	   aplicacao para teste	de semaforos'
-   5667	      3E 20 20 20 20 20	61+
-   5668	      70 6C 69 63 61 63	61+
-   5669	      6F 20 70 61 72 61	20+
-   5670	      74 65 73 74 65 20	64+
-   5671	      65 20 73 65 6D 61	66+
-   5672	      6F 72 6F 73
-   5673	0468  00			     db	     0
-   5674	0469  73 65 6D 75 70		     db	     'semup'
-   5675	046E  00			     db	     0
-   5676	046F  20 3C 73 65 6D 69	64+	     db	     ' <semid>	     incrementa	o valor	de um semaforo'
-   5677	      3E 20 20 20 20 20	20+
-   5678	      20 69 6E 63 72 65	6D+
-   5679	      65 6E 74 61 20 6F	20+
-   5680	      76 61 6C 6F 72 20	64+
-   5681	      65 20 75 6D 20 73	65+
-   5682	      6D 61 66 6F 72 6F
-   5683	049F  00			     db	     0
-   5684	04A0  73 65 6D 64 65 73	74+	     db	     'semdestroy'
-   5685	      72 6F 79
-   5686	04AA  00			     db	     0
-   5687	04AB  20 3C 73 65 6D 69	64+	     db	     ' <semid>	destroi	um semaforo'
-   5688	      3E 20 20 64 65 73	74+
-   5689	      72 6F 69 20 75 6D	20+
-   5690	      73 65 6D 61 66 6F	72+
-   5691	      6F
-   5692	04C8  00			     db	     0
-   5693	04C9  73 74 6F 70		     db	     'stop'
-   5694	04CD  00			     db	     0
-   5695	04CE  3C 70 69 64 3E 20	20+	     db	     '<pid>	     suspende um processo/thread'
-   5696	      20 20 20 20 20 20	20+
-   5697	      20 73 75 73 70 65	6E+
-   5698	      64 65 20 75 6D 20	70+
-   5699	      72 6F 63 65 73 73	6F+
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 101
+   5643	015A  00			     db	     0
+   5644	015B  74 69 6D 65		     db	     'time'
+   5645	015F  00			     db	     0
+   5646	0160  20 20 20 20 20 20	20+	     db	     '		      mostra a hora'
+   5647	      20 20 20 20 20 20	20+
+   5648	      20 20 6D 6F 73 74	72+
+   5649	      61 20 61 20 68 6F	72+
+   5650	      61
+   5651	017D  00			     db	     0
+   5652	017E  63 6C 73			     db	     'cls'
+   5653	0181  00			     db	     0
+   5654	0182  20 20 20 20 20 20	20+	     db	     '		       limpa a tela'
+   5655	      20 20 20 20 20 20	20+
+   5656	      20 20 20 6C 69 6D	70+
+   5657	      61 20 61 20 74 65	6C+
+   5658	      61
+   5659	019F  00			     db	     0
+   5660	01A0  63 6C 65 61 72		     db	     'clear'
+   5661	01A5  00			     db	     0
+   5662	01A6  20 20 20 20 20 20	20+	     db	     '		     limpa a tela'
+   5663	      20 20 20 20 20 20	20+
+   5664	      20 6C 69 6D 70 61	20+
+   5665	      61 20 74 65 6C 61
+   5666	01C1  00			     db	     0
+   5667	01C2  72 65 62 6F 6F 74		     db	     'reboot'
+   5668	01C8  00			     db	     0
+   5669	01C9  20 20 20 20 20 20	20+	     db	     '		    reinicializa o sistema'
+   5670	      20 20 20 20 20 20	20+
+   5671	      72 65 69 6E 69 63	69+
+   5672	      61 6C 69 7A 61 20	6F+
+   5673	      20 73 69 73 74 65	6D+
+   5674	      61
+   5675	01ED  00			     db	     0
+   5676	01EE  65 78 69 74		     db	     'exit'
+   5677	01F2  00			     db	     0
+   5678	01F3  20 20 20 20 20 20	20+	     db	     '		      abandona o sistema'
+   5679	      20 20 20 20 20 20	20+
+   5680	      20 20 61 62 61 6E	64+
+   5681	      6F 6E 61 20 6F 20	73+
+   5682	      69 73 74 65 6D 61
+   5683	0215  00			     db	     0
+   5684	0216  71 75 69 74		     db	     'quit'
+   5685	021A  00			     db	     0
+   5686	021B  20 20 20 20 20 20	20+	     db	     '		      abandona o sistema'
+   5687	      20 20 20 20 20 20	20+
+   5688	      20 20 61 62 61 6E	64+
+   5689	      6F 6E 61 20 6F 20	73+
+   5690	      69 73 74 65 6D 61
+   5691	023D  00			     db	     0
+   5692	023E  70 73			     db	     'ps'
+   5693	0240  00			     db	     0
+   5694	0241  20 20 20 20 20 20	20+	     db	     '			exibe processos/threads	em execucao'
+   5695	      20 20 20 20 20 20	20+
+   5696	      20 20 20 20 65 78	69+
+   5697	      62 65 20 70 72 6F	63+
+   5698	      65 73 73 6F 73 2F	74+
+   5699	      68 72 65 61 64 73	20+
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 101
 command.ASM
 
 
 
-   5700	      2F 74 68 72 65 61	64
-   5701	04F8  00			     db	     0
-   5702	04F9  72 65 73 75 6D 65		     db	     'resume'
-   5703	04FF  00			     db	     0
-   5704	0500  3C 70 69 64 3E 20	20+	     db	     '<pid>	   reinicia um processo/thread'
-   5705	      20 20 20 20 20 20	72+
-   5706	      65 69 6E 69 63 69	61+
-   5707	      20 75 6D 20 70 72	6F+
-   5708	      63 65 73 73 6F 2F	74+
-   5709	      68 72 65 61 64
-   5710	0528  00			     db	     0
-   5711	0529  70 72 6F 64 63 6F	6E+	     db	     'prodcons'
-   5712	      73
-   5713	0531  00			     db	     0
-   5714	0532  3C 61 72 67 73 3E	20+	     db	     '<args>	 inicia	produtor consumidor'
-   5715	      20 20 20 20 69 6E	69+
-   5716	      63 69 61 20 70 72	6F+
-   5717	      64 75 74 6F 72 20	63+
-   5718	      6F 6E 73 75 6D 69	64+
-   5719	      6F 72
-   5720	0557  00			     db	     0
-   5721	0558  20 20 20 20 20 20	20+	     db	     '			'
-   5722	      20 20 20 20 20 20	20+
-   5723	      20 20 20 20
-   5724	056A  DC			     db	     -36
-   5725	056B  DC			     db	     -36
-   5726	056C  DC			     db	     -36
-   5727	056D  DC			     db	     -36
-   5728	056E  DC			     db	     -36
-   5729	056F  DC			     db	     -36
-   5730	0570  DC			     db	     -36
-   5731	0571  20 20			     db	     '	'
-   5732	0573  DC			     db	     -36
-   5733	0574  DC			     db	     -36
-   5734	0575  DC			     db	     -36
-   5735	0576  DC			     db	     -36
-   5736	0577  DC			     db	     -36
-   5737	0578  DC			     db	     -36
-   5738	0579  0A			     db	     10
-   5739	057A  00			     db	     0
-   5740	057B  20			     db	     ' '
-   5741	057C  DC			     db	     -36
-   5742	057D  DC			     db	     -36
-   5743	057E  DC			     db	     -36
-   5744	057F  DC			     db	     -36
-   5745	0580  DC			     db	     -36
-   5746	0581  20 20			     db	     '	'
-   5747	0583  DC			     db	     -36
-   5748	0584  20 20			     db	     '	'
-   5749	0586  DC			     db	     -36
-   5750	0587  DC			     db	     -36
-   5751	0588  DC			     db	     -36
-   5752	0589  20 20			     db	     '	'
-   5753	058B  DC			     db	     -36
-   5754	058C  20			     db	     ' '
-   5755	058D  DB			     db	     -37
-   5756	058E  DB			     db	     -37
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 102
+   5700	      65 6D 20 65 78 65	63+
+   5701	      75 63 61 6F
+   5702	0276  00			     db	     0
+   5703	0277  6B 69 6C 6C		     db	     'kill'
+   5704	027B  00			     db	     0
+   5705	027C  20 3C 70 69 64 3E	20+	     db	     ' <pid>	      encerra um processo/thread'
+   5706	      20 20 20 20 20 20	20+
+   5707	      20 20 65 6E 63 65	72+
+   5708	      72 61 20 75 6D 20	70+
+   5709	      72 6F 63 65 73 73	6F+
+   5710	      2F 74 68 72 65 61	64
+   5711	02A6  00			     db	     0
+   5712	02A7  64 65 6D 6F		     db	     'demo'
+   5713	02AB  00			     db	     0
+   5714	02AC  20 3C 65 78 69 74	63+	     db	     ' <exitcode>     inicia processos/threads de demonstracao'
+   5715	      6F 64 65 3E 20 20	20+
+   5716	      20 20 69 6E 69 63	69+
+   5717	      61 20 70 72 6F 63	65+
+   5718	      73 73 6F 73 2F 74	68+
+   5719	      72 65 61 64 73 20	64+
+   5720	      65 20 64 65 6D 6F	6E+
+   5721	      73 74 72 61 63 61	6F
+   5722	02E4  00			     db	     0
+   5723	02E5  73 65 74			     db	     'set'
+   5724	02E8  00			     db	     0
+   5725	02E9  20 5B 3C 76 61 72	3E+	     db	     ' [<var> [<val>]] define o	valor da variavel ou exibe variavei'
+   5726	      20 5B 3C 76 61 6C	3E+
+   5727	      5D 5D 20 64 65 66	69+
+   5728	      6E 65 20 6F 20 76	61+
+   5729	      6C 6F 72 20 64 61	20+
+   5730	      76 61 72 69 61 76	65+
+   5731	      6C 20 6F 75 20 65	78+
+   5732	      69 62 65 20 76 61	72+
+   5733	      69 61 76 65 69
+   5734	0326  73			     db	     's'
+   5735	0327  00			     db	     0
+   5736	0328  75 6E 73 65 74		     db	     'unset'
+   5737	032D  00			     db	     0
+   5738	032E  20 3C 76 61 72 3E	20+	     db	     ' <var>	     apaga a variavel'
+   5739	      20 20 20 20 20 20	20+
+   5740	      20 61 70 61 67 61	20+
+   5741	      61 20 76 61 72 69	61+
+   5742	      76 65 6C
+   5743	034D  00			     db	     0
+   5744	034E  65 63 68 6F		     db	     'echo'
+   5745	0352  00			     db	     0
+   5746	0353  20 5B 2D 6E 5D 20	3C+	     db	     ' [-n] <args>... imprime argumentos'
+   5747	      61 72 67 73 3E 2E	2E+
+   5748	      2E 20 69 6D 70 72	69+
+   5749	      6D 65 20 61 72 67	75+
+   5750	      6D 65 6E 74 6F 73
+   5751	0375  00			     db	     0
+   5752	0376  77 61 69 74 70 69	64	     db	     'waitpid'
+   5753	037D  00			     db	     0
+   5754	037E  20 3C 70 69 64 3E	20+	     db	     ' <pid>	   espera pelo processo-filho indicado'
+   5755	      20 20 20 20 20 20	65+
+   5756	      73 70 65 72 61 20	70+
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 102
 command.ASM
 
 
 
-   5757	058F  20 20 20			     db	     '	 '
-   5758	0592  DF			     db	     -33
-   5759	0593  DF			     db	     -33
-   5760	0594  20 20			     db	     '	'
-   5761	0596  DB			     db	     -37
-   5762	0597  DB			     db	     -37
-   5763	0598  20 20			     db	     '	'
-   5764	059A  DB			     db	     -37
-   5765	059B  DB			     db	     -37
-   5766	059C  20 20			     db	     '	'
-   5767	059E  00			     db	     0
-   5768	059F  4D 69 6E 69 73 53	69+	     db	     'MinisSistema Operacional'
-   5769	      73 74 65 6D 61 20	4F+
-   5770	      70 65 72 61 63 69	6F+
-   5771	      6E 61 6C
-   5772	05B7  0A			     db	     10
-   5773	05B8  00			     db	     0
-   5774	05B9  DC			     db	     -36
-   5775	05BA  DB			     db	     -37
-   5776	05BB  20			     db	     ' '
-   5777	05BC  DB			     db	     -37
-   5778	05BD  20			     db	     ' '
-   5779	05BE  DB			     db	     -37
-   5780	05BF  20			     db	     ' '
-   5781	05C0  DC			     db	     -36
-   5782	05C1  DB			     db	     -37
-   5783	05C2  20			     db	     ' '
-   5784	05C3  DC			     db	     -36
-   5785	05C4  DB			     db	     -37
-   5786	05C5  20			     db	     ' '
-   5787	05C6  DB			     db	     -37
-   5788	05C7  20			     db	     ' '
-   5789	05C8  DC			     db	     -36
-   5790	05C9  DB			     db	     -37
-   5791	05CA  20			     db	     ' '
-   5792	05CB  DF			     db	     -33
-   5793	05CC  DF			     db	     -33
-   5794	05CD  DF			     db	     -33
-   5795	05CE  DF			     db	     -33
-   5796	05CF  DB			     db	     -37
-   5797	05D0  DB			     db	     -37
-   5798	05D1  DB			     db	     -37
-   5799	05D2  20			     db	     ' '
-   5800	05D3  DB			     db	     -37
-   5801	05D4  DB			     db	     -37
-   5802	05D5  DB			     db	     -37
-   5803	05D6  20 20			     db	     '	'
-   5804	05D8  DB			     db	     -37
-   5805	05D9  DB			     db	     -37
-   5806	05DA  20 20			     db	     '	'
-   5807	05DC  00			     db	     0
-   5808	05DD  56 73 20			     db	     'Vs '
-   5809	05E0  00			     db	     0
-   5810	05E1  32 30 31 35		     db	     '2015'
-   5811	05E5  00			     db	     0
-   5812	05E6  0A			     db	     10
-   5813	05E7  00			     db	     0
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 103
+   5757	      65 6C 6F 20 70 72	6F+
+   5758	      63 65 73 73 6F 2D	66+
+   5759	      69 6C 68 6F 20 69	6E+
+   5760	      64 69 63 61 64 6F
+   5761	03AE  00			     db	     0
+   5762	03AF  77 61 69 74		     db	     'wait'
+   5763	03B3  00			     db	     0
+   5764	03B4  20 20 20 20 20 20	20+	     db	     '		      espera por um processo-filho'
+   5765	      20 20 20 20 20 20	20+
+   5766	      20 20 65 73 70 65	72+
+   5767	      61 20 70 6F 72 20	75+
+   5768	      6D 20 70 72 6F 63	65+
+   5769	      73 73 6F 2D 66 69	6C+
+   5770	      68 6F
+   5771	03E0  00			     db	     0
+   5772	03E1  73 65 6D 6C 73		     db	     'semls'
+   5773	03E6  00			     db	     0
+   5774	03E7  20 20 20 20 20 20	20+	     db	     '		     lista tabela de semaforos'
+   5775	      20 20 20 20 20 20	20+
+   5776	      20 6C 69 73 74 61	20+
+   5777	      74 61 62 65 6C 61	20+
+   5778	      64 65 20 73 65 6D	61+
+   5779	      66 6F 72 6F 73
+   5780	040F  00			     db	     0
+   5781	0410  73 65 6D 63 72 65	61+	     db	     'semcreate'
+   5782	      74 65
+   5783	0419  00			     db	     0
+   5784	041A  20 3C 76 61 6C 75	65+	     db	     ' <value>	 cria um semaforo'
+   5785	      3E 20 20 20 63 72	69+
+   5786	      61 20 75 6D 20 73	65+
+   5787	      6D 61 66 6F 72 6F
+   5788	0435  00			     db	     0
+   5789	0436  73 65 6D 74 65 73	74	     db	     'semtest'
+   5790	043D  00			     db	     0
+   5791	043E  20 3C 73 65 6D 69	64+	     db	     ' <semid>	   aplicacao para teste	de semaforos'
+   5792	      3E 20 20 20 20 20	61+
+   5793	      70 6C 69 63 61 63	61+
+   5794	      6F 20 70 61 72 61	20+
+   5795	      74 65 73 74 65 20	64+
+   5796	      65 20 73 65 6D 61	66+
+   5797	      6F 72 6F 73
+   5798	046C  00			     db	     0
+   5799	046D  73 65 6D 75 70		     db	     'semup'
+   5800	0472  00			     db	     0
+   5801	0473  20 3C 73 65 6D 69	64+	     db	     ' <semid>	     incrementa	o valor	de um semaforo'
+   5802	      3E 20 20 20 20 20	20+
+   5803	      20 69 6E 63 72 65	6D+
+   5804	      65 6E 74 61 20 6F	20+
+   5805	      76 61 6C 6F 72 20	64+
+   5806	      65 20 75 6D 20 73	65+
+   5807	      6D 61 66 6F 72 6F
+   5808	04A3  00			     db	     0
+   5809	04A4  73 65 6D 64 65 73	74+	     db	     'semdestroy'
+   5810	      72 6F 79
+   5811	04AE  00			     db	     0
+   5812	04AF  20 3C 73 65 6D 69	64+	     db	     ' <semid>	destroi	um semaforo'
+   5813	      3E 20 20 64 65 73	74+
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 103
 command.ASM
 
 
 
-   5814	05E8  DB			     db	     -37
-   5815	05E9  DB			     db	     -37
-   5816	05EA  20			     db	     ' '
-   5817	05EB  DB			     db	     -37
-   5818	05EC  20			     db	     ' '
-   5819	05ED  DB			     db	     -37
-   5820	05EE  20			     db	     ' '
-   5821	05EF  DB			     db	     -37
-   5822	05F0  DB			     db	     -37
-   5823	05F1  20			     db	     ' '
-   5824	05F2  DB			     db	     -37
-   5825	05F3  DB			     db	     -37
-   5826	05F4  20			     db	     ' '
-   5827	05F5  DB			     db	     -37
-   5828	05F6  20			     db	     ' '
-   5829	05F7  DB			     db	     -37
-   5830	05F8  DB			     db	     -37
-   5831	05F9  20			     db	     ' '
-   5832	05FA  DB			     db	     -37
-   5833	05FB  DB			     db	     -37
-   5834	05FC  DC			     db	     -36
-   5835	05FD  DC			     db	     -36
-   5836	05FE  DB			     db	     -37
-   5837	05FF  DB			     db	     -37
-   5838	0600  DB			     db	     -37
-   5839	0601  20			     db	     ' '
-   5840	0602  DB			     db	     -37
-   5841	0603  DB			     db	     -37
-   5842	0604  DB			     db	     -37
-   5843	0605  DC			     db	     -36
-   5844	0606  DC			     db	     -36
-   5845	0607  DB			     db	     -37
-   5846	0608  DB			     db	     -37
-   5847	0609  20 20			     db	     '	'
-   5848	060B  00			     db	     0
-   5849	060C  70 6F 72 20 52 6F	6C+	     db	     'por Roland Teodorowitsch'
-   5850	      61 6E 64 20 54 65	6F+
-   5851	      64 6F 72 6F 77 69	74+
-   5852	      73 63 68
-   5853	0624  0A			     db	     10
-   5854	0625  00			     db	     0
-   5855	0626  0A			     db	     10
-   5856	0627  44 69 67 69 74 65	20	     db	     'Digite '
-   5857	062E  27			     db	     39
-   5858	062F  68 65 6C 70		     db	     'help'
-   5859	0633  27			     db	     39
-   5860	0634  20 6F 75 20		     db	     ' ou '
-   5861	0638  27			     db	     39
-   5862	0639  3F			     db	     '?'
-   5863	063A  27			     db	     39
-   5864	063B  20 70 61 72 61 20	61+	     db	     ' para ajuda...'
-   5865	      6A 75 64 61 2E 2E	2E
-   5866	0649  0A			     db	     10
-   5867	064A  0A			     db	     10
-   5868	064B  00			     db	     0
-   5869	064C  50 52 4F 4D 50 54		     db	     'PROMPT'
-   5870	0652  00			     db	     0
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 104
+   5814	      72 6F 69 20 75 6D	20+
+   5815	      73 65 6D 61 66 6F	72+
+   5816	      6F
+   5817	04CC  00			     db	     0
+   5818	04CD  73 74 6F 70		     db	     'stop'
+   5819	04D1  00			     db	     0
+   5820	04D2  3C 70 69 64 3E 20	20+	     db	     '<pid>	     suspende um processo/thread'
+   5821	      20 20 20 20 20 20	20+
+   5822	      20 73 75 73 70 65	6E+
+   5823	      64 65 20 75 6D 20	70+
+   5824	      72 6F 63 65 73 73	6F+
+   5825	      2F 74 68 72 65 61	64
+   5826	04FC  00			     db	     0
+   5827	04FD  72 65 73 75 6D 65		     db	     'resume'
+   5828	0503  00			     db	     0
+   5829	0504  3C 70 69 64 3E 20	20+	     db	     '<pid>	   reinicia um processo/thread'
+   5830	      20 20 20 20 20 20	72+
+   5831	      65 69 6E 69 63 69	61+
+   5832	      20 75 6D 20 70 72	6F+
+   5833	      63 65 73 73 6F 2F	74+
+   5834	      68 72 65 61 64
+   5835	052C  00			     db	     0
+   5836	052D  70 72 6F 64 63 6F	6E+	     db	     'prodcons'
+   5837	      73
+   5838	0535  00			     db	     0
+   5839	0536  3C 61 72 67 73 3E	20+	     db	     '<args>	 inicia	produtor consumidor'
+   5840	      20 20 20 20 69 6E	69+
+   5841	      63 69 61 20 70 72	6F+
+   5842	      64 75 74 6F 72 20	63+
+   5843	      6F 6E 73 75 6D 69	64+
+   5844	      6F 72
+   5845	055B  00			     db	     0
+   5846	055C  20 20 20 20 20 20	20+	     db	     '			'
+   5847	      20 20 20 20 20 20	20+
+   5848	      20 20 20 20
+   5849	056E  DC			     db	     -36
+   5850	056F  DC			     db	     -36
+   5851	0570  DC			     db	     -36
+   5852	0571  DC			     db	     -36
+   5853	0572  DC			     db	     -36
+   5854	0573  DC			     db	     -36
+   5855	0574  DC			     db	     -36
+   5856	0575  20 20			     db	     '	'
+   5857	0577  DC			     db	     -36
+   5858	0578  DC			     db	     -36
+   5859	0579  DC			     db	     -36
+   5860	057A  DC			     db	     -36
+   5861	057B  DC			     db	     -36
+   5862	057C  DC			     db	     -36
+   5863	057D  0A			     db	     10
+   5864	057E  00			     db	     0
+   5865	057F  20			     db	     ' '
+   5866	0580  DC			     db	     -36
+   5867	0581  DC			     db	     -36
+   5868	0582  DC			     db	     -36
+   5869	0583  DC			     db	     -36
+   5870	0584  DC			     db	     -36
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 104
 command.ASM
 
 
 
-   5871	0653  6D 69 6E 69 53 4F	3E	     db	     'miniSO>'
-   5872	065A  00			     db	     0
-   5873	065B  45 52 52 4F 52 4C	45+	     db	     'ERRORLEVEL'
-   5874	      56 45 4C
-   5875	0665  00			     db	     0
-   5876	0666  30			     db	     '0'
-   5877	0667  00			     db	     0
-   5878	0668  45 52 52 4F 52 4C	45+	     db	     'ERRORLEVEL'
-   5879	      56 45 4C
-   5880	0672  00			     db	     0
-   5881	0673  45 72 72 6F 3A 20	63+	     db	     'Erro: comando desconhecido!'
-   5882	      6F 6D 61 6E 64 6F	20+
-   5883	      64 65 73 63 6F 6E	68+
-   5884	      65 63 69 64 6F 21
-   5885	068E  0A			     db	     10
-   5886	068F  00			     db	     0
-   5887	0690  50 52 4F 4D 50 54		     db	     'PROMPT'
-   5888	0696  00			     db	     0
-   5889	0697  43 6F 6D 61 6E 64	6F+	     db	     'Comandos do minisSistema Operacional:'
-   5890	      73 20 64 6F 20 6D	69+
-   5891	      6E 69 73 53 69 73	74+
-   5892	      65 6D 61 20 4F 70	65+
-   5893	      72 61 63 69 6F 6E	61+
-   5894	      6C 3A
-   5895	06BC  0A			     db	     10
-   5896	06BD  00			     db	     0
-   5897	06BE  6D 69 6E 69 73 53	69+	     db	     'minisSistema Operacional - Vs '
-   5898	      73 74 65 6D 61 20	4F+
-   5899	      70 65 72 61 63 69	6F+
-   5900	      6E 61 6C 20 2D 20	56+
-   5901	      73 20
-   5902	06DC  00			     db	     0
-   5903	06DD  32 30 31 35		     db	     '2015'
-   5904	06E1  00			     db	     0
-   5905	06E2  20 42 43 50 20 20	20+	     db	     ' BCP   PID   PPID	 STATUS	  WAIT	 ZLIST	PREV   NEXT'
-   5906	      50 49 44 20 20 20	50+
-   5907	      50 49 44 20 20 53	54+
-   5908	      41 54 55 53 20 20	20+
-   5909	      57 41 49 54 20 20	20+
-   5910	      5A 4C 49 53 54 20	20+
-   5911	      50 52 45 56 20 20	20+
-   5912	      4E 45 58 54
-   5913	0717  0A			     db	     10
-   5914	0718  00			     db	     0
-   5915	0719  20 20			     db	     '	'
-   5916	071B  00			     db	     0
-   5917	071C  20 20			     db	     '	'
-   5918	071E  00			     db	     0
-   5919	071F  20 20			     db	     '	'
-   5920	0721  00			     db	     0
-   5921	0722  46 52 45 45 20 20	20	     db	     'FREE   '
-   5922	0729  00			     db	     0
-   5923	072A  52 45 41 44 59 20	20	     db	     'READY  '
-   5924	0731  00			     db	     0
-   5925	0732  52 55 4E 4E 49 4E	47	     db	     'RUNNING'
-   5926	0739  00			     db	     0
-   5927	073A  5A 4F 4D 42 49 45	20	     db	     'ZOMBIE '
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 105
+   5871	0585  20 20			     db	     '	'
+   5872	0587  DC			     db	     -36
+   5873	0588  20 20			     db	     '	'
+   5874	058A  DC			     db	     -36
+   5875	058B  DC			     db	     -36
+   5876	058C  DC			     db	     -36
+   5877	058D  20 20			     db	     '	'
+   5878	058F  DC			     db	     -36
+   5879	0590  20			     db	     ' '
+   5880	0591  DB			     db	     -37
+   5881	0592  DB			     db	     -37
+   5882	0593  20 20 20			     db	     '	 '
+   5883	0596  DF			     db	     -33
+   5884	0597  DF			     db	     -33
+   5885	0598  20 20			     db	     '	'
+   5886	059A  DB			     db	     -37
+   5887	059B  DB			     db	     -37
+   5888	059C  20 20			     db	     '	'
+   5889	059E  DB			     db	     -37
+   5890	059F  DB			     db	     -37
+   5891	05A0  20 20			     db	     '	'
+   5892	05A2  00			     db	     0
+   5893	05A3  4D 69 6E 69 73 53	69+	     db	     'MinisSistema Operacional'
+   5894	      73 74 65 6D 61 20	4F+
+   5895	      70 65 72 61 63 69	6F+
+   5896	      6E 61 6C
+   5897	05BB  0A			     db	     10
+   5898	05BC  00			     db	     0
+   5899	05BD  DC			     db	     -36
+   5900	05BE  DB			     db	     -37
+   5901	05BF  20			     db	     ' '
+   5902	05C0  DB			     db	     -37
+   5903	05C1  20			     db	     ' '
+   5904	05C2  DB			     db	     -37
+   5905	05C3  20			     db	     ' '
+   5906	05C4  DC			     db	     -36
+   5907	05C5  DB			     db	     -37
+   5908	05C6  20			     db	     ' '
+   5909	05C7  DC			     db	     -36
+   5910	05C8  DB			     db	     -37
+   5911	05C9  20			     db	     ' '
+   5912	05CA  DB			     db	     -37
+   5913	05CB  20			     db	     ' '
+   5914	05CC  DC			     db	     -36
+   5915	05CD  DB			     db	     -37
+   5916	05CE  20			     db	     ' '
+   5917	05CF  DF			     db	     -33
+   5918	05D0  DF			     db	     -33
+   5919	05D1  DF			     db	     -33
+   5920	05D2  DF			     db	     -33
+   5921	05D3  DB			     db	     -37
+   5922	05D4  DB			     db	     -37
+   5923	05D5  DB			     db	     -37
+   5924	05D6  20			     db	     ' '
+   5925	05D7  DB			     db	     -37
+   5926	05D8  DB			     db	     -37
+   5927	05D9  DB			     db	     -37
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 105
 command.ASM
 
 
 
-   5928	0741  00			     db	     0
-   5929	0742  57 41 49 54 20 20	20	     db	     'WAIT   '
-   5930	0749  00			     db	     0
-   5931	074A  57 41 49 54 53 49	47	     db	     'WAITSIG'
-   5932	0751  00			     db	     0
-   5933	0752  57 41 49 54 53 45	4D	     db	     'WAITSEM'
-   5934	0759  00			     db	     0
-   5935	075A  53 54 4F 50 50 45	44	     db	     'STOPPED'
-   5936	0761  00			     db	     0
-   5937	0762  20 20			     db	     '	'
-   5938	0764  00			     db	     0
-   5939	0765  20 20			     db	     '	'
-   5940	0767  00			     db	     0
-   5941	0768  20			     db	     ' '
-   5942	0769  00			     db	     0
-   5943	076A  20 20			     db	     '	'
-   5944	076C  00			     db	     0
-   5945	076D  45 72 72 6F 20 65	6D+	     db	     'Erro em kill: parametro nao fornecido!'
-   5946	      20 6B 69 6C 6C 3A	20+
-   5947	      70 61 72 61 6D 65	74+
-   5948	      72 6F 20 6E 61 6F	20+
-   5949	      66 6F 72 6E 65 63	69+
-   5950	      64 6F 21
-   5951	0793  0A			     db	     10
-   5952	0794  00			     db	     0
-   5953	0795  6B 69 6C 6C 3A 20	69+	     db	     'kill: impossivel matar o processo/thread'
-   5954	      6D 70 6F 73 73 69	76+
-   5955	      65 6C 20 6D 61 74	61+
-   5956	      72 20 6F 20 70 72	6F+
-   5957	      63 65 73 73 6F 2F	74+
-   5958	      68 72 65 61 64
-   5959	07BD  0A			     db	     10
-   5960	07BE  00			     db	     0
-   5961	07BF  00			     db	     0
-   5962	07C0  45 72 72 6F 20 65	6D+	     db	     'Erro em set: nao ha espaco para novas variaveis!'
-   5963	      20 73 65 74 3A 20	6E+
-   5964	      61 6F 20 68 61 20	65+
-   5965	      73 70 61 63 6F 20	70+
-   5966	      61 72 61 20 6E 6F	76+
-   5967	      61 73 20 76 61 72	69+
-   5968	      61 76 65 69 73 21
-   5969	07F0  0A			     db	     10
-   5970	07F1  00			     db	     0
-   5971	07F2  45 72 72 6F 20 65	6D+	     db	     'Erro em set: o tamanho do	nome da	variavel e muito grande!'
-   5972	      20 73 65 74 3A 20	6F+
-   5973	      20 74 61 6D 61 6E	68+
-   5974	      6F 20 64 6F 20 6E	6F+
-   5975	      6D 65 20 64 61 20	76+
-   5976	      61 72 69 61 76 65	6C+
-   5977	      20 65 20 6D 75 69	74+
-   5978	      6F 20 67 72 61 6E	64+
-   5979	      65 21
-   5980	082C  0A			     db	     10
-   5981	082D  00			     db	     0
-   5982	082E  45 72 72 6F 20 65	6D+	     db	     'Erro em set: o tamanho do	conteudo da variavel e muito grande'
-   5983	      20 73 65 74 3A 20	6F+
-   5984	      20 74 61 6D 61 6E	68+
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 106
+   5928	05DA  20 20			     db	     '	'
+   5929	05DC  DB			     db	     -37
+   5930	05DD  DB			     db	     -37
+   5931	05DE  20 20			     db	     '	'
+   5932	05E0  00			     db	     0
+   5933	05E1  56 73 20			     db	     'Vs '
+   5934	05E4  00			     db	     0
+   5935	05E5  32 30 31 35		     db	     '2015'
+   5936	05E9  00			     db	     0
+   5937	05EA  0A			     db	     10
+   5938	05EB  00			     db	     0
+   5939	05EC  DB			     db	     -37
+   5940	05ED  DB			     db	     -37
+   5941	05EE  20			     db	     ' '
+   5942	05EF  DB			     db	     -37
+   5943	05F0  20			     db	     ' '
+   5944	05F1  DB			     db	     -37
+   5945	05F2  20			     db	     ' '
+   5946	05F3  DB			     db	     -37
+   5947	05F4  DB			     db	     -37
+   5948	05F5  20			     db	     ' '
+   5949	05F6  DB			     db	     -37
+   5950	05F7  DB			     db	     -37
+   5951	05F8  20			     db	     ' '
+   5952	05F9  DB			     db	     -37
+   5953	05FA  20			     db	     ' '
+   5954	05FB  DB			     db	     -37
+   5955	05FC  DB			     db	     -37
+   5956	05FD  20			     db	     ' '
+   5957	05FE  DB			     db	     -37
+   5958	05FF  DB			     db	     -37
+   5959	0600  DC			     db	     -36
+   5960	0601  DC			     db	     -36
+   5961	0602  DB			     db	     -37
+   5962	0603  DB			     db	     -37
+   5963	0604  DB			     db	     -37
+   5964	0605  20			     db	     ' '
+   5965	0606  DB			     db	     -37
+   5966	0607  DB			     db	     -37
+   5967	0608  DB			     db	     -37
+   5968	0609  DC			     db	     -36
+   5969	060A  DC			     db	     -36
+   5970	060B  DB			     db	     -37
+   5971	060C  DB			     db	     -37
+   5972	060D  20 20			     db	     '	'
+   5973	060F  00			     db	     0
+   5974	0610  70 6F 72 20 52 6F	6C+	     db	     'por Roland Teodorowitsch'
+   5975	      61 6E 64 20 54 65	6F+
+   5976	      64 6F 72 6F 77 69	74+
+   5977	      73 63 68
+   5978	0628  0A			     db	     10
+   5979	0629  00			     db	     0
+   5980	062A  0A			     db	     10
+   5981	062B  44 69 67 69 74 65	20	     db	     'Digite '
+   5982	0632  27			     db	     39
+   5983	0633  68 65 6C 70		     db	     'help'
+   5984	0637  27			     db	     39
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 106
 command.ASM
 
 
 
-   5985	      6F 20 64 6F 20 63	6F+
-   5986	      6E 74 65 75 64 6F	20+
-   5987	      64 61 20 76 61 72	69+
-   5988	      61 76 65 6C 20 65	20+
-   5989	      6D 75 69 74 6F 20	67+
-   5990	      72 61 6E 64 65
-   5991	086B  21			     db	     '!'
-   5992	086C  0A			     db	     10
-   5993	086D  00			     db	     0
-   5994	086E  45 72 72 6F 20 65	6D+	     db	     'Erro em set: argumentos demais na	linha de comando!'
-   5995	      20 73 65 74 3A 20	61+
-   5996	      72 67 75 6D 65 6E	74+
-   5997	      6F 73 20 64 65 6D	61+
-   5998	      69 73 20 6E 61 20	6C+
-   5999	      69 6E 68 61 20 64	65+
-   6000	      20 63 6F 6D 61 6E	64+
-   6001	      6F 21
-   6002	08A1  0A			     db	     10
-   6003	08A2  00			     db	     0
-   6004	08A3  45 72 72 6F 20 65	6D+	     db	     'Erro em unset: numero invalido de	argumentos!'
-   6005	      20 75 6E 73 65 74	3A+
-   6006	      20 6E 75 6D 65 72	6F+
-   6007	      20 69 6E 76 61 6C	69+
-   6008	      64 6F 20 64 65 20	61+
-   6009	      72 67 75 6D 65 6E	74+
-   6010	      6F 73 21
-   6011	08D0  0A			     db	     10
-   6012	08D1  00			     db	     0
-   6013	08D2  45 72 72 6F 20 65	6D+	     db	     'Erro em unset: variavel inexistente!'
-   6014	      20 75 6E 73 65 74	3A+
-   6015	      20 76 61 72 69 61	76+
-   6016	      65 6C 20 69 6E 65	78+
-   6017	      69 73 74 65 6E 74	65+
-   6018	      21
-   6019	08F6  0A			     db	     10
-   6020	08F7  00			     db	     0
-   6021	08F8  2D 6E			     db	     '-n'
-   6022	08FA  00			     db	     0
-   6023	08FB  DA			     db	     -38
-   6024	08FC  C4			     db	     -60
-   6025	08FD  C4			     db	     -60
-   6026	08FE  20 54 68 72 65 61	64+	     db	     ' Thread '
-   6027	      20
-   6028	0906  C4			     db	     -60
-   6029	0907  C4			     db	     -60
-   6030	0908  C4			     db	     -60
-   6031	0909  C4			     db	     -60
-   6032	090A  BF			     db	     -65
-   6033	090B  00			     db	     0
-   6034	090C  B3			     db	     -77
-   6035	090D  20 50 49 44 20 20	3D+	     db	     ' PID  =	    '
-   6036	      20 20 20 20 20 20	20
-   6037	091B  B3			     db	     -77
-   6038	091C  00			     db	     0
-   6039	091D  B3			     db	     -77
-   6040	091E  20 45 78 65 63 75	63+	     db	     ' Execucao:    '
-   6041	      61 6F 3A 20 20 20	20
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 107
+   5985	0638  20 6F 75 20		     db	     ' ou '
+   5986	063C  27			     db	     39
+   5987	063D  3F			     db	     '?'
+   5988	063E  27			     db	     39
+   5989	063F  20 70 61 72 61 20	61+	     db	     ' para ajuda...'
+   5990	      6A 75 64 61 2E 2E	2E
+   5991	064D  0A			     db	     10
+   5992	064E  0A			     db	     10
+   5993	064F  00			     db	     0
+   5994	0650  50 52 4F 4D 50 54		     db	     'PROMPT'
+   5995	0656  00			     db	     0
+   5996	0657  6D 69 6E 69 53 4F	3E	     db	     'miniSO>'
+   5997	065E  00			     db	     0
+   5998	065F  45 52 52 4F 52 4C	45+	     db	     'ERRORLEVEL'
+   5999	      56 45 4C
+   6000	0669  00			     db	     0
+   6001	066A  30			     db	     '0'
+   6002	066B  00			     db	     0
+   6003	066C  45 52 52 4F 52 4C	45+	     db	     'ERRORLEVEL'
+   6004	      56 45 4C
+   6005	0676  00			     db	     0
+   6006	0677  45 72 72 6F 3A 20	63+	     db	     'Erro: comando desconhecido!'
+   6007	      6F 6D 61 6E 64 6F	20+
+   6008	      64 65 73 63 6F 6E	68+
+   6009	      65 63 69 64 6F 21
+   6010	0692  0A			     db	     10
+   6011	0693  00			     db	     0
+   6012	0694  50 52 4F 4D 50 54		     db	     'PROMPT'
+   6013	069A  00			     db	     0
+   6014	069B  43 6F 6D 61 6E 64	6F+	     db	     'Comandos do minisSistema Operacional:'
+   6015	      73 20 64 6F 20 6D	69+
+   6016	      6E 69 73 53 69 73	74+
+   6017	      65 6D 61 20 4F 70	65+
+   6018	      72 61 63 69 6F 6E	61+
+   6019	      6C 3A
+   6020	06C0  0A			     db	     10
+   6021	06C1  00			     db	     0
+   6022	06C2  6D 69 6E 69 73 53	69+	     db	     'minisSistema Operacional - Vs '
+   6023	      73 74 65 6D 61 20	4F+
+   6024	      70 65 72 61 63 69	6F+
+   6025	      6E 61 6C 20 2D 20	56+
+   6026	      73 20
+   6027	06E0  00			     db	     0
+   6028	06E1  32 30 31 35		     db	     '2015'
+   6029	06E5  00			     db	     0
+   6030	06E6  20 42 43 50 20 20	20+	     db	     ' BCP   PID   PPID	 STATUS	  WAIT	 ZLIST	PREV   NEXT'
+   6031	      50 49 44 20 20 20	50+
+   6032	      50 49 44 20 20 53	54+
+   6033	      41 54 55 53 20 20	20+
+   6034	      57 41 49 54 20 20	20+
+   6035	      5A 4C 49 53 54 20	20+
+   6036	      50 52 45 56 20 20	20+
+   6037	      4E 45 58 54
+   6038	071B  0A			     db	     10
+   6039	071C  00			     db	     0
+   6040	071D  20 20			     db	     '	'
+   6041	071F  00			     db	     0
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 107
 command.ASM
 
 
 
-   6042	092C  B3			     db	     -77
-   6043	092D  00			     db	     0
-   6044	092E  B3			     db	     -77
-   6045	092F  20 20 20 20 20 20	20+	     db	     '		    '
-   6046	      20 20 20 20 20 20	20
-   6047	093D  B3			     db	     -77
-   6048	093E  00			     db	     0
-   6049	093F  C0			     db	     -64
-   6050	0940  C4			     db	     -60
-   6051	0941  C4			     db	     -60
-   6052	0942  C4			     db	     -60
-   6053	0943  C4			     db	     -60
-   6054	0944  C4			     db	     -60
-   6055	0945  C4			     db	     -60
-   6056	0946  C4			     db	     -60
-   6057	0947  C4			     db	     -60
-   6058	0948  C4			     db	     -60
-   6059	0949  C4			     db	     -60
-   6060	094A  C4			     db	     -60
-   6061	094B  C4			     db	     -60
-   6062	094C  C4			     db	     -60
-   6063	094D  C4			     db	     -60
-   6064	094E  D9			     db	     -39
-   6065	094F  00			     db	     0
-   6066	0950  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: numero invalido de argumentos!'
-   6067	      20 64 65 6D 6F 3A	20+
-   6068	      6E 75 6D 65 72 6F	20+
-   6069	      69 6E 76 61 6C 69	64+
-   6070	      6F 20 64 65 20 61	72+
-   6071	      67 75 6D 65 6E 74	6F+
-   6072	      73 21
-   6073	097C  0A			     db	     10
-   6074	097D  00			     db	     0
-   6075	097E  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: fork() nao conseguiu criar thread!'
-   6076	      20 64 65 6D 6F 3A	20+
-   6077	      66 6F 72 6B 28 29	20+
-   6078	      6E 61 6F 20 63 6F	6E+
-   6079	      73 65 67 75 69 75	20+
-   6080	      63 72 69 61 72 20	74+
-   6081	      68 72 65 61 64 21
-   6082	09AE  0A			     db	     10
-   6083	09AF  00			     db	     0
-   6084	09B0  45 72 72 6F 20 65	6D+	     db	     'Erro em waitpid: numero invalido de argumentos!'
-   6085	      20 77 61 69 74 70	69+
-   6086	      64 3A 20 6E 75 6D	65+
-   6087	      72 6F 20 69 6E 76	61+
-   6088	      6C 69 64 6F 20 64	65+
-   6089	      20 61 72 67 75 6D	65+
-   6090	      6E 74 6F 73 21
-   6091	09DF  0A			     db	     10
-   6092	09E0  00			     db	     0
-   6093	09E1  50 72 6F 63 65 73	73+	     db	     'Processo '
-   6094	      6F 20
-   6095	09EA  00			     db	     0
-   6096	09EB  20 65 6E 63 65 72	72+	     db	     ' encerrado com codigo de fim '
-   6097	      61 64 6F 20 63 6F	6D+
-   6098	      20 63 6F 64 69 67	6F+
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 108
+   6042	0720  20 20			     db	     '	'
+   6043	0722  00			     db	     0
+   6044	0723  20 20			     db	     '	'
+   6045	0725  00			     db	     0
+   6046	0726  46 52 45 45 20 20	20	     db	     'FREE   '
+   6047	072D  00			     db	     0
+   6048	072E  52 45 41 44 59 20	20	     db	     'READY  '
+   6049	0735  00			     db	     0
+   6050	0736  52 55 4E 4E 49 4E	47	     db	     'RUNNING'
+   6051	073D  00			     db	     0
+   6052	073E  5A 4F 4D 42 49 45	20	     db	     'ZOMBIE '
+   6053	0745  00			     db	     0
+   6054	0746  57 41 49 54 20 20	20	     db	     'WAIT   '
+   6055	074D  00			     db	     0
+   6056	074E  57 41 49 54 53 49	47	     db	     'WAITSIG'
+   6057	0755  00			     db	     0
+   6058	0756  57 41 49 54 53 45	4D	     db	     'WAITSEM'
+   6059	075D  00			     db	     0
+   6060	075E  53 54 4F 50 50 45	44	     db	     'STOPPED'
+   6061	0765  00			     db	     0
+   6062	0766  20 20			     db	     '	'
+   6063	0768  00			     db	     0
+   6064	0769  20 20			     db	     '	'
+   6065	076B  00			     db	     0
+   6066	076C  20			     db	     ' '
+   6067	076D  00			     db	     0
+   6068	076E  20 20			     db	     '	'
+   6069	0770  00			     db	     0
+   6070	0771  45 72 72 6F 20 65	6D+	     db	     'Erro em kill: parametro nao fornecido!'
+   6071	      20 6B 69 6C 6C 3A	20+
+   6072	      70 61 72 61 6D 65	74+
+   6073	      72 6F 20 6E 61 6F	20+
+   6074	      66 6F 72 6E 65 63	69+
+   6075	      64 6F 21
+   6076	0797  0A			     db	     10
+   6077	0798  00			     db	     0
+   6078	0799  6B 69 6C 6C 3A 20	69+	     db	     'kill: impossivel matar o processo/thread'
+   6079	      6D 70 6F 73 73 69	76+
+   6080	      65 6C 20 6D 61 74	61+
+   6081	      72 20 6F 20 70 72	6F+
+   6082	      63 65 73 73 6F 2F	74+
+   6083	      68 72 65 61 64
+   6084	07C1  0A			     db	     10
+   6085	07C2  00			     db	     0
+   6086	07C3  00			     db	     0
+   6087	07C4  45 72 72 6F 20 65	6D+	     db	     'Erro em set: nao ha espaco para novas variaveis!'
+   6088	      20 73 65 74 3A 20	6E+
+   6089	      61 6F 20 68 61 20	65+
+   6090	      73 70 61 63 6F 20	70+
+   6091	      61 72 61 20 6E 6F	76+
+   6092	      61 73 20 76 61 72	69+
+   6093	      61 76 65 69 73 21
+   6094	07F4  0A			     db	     10
+   6095	07F5  00			     db	     0
+   6096	07F6  45 72 72 6F 20 65	6D+	     db	     'Erro em set: o tamanho do	nome da	variavel e muito grande!'
+   6097	      20 73 65 74 3A 20	6F+
+   6098	      20 74 61 6D 61 6E	68+
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 108
 command.ASM
 
 
 
-   6099	      20 64 65 20 66 69	6D+
-   6100	      20
-   6101	0A08  00			     db	     0
-   6102	0A09  21			     db	     '!'
-   6103	0A0A  0A			     db	     10
-   6104	0A0B  00			     db	     0
-   6105	0A0C  50 72 6F 63 65 73	73+	     db	     'Processo '
-   6106	      6F 20
-   6107	0A15  00			     db	     0
-   6108	0A16  20 65 6E 63 65 72	72+	     db	     ' encerrado com codigo de fim '
-   6109	      61 64 6F 20 63 6F	6D+
-   6110	      20 63 6F 64 69 67	6F+
-   6111	      20 64 65 20 66 69	6D+
-   6112	      20
-   6113	0A33  00			     db	     0
-   6114	0A34  21			     db	     '!'
-   6115	0A35  0A			     db	     10
-   6116	0A36  00			     db	     0
-   6117	0A37  53 65 6D 61 70 68	6F+	     db	     'Semaphores:'
-   6118	      72 65 73 3A
-   6119	0A42  0A			     db	     10
-   6120	0A43  00			     db	     0
-   6121	0A44  2D 20 69 64 3D		     db	     '-	id='
-   6122	0A49  00			     db	     0
-   6123	0A4A  20 76 61 6C 75 65	3D	     db	     ' value='
-   6124	0A51  00			     db	     0
-   6125	0A52  20 71 75 65 75 65	3D	     db	     ' queue='
-   6126	0A59  00			     db	     0
-   6127	0A5A  54 4F 54 41 4C 3D		     db	     'TOTAL='
-   6128	0A60  00			     db	     0
-   6129	0A61  0A			     db	     10
-   6130	0A62  0A			     db	     10
-   6131	0A63  00			     db	     0
-   6132	0A64  45 72 72 6F 20 65	6D+	     db	     'Erro em semcreate: numero	invalido de argumentos!'
-   6133	      20 73 65 6D 63 72	65+
-   6134	      61 74 65 3A 20 6E	75+
-   6135	      6D 65 72 6F 20 69	6E+
-   6136	      76 61 6C 69 64 6F	20+
-   6137	      64 65 20 61 72 67	75+
-   6138	      6D 65 6E 74 6F 73	21
-   6139	0A95  0A			     db	     10
-   6140	0A96  00			     db	     0
-   6141	0A97  53 65 6D 61 66 6F	72+	     db	     'Semaforo id='
-   6142	      6F 20 69 64 3D
-   6143	0AA3  00			     db	     0
-   6144	0AA4  20 63 72 69 61 64	6F+	     db	     ' criado (value='
-   6145	      20 28 76 61 6C 75	65+
-   6146	      3D
-   6147	0AB3  00			     db	     0
-   6148	0AB4  29			     db	     ')'
-   6149	0AB5  0A			     db	     10
-   6150	0AB6  00			     db	     0
-   6151	0AB7  DA			     db	     -38
-   6152	0AB8  C4			     db	     -60
-   6153	0AB9  C4			     db	     -60
-   6154	0ABA  20 54 68 72 65 61	64+	     db	     ' Thread '
-   6155	      20
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 109
+   6099	      6F 20 64 6F 20 6E	6F+
+   6100	      6D 65 20 64 61 20	76+
+   6101	      61 72 69 61 76 65	6C+
+   6102	      20 65 20 6D 75 69	74+
+   6103	      6F 20 67 72 61 6E	64+
+   6104	      65 21
+   6105	0830  0A			     db	     10
+   6106	0831  00			     db	     0
+   6107	0832  45 72 72 6F 20 65	6D+	     db	     'Erro em set: o tamanho do	conteudo da variavel e muito grande'
+   6108	      20 73 65 74 3A 20	6F+
+   6109	      20 74 61 6D 61 6E	68+
+   6110	      6F 20 64 6F 20 63	6F+
+   6111	      6E 74 65 75 64 6F	20+
+   6112	      64 61 20 76 61 72	69+
+   6113	      61 76 65 6C 20 65	20+
+   6114	      6D 75 69 74 6F 20	67+
+   6115	      72 61 6E 64 65
+   6116	086F  21			     db	     '!'
+   6117	0870  0A			     db	     10
+   6118	0871  00			     db	     0
+   6119	0872  45 72 72 6F 20 65	6D+	     db	     'Erro em set: argumentos demais na	linha de comando!'
+   6120	      20 73 65 74 3A 20	61+
+   6121	      72 67 75 6D 65 6E	74+
+   6122	      6F 73 20 64 65 6D	61+
+   6123	      69 73 20 6E 61 20	6C+
+   6124	      69 6E 68 61 20 64	65+
+   6125	      20 63 6F 6D 61 6E	64+
+   6126	      6F 21
+   6127	08A5  0A			     db	     10
+   6128	08A6  00			     db	     0
+   6129	08A7  45 72 72 6F 20 65	6D+	     db	     'Erro em unset: numero invalido de	argumentos!'
+   6130	      20 75 6E 73 65 74	3A+
+   6131	      20 6E 75 6D 65 72	6F+
+   6132	      20 69 6E 76 61 6C	69+
+   6133	      64 6F 20 64 65 20	61+
+   6134	      72 67 75 6D 65 6E	74+
+   6135	      6F 73 21
+   6136	08D4  0A			     db	     10
+   6137	08D5  00			     db	     0
+   6138	08D6  45 72 72 6F 20 65	6D+	     db	     'Erro em unset: variavel inexistente!'
+   6139	      20 75 6E 73 65 74	3A+
+   6140	      20 76 61 72 69 61	76+
+   6141	      65 6C 20 69 6E 65	78+
+   6142	      69 73 74 65 6E 74	65+
+   6143	      21
+   6144	08FA  0A			     db	     10
+   6145	08FB  00			     db	     0
+   6146	08FC  2D 6E			     db	     '-n'
+   6147	08FE  00			     db	     0
+   6148	08FF  DA			     db	     -38
+   6149	0900  C4			     db	     -60
+   6150	0901  C4			     db	     -60
+   6151	0902  20 54 68 72 65 61	64+	     db	     ' Thread '
+   6152	      20
+   6153	090A  C4			     db	     -60
+   6154	090B  C4			     db	     -60
+   6155	090C  C4			     db	     -60
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 109
 command.ASM
 
 
 
-   6156	0AC2  C4			     db	     -60
-   6157	0AC3  C4			     db	     -60
-   6158	0AC4  C4			     db	     -60
-   6159	0AC5  C4			     db	     -60
-   6160	0AC6  BF			     db	     -65
-   6161	0AC7  00			     db	     0
-   6162	0AC8  B3			     db	     -77
-   6163	0AC9  20 50 49 44 20 20	3D+	     db	     ' PID  =	    '
-   6164	      20 20 20 20 20 20	20
-   6165	0AD7  B3			     db	     -77
-   6166	0AD8  00			     db	     0
-   6167	0AD9  B3			     db	     -77
-   6168	0ADA  20 45 78 65 63 75	63+	     db	     ' Execucao:    '
-   6169	      61 6F 3A 20 20 20	20
-   6170	0AE8  B3			     db	     -77
-   6171	0AE9  00			     db	     0
-   6172	0AEA  B3			     db	     -77
-   6173	0AEB  20 20 20 20 20 20	20+	     db	     '		    '
-   6174	      20 20 20 20 20 20	20
-   6175	0AF9  B3			     db	     -77
-   6176	0AFA  00			     db	     0
-   6177	0AFB  C0			     db	     -64
-   6178	0AFC  C4			     db	     -60
-   6179	0AFD  C4			     db	     -60
-   6180	0AFE  C4			     db	     -60
-   6181	0AFF  C4			     db	     -60
-   6182	0B00  C4			     db	     -60
-   6183	0B01  C4			     db	     -60
-   6184	0B02  C4			     db	     -60
-   6185	0B03  C4			     db	     -60
-   6186	0B04  C4			     db	     -60
-   6187	0B05  C4			     db	     -60
-   6188	0B06  C4			     db	     -60
-   6189	0B07  C4			     db	     -60
-   6190	0B08  C4			     db	     -60
-   6191	0B09  C4			     db	     -60
-   6192	0B0A  D9			     db	     -39
-   6193	0B0B  00			     db	     0
-   6194	0B0C  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
-   6195	      20 73 65 6D 74 65	73+
-   6196	      74 3A 20 6E 75 6D	65+
-   6197	      72 6F 20 69 6E 76	61+
-   6198	      6C 69 64 6F 20 64	65+
-   6199	      20 61 72 67 75 6D	65+
-   6200	      6E 74 6F 73 21
-   6201	0B3B  0A			     db	     10
-   6202	0B3C  00			     db	     0
-   6203	0B3D  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: fork() nao conseguiu criar thread!'
-   6204	      20 64 65 6D 6F 3A	20+
-   6205	      66 6F 72 6B 28 29	20+
-   6206	      6E 61 6F 20 63 6F	6E+
-   6207	      73 65 67 75 69 75	20+
-   6208	      63 72 69 61 72 20	74+
-   6209	      68 72 65 61 64 21
-   6210	0B6D  0A			     db	     10
-   6211	0B6E  00			     db	     0
-   6212	0B6F  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 110
+   6156	090D  C4			     db	     -60
+   6157	090E  BF			     db	     -65
+   6158	090F  00			     db	     0
+   6159	0910  B3			     db	     -77
+   6160	0911  20 50 49 44 20 20	3D+	     db	     ' PID  =	    '
+   6161	      20 20 20 20 20 20	20
+   6162	091F  B3			     db	     -77
+   6163	0920  00			     db	     0
+   6164	0921  B3			     db	     -77
+   6165	0922  20 45 78 65 63 75	63+	     db	     ' Execucao:    '
+   6166	      61 6F 3A 20 20 20	20
+   6167	0930  B3			     db	     -77
+   6168	0931  00			     db	     0
+   6169	0932  B3			     db	     -77
+   6170	0933  20 20 20 20 20 20	20+	     db	     '		    '
+   6171	      20 20 20 20 20 20	20
+   6172	0941  B3			     db	     -77
+   6173	0942  00			     db	     0
+   6174	0943  C0			     db	     -64
+   6175	0944  C4			     db	     -60
+   6176	0945  C4			     db	     -60
+   6177	0946  C4			     db	     -60
+   6178	0947  C4			     db	     -60
+   6179	0948  C4			     db	     -60
+   6180	0949  C4			     db	     -60
+   6181	094A  C4			     db	     -60
+   6182	094B  C4			     db	     -60
+   6183	094C  C4			     db	     -60
+   6184	094D  C4			     db	     -60
+   6185	094E  C4			     db	     -60
+   6186	094F  C4			     db	     -60
+   6187	0950  C4			     db	     -60
+   6188	0951  C4			     db	     -60
+   6189	0952  D9			     db	     -39
+   6190	0953  00			     db	     0
+   6191	0954  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: numero invalido de argumentos!'
+   6192	      20 64 65 6D 6F 3A	20+
+   6193	      6E 75 6D 65 72 6F	20+
+   6194	      69 6E 76 61 6C 69	64+
+   6195	      6F 20 64 65 20 61	72+
+   6196	      67 75 6D 65 6E 74	6F+
+   6197	      73 21
+   6198	0980  0A			     db	     10
+   6199	0981  00			     db	     0
+   6200	0982  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: fork() nao conseguiu criar thread!'
+   6201	      20 64 65 6D 6F 3A	20+
+   6202	      66 6F 72 6B 28 29	20+
+   6203	      6E 61 6F 20 63 6F	6E+
+   6204	      73 65 67 75 69 75	20+
+   6205	      63 72 69 61 72 20	74+
+   6206	      68 72 65 61 64 21
+   6207	09B2  0A			     db	     10
+   6208	09B3  00			     db	     0
+   6209	09B4  45 72 72 6F 20 65	6D+	     db	     'Erro em waitpid: numero invalido de argumentos!'
+   6210	      20 77 61 69 74 70	69+
+   6211	      64 3A 20 6E 75 6D	65+
+   6212	      72 6F 20 69 6E 76	61+
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 110
 command.ASM
 
 
 
-   6213	      20 73 65 6D 74 65	73+
-   6214	      74 3A 20 6E 75 6D	65+
-   6215	      72 6F 20 69 6E 76	61+
-   6216	      6C 69 64 6F 20 64	65+
-   6217	      20 61 72 67 75 6D	65+
-   6218	      6E 74 6F 73 21
-   6219	0B9E  0A			     db	     10
-   6220	0B9F  00			     db	     0
-   6221	0BA0  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
-   6222	      20 73 65 6D 74 65	73+
-   6223	      74 3A 20 6E 75 6D	65+
-   6224	      72 6F 20 69 6E 76	61+
-   6225	      6C 69 64 6F 20 64	65+
-   6226	      20 61 72 67 75 6D	65+
-   6227	      6E 74 6F 73 21
-   6228	0BCF  0A			     db	     10
-   6229	0BD0  00			     db	     0
-   6230	0BD1  73 74 6F 70 3A 20	6E+	     db	     'stop: nenhum parametro foi fornecido'
-   6231	      65 6E 68 75 6D 20	70+
-   6232	      61 72 61 6D 65 74	72+
-   6233	      6F 20 66 6F 69 20	66+
-   6234	      6F 72 6E 65 63 69	64+
-   6235	      6F
-   6236	0BF5  0A			     db	     10
-   6237	0BF6  00			     db	     0
-   6238	0BF7  73 74 6F 70 3A 20	69+	     db	     'stop: impossivel suspender a thread'
-   6239	      6D 70 6F 73 73 69	76+
-   6240	      65 6C 20 73 75 73	70+
-   6241	      65 6E 64 65 72 20	61+
-   6242	      20 74 68 72 65 61	64
-   6243	0C1A  0A			     db	     10
-   6244	0C1B  00			     db	     0
-   6245	0C1C  72 65 73 75 6D 65	3A+	     db	     'resume: nenhum parametro foi fornecido'
-   6246	      20 6E 65 6E 68 75	6D+
-   6247	      20 70 61 72 61 6D	65+
-   6248	      74 72 6F 20 66 6F	69+
-   6249	      20 66 6F 72 6E 65	63+
-   6250	      69 64 6F
-   6251	0C42  0A			     db	     10
-   6252	0C43  00			     db	     0
-   6253	0C44  72 65 73 75 6D 65	3A+	     db	     'resume: impossivel reiniciar a thread'
-   6254	      20 69 6D 70 6F 73	73+
-   6255	      69 76 65 6C 20 72	65+
-   6256	      69 6E 69 63 69 61	72+
-   6257	      20 61 20 74 68 72	65+
-   6258	      61 64
-   6259	0C69  0A			     db	     10
-   6260	0C6A  00			     db	     0
-   6261	0C6B  20			     db	     ' '
-   6262	0C6C  00			     db	     0
-   6263	0C6D  0A			     db	     10
-   6264	0C6E  00			     db	     0
-   6265	0C6F  53 4F 55 20 4F 20	50+	     db	     'SOU O PRODUTOR '
-   6266	      52 4F 44 55 54 4F	52+
-   6267	      20
-   6268	0C7E  00			     db	     0
-   6269	0C7F  4E 61 6F 20 68 61	20+	     db	     'Nao ha mais espaco para produzir'
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 111
+   6213	      6C 69 64 6F 20 64	65+
+   6214	      20 61 72 67 75 6D	65+
+   6215	      6E 74 6F 73 21
+   6216	09E3  0A			     db	     10
+   6217	09E4  00			     db	     0
+   6218	09E5  50 72 6F 63 65 73	73+	     db	     'Processo '
+   6219	      6F 20
+   6220	09EE  00			     db	     0
+   6221	09EF  20 65 6E 63 65 72	72+	     db	     ' encerrado com codigo de fim '
+   6222	      61 64 6F 20 63 6F	6D+
+   6223	      20 63 6F 64 69 67	6F+
+   6224	      20 64 65 20 66 69	6D+
+   6225	      20
+   6226	0A0C  00			     db	     0
+   6227	0A0D  21			     db	     '!'
+   6228	0A0E  0A			     db	     10
+   6229	0A0F  00			     db	     0
+   6230	0A10  50 72 6F 63 65 73	73+	     db	     'Processo '
+   6231	      6F 20
+   6232	0A19  00			     db	     0
+   6233	0A1A  20 65 6E 63 65 72	72+	     db	     ' encerrado com codigo de fim '
+   6234	      61 64 6F 20 63 6F	6D+
+   6235	      20 63 6F 64 69 67	6F+
+   6236	      20 64 65 20 66 69	6D+
+   6237	      20
+   6238	0A37  00			     db	     0
+   6239	0A38  21			     db	     '!'
+   6240	0A39  0A			     db	     10
+   6241	0A3A  00			     db	     0
+   6242	0A3B  53 65 6D 61 70 68	6F+	     db	     'Semaphores:'
+   6243	      72 65 73 3A
+   6244	0A46  0A			     db	     10
+   6245	0A47  00			     db	     0
+   6246	0A48  2D 20 69 64 3D		     db	     '-	id='
+   6247	0A4D  00			     db	     0
+   6248	0A4E  20 76 61 6C 75 65	3D	     db	     ' value='
+   6249	0A55  00			     db	     0
+   6250	0A56  20 71 75 65 75 65	3D	     db	     ' queue='
+   6251	0A5D  00			     db	     0
+   6252	0A5E  54 4F 54 41 4C 3D		     db	     'TOTAL='
+   6253	0A64  00			     db	     0
+   6254	0A65  0A			     db	     10
+   6255	0A66  0A			     db	     10
+   6256	0A67  00			     db	     0
+   6257	0A68  45 72 72 6F 20 65	6D+	     db	     'Erro em semcreate: numero	invalido de argumentos!'
+   6258	      20 73 65 6D 63 72	65+
+   6259	      61 74 65 3A 20 6E	75+
+   6260	      6D 65 72 6F 20 69	6E+
+   6261	      76 61 6C 69 64 6F	20+
+   6262	      64 65 20 61 72 67	75+
+   6263	      6D 65 6E 74 6F 73	21
+   6264	0A99  0A			     db	     10
+   6265	0A9A  00			     db	     0
+   6266	0A9B  53 65 6D 61 66 6F	72+	     db	     'Semaforo id='
+   6267	      6F 20 69 64 3D
+   6268	0AA7  00			     db	     0
+   6269	0AA8  20 63 72 69 61 64	6F+	     db	     ' criado (value='
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 111
 command.ASM
 
 
 
-   6270	      6D 61 69 73 20 65	73+
-   6271	      70 61 63 6F 20 70	61+
-   6272	      72 61 20 70 72 6F	64+
-   6273	      75 7A 69 72
-   6274	0C9F  0A			     db	     10
-   6275	0CA0  00			     db	     0
-   6276	0CA1  53 4F 55 20 4F 20	43+	     db	     'SOU O CONSUMIDOR '
-   6277	      4F 4E 53 55 4D 49	44+
-   6278	      4F 52 20
-   6279	0CB2  00			     db	     0
-   6280	0CB3  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	numero invalido	de argumentos!'
-   6281	      20 70 72 6F 64 63	6F+
-   6282	      6E 73 3A 20 6E 75	6D+
-   6283	      65 72 6F 20 69 6E	76+
-   6284	      61 6C 69 64 6F 20	64+
-   6285	      65 20 61 72 67 75	6D+
-   6286	      65 6E 74 6F 73 21
-   6287	0CE3  0A			     db	     10
-   6288	0CE4  00			     db	     0
-   6289	0CE5  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	fork() nao conseguiu criar thread!'
-   6290	      20 70 72 6F 64 63	6F+
-   6291	      6E 73 3A 20 66 6F	72+
-   6292	      6B 28 29 20 6E 61	6F+
-   6293	      20 63 6F 6E 73 65	67+
-   6294	      75 69 75 20 63 72	69+
-   6295	      61 72 20 74 68 72	65+
-   6296	      61 64 21
-   6297	0D19  0A			     db	     10
-   6298	0D1A  00			     db	     0
-   6299	0D1B  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	fork() nao conseguiu criar thread!'
-   6300	      20 70 72 6F 64 63	6F+
-   6301	      6E 73 3A 20 66 6F	72+
-   6302	      6B 28 29 20 6E 61	6F+
-   6303	      20 63 6F 6E 73 65	67+
-   6304	      75 69 75 20 63 72	69+
-   6305	      61 72 20 74 68 72	65+
-   6306	      61 64 21
-   6307	0D4F  0A			     db	     10
-   6308	0D50  00			     db	     0
-   6309	0D51			     _DATA   ends
-   6310	166E			     _TEXT   segment byte public 'CODE'
-   6311	166E			     _TEXT   ends
-   6312					     public  _consumidor
-   6313					     public  _produtor
-   6314					     public  _produz
-   6315					     public  _avanca
-   6316					     public  _inicializaLista
-   6317					     public  _imprimeLista
-   6318				     _posicaoConsumidor	     equ     posicaoConsumidor
-   6319				     _cicloConsumidor	     equ     cicloConsumidor
-   6320				     _posicaoProdutor	     equ     posicaoProdutor
-   6321				     _cicloProdutor  equ     cicloProdutor
-   6322				     _vetor  equ     vetor
-   6323				     _tamanho_buffer equ     tamanho_buffer
-   6324				     _itens  equ     itens
-   6325					     public  _sem_aplic
-   6326					     public  _semid
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 112
+   6270	      20 28 76 61 6C 75	65+
+   6271	      3D
+   6272	0AB7  00			     db	     0
+   6273	0AB8  29			     db	     ')'
+   6274	0AB9  0A			     db	     10
+   6275	0ABA  00			     db	     0
+   6276	0ABB  DA			     db	     -38
+   6277	0ABC  C4			     db	     -60
+   6278	0ABD  C4			     db	     -60
+   6279	0ABE  20 54 68 72 65 61	64+	     db	     ' Thread '
+   6280	      20
+   6281	0AC6  C4			     db	     -60
+   6282	0AC7  C4			     db	     -60
+   6283	0AC8  C4			     db	     -60
+   6284	0AC9  C4			     db	     -60
+   6285	0ACA  BF			     db	     -65
+   6286	0ACB  00			     db	     0
+   6287	0ACC  B3			     db	     -77
+   6288	0ACD  20 50 49 44 20 20	3D+	     db	     ' PID  =	    '
+   6289	      20 20 20 20 20 20	20
+   6290	0ADB  B3			     db	     -77
+   6291	0ADC  00			     db	     0
+   6292	0ADD  B3			     db	     -77
+   6293	0ADE  20 45 78 65 63 75	63+	     db	     ' Execucao:    '
+   6294	      61 6F 3A 20 20 20	20
+   6295	0AEC  B3			     db	     -77
+   6296	0AED  00			     db	     0
+   6297	0AEE  B3			     db	     -77
+   6298	0AEF  20 20 20 20 20 20	20+	     db	     '		    '
+   6299	      20 20 20 20 20 20	20
+   6300	0AFD  B3			     db	     -77
+   6301	0AFE  00			     db	     0
+   6302	0AFF  C0			     db	     -64
+   6303	0B00  C4			     db	     -60
+   6304	0B01  C4			     db	     -60
+   6305	0B02  C4			     db	     -60
+   6306	0B03  C4			     db	     -60
+   6307	0B04  C4			     db	     -60
+   6308	0B05  C4			     db	     -60
+   6309	0B06  C4			     db	     -60
+   6310	0B07  C4			     db	     -60
+   6311	0B08  C4			     db	     -60
+   6312	0B09  C4			     db	     -60
+   6313	0B0A  C4			     db	     -60
+   6314	0B0B  C4			     db	     -60
+   6315	0B0C  C4			     db	     -60
+   6316	0B0D  C4			     db	     -60
+   6317	0B0E  D9			     db	     -39
+   6318	0B0F  00			     db	     0
+   6319	0B10  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
+   6320	      20 73 65 6D 74 65	73+
+   6321	      74 3A 20 6E 75 6D	65+
+   6322	      72 6F 20 69 6E 76	61+
+   6323	      6C 69 64 6F 20 64	65+
+   6324	      20 61 72 67 75 6D	65+
+   6325	      6E 74 6F 73 21
+   6326	0B3F  0A			     db	     10
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 112
 command.ASM
 
 
 
-   6327					     extrn   _miniSO_sem:word
-   6328				     _exitcode	     equ     exitcode
-   6329				     _demo_linha     equ     demo_linha
-   6330				     _demo   equ     demo
-   6331					     extrn   _miniSO_thread:word
-   6332				     _commands	     equ     commands
-   6333				     _var    equ     var
-   6334				     _num_var	     equ     num_var
-   6335				     _history_pos    equ     history_pos
-   6336				     _history_nxt    equ     history_nxt
-   6337				     _history_ini    equ     history_ini
-   6338				     _history_len    equ     history_len
-   6339				     _history	     equ     history
-   6340				     _argv   equ     argv
-   6341				     _argline	     equ     argline
-   6342				     _palavra	     equ     palavra
-   6343				     _cmdline	     equ     cmdline
-   6344				     _end_command    equ     end_command
-   6345					     extrn   _resume:near
-   6346					     extrn   _stop:near
-   6347					     extrn   _semdestroy:near
-   6348					     extrn   _semdown:near
-   6349					     extrn   _semup:near
-   6350					     extrn   _semcreate:near
-   6351					     extrn   _getpid:near
-   6352					     extrn   _exit:near
-   6353					     extrn   _waitpid:near
-   6354					     extrn   _wait:near
-   6355					     extrn   _kill:near
-   6356					     extrn   _fork:near
-   6357					     extrn   _reboot:near
-   6358					     extrn   _inttostr:near
-   6359					     extrn   _unsignedtostr:near
-   6360					     extrn   _atoi:near
-   6361					     extrn   _strlen:near
-   6362					     extrn   _strcmp:near
-   6363					     extrn   _strcpy:near
-   6364					     extrn   _gettime:near
-   6365					     extrn   _getdate:near
-   6366					     extrn   _gotoxy:near
-   6367					     extrn   _wherey:near
-   6368					     extrn   _wherex:near
-   6369					     extrn   _setcolor:near
-   6370					     extrn   _getcolor:near
-   6371					     extrn   _putstrxy:near
-   6372					     extrn   _putstr:near
-   6373					     extrn   _clrscr:near
-   6374					     extrn   _getch:near
-   6375					     extrn   _putch:near
-   6376					     public  _cmd_prodcons
-   6377					     public  _cmd_resume
-   6378					     public  _cmd_stop
-   6379					     public  _cmd_semdestroy
-   6380					     public  _cmd_semup
-   6381					     public  _cmd_semtest
-   6382					     public  _cmd_semcreate
-   6383					     public  _cmd_semls
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 113
+   6327	0B40  00			     db	     0
+   6328	0B41  45 72 72 6F 20 65	6D+	     db	     'Erro em demo: fork() nao conseguiu criar thread!'
+   6329	      20 64 65 6D 6F 3A	20+
+   6330	      66 6F 72 6B 28 29	20+
+   6331	      6E 61 6F 20 63 6F	6E+
+   6332	      73 65 67 75 69 75	20+
+   6333	      63 72 69 61 72 20	74+
+   6334	      68 72 65 61 64 21
+   6335	0B71  0A			     db	     10
+   6336	0B72  00			     db	     0
+   6337	0B73  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
+   6338	      20 73 65 6D 74 65	73+
+   6339	      74 3A 20 6E 75 6D	65+
+   6340	      72 6F 20 69 6E 76	61+
+   6341	      6C 69 64 6F 20 64	65+
+   6342	      20 61 72 67 75 6D	65+
+   6343	      6E 74 6F 73 21
+   6344	0BA2  0A			     db	     10
+   6345	0BA3  00			     db	     0
+   6346	0BA4  45 72 72 6F 20 65	6D+	     db	     'Erro em semtest: numero invalido de argumentos!'
+   6347	      20 73 65 6D 74 65	73+
+   6348	      74 3A 20 6E 75 6D	65+
+   6349	      72 6F 20 69 6E 76	61+
+   6350	      6C 69 64 6F 20 64	65+
+   6351	      20 61 72 67 75 6D	65+
+   6352	      6E 74 6F 73 21
+   6353	0BD3  0A			     db	     10
+   6354	0BD4  00			     db	     0
+   6355	0BD5  73 74 6F 70 3A 20	6E+	     db	     'stop: nenhum parametro foi fornecido'
+   6356	      65 6E 68 75 6D 20	70+
+   6357	      61 72 61 6D 65 74	72+
+   6358	      6F 20 66 6F 69 20	66+
+   6359	      6F 72 6E 65 63 69	64+
+   6360	      6F
+   6361	0BF9  0A			     db	     10
+   6362	0BFA  00			     db	     0
+   6363	0BFB  73 74 6F 70 3A 20	69+	     db	     'stop: impossivel suspender a thread'
+   6364	      6D 70 6F 73 73 69	76+
+   6365	      65 6C 20 73 75 73	70+
+   6366	      65 6E 64 65 72 20	61+
+   6367	      20 74 68 72 65 61	64
+   6368	0C1E  0A			     db	     10
+   6369	0C1F  00			     db	     0
+   6370	0C20  72 65 73 75 6D 65	3A+	     db	     'resume: nenhum parametro foi fornecido'
+   6371	      20 6E 65 6E 68 75	6D+
+   6372	      20 70 61 72 61 6D	65+
+   6373	      74 72 6F 20 66 6F	69+
+   6374	      20 66 6F 72 6E 65	63+
+   6375	      69 64 6F
+   6376	0C46  0A			     db	     10
+   6377	0C47  00			     db	     0
+   6378	0C48  72 65 73 75 6D 65	3A+	     db	     'resume: impossivel reiniciar a thread'
+   6379	      20 69 6D 70 6F 73	73+
+   6380	      69 76 65 6C 20 72	65+
+   6381	      69 6E 69 63 69 61	72+
+   6382	      20 61 20 74 68 72	65+
+   6383	      61 64
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 113
 command.ASM
 
 
 
-   6384					     public  _cmd_waitpid
-   6385					     public  _cmd_wait
-   6386					     public  _cmd_echo
-   6387					     public  _cmd_unset
-   6388					     public  _cmd_set
-   6389					     public  _cmd_demo
-   6390					     public  _cmd_kill
-   6391					     public  _cmd_ps
-   6392					     public  _cmd_ver
-   6393					     public  _cmd_cls
-   6394					     public  _cmd_time
-   6395					     public  _cmd_date
-   6396					     public  _cmd_help
-   6397					     public  _cmd_reboot
-   6398					     public  _cmd_exit
-   6399				     _command_var_set	     equ     command_var_set
-   6400				     _command_var_value	     equ     command_var_value
-   6401				     _command_var_unset	     equ     command_var_unset
-   6402				     _command_var_search     equ     command_var_search
-   6403				     _command_var_list	     equ     command_var_list
-   6404				     _command_var_nextfree   equ     command_var_nextfree
-   6405				     _command_var_init	     equ     command_var_init
-   6406				     _command_showprompt     equ     command_showprompt
-   6407				     _command_backspace	     equ     command_backspace
-   6408					     public  _command
-   6409				     _s@     equ     s@
-   6410					     end
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 114
+   6384	0C6D  0A			     db	     10
+   6385	0C6E  00			     db	     0
+   6386	0C6F  20			     db	     ' '
+   6387	0C70  00			     db	     0
+   6388	0C71  0A			     db	     10
+   6389	0C72  00			     db	     0
+   6390	0C73  4E 61 6F 20 68 61	20+	     db	     'Nao ha mais espaco para produzir'
+   6391	      6D 61 69 73 20 65	73+
+   6392	      70 61 63 6F 20 70	61+
+   6393	      72 61 20 70 72 6F	64+
+   6394	      75 7A 69 72
+   6395	0C93  0A			     db	     10
+   6396	0C94  00			     db	     0
+   6397	0C95  4E 61 6F 20 68 61	20+	     db	     'Nao ha nada para consumir'
+   6398	      6E 61 64 61 20 70	61+
+   6399	      72 61 20 63 6F 6E	73+
+   6400	      75 6D 69 72
+   6401	0CAE  0A			     db	     10
+   6402	0CAF  00			     db	     0
+   6403	0CB0  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	numero invalido	de argumentos!'
+   6404	      20 70 72 6F 64 63	6F+
+   6405	      6E 73 3A 20 6E 75	6D+
+   6406	      65 72 6F 20 69 6E	76+
+   6407	      61 6C 69 64 6F 20	64+
+   6408	      65 20 61 72 67 75	6D+
+   6409	      65 6E 74 6F 73 21
+   6410	0CE0  0A			     db	     10
+   6411	0CE1  00			     db	     0
+   6412	0CE2  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	fork() nao conseguiu criar thread!'
+   6413	      20 70 72 6F 64 63	6F+
+   6414	      6E 73 3A 20 66 6F	72+
+   6415	      6B 28 29 20 6E 61	6F+
+   6416	      20 63 6F 6E 73 65	67+
+   6417	      75 69 75 20 63 72	69+
+   6418	      61 72 20 74 68 72	65+
+   6419	      61 64 21
+   6420	0D16  0A			     db	     10
+   6421	0D17  00			     db	     0
+   6422	0D18  45 72 72 6F 20 65	6D+	     db	     'Erro em prodcons:	fork() nao conseguiu criar thread!'
+   6423	      20 70 72 6F 64 63	6F+
+   6424	      6E 73 3A 20 66 6F	72+
+   6425	      6B 28 29 20 6E 61	6F+
+   6426	      20 63 6F 6E 73 65	67+
+   6427	      75 69 75 20 63 72	69+
+   6428	      61 72 20 74 68 72	65+
+   6429	      61 64 21
+   6430	0D4C  0A			     db	     10
+   6431	0D4D  00			     db	     0
+   6432	0D4E			     _DATA   ends
+   6433	1707			     _TEXT   segment byte public 'CODE'
+   6434	1707			     _TEXT   ends
+   6435					     public  _consumidor
+   6436					     public  _produtor
+   6437					     public  _consome
+   6438					     public  _produz
+   6439					     public  _avanca
+   6440					     public  _inicializaLista
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 114
+command.ASM
+
+
+
+   6441					     public  _imprimeLista
+   6442					     public  _sleep
+   6443				     _tamanhoSegundo equ     tamanhoSegundo
+   6444				     _posicaoConsumidor	     equ     posicaoConsumidor
+   6445				     _cicloConsumidor	     equ     cicloConsumidor
+   6446				     _posicaoProdutor	     equ     posicaoProdutor
+   6447				     _cicloProdutor  equ     cicloProdutor
+   6448				     _vetor  equ     vetor
+   6449				     _tamanho_buffer equ     tamanho_buffer
+   6450				     _itens  equ     itens
+   6451					     public  _sem_aplic
+   6452					     public  _semid
+   6453					     extrn   _miniSO_sem:word
+   6454				     _exitcode	     equ     exitcode
+   6455				     _demo_linha     equ     demo_linha
+   6456				     _demo   equ     demo
+   6457					     extrn   _miniSO_thread:word
+   6458				     _commands	     equ     commands
+   6459				     _var    equ     var
+   6460				     _num_var	     equ     num_var
+   6461				     _history_pos    equ     history_pos
+   6462				     _history_nxt    equ     history_nxt
+   6463				     _history_ini    equ     history_ini
+   6464				     _history_len    equ     history_len
+   6465				     _history	     equ     history
+   6466				     _argv   equ     argv
+   6467				     _argline	     equ     argline
+   6468				     _palavra	     equ     palavra
+   6469				     _cmdline	     equ     cmdline
+   6470				     _end_command    equ     end_command
+   6471					     extrn   _resume:near
+   6472					     extrn   _stop:near
+   6473					     extrn   _semdestroy:near
+   6474					     extrn   _semdown:near
+   6475					     extrn   _semup:near
+   6476					     extrn   _semcreate:near
+   6477					     extrn   _getpid:near
+   6478					     extrn   _exit:near
+   6479					     extrn   _waitpid:near
+   6480					     extrn   _wait:near
+   6481					     extrn   _kill:near
+   6482					     extrn   _fork:near
+   6483					     extrn   _reboot:near
+   6484					     extrn   _inttostr:near
+   6485					     extrn   _unsignedtostr:near
+   6486					     extrn   _atoi:near
+   6487					     extrn   _strlen:near
+   6488					     extrn   _strcmp:near
+   6489					     extrn   _strcpy:near
+   6490					     extrn   _gettime:near
+   6491					     extrn   _getdate:near
+   6492					     extrn   _gotoxy:near
+   6493					     extrn   _wherey:near
+   6494					     extrn   _wherex:near
+   6495					     extrn   _setcolor:near
+   6496					     extrn   _getcolor:near
+   6497					     extrn   _putstrxy:near
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 115
+command.ASM
+
+
+
+   6498					     extrn   _putstr:near
+   6499					     extrn   _clrscr:near
+   6500					     extrn   _getch:near
+   6501					     extrn   _putch:near
+   6502					     public  _cmd_prodcons
+   6503					     public  _cmd_resume
+   6504					     public  _cmd_stop
+   6505					     public  _cmd_semdestroy
+   6506					     public  _cmd_semup
+   6507					     public  _cmd_semtest
+   6508					     public  _cmd_semcreate
+   6509					     public  _cmd_semls
+   6510					     public  _cmd_waitpid
+   6511					     public  _cmd_wait
+   6512					     public  _cmd_echo
+   6513					     public  _cmd_unset
+   6514					     public  _cmd_set
+   6515					     public  _cmd_demo
+   6516					     public  _cmd_kill
+   6517					     public  _cmd_ps
+   6518					     public  _cmd_ver
+   6519					     public  _cmd_cls
+   6520					     public  _cmd_time
+   6521					     public  _cmd_date
+   6522					     public  _cmd_help
+   6523					     public  _cmd_reboot
+   6524					     public  _cmd_exit
+   6525				     _command_var_set	     equ     command_var_set
+   6526				     _command_var_value	     equ     command_var_value
+   6527				     _command_var_unset	     equ     command_var_unset
+   6528				     _command_var_search     equ     command_var_search
+   6529				     _command_var_list	     equ     command_var_list
+   6530				     _command_var_nextfree   equ     command_var_nextfree
+   6531				     _command_var_init	     equ     command_var_init
+   6532				     _command_showprompt     equ     command_showprompt
+   6533				     _command_backspace	     equ     command_backspace
+   6534					     public  _command
+   6535				     _s@     equ     s@
+   6536					     end
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 116
 Symbol Table
 
 
@@ -6982,9 +7118,9 @@ Symbol Table
 
 Symbol Name		Type   Value			   Cref	(defined at #)
 
-??DATE			Text   "11/26/17"
+??DATE			Text   "11/29/17"
 ??FILENAME		Text   "command	"
-??TIME			Text   "18:49:41"
+??TIME			Text   "21:49:50"
 ??VERSION		Number 030A
 @10@114			Near   _TEXT:0755		   1822	 #1829
 @10@170			Near   _TEXT:076A		   1839	 #1845
@@ -7036,7 +7172,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 @19@226			Near   _TEXT:0CAF		   3046	 #3085
 @19@86			Near   _TEXT:0C7E		   #3036  3076
 @1@1094			Near   _TEXT:01D6		   510	#525
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 115
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 117
 Symbol Table
 
 
@@ -7098,7 +7234,7 @@ Symbol Table
 @1@366			Near   _TEXT:011F		   #348	 1284
 @1@394			Near   _TEXT:0121		   #350	 364
 @1@422			Near   _TEXT:0125		   349	#362
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 116
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 118
 Symbol Table
 
 
@@ -7160,7 +7296,7 @@ Symbol Table
 @24@114			Near   _TEXT:0FFA		   #3819  3869
 @24@142			Near   _TEXT:0FFC		   3804	 #3821
 @24@198			Near   _TEXT:100E		   3831	 #3836
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 117
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 119
 Symbol Table
 
 
@@ -7205,29 +7341,39 @@ Symbol Table
 @34@170			Near   _TEXT:1523		   5031	 #5041
 @34@198			Near   _TEXT:1527		   5007	 #5047
 @34@86			Near   _TEXT:14FB		   #5006  5046
-@35@114			Near   _TEXT:155E		   5094	 #5126
-@35@58			Near   _TEXT:1536		   #5095  5128
-@36@114			Near   _TEXT:1585		   5160	 #5169
-@36@58			Near   _TEXT:157A		   #5161  5171
-@37@142			Near   _TEXT:15A1		   5193	 #5204
-@37@170			Near   _TEXT:15A6		   5199	 5203  #5211
-@37@86			Near   _TEXT:159D		   #5198  5210
-@39@114			Near   _TEXT:15EB		   5281	 #5290
-@39@142			Near   _TEXT:15F5		   5289	 #5300
-@39@170			Near   _TEXT:15F9		   5272	 #5306
-@39@58			Near   _TEXT:15DD		   #5273  5309
+@35@114			Near   _TEXT:1551		   5105	 #5109
+@35@198			Near   _TEXT:1565		   5114	 #5117
+@35@226			Near   _TEXT:156D		   5098	 #5120
+@35@310			Near   _TEXT:157D		   5125	 #5128
+@35@58			Near   _TEXT:153D		   #5099  5124	5127
+@35@86			Near   _TEXT:1549		   #5106  5113	5116
+@36@114			Near   _TEXT:15B4		   5153	 #5185
+@36@58			Near   _TEXT:158C		   #5154  5187
+@37@114			Near   _TEXT:15DB		   5219	 #5228
+@37@58			Near   _TEXT:15D0		   #5220  5230
+@38@142			Near   _TEXT:15F7		   5252	 #5263
+@38@170			Near   _TEXT:15FC		   5258	 5262  #5270
+@38@86			Near   _TEXT:15F3		   #5257  5269
 @3@86			Near   _TEXT:05AF		   1370	 #1399
-@41@114			Near   _TEXT:1629		   #5368  5443
-@41@142			Near   _TEXT:162B		   5353	 #5370
-@41@198			Near   _TEXT:1655		   5410	 #5417
-@41@254			Near   _TEXT:1668		   5428	 #5435
-@41@282			Near   _TEXT:166C		   5369	 #5444
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 118
+@41@114			Near   _TEXT:165D		   5366	 #5375
+@41@142			Near   _TEXT:1667		   5374	 #5385
+@41@170			Near   _TEXT:1673		   5357	 #5398
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 120
 Symbol Table
 
 
 
-@41@86			Near   _TEXT:1620		   #5359  5416	5434
+@41@58			Near   _TEXT:164F		   #5358  5400
+@42@114			Near   _TEXT:168D		   5423	 #5432
+@42@142			Near   _TEXT:1697		   5431	 #5442
+@42@170			Near   _TEXT:16A3		   5415	 #5455
+@42@58			Near   _TEXT:1681		   #5416  5457
+@43@114			Near   _TEXT:16C2		   #5493  5568
+@43@142			Near   _TEXT:16C4		   5478	 #5495
+@43@198			Near   _TEXT:16EE		   5535	 #5542
+@43@254			Near   _TEXT:1701		   5553	 #5560
+@43@282			Near   _TEXT:1705		   5494	 #5569
+@43@86			Near   _TEXT:16B9		   #5484  5541	5559
 @4@114			Near   _TEXT:05DF		   1429	 #1448
 @4@58			Near   _TEXT:05C2		   #1430  1450
 @5@114			Near   _TEXT:05FB		   1476	 #1484
@@ -7262,19 +7408,24 @@ Symbol Table
 @@6			Near   _TEXT:1174		   4174	 #4176
 @@7			Near   _TEXT:1201		   4282	 #4284
 @CPU			Text   0101H
-@CURSEG			Text   _TEXT			   #10	#14  #18  #22  #106  #2446  #2449  #3431  #3439	 #5057	#5077	  +
-							   #5452  #5482	 #6310
+@CURSEG			Text   _TEXT			   #10	#14  #18  #22  #106  #2446  #2449  #3431  #3439	 #5057	#5082	  +
+							   #5577  #5607	 #6433
 @FILENAME		Text   COMMAND
-@WORDSIZE		Text   2			   #10	#14  #18  #22  #106  #2446  #2449  #3431  #3439	 #5057	#5077	  +
-							   #5452  #5482	 #6310
-ARGLINE			Byte   _BSS:03B0		   980	988  #5471
-ARGV			Dword  _BSS:0370		   992	993  1118  1119	 1150  #5469
+@WORDSIZE		Text   2			   #10	#14  #18  #22  #106  #2446  #2449  #3431  #3439	 #5057	#5082	  +
+							   #5577  #5607	 #6433
+ARGLINE			Byte   _BSS:03B0		   980	988  #5596
+ARGV			Dword  _BSS:0370		   992	993  1118  1119	 1150  #5594
 B@			Byte   _BSS:0000		   #19
 B@W			Word   _BSS:0000		   #20	2505  2513  2538  2561	2569  2594  2617  2625	2650  2758  2766  +
 							   2791	 2815  2823  2848  2872	 2880  2905  2929  2937	 2962
-CICLOCONSUMIDOR		Word   _DATA:00AA		   #5070
-CICLOPRODUTOR		Word   _DATA:00A6		   #5064  5305	5307
-CMDLINE			Byte   _BSS:062E		   655	663  672  785  793  802	 837  843  1041	 1236  #5475
+CICLOCONSUMIDOR		Word   _DATA:00AA		   #5070  5454	5456
+CICLOPRODUTOR		Word   _DATA:00A6		   #5064  5397	5399
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 121
+Symbol Table
+
+
+
+CMDLINE			Byte   _BSS:062E		   655	663  672  785  793  802	 837  843  1041	 1236  #5600
 COMMANDS		Word   _DATA:0002		   #26	1117  1157  2029  2041
 COMMAND_BACKSPACE	Near   _TEXT:0545		   341	361  411  481  640  765	 #1289
 COMMAND_SHOWPROMPT	Near   _TEXT:056F		   294	462  1029  1206	 #1346
@@ -7284,31 +7435,26 @@ COMMAND_VAR_NEXTFREE	Near   _TEXT:05EC		   #1466  1863
 COMMAND_VAR_SEARCH	Near   _TEXT:068C		   #1624  1703	1768  1851
 COMMAND_VAR_SET		Near   _TEXT:073C		   277	288  1179  #1806  3140	3157
 COMMAND_VAR_UNSET	Near   _TEXT:06CD		   #1691  3281
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 119
-Symbol Table
-
-
-
 COMMAND_VAR_VALUE	Near   _TEXT:070F		   928	1360  #1756
 D@			Byte   _DATA:0000		   #15
 D@W			Word   _DATA:0000		   #16
 DEMO			Near   _TEXT:0E0F		   #3444  3850
 DEMO_LINHA		Word   _DATA:009E		   #3432  3457	3826  3830  3835  4495	4725  4729  4734
-END_COMMAND		Word   _BSS:064D		   132	1201  1239  1972  #5477
+END_COMMAND		Word   _BSS:064D		   132	1201  1239  1972  #5602
 EXITCODE		Word   _DATA:00A0		   #3435  3462	3846
-HISTORY			Byte   _BSS:023A		   442	652  782  1047	#5467
-HISTORY_INI		Word   _BSS:0236		   136	434  584  594  1066  1071  1078	 #5463
-HISTORY_LEN		Word   _BSS:0238		   456	493  504  690  701  706	 1054  1059  #5465
-HISTORY_NXT		Word   _BSS:0234		   140	514  557  746  1044  1084  1089	 1096  #5461
+HISTORY			Byte   _BSS:023A		   442	652  782  1047	#5592
+HISTORY_INI		Word   _BSS:0236		   136	434  584  594  1066  1071  1078	 #5588
+HISTORY_LEN		Word   _BSS:0238		   456	493  504  690  701  706	 1054  1059  #5590
+HISTORY_NXT		Word   _BSS:0234		   140	514  557  746  1044  1084  1089	 1096  #5586
 HISTORY_POS		Word   _BSS:0232		   144	399  509  516  530  535	 552  559  563	568  583  593  599  606	  +
 							   611	618  649  694  708  713	 720  731  735	740  745  751  773  779	  +
-							   826	#5459
-ITENS			Word   _DATA:00A2		   #5058  5229	5231  5279
+							   826	#5584
+ITENS			Word   _DATA:00A2		   #5058  5288	5290  5324  5326  5364	5422
 NUM_VAR			Word   _DATA:0000		   #23	1455  1475  1738
-PALAVRA			Byte   _BSS:060F		   895	916  920  926  945  953	 976  #5473
-POSICAOCONSUMIDOR	Word   _DATA:00AC		   #5073
-POSICAOPRODUTOR		Word   _DATA:00A8		   #5067  5235	5241  5244
-S@			Byte   _DATA:00AE		   27  28  30  31  33  34  36  37  39  40  42  43  45  46  48  49  51  52 +
+PALAVRA			Byte   _BSS:060F		   895	916  920  926  945  953	 976  #5598
+POSICAOCONSUMIDOR	Word   _DATA:00AC		   #5073  5330	5336  5339
+POSICAOPRODUTOR		Word   _DATA:00A8		   #5067  5294	5300  5303
+S@			Byte   _DATA:00B2		   27  28  30  31  33  34  36  37  39  40  42  43  45  46  48  49  51  52 +
 							   54  55  57  58  60  61  63  64  66  67  69  70  72  73  75  76  78  79 +
 							   81  82  84  85  87  88  90  91  93  94  96  97  99  100  102	 103  168 +
 							   178	188  202  212  218  224	 238  248  258	272  275  283  286  1177  +
@@ -7317,133 +7463,137 @@ S@			Byte   _DATA:00AE		   27  28  30  31  33  34  36  37  39  40  42  43  45  4
 							   3183	 3192  3202  3211  3261	 3294  3338  3469  3480	 3493  3506  3519 +
 							   3809	 3860  3900  3937  3964	 3991  4050  4077  4104	 4156  4181  4211 +
 							   4241	 4290  4317  4361  4404	 4431  4458  4502  4513	 4526  4539  4552 +
-							   4698	 4749  4786  4844  4910	 4949  4997  5036  5120	 5134  5267  5295 +
-							   5329	 5358  5415  5433  #5483
-TAMANHO_BUFFER		Word   _DATA:00A4		   #5061  5127	5170  5190  5280  5308	5382
+							   4698	 4749  4786  4844  4910	 4949  4997  5036  5179	 5193  5380  5437 +
+							   5483	 5540  5558  #5608
+TAMANHOSEGUNDO		Word   _DATA:00AE		   #5076  5112	5115
+TAMANHO_BUFFER		Word   _DATA:00A4		   #5061  5186	5229  5249  5365  5507
 VAR			Word   _BSS:003E		   1438	 1446  1498  1550  1559	 1585  1658  1726  1734	 1791  1885  1900 +
-							   #5457
-VETOR			Word   _BSS:0014		   5101	 5167  5237  #5453
-_ARGLINE		Alias  ARGLINE			   #6341
-_ARGV			Alias  ARGV			   #6340
-_ATOI			Near   ----:---- Extern		   3055	 3843  3919  4381  4718	 4805  4863  4929  5016	 5379  #6360
-_AVANCA			Near   _TEXT:158D		   #5183  5242	6315
-_CICLOCONSUMIDOR	Alias  CICLOCONSUMIDOR		   #6319
-_CICLOPRODUTOR		Alias  CICLOPRODUTOR		   #6321
-_CLRSCR			Near   ----:---- Extern		   156	2373  #6373
-_CMDLINE		Alias  CMDLINE			   #6343
-_CMD_CLS		Near   _TEXT:0980		   44  47  #2356  6393
-_CMD_DATE		Near   _TEXT:0845		   38  #2075  6395
-_CMD_DEMO		Near   _TEXT:0FE4		   65  #3794  6389
-_CMD_ECHO		Near   _TEXT:0D8C		   74  #3316  6386
-_CMD_EXIT		Near   _TEXT:07D8		   53  56  #1957  6398
-_CMD_HELP		Near   _TEXT:07ED		   29  32  #1989  6396
-_CMD_KILL		Near   _TEXT:0C6B		   62  #3010  6390
-_CMD_PRODCONS		Near   _TEXT:1613		   104	#5344  6376
-_CMD_PS			Near   _TEXT:09C5		   59  #2454  6391
-_CMD_REBOOT		Near   _TEXT:07C2		   50  #1921  6397
-_CMD_RESUME		Near   _TEXT:14DF		   101	#4973  6377
-_CMD_SEMCREATE		Near   _TEXT:1235		   86  #4341  6382
-_CMD_SEMDESTROY		Near   _TEXT:145A		   95  #4828  6379
-_CMD_SEMLS		Near   _TEXT:113F		   83  #4128  6383
-_CMD_SEMTEST		Near   _TEXT:13CD		   89  #4682  6381
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 120
+							   #5582
+VETOR			Word   _BSS:0014		   5160	 5226  5296  5332  #5578
+_ARGLINE		Alias  ARGLINE			   #6467
+_ARGV			Alias  ARGV			   #6466
+_ATOI			Near   ----:---- Extern		   3055	 3843  3919  4381  4718	 4805  4863  4929  5016	 5504  #6486
+_AVANCA			Near   _TEXT:15E3		   #5242  5301	5337  6439
+_CICLOCONSUMIDOR	Alias  CICLOCONSUMIDOR		   #6445
+_CICLOPRODUTOR		Alias  CICLOPRODUTOR		   #6447
+_CLRSCR			Near   ----:---- Extern		   156	2373  #6499
+_CMDLINE		Alias  CMDLINE			   #6469
+_CMD_CLS		Near   _TEXT:0980		   44  47  #2356  6519
+_CMD_DATE		Near   _TEXT:0845		   38  #2075  6521
+_CMD_DEMO		Near   _TEXT:0FE4		   65  #3794  6515
+_CMD_ECHO		Near   _TEXT:0D8C		   74  #3316  6512
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 122
 Symbol Table
 
 
 
-_CMD_SEMUP		Near   _TEXT:1421		   92  #4770  6380
-_CMD_SET		Near   _TEXT:0CB3		   68  #3098  6388
-_CMD_STOP		Near   _TEXT:1493		   98  #4886  6378
-_CMD_TIME		Near   _TEXT:08E0		   41  #2215  6394
-_CMD_UNSET		Near   _TEXT:0D4C		   71  #3245  6387
-_CMD_VER		Near   _TEXT:0996		   35  #2392  6392
-_CMD_WAIT		Near   _TEXT:10C7		   80  #4014  6385
-_CMD_WAITPID		Near   _TEXT:1038		   77  #3881  6384
-_COMMAND		Near   _TEXT:0000		   #111	 6408
-_COMMANDS		Alias  COMMANDS			   #6332
-_COMMAND_BACKSPACE	Alias  COMMAND_BACKSPACE	   #6407
-_COMMAND_SHOWPROMPT	Alias  COMMAND_SHOWPROMPT	   #6406
-_COMMAND_VAR_INIT	Alias  COMMAND_VAR_INIT		   #6405
-_COMMAND_VAR_LIST	Alias  COMMAND_VAR_LIST		   #6403
-_COMMAND_VAR_NEXTFREE	Alias  COMMAND_VAR_NEXTFREE	   #6404
-_COMMAND_VAR_SEARCH	Alias  COMMAND_VAR_SEARCH	   #6402
-_COMMAND_VAR_SET	Alias  COMMAND_VAR_SET		   #6399
-_COMMAND_VAR_UNSET	Alias  COMMAND_VAR_UNSET	   #6401
-_COMMAND_VAR_VALUE	Alias  COMMAND_VAR_VALUE	   #6400
-_CONSUMIDOR		Near   _TEXT:1604		   #5321  5423	6312
-_DEMO			Alias  DEMO			   #6330
-_DEMO_LINHA		Alias  DEMO_LINHA		   #6329
-_END_COMMAND		Alias  END_COMMAND		   #6344
-_EXIT			Near   ----:---- Extern		   3779	 4667  #6352
-_EXITCODE		Alias  EXITCODE			   #6328
-_FORK			Near   ----:---- Extern		   3852	 4741  5407  5425  #6356
-_GETCH			Near   ----:---- Extern		   302	375  #6374
-_GETCOLOR		Near   ----:---- Extern		   1374	 1535  #6370
-_GETDATE		Near   ----:---- Extern		   2102	 #6365
-_GETPID			Near   ----:---- Extern		   3532	 4565  #6351
-_GETTIME		Near   ----:---- Extern		   2239	 #6364
-_GOTOXY			Near   ----:---- Extern		   1316	 1331  #6366
-_HISTORY		Alias  HISTORY			   #6339
-_HISTORY_INI		Alias  HISTORY_INI		   #6337
-_HISTORY_LEN		Alias  HISTORY_LEN		   #6338
-_HISTORY_NXT		Alias  HISTORY_NXT		   #6336
-_HISTORY_POS		Alias  HISTORY_POS		   #6335
-_IMPRIMELISTA		Near   _TEXT:152B		   #5082  5248	5399  6317
-_INICIALIZALISTA	Near   _TEXT:1573		   #5151  5393	6316
+_CMD_EXIT		Near   _TEXT:07D8		   53  56  #1957  6524
+_CMD_HELP		Near   _TEXT:07ED		   29  32  #1989  6522
+_CMD_KILL		Near   _TEXT:0C6B		   62  #3010  6516
+_CMD_PRODCONS		Near   _TEXT:16AC		   104	#5469  6502
+_CMD_PS			Near   _TEXT:09C5		   59  #2454  6517
+_CMD_REBOOT		Near   _TEXT:07C2		   50  #1921  6523
+_CMD_RESUME		Near   _TEXT:14DF		   101	#4973  6503
+_CMD_SEMCREATE		Near   _TEXT:1235		   86  #4341  6508
+_CMD_SEMDESTROY		Near   _TEXT:145A		   95  #4828  6505
+_CMD_SEMLS		Near   _TEXT:113F		   83  #4128  6509
+_CMD_SEMTEST		Near   _TEXT:13CD		   89  #4682  6507
+_CMD_SEMUP		Near   _TEXT:1421		   92  #4770  6506
+_CMD_SET		Near   _TEXT:0CB3		   68  #3098  6514
+_CMD_STOP		Near   _TEXT:1493		   98  #4886  6504
+_CMD_TIME		Near   _TEXT:08E0		   41  #2215  6520
+_CMD_UNSET		Near   _TEXT:0D4C		   71  #3245  6513
+_CMD_VER		Near   _TEXT:0996		   35  #2392  6518
+_CMD_WAIT		Near   _TEXT:10C7		   80  #4014  6511
+_CMD_WAITPID		Near   _TEXT:1038		   77  #3881  6510
+_COMMAND		Near   _TEXT:0000		   #111	 6534
+_COMMANDS		Alias  COMMANDS			   #6458
+_COMMAND_BACKSPACE	Alias  COMMAND_BACKSPACE	   #6533
+_COMMAND_SHOWPROMPT	Alias  COMMAND_SHOWPROMPT	   #6532
+_COMMAND_VAR_INIT	Alias  COMMAND_VAR_INIT		   #6531
+_COMMAND_VAR_LIST	Alias  COMMAND_VAR_LIST		   #6529
+_COMMAND_VAR_NEXTFREE	Alias  COMMAND_VAR_NEXTFREE	   #6530
+_COMMAND_VAR_SEARCH	Alias  COMMAND_VAR_SEARCH	   #6528
+_COMMAND_VAR_SET	Alias  COMMAND_VAR_SET		   #6525
+_COMMAND_VAR_UNSET	Alias  COMMAND_VAR_UNSET	   #6527
+_COMMAND_VAR_VALUE	Alias  COMMAND_VAR_VALUE	   #6526
+_CONSOME		Near   _TEXT:1624		   #5318  5427	6437
+_CONSUMIDOR		Near   _TEXT:167C		   #5412  5548	6435
+_DEMO			Alias  DEMO			   #6456
+_DEMO_LINHA		Alias  DEMO_LINHA		   #6455
+_END_COMMAND		Alias  END_COMMAND		   #6470
+_EXIT			Near   ----:---- Extern		   3779	 4667  #6478
+_EXITCODE		Alias  EXITCODE			   #6454
+_FORK			Near   ----:---- Extern		   3852	 4741  5532  5550  #6482
+_GETCH			Near   ----:---- Extern		   302	375  #6500
+_GETCOLOR		Near   ----:---- Extern		   1374	 1535  #6496
+_GETDATE		Near   ----:---- Extern		   2102	 #6491
+_GETPID			Near   ----:---- Extern		   3532	 4565  #6477
+_GETTIME		Near   ----:---- Extern		   2239	 #6490
+_GOTOXY			Near   ----:---- Extern		   1316	 1331  #6492
+_HISTORY		Alias  HISTORY			   #6465
+_HISTORY_INI		Alias  HISTORY_INI		   #6463
+_HISTORY_LEN		Alias  HISTORY_LEN		   #6464
+_HISTORY_NXT		Alias  HISTORY_NXT		   #6462
+_HISTORY_POS		Alias  HISTORY_POS		   #6461
+_IMPRIMELISTA		Near   _TEXT:1581		   #5141  5307	5343  5524  6441
+_INICIALIZALISTA	Near   _TEXT:15C9		   #5210  5518	6440
 _INTTOSTR		Near   ----:---- Extern		   1168	 2507  2563  2619  2760	 2817  2874  2931  3537	 3949  3976  4062 +
-							   4089	 4196  4226  4256  4302	 4416  4443  4570  5105	 #6358
-_ITENS			Alias  ITENS			   #6324
-_KILL			Near   ----:---- Extern		   3063	 #6355
-_MINISO_SEM		Word   ----:---- Extern		   4173	 4192  4222  4252  #6327
-_MINISO_THREAD		Word   ----:---- Extern		   2496	 2559  2615  2671  2756	 2813  2870  2927  #6331
-_NUM_VAR		Alias  NUM_VAR			   #6334
-_PALAVRA		Alias  PALAVRA			   #6342
-_POSICAOCONSUMIDOR	Alias  POSICAOCONSUMIDOR	   #6318
-_POSICAOPRODUTOR	Alias  POSICAOPRODUTOR		   #6320
-_PRODUTOR		Near   _TEXT:15CE		   #5259  5405	6313
-_PRODUZ			Near   _TEXT:15A8		   #5223  5285	6314
+							   4089	 4196  4226  4256  4302	 4416  4443  4570  5164	 #6484
+_ITENS			Alias  ITENS			   #6450
+_KILL			Near   ----:---- Extern		   3063	 #6481
+_MINISO_SEM		Word   ----:---- Extern		   4173	 4192  4222  4252  #6453
+_MINISO_THREAD		Word   ----:---- Extern		   2496	 2559  2615  2671  2756	 2813  2870  2927  #6457
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 123
+Symbol Table
+
+
+
+_NUM_VAR		Alias  NUM_VAR			   #6460
+_PALAVRA		Alias  PALAVRA			   #6468
+_POSICAOCONSUMIDOR	Alias  POSICAOCONSUMIDOR	   #6444
+_POSICAOPRODUTOR	Alias  POSICAOPRODUTOR		   #6446
+_PRODUTOR		Near   _TEXT:164A		   #5354  5530	6436
+_PRODUZ			Near   _TEXT:15FE		   #5282  5370	6438
 _PUTCH			Near   ----:---- Extern		   421	452  832  1230	1324  1406  1569  1603	2050  2134  2165  2194	  +
 							   2271	 2304  2335  2429  2527	 2583  2639  2780  2837	 2894  2951  2972 +
-							   3381	 3412  4272  #6375
+							   3381	 3412  4272  #6501
 _PUTSTR			Near   ----:---- Extern		   170	180  190  204  214  220	 226  240  250	260  444  665  795  1193  +
 							   1388	 1561  1587  2012  2030	 2042  2126  2157  2186	 2263  2296  2327 +
 							   2412	 2421  2480  2540  2549	 2596  2605  2652  2661	 2685  2746  2793 +
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 121
-Symbol Table
-
-
-
 							   2803	 2850  2860  2907  2917	 2964  3038  3214  3264	 3358  3392  3812 +
 							   3902	 3939  3957  3966  3984	 3993  4052  4070  4079	 4097  4106  4158 +
 							   4183	 4204  4213  4234  4243	 4264  4292  4310  4319	 4363  4406  4424 +
-							   4433	 4451  4460  4701  4788	 4846  4912  4951  4999	 5038  5113  5122 +
-							   5136	 5269  5297  5331  5361	 #6372
+							   4433	 4451  4460  4701  4788	 4846  4912  4951  4999	 5038  5172  5181 +
+							   5195	 5382  5439  5486  #6498
 _PUTSTRXY		Near   ----:---- Extern		   3474	 3487  3500  3513  3526	 3550  3583  3620  3657	 3694  3731  3768 +
-							   4507	 4520  4533  4546  4559	 4583  4615  4655  #6371
-_REBOOT			Near   ----:---- Extern		   1938	 #6357
-_RESUME			Near   ----:---- Extern		   5024	 #6345
-_S@			Alias  S@			   #6409
-_SEMCREATE		Near   ----:---- Extern		   4389	 #6350
-_SEMDESTROY		Near   ----:---- Extern		   4871	 #6347
-_SEMDOWN		Near   ----:---- Extern		   4626	 #6348
-_SEMID			Word   _BSS:003C		   4625	 4721  #5455  6326
-_SEMUP			Near   ----:---- Extern		   4813	 #6349
-_SEM_APLIC		Near   _TEXT:12C4		   #4482  4739	6325
-_SETCOLOR		Near   ----:---- Extern		   151	162  185  195  209  231	 245  1381  1397  1576	1596  #6369
-_STOP			Near   ----:---- Extern		   4937	 #6346
-_STRCMP			Near   ----:---- Extern		   1120	 1662  3342  #6362
-_STRCPY			Near   ----:---- Extern		   657	787  947  982  1049  1887  1902	 #6363
+							   4507	 4520  4533  4546  4559	 4583  4615  4655  #6497
+_REBOOT			Near   ----:---- Extern		   1938	 #6483
+_RESUME			Near   ----:---- Extern		   5024	 #6471
+_S@			Alias  S@			   #6535
+_SEMCREATE		Near   ----:---- Extern		   4389	 #6476
+_SEMDESTROY		Near   ----:---- Extern		   4871	 #6473
+_SEMDOWN		Near   ----:---- Extern		   4626	 #6474
+_SEMID			Word   _BSS:003C		   4625	 4721  #5580  6452
+_SEMUP			Near   ----:---- Extern		   4813	 #6475
+_SEM_APLIC		Near   _TEXT:12C4		   #4482  4739	6451
+_SETCOLOR		Near   ----:---- Extern		   151	162  185  195  209  231	 245  1381  1397  1576	1596  #6495
+_SLEEP			Near   _TEXT:152B		   #5087  5392	5449  6442
+_STOP			Near   ----:---- Extern		   4937	 #6472
+_STRCMP			Near   ----:---- Extern		   1120	 1662  3342  #6488
+_STRCPY			Near   ----:---- Extern		   657	787  947  982  1049  1887  1902	 #6489
 _STRLEN			Near   ----:---- Extern		   674	804  955  1818	1835  2515  2571  2627	2768  2825  2882  2939	  +
-							   #6361
-_TAMANHO_BUFFER		Alias  TAMANHO_BUFFER		   #6323
+							   #6487
+_TAMANHOSEGUNDO		Alias  TAMANHOSEGUNDO		   #6443
+_TAMANHO_BUFFER		Alias  TAMANHO_BUFFER		   #6449
 _UNSIGNEDTOSTR		Near   ----:---- Extern		   2118	 2149  2178  2255  2288	 2319  3570  3607  3644	 3681  3718  3755 +
-							   4602	 4642  #6359
-_VAR			Alias  VAR			   #6333
-_VETOR			Alias  VETOR			   #6322
-_WAIT			Near   ----:---- Extern		   4042	 #6354
-_WAITPID		Near   ----:---- Extern		   3930	 #6353
-_WHEREX			Near   ----:---- Extern		   1300	 #6368
-_WHEREY			Near   ----:---- Extern		   1305	 #6367
+							   4602	 4642  #6485
+_VAR			Alias  VAR			   #6459
+_VETOR			Alias  VETOR			   #6448
+_WAIT			Near   ----:---- Extern		   4042	 #6480
+_WAITPID		Near   ----:---- Extern		   3930	 #6479
+_WHEREX			Near   ----:---- Extern		   1300	 #6494
+_WHEREY			Near   ----:---- Extern		   1305	 #6493
 
 Macro Name						   Cref	(defined at #)
 
@@ -7456,6 +7606,11 @@ DGROUP			Group				   #12	13  27	28  30	31  33	34  36	37  39	40  42	43  45	46  48
 							   78  79  81  82  84  85  87  88  90  91  93  94  96  97  99  100  102	  +
 							   103	132  136  140  144  168	 178  188  202	212  218  224  238  248	  +
 							   258	272  275  283  286  399	 434  442  456	493  504  509  514  516	  +
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 124
+Symbol Table
+
+
+
 							   530	535  552  557  559  563	 568  583  584	593  594  599  606  611	  +
 							   618	649  652  655  663  672	 690  694  701	706  708  713  720  731	  +
 							   735	740  745  746  751  773	 779  782  785	793  802  826  837  843	  +
@@ -7466,19 +7621,14 @@ DGROUP			Group				   #12	13  27	28  30	31  33	34  36	37  39	40  42	43  45	46  48
 							   2029	 2041  2410  2419  2478	 2496  2505  2513  2538	 2547  2559  2561 +
 							   2569	 2594  2603  2615  2617	 2625  2650  2659  2671	 2682  2694  2701 +
 							   2708	 2715  2722  2729
-  _BSS			16  064F Word	Public	BSS	   12  #18  #2446  #5452
-  _DATA			16  0D51 Word	Public	DATA	   12  #14  #22	 #3431	#5057  #5482
-_TEXT			16  166E Byte	Public	CODE	   #10	13  #106  110  1288  1345  1418	 1465  1522  1623  1690	 1755	  +
+  _BSS			16  064F Word	Public	BSS	   12  #18  #2446  #5577
+  _DATA			16  0D4E Word	Public	DATA	   12  #14  #22	 #3431	#5057  #5607
+_TEXT			16  1707 Byte	Public	CODE	   #10	13  #106  110  1288  1345  1418	 1465  1522  1623  1690	 1755	  +
 							   1805	 1920  1956  1988  2074	 2214  2355  2391  #2449  2453	3009  3097+
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 122
-Symbol Table
-
-
-
 							   3244	 3315  #3439  3443  3793  3880	4013  4127  4340  4481	4681  4769+
-							   4827	 4885  4972  #5077  5081  5150	5182  5222  5258  5320	5343	  +
-							   #6310
-Turbo Assembler	 Version 3.1	    11/26/17 18:49:43	    Page 123
+							   4827	 4885  4972  #5082  5086  5140	5209  5241  5281  5317	5353  5411+
+							   5468	 #6433
+Turbo Assembler	 Version 3.1	    11/29/17 21:49:50	    Page 125
 Error Summary
 
 

@@ -1775,7 +1775,7 @@ _sc_fork	proc	near
    ;	
 	sub	word ptr [bp-6],2
 	les	bx,dword ptr [bp-6]
-	mov	word ptr es:[bx],2927
+	mov	word ptr es:[bx],2936
    ;	
    ;		*(--stack)=0;             /* SI */
    ;	

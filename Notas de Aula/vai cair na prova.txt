@@ -1,8 +1,0 @@
-readdisk_chs(0x00,0,1,16,3,0x07e0,0x0000);
-
-Como inicializar (DS)?
-    0x07e00+tamanho do código
-   
-
-Etapas para desenvolver um comando interno, uma funcao na biblioteca e uma chamada de sistema.
-

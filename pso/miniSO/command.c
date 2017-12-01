@@ -993,6 +993,9 @@ static int vetor[20];
 static int posicaoProdutor = 0;
 static int posicaoConsumidor = 0;
 
+static int tempoProdutor = 1;
+static int tempoConsumidor = 2;
+
 static long tamanhoSegundo = 490000;
 
 static semid_t mutex;
@@ -1032,11 +1035,11 @@ void imprimeBuffer() {
   putstrxy(x+20, y+8, "  ³");
 
   /* Produtor e Consumidor*/
-  inttostr(str,  2);
+  inttostr(str,  tempoProdutor);
   putstrxy(x,    y+9 , "³ Produtor:           ³");
   putstrxy(x+12, y+9, str);
 
-  inttostr(str,  1);
+  inttostr(str,  tempoConsumidor);
   putstrxy(x,    y+10, "³ Consumidor:         ³");
   putstrxy(x+14, y+10, str);
 
@@ -1098,7 +1101,7 @@ void produtor()
     semup(mutex);
     semup(cheio);
 
-    sleep(1);
+    sleep(tempoProdutor);
   }
 }
 
@@ -1111,7 +1114,7 @@ void consumidor()
     semup(mutex);
     semup(vazio);
 
-    sleep(2);
+    sleep(tempoConsumidor);
   }
 }
 

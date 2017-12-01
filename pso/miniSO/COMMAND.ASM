@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E961A9814B09636F6D6D616E642E63
+	?debug	C E920AA814B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5071,6 +5071,12 @@ posicaoProdutor	label	word
 posicaoConsumidor	label	word
 	db	0
 	db	0
+tempoProdutor	label	word
+	db	1
+	db	0
+tempoConsumidor	label	word
+	db	2
+	db	0
 tamanhoSegundo	label	word
 	db	16
 	db	122
@@ -5271,10 +5277,9 @@ _imprimeBuffer	proc	near
    ;	
    ;	
    ;	  /* Produtor e Consumidor*/
-   ;	  inttostr(str,  2);
+   ;	  inttostr(str,  tempoProdutor);
    ;	
-	mov	ax,2
-	push	ax
+	push	word ptr DGROUP:tempoProdutor
 	push	ss
 	lea	ax,word ptr [bp-20]
 	push	ax
@@ -5308,10 +5313,9 @@ _imprimeBuffer	proc	near
 	add	sp,8
    ;	
    ;	
-   ;	  inttostr(str,  1);
+   ;	  inttostr(str,  tempoConsumidor);
    ;	
-	mov	ax,1
-	push	ax
+	push	word ptr DGROUP:tempoConsumidor
 	push	ss
 	lea	ax,word ptr [bp-20]
 	push	ax
@@ -5632,10 +5636,9 @@ _produtor	proc	near
 	pop	cx
    ;	
    ;	
-   ;	    sleep(1);
+   ;	    sleep(tempoProdutor);
    ;	
-	mov	ax,1
-	push	ax
+	push	word ptr DGROUP:tempoProdutor
 	call	near ptr _sleep
 	pop	cx
 	jmp	short @43@30
@@ -5686,10 +5689,9 @@ _consumidor	proc	near
 	pop	cx
    ;	
    ;	
-   ;	    sleep(2);
+   ;	    sleep(tempoConsumidor);
    ;	
-	mov	ax,2
-	push	ax
+	push	word ptr DGROUP:tempoConsumidor
 	call	near ptr _sleep
 	pop	cx
 	jmp	short @44@30
@@ -6434,6 +6436,8 @@ _cheio	equ	cheio
 _vazio	equ	vazio
 _mutex	equ	mutex
 _tamanhoSegundo	equ	tamanhoSegundo
+_tempoConsumidor	equ	tempoConsumidor
+_tempoProdutor	equ	tempoProdutor
 _posicaoConsumidor	equ	posicaoConsumidor
 _posicaoProdutor	equ	posicaoProdutor
 _vetor	equ	vetor

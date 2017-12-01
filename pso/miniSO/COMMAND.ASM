@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E934AE7D4B09636F6D6D616E642E63
+	?debug	C E965A2814B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5309,6 +5309,15 @@ _produz	proc	near
 	pop	cx
 	mov	word ptr DGROUP:posicaoProdutor,ax
    ;	
+   ;	  putstr("PRODUZI   ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3009
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+   ;	
    ;	  imprimeLista();
    ;	
 	call	near ptr _imprimeLista
@@ -5345,6 +5354,15 @@ _consome	proc	near
 	pop	cx
 	mov	word ptr DGROUP:posicaoConsumidor,ax
    ;	
+   ;	  putstr("CONSUMI   ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3020
+	push	ax
+	call	near ptr _putstr
+	pop	cx
+	pop	cx
+   ;	
    ;	  imprimeLista();
    ;	
 	call	near ptr _imprimeLista
@@ -5361,37 +5379,39 @@ _consome	endp
 _produtor	proc	near
 	push	bp
 	mov	bp,sp
-	jmp	short @41@170
-@41@58:
+@41@30:
    ;	
    ;	{
-   ;	  while(cicloProdutor < 20) {
-   ;	    if (itens < tamanho_buffer) {
+   ;	  while(1) {
+   ;	    semdown(vazio);
    ;	
-	mov	ax,word ptr DGROUP:itens
-	cmp	ax,word ptr DGROUP:tamanho_buffer
-	jge	short @41@114
+	push	word ptr DGROUP:vazio
+	call	near ptr _semdown
+	pop	cx
    ;	
-   ;	      produz();
+   ;	    semdown(mutex);
+   ;	
+	push	word ptr DGROUP:mutex
+	call	near ptr _semdown
+	pop	cx
+   ;	
+   ;	    produz();
    ;	
 	call	near ptr _produz
    ;	
-   ;	    } else {
+   ;	    semup(mutex);
    ;	
-	jmp	short @41@142
-@41@114:
-   ;	
-   ;	      putstr("Nao ha mais espaco para produzir\n");
-   ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3009
-	push	ax
-	call	near ptr _putstr
+	push	word ptr DGROUP:mutex
+	call	near ptr _semup
 	pop	cx
-	pop	cx
-@41@142:
    ;	
-   ;	    }
+   ;	    semup(cheio);
+   ;	
+	push	word ptr DGROUP:cheio
+	call	near ptr _semup
+	pop	cx
+   ;	
+   ;	
    ;	    sleep(1);
    ;	
 	mov	ax,1
@@ -5402,9 +5422,7 @@ _produtor	proc	near
    ;	    cicloProdutor++;
    ;	
 	inc	word ptr DGROUP:cicloProdutor
-@41@170:
-	cmp	word ptr DGROUP:cicloProdutor,20
-	jl	short @41@58
+	jmp	short @41@30
    ;	
    ;	  }
    ;	}
@@ -5419,36 +5437,39 @@ _produtor	endp
 _consumidor	proc	near
 	push	bp
 	mov	bp,sp
-	jmp	short @42@170
-@42@58:
+@42@30:
    ;	
    ;	{
-   ;	  while(cicloConsumidor < 20) {
-   ;	    if (itens > 0) {
+   ;	  while(1) {
+   ;	    semdown(cheio);
    ;	
-	cmp	word ptr DGROUP:itens,0
-	jle	short @42@114
+	push	word ptr DGROUP:cheio
+	call	near ptr _semdown
+	pop	cx
    ;	
-   ;	      consome();
+   ;	    semdown(mutex);
+   ;	
+	push	word ptr DGROUP:mutex
+	call	near ptr _semdown
+	pop	cx
+   ;	
+   ;	    consome();
    ;	
 	call	near ptr _consome
    ;	
-   ;	    } else {
+   ;	    semup(mutex);
    ;	
-	jmp	short @42@142
-@42@114:
-   ;	
-   ;	      putstr("Nao ha nada para consumir\n");
-   ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3043
-	push	ax
-	call	near ptr _putstr
+	push	word ptr DGROUP:mutex
+	call	near ptr _semup
 	pop	cx
-	pop	cx
-@42@142:
    ;	
-   ;	    }
+   ;	    semup(vazio);
+   ;	
+	push	word ptr DGROUP:vazio
+	call	near ptr _semup
+	pop	cx
+   ;	
+   ;	
    ;	    sleep(2);
    ;	
 	mov	ax,2
@@ -5459,9 +5480,7 @@ _consumidor	proc	near
    ;	    cicloConsumidor++;
    ;	
 	inc	word ptr DGROUP:cicloConsumidor
-@42@170:
-	cmp	word ptr DGROUP:cicloConsumidor,20
-	jl	short @42@58
+	jmp	short @42@30
    ;	
    ;	  }
    ;	}
@@ -5487,7 +5506,7 @@ _cmd_prodcons	proc	near
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3070
+	mov	ax,offset DGROUP:s@+3031
 @43@86:
 	push	ax
 	call	near ptr _putstr
@@ -5512,6 +5531,30 @@ _cmd_prodcons	proc	near
 	pop	cx
 	pop	cx
 	mov	word ptr DGROUP:tamanho_buffer,ax
+   ;	
+   ;		
+   ;	    mutex = semcreate(1);
+   ;	
+	mov	ax,1
+	push	ax
+	call	near ptr _semcreate
+	pop	cx
+	mov	word ptr DGROUP:mutex,ax
+   ;	
+   ;	    vazio = semcreate(tamanho_buffer);
+   ;	
+	push	word ptr DGROUP:tamanho_buffer
+	call	near ptr _semcreate
+	pop	cx
+	mov	word ptr DGROUP:vazio,ax
+   ;	
+   ;	    cheio = semcreate(0);
+   ;	
+	xor	ax,ax
+	push	ax
+	call	near ptr _semcreate
+	pop	cx
+	mov	word ptr DGROUP:cheio,ax
    ;	
    ;		
    ;		/* Get arguments
@@ -5544,7 +5587,7 @@ _cmd_prodcons	proc	near
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3120
+	mov	ax,offset DGROUP:s@+3081
 	jmp	short @43@86
 @43@198:
    ;	
@@ -5562,7 +5605,7 @@ _cmd_prodcons	proc	near
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3174
+	mov	ax,offset DGROUP:s@+3135
 	jmp	short @43@86
 @43@254:
    ;	
@@ -5582,6 +5625,12 @@ _cmd_prodcons	proc	near
 _cmd_prodcons	endp
 _TEXT	ends
 _BSS	segment word public 'BSS'
+cheio	label	word
+	db	2 dup (?)
+vazio	label	word
+	db	2 dup (?)
+mutex	label	word
+	db	2 dup (?)
 vetor	label	word
 	db	40 dup (?)
 _semid	label	word
@@ -6093,11 +6142,9 @@ s@	label	byte
 	db	0
 	db	10
 	db	0
-	db	'Nao ha mais espaco para produzir'
-	db	10
+	db	'PRODUZI   '
 	db	0
-	db	'Nao ha nada para consumir'
-	db	10
+	db	'CONSUMI   '
 	db	0
 	db	'Erro em prodcons: numero invalido de argumentos!'
 	db	10
@@ -6119,6 +6166,9 @@ _TEXT	ends
 	public	_inicializaLista
 	public	_imprimeLista
 	public	_sleep
+_cheio	equ	cheio
+_vazio	equ	vazio
+_mutex	equ	mutex
 _tamanhoSegundo	equ	tamanhoSegundo
 _posicaoConsumidor	equ	posicaoConsumidor
 _cicloConsumidor	equ	cicloConsumidor

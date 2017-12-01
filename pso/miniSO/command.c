@@ -999,11 +999,15 @@ static int posicaoConsumidor = 0;
 
 static long tamanhoSegundo = 490000;
 
+static semid_t mutex;
+static semid_t vazio;
+static semid_t cheio;
+
 void sleep (int segundos) {
     long i;
     long j;
     for (i = 0; i < segundos; i++) {
-        for (j = 0; j < tamanhoSegundo; ++);
+        for (j = 0; j < tamanhoSegundo; j++);
     }
 }
 
@@ -1039,6 +1043,7 @@ void produz () {
   itens = itens + 1;
   vetor[posicaoProdutor] = 1;
   posicaoProdutor = avanca(posicaoProdutor);
+  putstr("PRODUZI   ");
   imprimeLista();
 }
 
@@ -1047,18 +1052,20 @@ void consome () {
   itens = itens - 1;
   vetor[posicaoConsumidor] = 0;
   posicaoConsumidor = avanca(posicaoConsumidor);
+  putstr("CONSUMI   ");
   imprimeLista();
 }
 
 
 void produtor()
 {
-  while(cicloProdutor < 20) {
-    if (itens < tamanho_buffer) {
-      produz();
-    } else {
-      putstr("Nao ha mais espaco para produzir\n");
-    }
+  while(1) {
+    semdown(vazio);
+    semdown(mutex);
+    produz();
+    semup(mutex);
+    semup(cheio);
+
     sleep(1);
     cicloProdutor++;
   }
@@ -1066,12 +1073,13 @@ void produtor()
 
 void consumidor()
 {
-  while(cicloConsumidor < 20) {
-    if (itens > 0) {
-      consome();
-    } else {
-      putstr("Nao ha nada para consumir\n");
-    }
+  while(1) {
+    semdown(cheio);
+    semdown(mutex);
+    consome();
+    semup(mutex);
+    semup(vazio);
+
     sleep(2);
     cicloConsumidor++;
   }
@@ -1087,6 +1095,10 @@ int cmd_prodcons(int argc, char far *argv[])
 	}
 	
 	tamanho_buffer = atoi(argv[1]);
+	
+    mutex = semcreate(1);
+    vazio = semcreate(tamanho_buffer);
+    cheio = semcreate(0);
 	
 	/* Get arguments
 	int cons_time     = atoi(argv[1]);

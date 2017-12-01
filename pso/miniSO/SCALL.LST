@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 1
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 1
 scall.ASM
 
 
@@ -60,7 +60,7 @@ scall.ASM
      55	001A  03			     db	     3
      56	001B  00			     db	     0
      57	001C  00			     db	     0
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 2
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 2
 scall.ASM
 
 
@@ -122,7 +122,7 @@ scall.ASM
     112	0061  00			     db	     0
     113	0062  00			     db	     0
     114	0063  111Dr			     dw	     _sc_getppid
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 3
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 3
 scall.ASM
 
 
@@ -184,7 +184,7 @@ scall.ASM
     169	0008  33 F6			     xor     si,si
     170	000A  EB 7C 90			     jmp     @1@338
     171	000D			     @1@58:
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 4
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 4
 scall.ASM
 
 
@@ -246,7 +246,7 @@ scall.ASM
     226	005C  57			     push    di
     227	005D  8B C6			     mov     ax,si
     228	005F  BA 0005			     mov     dx,5
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 5
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 5
 scall.ASM
 
 
@@ -308,7 +308,7 @@ scall.ASM
     283					     assume  cs:_TEXT
     284	00A0			     setCursorPosition	     proc    near
     285	00A0  55			     push    bp
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 6
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 6
 scall.ASM
 
 
@@ -370,7 +370,7 @@ scall.ASM
     340	00C0  C3			     ret
     341	00C1			     getCursorPosition	     endp
     342					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 7
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 7
 scall.ASM
 
 
@@ -432,7 +432,7 @@ scall.ASM
     397	00E1  57			     push    di
     398					;
     399					;    {
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 8
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 8
 scall.ASM
 
 
@@ -494,7 +494,7 @@ scall.ASM
     454					;		     mov_bl(miniSO_cor);
     455					;
     456	0113  8A 1E 0001r		     mov     bl,byte ptr DGROUP:miniSO_cor
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 9
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 9
 scall.ASM
 
 
@@ -556,7 +556,7 @@ scall.ASM
     511	014E  7D 03			     jge     short @5@310
     512					;
     513					;				     ++lin;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 10
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 10
 scall.ASM
 
 
@@ -618,7 +618,7 @@ scall.ASM
     568					;
     569	0176  80 3E 0003r 00		     cmp     byte ptr DGROUP:miniSO_iskey,0
     570	017B  74 0B			     je	     short @6@114
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 11
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 11
 scall.ASM
 
 
@@ -680,7 +680,7 @@ scall.ASM
     625					;
     626					;	  miniSO_key = ah;
     627					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 12
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 12
 scall.ASM
 
 
@@ -742,7 +742,7 @@ scall.ASM
     682					;      mov_bh(7);
     683					;
     684	01D1  B7 07			     mov     bh,7
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 13
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 13
 scall.ASM
 
 
@@ -804,7 +804,7 @@ scall.ASM
     739					;
     740	01F0  8A 46 04			     mov     al,byte ptr [bp+4]
     741	01F3  A2 0001r			     mov     byte ptr DGROUP:miniSO_cor,al
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 14
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 14
 scall.ASM
 
 
@@ -866,7 +866,7 @@ scall.ASM
     796	0219  C3			     ret
     797	021A			     _sc_wherey	     endp
     798					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 15
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 15
 scall.ASM
 
 
@@ -928,7 +928,7 @@ scall.ASM
     853	024B  83 EC 08			     sub     sp,8
     854	024E  56			     push    si
     855					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 16
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 16
 scall.ASM
 
 
@@ -990,7 +990,7 @@ scall.ASM
     910	0292  8B 46 F8			     mov     ax,word ptr [bp-8]
     911	0295  25 00F0			     and     ax,240
     912	0298  B1 04			     mov     cl,4
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 17
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 17
 scall.ASM
 
 
@@ -1052,7 +1052,7 @@ scall.ASM
     967	02F8			     _sc_getdate     endp
     968					;
     969					;    int sc_gettime(unsigned seg,unsigned off)
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 18
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 18
 scall.ASM
 
 
@@ -1114,7 +1114,7 @@ scall.ASM
    1024	0335  F7 EA			     imul    dx
    1025	0337  8A 56 FA			     mov     dl,byte ptr [bp-6]
    1026	033A  80 E2 0F			     and     dl,15
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 19
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 19
 scall.ASM
 
 
@@ -1176,7 +1176,7 @@ scall.ASM
    1081	0391  55			     push    bp
    1082	0392  8B EC			     mov     bp,sp
    1083					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 20
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 20
 scall.ASM
 
 
@@ -1238,7 +1238,7 @@ scall.ASM
    1138					;
    1139					;	     if	(miniSO_thread[miniSO_ready].status==RUNNING)
    1140					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 21
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 21
 scall.ASM
 
 
@@ -1300,7 +1300,7 @@ scall.ASM
    1195					;
    1196					;    }
    1197					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 22
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 22
 scall.ASM
 
 
@@ -1362,7 +1362,7 @@ scall.ASM
    1252	0474  50			     push    ax
    1253	0475  E8 0000e			     call    near ptr _putstr
    1254	0478  59			     pop     cx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 23
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 23
 scall.ASM
 
 
@@ -1424,7 +1424,7 @@ scall.ASM
    1309	04AD  EB 0B			     jmp     short @17@254
    1310	04AF			     @17@170:
    1311	04AF  41			     inc     cx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 24
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 24
 scall.ASM
 
 
@@ -1486,7 +1486,7 @@ scall.ASM
    1366	04D7  55			     push    bp
    1367	04D8  8B EC			     mov     bp,sp
    1368	04DA  56			     push    si
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 25
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 25
 scall.ASM
 
 
@@ -1548,7 +1548,7 @@ scall.ASM
    1423					;
    1424	052B  A1 0007r			     mov     ax,word ptr DGROUP:_miniSO_ready
    1425	052E  BA 001A			     mov     dx,26
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 26
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 26
 scall.ASM
 
 
@@ -1610,7 +1610,7 @@ scall.ASM
    1480	058D  8B D8			     mov     bx,ax
    1481	058F  C7 87 000Br FFFF		     mov     word ptr DGROUP:_miniSO_thread[bx+4],-1
    1482	0595  46			     inc     si
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 27
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 27
 scall.ASM
 
 
@@ -1672,7 +1672,7 @@ scall.ASM
    1537	05CD  E8 0000e			     call    near ptr _enable
    1538					;
    1539					;	     asm     {
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 28
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 28
 scall.ASM
 
 
@@ -1734,7 +1734,7 @@ scall.ASM
    1594					;	     disable();
    1595					;
    1596	05ED  E8 0000e			     call    near ptr _disable
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 29
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 29
 scall.ASM
 
 
@@ -1796,7 +1796,7 @@ scall.ASM
    1651	0627  BA 001A			     mov     dx,26
    1652	062A  F7 EA			     imul    dx
    1653	062C  8B D8			     mov     bx,ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 30
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 30
 scall.ASM
 
 
@@ -1858,7 +1858,7 @@ scall.ASM
    1708					;
    1709	0688  83 6E FA 02		     sub     word ptr [bp-6],2
    1710	068C  C4 5E FA			     les     bx,dword ptr [bp-6]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 31
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 31
 scall.ASM
 
 
@@ -1920,7 +1920,7 @@ scall.ASM
    1765	06F6  83 6E FA 02		     sub     word ptr [bp-6],2
    1766	06FA  C4 5E FA			     les     bx,dword ptr [bp-6]
    1767	06FD  26: C7 07	0000		     mov     word ptr es:[bx],0
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 32
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 32
 scall.ASM
 
 
@@ -1930,7 +1930,7 @@ scall.ASM
    1770					;
    1771	0702  83 6E FA 02		     sub     word ptr [bp-6],2
    1772	0706  C4 5E FA			     les     bx,dword ptr [bp-6]
-   1773	0709  26: C7 07	0B91		     mov     word ptr es:[bx],2961
+   1773	0709  26: C7 07	0B93		     mov     word ptr es:[bx],2963
    1774					;
    1775					;	     *(--stack)=0;	       /* SI */
    1776					;
@@ -1982,7 +1982,7 @@ scall.ASM
    1822					;
    1823	0764  FF 76 FC			     push    word ptr [bp-4]
    1824	0767  FF 76 FA			     push    word ptr [bp-6]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 33
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 33
 scall.ASM
 
 
@@ -2044,7 +2044,7 @@ scall.ASM
    1879	07CB  BA 001A			     mov     dx,26
    1880	07CE  F7 EA			     imul    dx
    1881	07D0  8B D8			     mov     bx,ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 34
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 34
 scall.ASM
 
 
@@ -2106,7 +2106,7 @@ scall.ASM
    1936	082B  E9 FDBC			     jmp     @21@86
    1937	082E			     @21@338:
    1938					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 35
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 35
 scall.ASM
 
 
@@ -2168,7 +2168,7 @@ scall.ASM
    1993					;
    1994					;		     enable();
    1995					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 36
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 36
 scall.ASM
 
 
@@ -2230,7 +2230,7 @@ scall.ASM
    2050	08A6  8B C6			     mov     ax,si
    2051	08A8  BA 001A			     mov     dx,26
    2052	08AB  F7 EA			     imul    dx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 37
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 37
 scall.ASM
 
 
@@ -2292,7 +2292,7 @@ scall.ASM
    2107	090A  7C B0			     jl	     short @22@310
    2108					;
    2109					;	     }
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 38
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 38
 scall.ASM
 
 
@@ -2354,7 +2354,7 @@ scall.ASM
    2164					;			     if	     (pcb==miniSO_ready)  {
    2165					;
    2166	0967  3B 36 0007r		     cmp     si,word ptr DGROUP:_miniSO_ready
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 39
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 39
 scall.ASM
 
 
@@ -2416,7 +2416,7 @@ scall.ASM
    2221					;		     default:
    2222					;			     enable();
    2223					;			     return miniSO_ERROR;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 40
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 40
 scall.ASM
 
 
@@ -2478,7 +2478,7 @@ scall.ASM
    2278					;
    2279					;		     if	     (miniSO_thread[pai].zombies==-1) {	/* Se a	lista esta vazia */
    2280					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 41
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 41
 scall.ASM
 
 
@@ -2540,7 +2540,7 @@ scall.ASM
    2335	0A3A  83 BF 001Fr FF		     cmp     word ptr DGROUP:_miniSO_thread[bx+24],-1
    2336	0A3F  75 E3			     jne     short @22@926
    2337					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 42
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 42
 scall.ASM
 
 
@@ -2602,7 +2602,7 @@ scall.ASM
    2392	0A91  EB 77 90			     jmp     @22@1122
    2393	0A94			     @@2:
    2394					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 43
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 43
 scall.ASM
 
 
@@ -2664,7 +2664,7 @@ scall.ASM
    2449					;
    2450					;	  miniSO_thread[nextthread].status  = READY;
    2451					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 44
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 44
 scall.ASM
 
 
@@ -2726,7 +2726,7 @@ scall.ASM
    2506	0B37  57			     push    di
    2507					;
    2508					;    {
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 45
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 45
 scall.ASM
 
 
@@ -2788,7 +2788,7 @@ scall.ASM
    2563	0B7C  8B D8			     mov     bx,ax
    2564	0B7E  83 BF 000Br 02		     cmp     word ptr DGROUP:_miniSO_thread[bx+4],2
    2565	0B83  75 03			     jne     @@3
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 46
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 46
 scall.ASM
 
 
@@ -2850,7 +2850,7 @@ scall.ASM
    2620	0BCC  C7 87 001Dr FFFF		     mov     word ptr DGROUP:_miniSO_thread[bx+22],-1
    2621					;
    2622					;		     miniSO_thread[atual].next = -1;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 47
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 47
 scall.ASM
 
 
@@ -2912,7 +2912,7 @@ scall.ASM
    2677	0C27  8B C6			     mov     ax,si
    2678	0C29  BA 001A			     mov     dx,26
    2679	0C2C  F7 EA			     imul    dx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 48
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 48
 scall.ASM
 
 
@@ -2974,7 +2974,7 @@ scall.ASM
    2734	0C73  8B C7			     mov     ax,di
    2735	0C75  BA 001A			     mov     dx,26
    2736	0C78  F7 EA			     imul    dx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 49
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 49
 scall.ASM
 
 
@@ -3036,7 +3036,7 @@ scall.ASM
    2791					;	     /*	Insere o processo na lista de BCPs livres */
    2792					;	     miniSO_thread[pcb].next = miniSO_free;
    2793					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 50
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 50
 scall.ASM
 
 
@@ -3098,7 +3098,7 @@ scall.ASM
    2848					;
    2849	0D0B  E8 0000e			     call    near ptr _disable
    2850					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 51
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 51
 scall.ASM
 
 
@@ -3160,7 +3160,7 @@ scall.ASM
    2905	0D5B  F7 EA			     imul    dx
    2906	0D5D  8B D8			     mov     bx,ax
    2907	0D5F  C7 87 001Dr FFFF		     mov     word ptr DGROUP:_miniSO_thread[bx+22],-1
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 52
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 52
 scall.ASM
 
 
@@ -3222,7 +3222,7 @@ scall.ASM
    2962					;
    2963					;		     while   (miniSO_thread[atual].status == WAIT)
    2964					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 53
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 53
 scall.ASM
 
 
@@ -3284,7 +3284,7 @@ scall.ASM
    3019	0E16  BA 001A			     mov     dx,26
    3020	0E19  F7 EA			     imul    dx
    3021	0E1B  8B D8			     mov     bx,ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 54
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 54
 scall.ASM
 
 
@@ -3346,7 +3346,7 @@ scall.ASM
    3076	0E77  8B 87 0007r		     mov     ax,word ptr DGROUP:_miniSO_thread[bx]
    3077	0E7B  EB 00			     jmp     short @24@282
    3078	0E7D			     @24@282:
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 55
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 55
 scall.ASM
 
 
@@ -3408,7 +3408,7 @@ scall.ASM
    3133	0EAD  A1 0007r			     mov     ax,word ptr DGROUP:_miniSO_ready
    3134	0EB0  BA 001A			     mov     dx,26
    3135	0EB3  F7 EA			     imul    dx
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 56
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 56
 scall.ASM
 
 
@@ -3470,7 +3470,7 @@ scall.ASM
    3190	0F09  BA 001A			     mov     dx,26
    3191	0F0C  F7 EA			     imul    dx
    3192	0F0E  8B D8			     mov     bx,ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 57
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 57
 scall.ASM
 
 
@@ -3532,7 +3532,7 @@ scall.ASM
    3247				     [pai].waitfor==miniSO_ready) ) {
    3248					;
    3249	0F5C  8B C7			     mov     ax,di
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 58
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 58
 scall.ASM
 
 
@@ -3594,7 +3594,7 @@ scall.ASM
    3304	0FC7  BA 001A			     mov     dx,26
    3305	0FCA  F7 EA			     imul    dx
    3306	0FCC  8B D8			     mov     bx,ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 59
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 59
 scall.ASM
 
 
@@ -3656,7 +3656,7 @@ scall.ASM
    3361					;	     miniSO_thread[prevthread].next=nextthread;
    3362					;
    3363	1021  8B 46 FC			     mov     ax,word ptr [bp-4]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 60
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 60
 scall.ASM
 
 
@@ -3718,7 +3718,7 @@ scall.ASM
    3418	1083  EB 0D			     jmp     short @25@702
    3419	1085			     @25@674:
    3420					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 61
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 61
 scall.ASM
 
 
@@ -3780,7 +3780,7 @@ scall.ASM
    3475	10E4  BA 001A			     mov     dx,26
    3476	10E7  F7 EA			     imul    dx
    3477	10E9  8B 56 04			     mov     dx,word ptr [bp+4]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 62
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 62
 scall.ASM
 
 
@@ -3842,7 +3842,7 @@ scall.ASM
    3532					;
    3533					     assume  cs:_TEXT
    3534	111D			     _sc_getppid     proc    near
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 63
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 63
 scall.ASM
 
 
@@ -3904,7 +3904,7 @@ scall.ASM
    3589					;		     return miniSO_ERROR;
    3590					;
    3591	114B  B8 FFFF			     mov     ax,-1
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 64
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 64
 scall.ASM
 
 
@@ -3966,7 +3966,7 @@ scall.ASM
    3646					;			     /*	O sinal	recebido e' suficiente para tirar a thread da espera+
    3647				     */
    3648					;			     last = miniSO_thread[miniSO_ready].prev;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 65
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 65
 scall.ASM
 
 
@@ -4028,7 +4028,7 @@ scall.ASM
    3703	1201  8B D8			     mov     bx,ax
    3704	1203  8B 87 0013r		     mov     ax,word ptr DGROUP:_miniSO_thread[bx+12]
    3705	1207  50			     push    ax
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 66
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 66
 scall.ASM
 
 
@@ -4090,7 +4090,7 @@ scall.ASM
    3760					;	     disable();
    3761					;
    3762	1242  E8 0000e			     call    near ptr _disable
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 67
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 67
 scall.ASM
 
 
@@ -4152,7 +4152,7 @@ scall.ASM
    3817	128D  F7 EA			     imul    dx
    3818	128F  8B D8			     mov     bx,ax
    3819	1291  8B 87 001Dr		     mov     ax,word ptr DGROUP:_miniSO_thread[bx+22]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 68
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 68
 scall.ASM
 
 
@@ -4214,7 +4214,7 @@ scall.ASM
    3874	12E7  BA 001A			     mov     dx,26
    3875	12EA  F7 EA			     imul    dx
    3876	12EC  8B 56 FE			     mov     dx,word ptr [bp-2]
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 69
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 69
 scall.ASM
 
 
@@ -4276,7 +4276,7 @@ scall.ASM
    3931	1330  8B E5			     mov     sp,bp
    3932	1332  5D			     pop     bp
    3933	1333  C3			     ret
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 70
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 70
 scall.ASM
 
 
@@ -4338,7 +4338,7 @@ scall.ASM
    3988					;
    3989					;    semid_t sc_semcreate (int value)
    3990					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 71
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 71
 scall.ASM
 
 
@@ -4400,7 +4400,7 @@ scall.ASM
    4045	13A3  B1 03			     mov     cl,3
    4046	13A5  D3 E3			     shl     bx,cl
    4047	13A7  C7 87 01A7r 0000		     mov     word ptr DGROUP:_miniSO_sem[bx],0
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 72
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 72
 scall.ASM
 
 
@@ -4462,7 +4462,7 @@ scall.ASM
    4102					;
    4103					;    int sc_semset (semid_t s,int value)
    4104					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 73
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 73
 scall.ASM
 
 
@@ -4524,7 +4524,7 @@ scall.ASM
    4159					;
    4160					;    int sc_semup (semid_t s)
    4161					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 74
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 74
 scall.ASM
 
 
@@ -4586,7 +4586,7 @@ scall.ASM
    4216	1465  E9 00A2			     jmp     @33@226
    4217	1468			     @@9:
    4218					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 75
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 75
 scall.ASM
 
 
@@ -4648,7 +4648,7 @@ scall.ASM
    4273	14C8  8B D8			     mov     bx,ax
    4274	14CA  89 97 001Dr		     mov     word ptr DGROUP:_miniSO_thread[bx+22],dx
    4275					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 76
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 76
 scall.ASM
 
 
@@ -4710,7 +4710,7 @@ scall.ASM
    4330					;    int sc_semdown (semid_t s)
    4331					;
    4332					     assume  cs:_TEXT
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 77
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 77
 scall.ASM
 
 
@@ -4772,7 +4772,7 @@ scall.ASM
    4387	1555			     @@10:
    4388					;
    4389					;		     pcb = miniSO_ready;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 78
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 78
 scall.ASM
 
 
@@ -4834,7 +4834,7 @@ scall.ASM
    4444					;
    4445					;			     i = miniSO_thread[i].next;
    4446					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 79
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 79
 scall.ASM
 
 
@@ -4896,7 +4896,7 @@ scall.ASM
    4501					;
    4502					;		     }
    4503					;		     miniSO_thread[pcb].next = -1;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 80
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 80
 scall.ASM
 
 
@@ -4958,7 +4958,7 @@ scall.ASM
    4558					;			     ;
    4559					;	     }
    4560					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 81
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 81
 scall.ASM
 
 
@@ -5020,7 +5020,7 @@ scall.ASM
    4615					;
    4616	167E  B8 FFFF			     mov     ax,-1
    4617	1681			     @35@114:
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 82
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 82
 scall.ASM
 
 
@@ -5082,7 +5082,7 @@ scall.ASM
    4672	16B6  83 BF 000Br 00		     cmp     word ptr DGROUP:_miniSO_thread[bx+4],0
    4673	16BB  74 08			     je	     short @36@142
    4674	16BD			     @36@86:
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 83
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 83
 scall.ASM
 
 
@@ -5144,7 +5144,7 @@ scall.ASM
    4729	170C  89 97 001Fr		     mov     word ptr DGROUP:_miniSO_thread[bx+24],dx
    4730					;
    4731					;	 miniSO_thread[nextthread].prev=prevthread;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 84
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 84
 scall.ASM
 
 
@@ -5206,7 +5206,7 @@ scall.ASM
    4786					;	 /* Se nao existe uma thread com este numero ou	se o estado dela não é STOPPED,	    +
    4787				     retorna erro */
    4788					;	 if (pcb==-1 ||	miniSO_thread[pcb].status != STOPPED)  {
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 85
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 85
 scall.ASM
 
 
@@ -5268,7 +5268,7 @@ scall.ASM
    4843					;
    4844					;	 miniSO_thread[pcb].next=miniSO_ready;
    4845					;
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 86
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 86
 scall.ASM
 
 
@@ -5330,7 +5330,7 @@ scall.ASM
    4900	      74 65 63 6C 61 20	70+
    4901	      61 72 61 20 72 65	69+
    4902	      6E 69 63 69 61 72	2E+
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 87
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 87
 scall.ASM
 
 
@@ -5392,7 +5392,7 @@ scall.ASM
    4957	01CC  27			     db	     39
    4958	01CD  20 6D 61 69 73 20	74+	     db	     ' mais threads executando!'
    4959	      68 72 65 61 64 73	20+
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 88
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 88
 scall.ASM
 
 
@@ -5454,7 +5454,7 @@ scall.ASM
    5014					     public  _sc_wait
    5015					     public  _sc_kill
    5016					     public  _sc_fork
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 89
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 89
 scall.ASM
 
 
@@ -5480,7 +5480,7 @@ scall.ASM
    5035					     extrn   _setvect:near
    5036				     _s@     equ     s@
    5037					     end
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 90
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 90
 Symbol Table
 
 
@@ -5490,7 +5490,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 
 ??DATE			Text   "12/01/17"
 ??FILENAME		Text   "scall	"
-??TIME			Text   "21:17:32"
+??TIME			Text   "21:20:49"
 ??VERSION		Number 030A
 @10@58			Near   _TEXT:0207		   767	#768
 @11@58			Near   _TEXT:0218		   790	#791
@@ -5542,7 +5542,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 @22@226			Near   _TEXT:08A6		   2004	 #2049
 @22@310			Near   _TEXT:08BC		   #2064  2107
 @22@394			Near   _TEXT:0906		   2074	 2087  #2103
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 91
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 91
 Symbol Table
 
 
@@ -5604,7 +5604,7 @@ Symbol Table
 @29@254			Near   _TEXT:132A		   3906	 #3918
 @29@282			Near   _TEXT:132E		   3924	 #3925
 @29@86			Near   _TEXT:127B		   3778	 #3800
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 92
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 92
 Symbol Table
 
 
@@ -5666,7 +5666,7 @@ Symbol Table
 @6@254			Near   _TEXT:01B8		   619	#634
 @6@282			Near   _TEXT:01BC		   581	#641
 @6@86			Near   _TEXT:0186		   #580	 640
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 93
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 93
 Symbol Table
 
 
@@ -5728,7 +5728,7 @@ _MINISO_INIT_PROCTABLE	Near   _TEXT:04D7		   #1365  5029
 _MINISO_INIT_SEMTABLE	Near   _TEXT:04BC		   #1332  1381	5028
 _MINISO_ISKEY		Alias  MINISO_ISKEY		   #4994
 _MINISO_KEY		Alias  MINISO_KEY		   #4993
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 94
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 94
 Symbol Table
 
 
@@ -5790,7 +5790,7 @@ _SC_SEMDOWN		Near   _TEXT:1519		   138	#4333  5004
 _SC_SEMSET		Near   _TEXT:13F3		   130	#4106  5006
 _SC_SEMUP		Near   _TEXT:142C		   134	#4163  5005
 _SC_SENDSIGNAL		Near   _TEXT:1132		   118	#3558  5009
-Turbo Assembler	 Version 3.1	    12/01/17 21:17:32	    Page 95
+Turbo Assembler	 Version 3.1	    12/01/17 21:20:50	    Page 95
 Symbol Table
 
 

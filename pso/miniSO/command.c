@@ -993,8 +993,8 @@ static int vetor[20];
 static int posicaoProdutor = 0;
 static int posicaoConsumidor = 0;
 
-static int tempoProdutor = 1;
-static int tempoConsumidor = 2;
+static int tempoProdutor;
+static int tempoConsumidor;
 
 static long tamanhoSegundo = 490000;
 
@@ -1122,21 +1122,20 @@ void consumidor()
 int cmd_prodcons(int argc, char far *argv[])
 {
 
-	if	(argc != 2)  {
+	if	(argc != 4)  {
 		putstr("Erro em prodcons: numero invalido de argumentos!\n");
 		return 1;
 	}
 	
-	tamanho_buffer = atoi(argv[1]);
+	/* Get arguments     */
+	tamanho_buffer  = atoi(argv[1]);
+	tempoProdutor   = atoi(argv[2]);
+	tempoConsumidor = atoi(argv[3]);
 	
     mutex = semcreate(1);
     vazio = semcreate(tamanho_buffer);
     cheio = semcreate(0);
 	
-	/* Get arguments
-	int cons_time     = atoi(argv[1]);
-	int prod_time     = atoi(argv[2]);
-    */
     
     // Inicializa Vetor
     inicializaLista();

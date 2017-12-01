@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E920AA814B09636F6D6D616E642E63
+	?debug	C E9C7AA814B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5071,12 +5071,6 @@ posicaoProdutor	label	word
 posicaoConsumidor	label	word
 	db	0
 	db	0
-tempoProdutor	label	word
-	db	1
-	db	0
-tempoConsumidor	label	word
-	db	2
-	db	0
 tamanhoSegundo	label	word
 	db	16
 	db	122
@@ -5709,12 +5703,14 @@ _consumidor	endp
 _cmd_prodcons	proc	near
 	push	bp
 	mov	bp,sp
+	push	si
+	mov	si,word ptr [bp+6]
    ;	
    ;	{
    ;	
-   ;		if	(argc != 2)  {
+   ;		if	(argc != 4)  {
    ;	
-	cmp	word ptr [bp+4],2
+	cmp	word ptr [bp+4],4
 	je	short @45@142
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
@@ -5731,20 +5727,38 @@ _cmd_prodcons	proc	near
    ;	
 	mov	ax,1
 @45@114:
-	jmp	short @45@282
+	jmp	@45@282
 @45@142:
    ;	
    ;		}
    ;		
-   ;		tamanho_buffer = atoi(argv[1]);
+   ;		/* Get arguments     */
+   ;		tamanho_buffer  = atoi(argv[1]);
    ;	
-	mov	bx,word ptr [bp+6]
-	push	word ptr [bx+6]
-	push	word ptr [bx+4]
+	push	word ptr [si+6]
+	push	word ptr [si+4]
 	call	near ptr _atoi
 	pop	cx
 	pop	cx
 	mov	word ptr DGROUP:tamanho_buffer,ax
+   ;	
+   ;		tempoProdutor   = atoi(argv[2]);
+   ;	
+	push	word ptr [si+10]
+	push	word ptr [si+8]
+	call	near ptr _atoi
+	pop	cx
+	pop	cx
+	mov	word ptr DGROUP:tempoProdutor,ax
+   ;	
+   ;		tempoConsumidor = atoi(argv[3]);
+   ;	
+	push	word ptr [si+14]
+	push	word ptr [si+12]
+	call	near ptr _atoi
+	pop	cx
+	pop	cx
+	mov	word ptr DGROUP:tempoConsumidor,ax
    ;	
    ;		
    ;	    mutex = semcreate(1);
@@ -5771,10 +5785,6 @@ _cmd_prodcons	proc	near
 	mov	word ptr DGROUP:cheio,ax
    ;	
    ;		
-   ;		/* Get arguments
-   ;		int cons_time     = atoi(argv[1]);
-   ;		int prod_time     = atoi(argv[2]);
-   ;	    */
    ;	    
    ;	    // Inicializa Vetor
    ;	    inicializaLista();
@@ -5820,7 +5830,7 @@ _cmd_prodcons	proc	near
    ;	
 	push	ds
 	mov	ax,offset DGROUP:s@+3284
-	jmp	short @45@86
+	jmp	@45@86
 @45@254:
    ;	
    ;		    return 1;
@@ -5829,11 +5839,12 @@ _cmd_prodcons	proc	near
    ;		return 0;
    ;	
 	xor	ax,ax
-	jmp	short @45@114
+	jmp	@45@114
 @45@282:
    ;	
    ;	}
    ;	
+	pop	si
 	pop	bp
 	ret	
 _cmd_prodcons	endp
@@ -5844,6 +5855,10 @@ cheio	label	word
 vazio	label	word
 	db	2 dup (?)
 mutex	label	word
+	db	2 dup (?)
+tempoConsumidor	label	word
+	db	2 dup (?)
+tempoProdutor	label	word
 	db	2 dup (?)
 vetor	label	word
 	db	40 dup (?)

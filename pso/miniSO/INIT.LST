@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 1
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 1
 init.ASM
 
 
@@ -57,10 +57,10 @@ init.ASM
      52					;	     /*	Inicializa o registrador DS */
      53					;	     init_ds(miniSO_DATASEGMENT);
      54					;
-     55	0014  B8 0B7C			     mov     ax,2940
+     55	0014  B8 0B91			     mov     ax,2961
      56	0017  50			     push    ax
      57	0018  E8 0000e			     call    near ptr _init_ds
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 2
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 2
 init.ASM
 
 
@@ -122,7 +122,7 @@ init.ASM
     112	0061  50			     push    ax
     113	0062  E8 0000e			     call    near ptr _MK_FP
     114	0065  59			     pop     cx
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 3
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 3
 init.ASM
 
 
@@ -184,7 +184,7 @@ init.ASM
     169					;
     170	00AE  1E			     push    ds
     171	00AF  B8 0027r			     mov     ax,offset DGROUP:s@+39
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 4
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 4
 init.ASM
 
 
@@ -246,7 +246,7 @@ init.ASM
     226					     public  _main
     227					     extrn   _init_stack:near
     228					     extrn   _init_ds:near
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 5
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 5
 init.ASM
 
 
@@ -257,7 +257,7 @@ init.ASM
     232					     extrn   _miniSO_systemcall:near
     233				     _s@     equ     s@
     234					     end
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:54	    Page 6
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:36	    Page 6
 Symbol Table
 
 
@@ -267,7 +267,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 
 ??DATE			Text   "12/01/17"
 ??FILENAME		Text   "init	"
-??TIME			Text   "20:17:54"
+??TIME			Text   "21:12:35"
 ??VERSION		Number 030A
 @1@114			Near   _TEXT:0042		   76  #87
 @1@58			Near   _TEXT:0034		   #77	89

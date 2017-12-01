@@ -987,14 +987,10 @@ int cmd_resume(int argc, char far *argv[])
     return t;
 }
 
-static int itens = 0;
 static int tamanho_buffer = 0;
 static int vetor[20];
 
-static int cicloProdutor = 0;
 static int posicaoProdutor = 0;
-
-static int cicloConsumidor = 0;
 static int posicaoConsumidor = 0;
 
 static long tamanhoSegundo = 490000;
@@ -1002,6 +998,55 @@ static long tamanhoSegundo = 490000;
 static semid_t mutex;
 static semid_t vazio;
 static semid_t cheio;
+
+
+void imprimeLista () {
+  int i;
+  char str[1];
+  int x = 56, y = demo_linha + 10;
+  
+  for (i = 0; i < tamanho_buffer; i++) {
+    inttostr(str, vetor[i]);
+    putstrxy(x+2+i,  y+8, str);
+  }
+}
+
+void imprimeBuffer() {
+  extern int demo_linha;
+  int x = 56, y = demo_linha + 10;
+  char str[20];
+
+  /* titulo */
+  putstrxy(x, y+4, "                       ");
+  putstrxy(x, y+5, "                       ");
+  putstrxy(x, y+6, "ÚÄÄÄÄ  ProdCons   ÄÄÄÄ¿");
+
+  /* tamanho do buffer */
+  putstrxy(x,    y+7, "³ Tamanho Buffer:     ³");
+  inttostr(str,  tamanho_buffer);
+  putstrxy(x+17, y+7, str);
+
+  /* representacao do buffer */
+  putstrxy(x,    y+8, "³ ");
+  imprimeLista();
+  putstrxy(x+20, y+8, "  ³");
+
+  /* Produtor e Consumidor*/
+  inttostr(str,  2);
+  putstrxy(x,    y+9 , "³ Produtor:           ³");
+  putstrxy(x+12, y+9, str);
+
+  inttostr(str,  1);
+  putstrxy(x,    y+10, "³ Consumidor:         ³");
+  putstrxy(x+14, y+10, str);
+
+  putstrxy(x, y+11,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
+}
+
+void minisleep () {
+  long i;
+  for (i = 0; i < 40000; i++);
+}
 
 void sleep (int segundos) {
     long i;
@@ -1011,24 +1056,13 @@ void sleep (int segundos) {
     }
 }
 
-void imprimeLista () {
-  int i;
-  char str[1];
-  
-  for (i = 0; i < tamanho_buffer; i++) {
-    inttostr(str, vetor[i]);
-    putstr(str);
-    putstr(" ");
-  }
-  putstr("\n");
-}
-
 void inicializaLista () {
   int i;
 
   for (i = 0; i < tamanho_buffer; i++) {
     vetor[i] = 0;
   }
+  
 }
 
 int avanca(int posicaoAtual) {
@@ -1040,20 +1074,18 @@ int avanca(int posicaoAtual) {
 }
 
 void produz () {
-  itens = itens + 1;
+  minisleep();
   vetor[posicaoProdutor] = 1;
   posicaoProdutor = avanca(posicaoProdutor);
-  putstr("PRODUZI   ");
-  imprimeLista();
+  imprimeBuffer();
 }
 
 
 void consome () {
-  itens = itens - 1;
+  minisleep();
   vetor[posicaoConsumidor] = 0;
   posicaoConsumidor = avanca(posicaoConsumidor);
-  putstr("CONSUMI   ");
-  imprimeLista();
+  imprimeBuffer();
 }
 
 
@@ -1067,7 +1099,6 @@ void produtor()
     semup(cheio);
 
     sleep(1);
-    cicloProdutor++;
   }
 }
 
@@ -1081,7 +1112,6 @@ void consumidor()
     semup(vazio);
 
     sleep(2);
-    cicloConsumidor++;
   }
 }
 
@@ -1108,8 +1138,8 @@ int cmd_prodcons(int argc, char far *argv[])
     // Inicializa Vetor
     inicializaLista();
     
-    // Printa Vetor Inicial
-    imprimeLista();
+    // Printa Buffer
+    imprimeBuffer();
     
     /* Criar consumidor e produtor*/
     if	(fork(produtor)==miniSO_ERROR)  {

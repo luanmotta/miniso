@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 1
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 1
 lib.ASM
 
 
@@ -60,7 +60,7 @@ lib.ASM
      55	000C			     _getch  proc    near
      56	000C  55			     push    bp
      57	000D  8B EC			     mov     bp,sp
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 2
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 2
 lib.ASM
 
 
@@ -122,7 +122,7 @@ lib.ASM
     112	0025			     @4@58:
     113					;
     114					;    {
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 3
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 3
 lib.ASM
 
 
@@ -184,7 +184,7 @@ lib.ASM
     169	006D			     @5@58:
     170					;
     171					;      while (*string != '\0')	{
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 4
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 4
 lib.ASM
 
 
@@ -246,7 +246,7 @@ lib.ASM
     226					;    void setcolor (int	cor)
     227					;
     228					     assume  cs:_TEXT
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 5
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 5
 lib.ASM
 
 
@@ -308,7 +308,7 @@ lib.ASM
     283					;    int  wherey()
     284					;
     285					     assume  cs:_TEXT
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 6
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 6
 lib.ASM
 
 
@@ -370,7 +370,7 @@ lib.ASM
     340	00C9  5D			     pop     bp
     341	00CA  C3			     ret
     342	00CB			     _gotoxy endp
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 7
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 7
 lib.ASM
 
 
@@ -432,7 +432,7 @@ lib.ASM
     397	00F4  FF 76 04			     push    word ptr [bp+4]
     398	00F7  E8 0000e			     call    near ptr _FP_SEG
     399	00FA  59			     pop     cx
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 8
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 8
 lib.ASM
 
 
@@ -494,7 +494,7 @@ lib.ASM
     454	012E  26: 88 07			     mov     byte ptr es:[bx],al
     455	0131  FF 46 08			     inc     word ptr [bp+8]
     456	0134  FF 46 04			     inc     word ptr [bp+4]
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 9
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 9
 lib.ASM
 
 
@@ -556,7 +556,7 @@ lib.ASM
     511	0170  26: 8A 07			     mov     al,byte ptr es:[bx]
     512	0173  C4 5E 04			     les     bx,dword ptr [bp+4]
     513	0176  26: 88 07			     mov     byte ptr es:[bx],al
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 10
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 10
 lib.ASM
 
 
@@ -618,7 +618,7 @@ lib.ASM
     568	01AB  8B 46 06			     mov     ax,word ptr [bp+6]
     569	01AE  8B 56 04			     mov     dx,word ptr [bp+4]
     570	01B1  89 46 FE			     mov     word ptr [bp-2],ax
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 11
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 11
 lib.ASM
 
 
@@ -680,7 +680,7 @@ lib.ASM
     625					;    {
     626					;      char far	*res;
     627					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 12
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 12
 lib.ASM
 
 
@@ -742,7 +742,7 @@ lib.ASM
     682	023D			     _strcmp proc    near
     683	023D  55			     push    bp
     684	023E  8B EC			     mov     bp,sp
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 13
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 13
 lib.ASM
 
 
@@ -804,7 +804,7 @@ lib.ASM
     739					;
     740					;    }
     741					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 14
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 14
 lib.ASM
 
 
@@ -866,7 +866,7 @@ lib.ASM
     796	02A4  80 FA 39			     cmp     dl,57
     797	02A7  7E 06			     jle     short @19@170
     798	02A9			     @19@86:
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 15
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 15
 lib.ASM
 
 
@@ -928,7 +928,7 @@ lib.ASM
     853					;
     854	02D7  33 C0			     xor     ax,ax
     855	02D9  EB F8			     jmp     short @20@170
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 16
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 16
 lib.ASM
 
 
@@ -990,7 +990,7 @@ lib.ASM
     910					;
     911	0310  BF FFFF			     mov     di,-1
     912					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 17
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 17
 lib.ASM
 
 
@@ -1052,7 +1052,7 @@ lib.ASM
     967					;    }
     968					;
     969	0353  5F			     pop     di
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 18
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 18
 lib.ASM
 
 
@@ -1114,7 +1114,7 @@ lib.ASM
    1024	0385  BF 0003			     mov     di,3
    1025	0388  EB 0D			     jmp     short @22@282
    1026	038A			     @22@198:
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 19
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 19
 lib.ASM
 
 
@@ -1176,7 +1176,7 @@ lib.ASM
    1081	03C0  48			     dec     ax
    1082	03C1  3B 46 FE			     cmp     ax,word ptr [bp-2]
    1083	03C4  77 EB			     ja	     short @22@422
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 20
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 20
 lib.ASM
 
 
@@ -1238,7 +1238,7 @@ lib.ASM
    1138					;
    1139					;	       i = i % div;
    1140					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 21
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 21
 lib.ASM
 
 
@@ -1300,7 +1300,7 @@ lib.ASM
    1195					;
    1196	0442  C7 46 FC 0000		     mov     word ptr [bp-4],0
    1197					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 22
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 22
 lib.ASM
 
 
@@ -1362,7 +1362,7 @@ lib.ASM
    1252					;		if (i>999999)
    1253					;
    1254	0493  83 7E 0A 0F		     cmp     word ptr [bp+10],15
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 23
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 23
 lib.ASM
 
 
@@ -1424,7 +1424,7 @@ lib.ASM
    1309					;			    tamreal = 4;
    1310					;
    1311	04DE  BE 0004			     mov     si,4
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 24
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 24
 lib.ASM
 
 
@@ -1486,7 +1486,7 @@ lib.ASM
    1366	0516  76 02			     jbe     short @23@1178
    1367					;
    1368					;	  tam =	tamreal;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 25
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 25
 lib.ASM
 
 
@@ -1548,7 +1548,7 @@ lib.ASM
    1423					;		  *str++='0';
    1424					;
    1425	0566  C4 5E 04			     les     bx,dword ptr [bp+4]
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 26
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 26
 lib.ASM
 
 
@@ -1610,7 +1610,7 @@ lib.ASM
    1480	05C2			     @23@1598:
    1481	05C2  83 7E FA 00		     cmp     word ptr [bp-6],0
    1482	05C6  76 03			     jbe     @@0
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 27
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 27
 lib.ASM
 
 
@@ -1672,7 +1672,7 @@ lib.ASM
    1537					;
    1538					;	       *str++='0';
    1539					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 28
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 28
 lib.ASM
 
 
@@ -1734,7 +1734,7 @@ lib.ASM
    1594					;
    1595					;      }
    1596					;      if (i<10)
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 29
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 29
 lib.ASM
 
 
@@ -1796,7 +1796,7 @@ lib.ASM
    1651	0681  81 F9 8000		     cmp     cx,-32768
    1652	0685  75 3B			     jne     short @25@86
    1653					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 30
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 30
 lib.ASM
 
 
@@ -1858,7 +1858,7 @@ lib.ASM
    1708	06D4  8B C8			     mov     cx,ax
    1709	06D6			     @25@142:
    1710	06D6  EB 3E			     jmp     short @25@338
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 31
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 31
 lib.ASM
 
 
@@ -1920,7 +1920,7 @@ lib.ASM
    1765					;		}
    1766					;		div = div/10;
    1767					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 32
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 32
 lib.ASM
 
 
@@ -1982,7 +1982,7 @@ lib.ASM
    1822	073C  5D			     pop     bp
    1823	073D  C3			     ret
    1824	073E			     _reboot endp
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 33
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 33
 lib.ASM
 
 
@@ -2044,7 +2044,7 @@ lib.ASM
    1879					;
    1880					;	 int 22h
    1881					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 34
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 34
 lib.ASM
 
 
@@ -2106,7 +2106,7 @@ lib.ASM
    1936					;
    1937					;    }
    1938					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 35
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 35
 lib.ASM
 
 
@@ -2168,7 +2168,7 @@ lib.ASM
    1993					;
    1994					;    void exit(int codfim)
    1995					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 36
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 36
 lib.ASM
 
 
@@ -2230,7 +2230,7 @@ lib.ASM
    2050					;
    2051					;    pid_t getppid()
    2052					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 37
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 37
 lib.ASM
 
 
@@ -2292,7 +2292,7 @@ lib.ASM
    2107					;      return _AX;
    2108					;
    2109	07D9  EB 00			     jmp     short @34@142
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 38
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 38
 lib.ASM
 
 
@@ -2354,7 +2354,7 @@ lib.ASM
    2164					;
    2165	07F1  CD 22			     int       22h
    2166					;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 39
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 39
 lib.ASM
 
 
@@ -2416,7 +2416,7 @@ lib.ASM
    2221	0809  8B EC			     mov     bp,sp
    2222					;
    2223					;    {
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 40
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 40
 lib.ASM
 
 
@@ -2478,7 +2478,7 @@ lib.ASM
    2278	0822  5D			     pop     bp
    2279	0823  C3			     ret
    2280	0824			     _semdown	     endp
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 41
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 41
 lib.ASM
 
 
@@ -2540,7 +2540,7 @@ lib.ASM
    2335					;
    2336					;	 }
    2337					;	 return	_AX;
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 42
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 42
 lib.ASM
 
 
@@ -2602,7 +2602,7 @@ lib.ASM
    2392					     public  _resume
    2393					     public  _stop
    2394					     public  _semdestroy
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 43
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 43
 lib.ASM
 
 
@@ -2649,7 +2649,7 @@ lib.ASM
    2434					     extrn   _FP_SEG:near
    2435				     _s@     equ     s@
    2436					     end
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 44
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 44
 Symbol Table
 
 
@@ -2659,7 +2659,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 
 ??DATE			Text   "12/01/17"
 ??FILENAME		Text   "lib	"
-??TIME			Text   "20:17:57"
+??TIME			Text   "21:12:37"
 ??VERSION		Number 030A
 @13@142			Near   _TEXT:014F		   471	#472
 @13@58			Near   _TEXT:0125		   #446	 460
@@ -2711,7 +2711,7 @@ Symbol Name		Type   Value			   Cref	(defined at #)
 @22@394			Near   _TEXT:03AA		   1059	 #1064
 @22@422			Near   _TEXT:03B1		   #1070  1083
 @22@478			Near   _TEXT:03BD		   1069	 #1079
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 45
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 45
 Symbol Table
 
 
@@ -2773,7 +2773,7 @@ Symbol Table
 @27@142			Near   _TEXT:074D		   1854	 #1855
 @28@142			Near   _TEXT:075B		   1887	 #1888
 @29@142			Near   _TEXT:0780		   1934	 #1935
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 46
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 46
 Symbol Table
 
 
@@ -2835,7 +2835,7 @@ _REBOOT			Near   _TEXT:0735		   #1805  2408
 _RESUME			Near   _TEXT:0840		   #2351  2392
 _S@			Alias  S@			   #2435
 _SEMCREATE		Near   _TEXT:07E9		   #2149  2398
-Turbo Assembler	 Version 3.1	    12/01/17 20:17:58	    Page 47
+Turbo Assembler	 Version 3.1	    12/01/17 21:12:37	    Page 47
 Symbol Table
 
 

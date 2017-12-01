@@ -14,7 +14,7 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E965A2814B09636F6D6D616E642E63
+	?debug	C E961A9814B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E963AA764B09636F6D6D616E642E68
 	?debug	C E990AC6C4B056C69622E68
@@ -5062,19 +5062,10 @@ _cmd_resume	proc	near
 _cmd_resume	endp
 _TEXT	ends
 _DATA	segment word public 'DATA'
-itens	label	word
-	db	0
-	db	0
 tamanho_buffer	label	word
 	db	0
 	db	0
-cicloProdutor	label	word
-	db	0
-	db	0
 posicaoProdutor	label	word
-	db	0
-	db	0
-cicloConsumidor	label	word
 	db	0
 	db	0
 posicaoConsumidor	label	word
@@ -5087,6 +5078,325 @@ tamanhoSegundo	label	word
 	db	0
 _DATA	ends
 _TEXT	segment byte public 'CODE'
+   ;	
+   ;	void imprimeLista () {
+   ;	
+	assume	cs:_TEXT
+_imprimeLista	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,6
+	push	si
+   ;	
+   ;	  int i;
+   ;	  char str[1];
+   ;	  int x = 56, y = demo_linha + 10;
+   ;	
+	mov	word ptr [bp-4],56
+	mov	ax,word ptr DGROUP:demo_linha
+	add	ax,10
+	mov	word ptr [bp-6],ax
+   ;	
+   ;	  
+   ;	  for (i = 0; i < tamanho_buffer; i++) {
+   ;	
+	xor	si,si
+	jmp	short @35@114
+@35@58:
+   ;	
+   ;	    inttostr(str, vetor[i]);
+   ;	
+	mov	bx,si
+	shl	bx,1
+	push	word ptr DGROUP:vetor[bx]
+	push	ss
+	lea	ax,word ptr [bp-2]
+	push	ax
+	call	near ptr _inttostr
+	add	sp,6
+   ;	
+   ;	    putstrxy(x+2+i,  y+8, str);
+   ;	
+	push	ss
+	lea	ax,word ptr [bp-2]
+	push	ax
+	mov	ax,word ptr [bp-6]
+	add	ax,8
+	push	ax
+	mov	ax,word ptr [bp-4]
+	add	ax,si
+	add	ax,2
+	push	ax
+	call	near ptr _putstrxy
+	add	sp,8
+	inc	si
+@35@114:
+	cmp	si,word ptr DGROUP:tamanho_buffer
+	jl	short @35@58
+   ;	
+   ;	  }
+   ;	}
+   ;	
+	pop	si
+	mov	sp,bp
+	pop	bp
+	ret	
+_imprimeLista	endp
+   ;	
+   ;	void imprimeBuffer() {
+   ;	
+	assume	cs:_TEXT
+_imprimeBuffer	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,20
+	push	si
+	push	di
+   ;	
+   ;	  extern int demo_linha;
+   ;	  int x = 56, y = demo_linha + 10;
+   ;	
+	mov	si,56
+	mov	ax,word ptr DGROUP:demo_linha
+	add	ax,10
+	mov	di,ax
+   ;	
+   ;	  char str[20];
+   ;	
+   ;	  /* titulo */
+   ;	  putstrxy(x, y+4, "                       ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3005
+	push	ax
+	mov	ax,di
+	add	ax,4
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  putstrxy(x, y+5, "                       ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3029
+	push	ax
+	mov	ax,di
+	add	ax,5
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  putstrxy(x, y+6, "ÚÄÄÄÄ  ProdCons   ÄÄÄÄ¿");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3053
+	push	ax
+	mov	ax,di
+	add	ax,6
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	
+   ;	  /* tamanho do buffer */
+   ;	  putstrxy(x,    y+7, "³ Tamanho Buffer:     ³");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3077
+	push	ax
+	mov	ax,di
+	add	ax,7
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  inttostr(str,  tamanho_buffer);
+   ;	
+	push	word ptr DGROUP:tamanho_buffer
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	call	near ptr _inttostr
+	add	sp,6
+   ;	
+   ;	  putstrxy(x+17, y+7, str);
+   ;	
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	mov	ax,di
+	add	ax,7
+	push	ax
+	mov	ax,si
+	add	ax,17
+	push	ax
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	
+   ;	  /* representacao do buffer */
+   ;	  putstrxy(x,    y+8, "³ ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3101
+	push	ax
+	mov	ax,di
+	add	ax,8
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  imprimeLista();
+   ;	
+	call	near ptr _imprimeLista
+   ;	
+   ;	  putstrxy(x+20, y+8, "  ³");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3104
+	push	ax
+	mov	ax,di
+	add	ax,8
+	push	ax
+	mov	ax,si
+	add	ax,20
+	push	ax
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	
+   ;	  /* Produtor e Consumidor*/
+   ;	  inttostr(str,  2);
+   ;	
+	mov	ax,2
+	push	ax
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	call	near ptr _inttostr
+	add	sp,6
+   ;	
+   ;	  putstrxy(x,    y+9 , "³ Produtor:           ³");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3108
+	push	ax
+	mov	ax,di
+	add	ax,9
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  putstrxy(x+12, y+9, str);
+   ;	
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	mov	ax,di
+	add	ax,9
+	push	ax
+	mov	ax,si
+	add	ax,12
+	push	ax
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	
+   ;	  inttostr(str,  1);
+   ;	
+	mov	ax,1
+	push	ax
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	call	near ptr _inttostr
+	add	sp,6
+   ;	
+   ;	  putstrxy(x,    y+10, "³ Consumidor:         ³");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3132
+	push	ax
+	mov	ax,di
+	add	ax,10
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	  putstrxy(x+14, y+10, str);
+   ;	
+	push	ss
+	lea	ax,word ptr [bp-20]
+	push	ax
+	mov	ax,di
+	add	ax,10
+	push	ax
+	mov	ax,si
+	add	ax,14
+	push	ax
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	
+   ;	  putstrxy(x, y+11,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
+   ;	
+	push	ds
+	mov	ax,offset DGROUP:s@+3156
+	push	ax
+	mov	ax,di
+	add	ax,11
+	push	ax
+	push	si
+	call	near ptr _putstrxy
+	add	sp,8
+   ;	
+   ;	}
+   ;	
+	pop	di
+	pop	si
+	mov	sp,bp
+	pop	bp
+	ret	
+_imprimeBuffer	endp
+   ;	
+   ;	void minisleep () {
+   ;	
+	assume	cs:_TEXT
+_minisleep	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,4
+   ;	
+   ;	  long i;
+   ;	  for (i = 0; i < 40000; i++);
+   ;	
+	mov	word ptr [bp-2],0
+	mov	word ptr [bp-4],0
+	jmp	short @37@86
+@37@58:
+	add	word ptr [bp-4],1
+	adc	word ptr [bp-2],0
+@37@86:
+	cmp	word ptr [bp-2],0
+	jl	short @37@58
+	jne	short @37@170
+	cmp	word ptr [bp-4],-25536
+	jb	short @37@58
+@37@170:
+   ;	
+   ;	}
+   ;	
+	mov	sp,bp
+	pop	bp
+	ret	
+_minisleep	endp
    ;	
    ;	void sleep (int segundos) {
    ;	
@@ -5102,37 +5412,37 @@ _sleep	proc	near
    ;	
 	mov	word ptr [bp-2],0
 	mov	word ptr [bp-4],0
-	jmp	short @35@226
-@35@58:
+	jmp	short @38@226
+@38@58:
    ;	
    ;	        for (j = 0; j < tamanhoSegundo; j++);
    ;	
 	mov	word ptr [bp-6],0
 	mov	word ptr [bp-8],0
-	jmp	short @35@114
-@35@86:
+	jmp	short @38@114
+@38@86:
 	add	word ptr [bp-8],1
 	adc	word ptr [bp-6],0
-@35@114:
+@38@114:
 	mov	ax,word ptr [bp-6]
 	mov	dx,word ptr [bp-8]
 	cmp	ax,word ptr DGROUP:tamanhoSegundo+2
-	jl	short @35@86
-	jne	short @35@198
+	jl	short @38@86
+	jne	short @38@198
 	cmp	dx,word ptr DGROUP:tamanhoSegundo
-	jb	short @35@86
-@35@198:
+	jb	short @38@86
+@38@198:
 	add	word ptr [bp-4],1
 	adc	word ptr [bp-2],0
-@35@226:
+@38@226:
 	mov	ax,word ptr [bp+4]
 	cwd	
 	cmp	dx,word ptr [bp-2]
-	jg	short @35@58
-	jne	short @35@310
+	jg	short @38@58
+	jne	short @38@310
 	cmp	ax,word ptr [bp-4]
-	ja	short @35@58
-@35@310:
+	ja	short @38@58
+@38@310:
    ;	
    ;	    }
    ;	}
@@ -5141,75 +5451,6 @@ _sleep	proc	near
 	pop	bp
 	ret	
 _sleep	endp
-   ;	
-   ;	void imprimeLista () {
-   ;	
-	assume	cs:_TEXT
-_imprimeLista	proc	near
-	push	bp
-	mov	bp,sp
-	sub	sp,2
-	push	si
-   ;	
-   ;	  int i;
-   ;	  char str[1];
-   ;	  
-   ;	  for (i = 0; i < tamanho_buffer; i++) {
-   ;	
-	xor	si,si
-	jmp	short @36@114
-@36@58:
-   ;	
-   ;	    inttostr(str, vetor[i]);
-   ;	
-	mov	bx,si
-	shl	bx,1
-	push	word ptr DGROUP:vetor[bx]
-	push	ss
-	lea	ax,word ptr [bp-2]
-	push	ax
-	call	near ptr _inttostr
-	add	sp,6
-   ;	
-   ;	    putstr(str);
-   ;	
-	push	ss
-	lea	ax,word ptr [bp-2]
-	push	ax
-	call	near ptr _putstr
-	pop	cx
-	pop	cx
-   ;	
-   ;	    putstr(" ");
-   ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3005
-	push	ax
-	call	near ptr _putstr
-	pop	cx
-	pop	cx
-	inc	si
-@36@114:
-	cmp	si,word ptr DGROUP:tamanho_buffer
-	jl	short @36@58
-   ;	
-   ;	  }
-   ;	  putstr("\n");
-   ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3007
-	push	ax
-	call	near ptr _putstr
-	pop	cx
-	pop	cx
-   ;	
-   ;	}
-   ;	
-	pop	si
-	mov	sp,bp
-	pop	bp
-	ret	
-_imprimeLista	endp
    ;	
    ;	void inicializaLista () {
    ;	
@@ -5223,8 +5464,8 @@ _inicializaLista	proc	near
    ;	  for (i = 0; i < tamanho_buffer; i++) {
    ;	
 	xor	dx,dx
-	jmp	short @37@114
-@37@58:
+	jmp	short @39@114
+@39@58:
    ;	
    ;	    vetor[i] = 0;
    ;	
@@ -5232,11 +5473,12 @@ _inicializaLista	proc	near
 	shl	bx,1
 	mov	word ptr DGROUP:vetor[bx],0
 	inc	dx
-@37@114:
+@39@114:
 	cmp	dx,word ptr DGROUP:tamanho_buffer
-	jl	short @37@58
+	jl	short @39@58
    ;	
    ;	  }
+   ;	  
    ;	}
    ;	
 	pop	bp
@@ -5256,25 +5498,25 @@ _avanca	proc	near
 	mov	ax,word ptr DGROUP:tamanho_buffer
 	dec	ax
 	cmp	ax,dx
-	jne	short @38@142
+	jne	short @40@142
    ;	
    ;	    return 0;
    ;	
 	xor	ax,ax
-@38@86:
-	jmp	short @38@170
+@40@86:
+	jmp	short @40@170
    ;	
    ;	  } else {
    ;	
-	jmp	short @38@170
-@38@142:
+	jmp	short @40@170
+@40@142:
    ;	
    ;	    return posicaoAtual + 1;
    ;	
 	mov	ax,dx
 	inc	ax
-	jmp	short @38@86
-@38@170:
+	jmp	short @40@86
+@40@170:
    ;	
    ;	  }
    ;	}
@@ -5290,11 +5532,9 @@ _produz	proc	near
 	push	bp
 	mov	bp,sp
    ;	
-   ;	  itens = itens + 1;
+   ;	  minisleep();
    ;	
-	mov	ax,word ptr DGROUP:itens
-	inc	ax
-	mov	word ptr DGROUP:itens,ax
+	call	near ptr _minisleep
    ;	
    ;	  vetor[posicaoProdutor] = 1;
    ;	
@@ -5309,18 +5549,9 @@ _produz	proc	near
 	pop	cx
 	mov	word ptr DGROUP:posicaoProdutor,ax
    ;	
-   ;	  putstr("PRODUZI   ");
+   ;	  imprimeBuffer();
    ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3009
-	push	ax
-	call	near ptr _putstr
-	pop	cx
-	pop	cx
-   ;	
-   ;	  imprimeLista();
-   ;	
-	call	near ptr _imprimeLista
+	call	near ptr _imprimeBuffer
    ;	
    ;	}
    ;	
@@ -5335,11 +5566,9 @@ _consome	proc	near
 	push	bp
 	mov	bp,sp
    ;	
-   ;	  itens = itens - 1;
+   ;	  minisleep();
    ;	
-	mov	ax,word ptr DGROUP:itens
-	dec	ax
-	mov	word ptr DGROUP:itens,ax
+	call	near ptr _minisleep
    ;	
    ;	  vetor[posicaoConsumidor] = 0;
    ;	
@@ -5354,18 +5583,9 @@ _consome	proc	near
 	pop	cx
 	mov	word ptr DGROUP:posicaoConsumidor,ax
    ;	
-   ;	  putstr("CONSUMI   ");
+   ;	  imprimeBuffer();
    ;	
-	push	ds
-	mov	ax,offset DGROUP:s@+3020
-	push	ax
-	call	near ptr _putstr
-	pop	cx
-	pop	cx
-   ;	
-   ;	  imprimeLista();
-   ;	
-	call	near ptr _imprimeLista
+	call	near ptr _imprimeBuffer
    ;	
    ;	}
    ;	
@@ -5379,7 +5599,7 @@ _consome	endp
 _produtor	proc	near
 	push	bp
 	mov	bp,sp
-@41@30:
+@43@30:
    ;	
    ;	{
    ;	  while(1) {
@@ -5418,11 +5638,7 @@ _produtor	proc	near
 	push	ax
 	call	near ptr _sleep
 	pop	cx
-   ;	
-   ;	    cicloProdutor++;
-   ;	
-	inc	word ptr DGROUP:cicloProdutor
-	jmp	short @41@30
+	jmp	short @43@30
    ;	
    ;	  }
    ;	}
@@ -5437,7 +5653,7 @@ _produtor	endp
 _consumidor	proc	near
 	push	bp
 	mov	bp,sp
-@42@30:
+@44@30:
    ;	
    ;	{
    ;	  while(1) {
@@ -5476,11 +5692,7 @@ _consumidor	proc	near
 	push	ax
 	call	near ptr _sleep
 	pop	cx
-   ;	
-   ;	    cicloConsumidor++;
-   ;	
-	inc	word ptr DGROUP:cicloConsumidor
-	jmp	short @42@30
+	jmp	short @44@30
    ;	
    ;	  }
    ;	}
@@ -5501,13 +5713,13 @@ _cmd_prodcons	proc	near
    ;		if	(argc != 2)  {
    ;	
 	cmp	word ptr [bp+4],2
-	je	short @43@142
+	je	short @45@142
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3031
-@43@86:
+	mov	ax,offset DGROUP:s@+3180
+@45@86:
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5516,9 +5728,9 @@ _cmd_prodcons	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-@43@114:
-	jmp	short @43@282
-@43@142:
+@45@114:
+	jmp	short @45@282
+@45@142:
    ;	
    ;		}
    ;		
@@ -5568,10 +5780,10 @@ _cmd_prodcons	proc	near
 	call	near ptr _inicializaLista
    ;	
    ;	    
-   ;	    // Printa Vetor Inicial
-   ;	    imprimeLista();
+   ;	    // Printa Buffer
+   ;	    imprimeBuffer();
    ;	
-	call	near ptr _imprimeLista
+	call	near ptr _imprimeBuffer
    ;	
    ;	    
    ;	    /* Criar consumidor e produtor*/
@@ -5582,14 +5794,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @43@198
+	jne	short @45@198
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3081
-	jmp	short @43@86
-@43@198:
+	mov	ax,offset DGROUP:s@+3230
+	jmp	short @45@86
+@45@198:
    ;	
    ;		    return 1;
    ;	    }
@@ -5600,14 +5812,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @43@254
+	jne	short @45@254
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
-	mov	ax,offset DGROUP:s@+3135
-	jmp	short @43@86
-@43@254:
+	mov	ax,offset DGROUP:s@+3284
+	jmp	short @45@86
+@45@254:
    ;	
    ;		    return 1;
    ;	    }
@@ -5615,8 +5827,8 @@ _cmd_prodcons	proc	near
    ;		return 0;
    ;	
 	xor	ax,ax
-	jmp	short @43@114
-@43@282:
+	jmp	short @45@114
+@45@282:
    ;	
    ;	}
    ;	
@@ -6138,13 +6350,63 @@ s@	label	byte
 	db	'resume: impossivel reiniciar a thread'
 	db	10
 	db	0
+	db	'                       '
+	db	0
+	db	'                       '
+	db	0
+	db	-38
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	'  ProdCons   '
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-65
+	db	0
+	db	-77
+	db	' Tamanho Buffer:     '
+	db	-77
+	db	0
+	db	-77
 	db	' '
 	db	0
-	db	10
+	db	'  '
+	db	-77
 	db	0
-	db	'PRODUZI   '
+	db	-77
+	db	' Produtor:           '
+	db	-77
 	db	0
-	db	'CONSUMI   '
+	db	-77
+	db	' Consumidor:         '
+	db	-77
+	db	0
+	db	-64
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-60
+	db	-39
 	db	0
 	db	'Erro em prodcons: numero invalido de argumentos!'
 	db	10
@@ -6164,19 +6426,18 @@ _TEXT	ends
 	public	_produz
 	public	_avanca
 	public	_inicializaLista
-	public	_imprimeLista
 	public	_sleep
+	public	_minisleep
+	public	_imprimeBuffer
+	public	_imprimeLista
 _cheio	equ	cheio
 _vazio	equ	vazio
 _mutex	equ	mutex
 _tamanhoSegundo	equ	tamanhoSegundo
 _posicaoConsumidor	equ	posicaoConsumidor
-_cicloConsumidor	equ	cicloConsumidor
 _posicaoProdutor	equ	posicaoProdutor
-_cicloProdutor	equ	cicloProdutor
 _vetor	equ	vetor
 _tamanho_buffer	equ	tamanho_buffer
-_itens	equ	itens
 	public	_sem_aplic
 	public	_semid
 	extrn	_miniSO_sem:word

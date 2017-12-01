@@ -21,7 +21,7 @@
 /* Cor do logotipo */
 #define LOGOCOLOR 0x01
 /* Número máximo de comandos */
-#define MAXCOMMANDS	26
+#define MAXCOMMANDS	28
 /* Número máximo de argumentos na linha de comandos */
 #define MAXARGS (MAXLINE/2 + 1)
 /* Número máximo de caracteres do nome de variáveis */
@@ -61,28 +61,30 @@ static int       command_var_set      (char far *nome,char far *valor);
 
 
 /* Comandos internos */
-int	cmd_exit	(int argc, char far *argv[]);
-int	cmd_reboot	(int argc, char far *argv[]);
-int	cmd_help	(int argc, char far *argv[]);
-int	cmd_date	(int argc, char far *argv[]);
-int	cmd_time	(int argc, char far *argv[]);
-int	cmd_cls		(int argc, char far *argv[]);
-int	cmd_ver		(int argc, char far *argv[]);
-int	cmd_prompt	(int argc, char far *argv[]);
-int	cmd_ps		(int argc, char far *argv[]);
-int	cmd_kill	(int argc, char far *argv[]);
-int	cmd_demo	(int argc, char far *argv[]);
-int	cmd_set		(int argc, char far *argv[]);
-int	cmd_unset	(int argc, char far *argv[]);
-int	cmd_echo	(int argc, char far *argv[]);
-int	cmd_wait	(int argc, char far *argv[]);
-int	cmd_waitpid	(int argc, char far *argv[]);
-int	cmd_semls	(int argc, char far *argv[]);
-int	cmd_semcreate	(int argc, char far *argv[]);
-int	cmd_semtest	(int argc, char far *argv[]);
-int	cmd_semup	(int argc, char far *argv[]);
-int	cmd_semdestroy	(int argc, char far *argv[]);
+int	cmd_exit	   (int argc, char far *argv[]);
+int	cmd_reboot	   (int argc, char far *argv[]);
+int	cmd_help	   (int argc, char far *argv[]);
+int	cmd_date	   (int argc, char far *argv[]);
+int	cmd_time	   (int argc, char far *argv[]);
+int	cmd_cls		   (int argc, char far *argv[]);
+int	cmd_ver		   (int argc, char far *argv[]);
+int	cmd_prompt	   (int argc, char far *argv[]);
+int	cmd_ps		   (int argc, char far *argv[]);
+int	cmd_kill	   (int argc, char far *argv[]);
+int	cmd_demo	   (int argc, char far *argv[]);
+int	cmd_set		   (int argc, char far *argv[]);
+int	cmd_unset	   (int argc, char far *argv[]);
+int	cmd_echo	   (int argc, char far *argv[]);
+int	cmd_wait	   (int argc, char far *argv[]);
+int	cmd_waitpid	   (int argc, char far *argv[]);
+int	cmd_semls	   (int argc, char far *argv[]);
+int	cmd_semcreate  (int argc, char far *argv[]);
+int	cmd_semtest	   (int argc, char far *argv[]);
+int	cmd_semup	   (int argc, char far *argv[]);
+int	cmd_semdestroy (int argc, char far *argv[]);
 int cmd_stop       (int argc, char far *argv[]);
 int cmd_resume     (int argc, char far *argv[]);
-int cmd_prodcons       (int argc, char far *argv[]);
+int cmd_prodcons   (int argc, char far *argv[]);
+int cmd_tprod      (int argc, char far *argv[]);
+int cmd_tcons      (int argc, char far *argv[]);
 

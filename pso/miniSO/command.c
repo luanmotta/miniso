@@ -61,7 +61,9 @@ static command_t commands[MAXCOMMANDS] = {
   "semdestroy"," <semid>  destroi um semaforo",					cmd_semdestroy,
   "stop", "<pid>          suspende um processo/thread",         cmd_stop,
   "resume", "<pid>        reinicia um processo/thread",         cmd_resume,
-  "prodcons", "<args>     inicia produtor consumidor",          cmd_prodcons
+  "prodcons", "<args>     inicia produtor consumidor",          cmd_prodcons,
+  "tprod", "<args>        altera tempo de producao",          cmd_tprod,
+  "tcons", "<args>        altera tempo de consumidor",          cmd_tcons
 };
 
 
@@ -1118,6 +1120,31 @@ void consumidor()
   }
 }
 
+/*
+usar sleep e minisleep como funcoes da lib
+melhorar nome das variaveis
+melhorar a declaracao das variaveis na hora de printar
+*/
+
+int cmd_tprod(int argc, char far *argv[]) {
+
+    if	(argc != 2)  {
+		putstr("Erro em prodcons: numero invalido de argumentos!\n");
+		return 1;
+	}
+	
+	tempoProdutor   = atoi(argv[1]);
+}
+
+int cmd_tcons(int argc, char far *argv[]) {
+
+    if	(argc != 2)  {
+		putstr("Erro em prodcons: numero invalido de argumentos!\n");
+		return 1;
+	}
+	
+	tempoConsumidor = atoi(argv[1]);
+}
 
 int cmd_prodcons(int argc, char far *argv[])
 {
@@ -1128,9 +1155,9 @@ int cmd_prodcons(int argc, char far *argv[])
 	}
 	
 	/* Get arguments     */
-	tamanho_buffer  = atoi(argv[1]);
-	tempoProdutor   = atoi(argv[2]);
-	tempoConsumidor = atoi(argv[3]);
+	tempoProdutor   = atoi(argv[1]);
+	tempoConsumidor = atoi(argv[2]);
+	tamanho_buffer  = atoi(argv[3]);
 	
     mutex = semcreate(1);
     vazio = semcreate(tamanho_buffer);

@@ -998,8 +998,6 @@ static int posicaoConsumidor = 0;
 static int tempoProdutor;
 static int tempoConsumidor;
 
-static long tamanhoSegundo = 490000;
-
 static semid_t mutex;
 static semid_t vazio;
 static semid_t cheio;
@@ -1046,19 +1044,6 @@ void imprimeBuffer() {
   putstrxy(x+14, y+10, str);
 
   putstrxy(x, y+11,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
-}
-
-void minisleep () {
-  long i;
-  for (i = 0; i < 40000; i++);
-}
-
-void sleep (int segundos) {
-    long i;
-    long j;
-    for (i = 0; i < segundos; i++) {
-        for (j = 0; j < tamanhoSegundo; j++);
-    }
 }
 
 void inicializaLista () {

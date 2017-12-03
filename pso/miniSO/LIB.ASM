@@ -14,9 +14,9 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "lib.c"
-	?debug	C E991AD6C4B056C69622E63
+	?debug	C E999A3834B056C69622E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
-	?debug	C E990AC6C4B056C69622E68
+	?debug	C E9E2A3834B056C69622E68
 	?debug	C E90BAD6C4B077363616C6C2E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
@@ -2388,6 +2388,90 @@ _resume	proc	near
 	pop	bp
 	ret	
 _resume	endp
+   ;	
+   ;	void minisleep () {
+   ;	
+	assume	cs:_TEXT
+_minisleep	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,4
+   ;	
+   ;	  long i;
+   ;	  for (i = 0; i < 40000; i++);
+   ;	
+	mov	word ptr [bp-2],0
+	mov	word ptr [bp-4],0
+	jmp	short @43@86
+@43@58:
+	add	word ptr [bp-4],1
+	adc	word ptr [bp-2],0
+@43@86:
+	cmp	word ptr [bp-2],0
+	jl	short @43@58
+	jne	short @43@170
+	cmp	word ptr [bp-4],-25536
+	jb	short @43@58
+@43@170:
+   ;	
+   ;	}
+   ;	
+	mov	sp,bp
+	pop	bp
+	ret	
+_minisleep	endp
+   ;	
+   ;	void sleep (int segundos) {
+   ;	
+	assume	cs:_TEXT
+_sleep	proc	near
+	push	bp
+	mov	bp,sp
+	sub	sp,8
+   ;	
+   ;	    long i;
+   ;	    long j;
+   ;	    for (i = 0; i < segundos; i++) {
+   ;	
+	mov	word ptr [bp-2],0
+	mov	word ptr [bp-4],0
+	jmp	short @44@226
+@44@58:
+   ;	
+   ;	        for (j = 0; j < 490000; j++);
+   ;	
+	mov	word ptr [bp-6],0
+	mov	word ptr [bp-8],0
+	jmp	short @44@114
+@44@86:
+	add	word ptr [bp-8],1
+	adc	word ptr [bp-6],0
+@44@114:
+	cmp	word ptr [bp-6],7
+	jl	short @44@86
+	jne	short @44@198
+	cmp	word ptr [bp-8],31248
+	jb	short @44@86
+@44@198:
+	add	word ptr [bp-4],1
+	adc	word ptr [bp-2],0
+@44@226:
+	mov	ax,word ptr [bp+4]
+	cwd	
+	cmp	dx,word ptr [bp-2]
+	jg	short @44@58
+	jne	short @44@310
+	cmp	ax,word ptr [bp-4]
+	ja	short @44@58
+@44@310:
+   ;	
+   ;	    }
+   ;	}
+   ;	
+	mov	sp,bp
+	pop	bp
+	ret	
+_sleep	endp
 	?debug	C E9
 	?debug	C FA00000000
 _TEXT	ends
@@ -2396,10 +2480,12 @@ s@	label	byte
 _DATA	ends
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
+	public	_sleep
 	extrn	N_LUMOD@:far
 	extrn	N_LUDIV@:far
 	extrn	N_LXMUL@:far
 	public	_isalpha
+	public	_minisleep
 	public	_resume
 	public	_stop
 	public	_semdestroy

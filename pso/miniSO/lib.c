@@ -664,3 +664,18 @@ int resume(pid_t pid)
     return _AX;
 }
 
+/* Função minisleep */
+void minisleep () {
+  long i;
+  for (i = 0; i < 40000; i++);
+}
+
+/* Função sleep */
+void sleep (int segundos) {
+    long i;
+    long j;
+    for (i = 0; i < segundos; i++) {
+        for (j = 0; j < 490000; j++);
+    }
+}
+

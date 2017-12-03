@@ -14,10 +14,10 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E94BAD814B09636F6D6D616E642E63
+	?debug	C E994A3834B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
-	?debug	C E928AD814B09636F6D6D616E642E68
-	?debug	C E990AC6C4B056C69622E68
+	?debug	C E96AA3834B09636F6D6D616E642E68
+	?debug	C E9E2A3834B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -5077,11 +5077,6 @@ posicaoProdutor	label	word
 posicaoConsumidor	label	word
 	db	0
 	db	0
-tamanhoSegundo	label	word
-	db	16
-	db	122
-	db	7
-	db	0
 _DATA	ends
 _TEXT	segment byte public 'CODE'
    ;	
@@ -5370,92 +5365,6 @@ _imprimeBuffer	proc	near
 	ret	
 _imprimeBuffer	endp
    ;	
-   ;	void minisleep () {
-   ;	
-	assume	cs:_TEXT
-_minisleep	proc	near
-	push	bp
-	mov	bp,sp
-	sub	sp,4
-   ;	
-   ;	  long i;
-   ;	  for (i = 0; i < 40000; i++);
-   ;	
-	mov	word ptr [bp-2],0
-	mov	word ptr [bp-4],0
-	jmp	short @37@86
-@37@58:
-	add	word ptr [bp-4],1
-	adc	word ptr [bp-2],0
-@37@86:
-	cmp	word ptr [bp-2],0
-	jl	short @37@58
-	jne	short @37@170
-	cmp	word ptr [bp-4],-25536
-	jb	short @37@58
-@37@170:
-   ;	
-   ;	}
-   ;	
-	mov	sp,bp
-	pop	bp
-	ret	
-_minisleep	endp
-   ;	
-   ;	void sleep (int segundos) {
-   ;	
-	assume	cs:_TEXT
-_sleep	proc	near
-	push	bp
-	mov	bp,sp
-	sub	sp,8
-   ;	
-   ;	    long i;
-   ;	    long j;
-   ;	    for (i = 0; i < segundos; i++) {
-   ;	
-	mov	word ptr [bp-2],0
-	mov	word ptr [bp-4],0
-	jmp	short @38@226
-@38@58:
-   ;	
-   ;	        for (j = 0; j < tamanhoSegundo; j++);
-   ;	
-	mov	word ptr [bp-6],0
-	mov	word ptr [bp-8],0
-	jmp	short @38@114
-@38@86:
-	add	word ptr [bp-8],1
-	adc	word ptr [bp-6],0
-@38@114:
-	mov	ax,word ptr [bp-6]
-	mov	dx,word ptr [bp-8]
-	cmp	ax,word ptr DGROUP:tamanhoSegundo+2
-	jl	short @38@86
-	jne	short @38@198
-	cmp	dx,word ptr DGROUP:tamanhoSegundo
-	jb	short @38@86
-@38@198:
-	add	word ptr [bp-4],1
-	adc	word ptr [bp-2],0
-@38@226:
-	mov	ax,word ptr [bp+4]
-	cwd	
-	cmp	dx,word ptr [bp-2]
-	jg	short @38@58
-	jne	short @38@310
-	cmp	ax,word ptr [bp-4]
-	ja	short @38@58
-@38@310:
-   ;	
-   ;	    }
-   ;	}
-   ;	
-	mov	sp,bp
-	pop	bp
-	ret	
-_sleep	endp
-   ;	
    ;	void inicializaLista () {
    ;	
 	assume	cs:_TEXT
@@ -5468,8 +5377,8 @@ _inicializaLista	proc	near
    ;	  for (i = 0; i < tamanho_buffer; i++) {
    ;	
 	xor	dx,dx
-	jmp	short @39@114
-@39@58:
+	jmp	short @37@114
+@37@58:
    ;	
    ;	    vetor[i] = 0;
    ;	
@@ -5477,9 +5386,9 @@ _inicializaLista	proc	near
 	shl	bx,1
 	mov	word ptr DGROUP:vetor[bx],0
 	inc	dx
-@39@114:
+@37@114:
 	cmp	dx,word ptr DGROUP:tamanho_buffer
-	jl	short @39@58
+	jl	short @37@58
    ;	
    ;	  }
    ;	  
@@ -5502,25 +5411,25 @@ _avanca	proc	near
 	mov	ax,word ptr DGROUP:tamanho_buffer
 	dec	ax
 	cmp	ax,dx
-	jne	short @40@142
+	jne	short @38@142
    ;	
    ;	    return 0;
    ;	
 	xor	ax,ax
-@40@86:
-	jmp	short @40@170
+@38@86:
+	jmp	short @38@170
    ;	
    ;	  } else {
    ;	
-	jmp	short @40@170
-@40@142:
+	jmp	short @38@170
+@38@142:
    ;	
    ;	    return posicaoAtual + 1;
    ;	
 	mov	ax,dx
 	inc	ax
-	jmp	short @40@86
-@40@170:
+	jmp	short @38@86
+@38@170:
    ;	
    ;	  }
    ;	}
@@ -5603,7 +5512,7 @@ _consome	endp
 _produtor	proc	near
 	push	bp
 	mov	bp,sp
-@43@30:
+@41@30:
    ;	
    ;	{
    ;	  while(1) {
@@ -5641,7 +5550,7 @@ _produtor	proc	near
 	push	word ptr DGROUP:tempoProdutor
 	call	near ptr _sleep
 	pop	cx
-	jmp	short @43@30
+	jmp	short @41@30
    ;	
    ;	  }
    ;	}
@@ -5656,7 +5565,7 @@ _produtor	endp
 _consumidor	proc	near
 	push	bp
 	mov	bp,sp
-@44@30:
+@42@30:
    ;	
    ;	{
    ;	  while(1) {
@@ -5694,7 +5603,7 @@ _consumidor	proc	near
 	push	word ptr DGROUP:tempoConsumidor
 	call	near ptr _sleep
 	pop	cx
-	jmp	short @44@30
+	jmp	short @42@30
    ;	
    ;	  }
    ;	}
@@ -5714,7 +5623,7 @@ _cmd_tprod	proc	near
    ;	    if	(argc != 2)  {
    ;	
 	cmp	word ptr [bp+4],2
-	je	short @45@86
+	je	short @43@86
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
@@ -5728,8 +5637,8 @@ _cmd_tprod	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-	jmp	short @45@114
-@45@86:
+	jmp	short @43@114
+@43@86:
    ;	
    ;		}
    ;		
@@ -5742,7 +5651,7 @@ _cmd_tprod	proc	near
 	pop	cx
 	pop	cx
 	mov	word ptr DGROUP:tempoProdutor,ax
-@45@114:
+@43@114:
    ;	
    ;	}
    ;	
@@ -5761,7 +5670,7 @@ _cmd_tcons	proc	near
    ;	    if	(argc != 2)  {
    ;	
 	cmp	word ptr [bp+4],2
-	je	short @46@86
+	je	short @44@86
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
@@ -5775,8 +5684,8 @@ _cmd_tcons	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-	jmp	short @46@114
-@46@86:
+	jmp	short @44@114
+@44@86:
    ;	
    ;		}
    ;		
@@ -5789,7 +5698,7 @@ _cmd_tcons	proc	near
 	pop	cx
 	pop	cx
 	mov	word ptr DGROUP:tempoConsumidor,ax
-@46@114:
+@44@114:
    ;	
    ;	}
    ;	
@@ -5811,13 +5720,13 @@ _cmd_prodcons	proc	near
    ;		if	(argc != 4)  {
    ;	
 	cmp	word ptr [bp+4],4
-	je	short @47@142
+	je	short @45@142
    ;	
    ;			putstr("Erro em prodcons: numero invalido de argumentos!\n");
    ;	
 	push	ds
 	mov	ax,offset DGROUP:s@+3372
-@47@86:
+@45@86:
 	push	ax
 	call	near ptr _putstr
 	pop	cx
@@ -5826,9 +5735,9 @@ _cmd_prodcons	proc	near
    ;			return 1;
    ;	
 	mov	ax,1
-@47@114:
-	jmp	@47@282
-@47@142:
+@45@114:
+	jmp	@45@282
+@45@142:
    ;	
    ;		}
    ;		
@@ -5906,14 +5815,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @47@198
+	jne	short @45@198
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
 	mov	ax,offset DGROUP:s@+3422
-	jmp	short @47@86
-@47@198:
+	jmp	short @45@86
+@45@198:
    ;	
    ;		    return 1;
    ;	    }
@@ -5924,14 +5833,14 @@ _cmd_prodcons	proc	near
 	call	near ptr _fork
 	pop	cx
 	cmp	ax,-1
-	jne	short @47@254
+	jne	short @45@254
    ;	
    ;		    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
    ;	
 	push	ds
 	mov	ax,offset DGROUP:s@+3476
-	jmp	@47@86
-@47@254:
+	jmp	@45@86
+@45@254:
    ;	
    ;		    return 1;
    ;	    }
@@ -5939,8 +5848,8 @@ _cmd_prodcons	proc	near
    ;		return 0;
    ;	
 	xor	ax,ax
-	jmp	@47@114
-@47@282:
+	jmp	@45@114
+@45@282:
    ;	
    ;	}
    ;	
@@ -6552,19 +6461,17 @@ _DATA	ends
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 	public	_consumidor
+	extrn	_sleep:near
 	public	_produtor
 	public	_consome
 	public	_produz
 	public	_avanca
 	public	_inicializaLista
-	public	_sleep
-	public	_minisleep
 	public	_imprimeBuffer
 	public	_imprimeLista
 _cheio	equ	cheio
 _vazio	equ	vazio
 _mutex	equ	mutex
-_tamanhoSegundo	equ	tamanhoSegundo
 _tempoConsumidor	equ	tempoConsumidor
 _tempoProdutor	equ	tempoProdutor
 _posicaoConsumidor	equ	posicaoConsumidor
@@ -6591,6 +6498,7 @@ _argline	equ	argline
 _palavra	equ	palavra
 _cmdline	equ	cmdline
 _end_command	equ	end_command
+	extrn	_minisleep:near
 	extrn	_resume:near
 	extrn	_stop:near
 	extrn	_semdestroy:near

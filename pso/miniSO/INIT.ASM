@@ -16,7 +16,7 @@ $comm	macro	name,dist,size,count
 	?debug	S "init.c"
 	?debug	C E92554844106696E69742E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
-	?debug	C E990AC6C4B056C69622E68
+	?debug	C E9E2A3834B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS

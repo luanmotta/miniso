@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 1
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 1
 init.ASM
 
 
@@ -10,7 +10,7 @@ init.ASM
       5					     ?debug  S "init.c"
       6					     ?debug  C E92554844106696E69742E63
       7					     ?debug  C E94FAE6C4B086D696E69534F2E68
-      8					     ?debug  C E990AC6C4B056C69622E68
+      8					     ?debug  C E9E2A3834B056C69622E68
       9	0000			     _TEXT   segment byte public 'CODE'
      10	0000			     _TEXT   ends
      11				     DGROUP  group   _DATA,_BSS
@@ -60,7 +60,7 @@ init.ASM
      55	0014  B8 0B98			     mov     ax,2968
      56	0017  50			     push    ax
      57	0018  E8 0000e			     call    near ptr _init_ds
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 2
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 2
 init.ASM
 
 
@@ -122,7 +122,7 @@ init.ASM
     112	0061  50			     push    ax
     113	0062  E8 0000e			     call    near ptr _MK_FP
     114	0065  59			     pop     cx
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 3
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 3
 init.ASM
 
 
@@ -184,7 +184,7 @@ init.ASM
     169					;
     170	00AE  1E			     push    ds
     171	00AF  B8 0027r			     mov     ax,offset DGROUP:s@+39
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 4
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 4
 init.ASM
 
 
@@ -246,7 +246,7 @@ init.ASM
     226					     public  _main
     227					     extrn   _init_stack:near
     228					     extrn   _init_ds:near
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 5
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 5
 init.ASM
 
 
@@ -257,7 +257,7 @@ init.ASM
     232					     extrn   _miniSO_systemcall:near
     233				     _s@     equ     s@
     234					     end
-Turbo Assembler	 Version 3.1	    12/01/17 21:33:15	    Page 6
+Turbo Assembler	 Version 3.1	    12/03/17 20:31:08	    Page 6
 Symbol Table
 
 
@@ -265,9 +265,9 @@ Symbol Table
 
 Symbol Name		Type   Value			   Cref	(defined at #)
 
-??DATE			Text   "12/01/17"
+??DATE			Text   "12/03/17"
 ??FILENAME		Text   "init	"
-??TIME			Text   "21:33:15"
+??TIME			Text   "20:31:08"
 ??VERSION		Number 030A
 @1@114			Near   _TEXT:0042		   76  #87
 @1@58			Near   _TEXT:0034		   #77	89

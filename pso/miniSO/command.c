@@ -990,31 +990,28 @@ int cmd_resume(int argc, char far *argv[])
 }
 
 static int tamanho_buffer = 0;
-static int vetor[20];
+static int buffer[20];
 
-static int posicaoProdutor = 0;
-static int posicaoConsumidor = 0;
-
-static int tempoProdutor;
-static int tempoConsumidor;
+static int prod_time;
+static int cons_time;
 
 static semid_t mutex;
 static semid_t vazio;
 static semid_t cheio;
 
 
-void imprimeLista () {
+void print_buffer_content () {
   int i;
   char str[1];
   int x = 56, y = demo_linha + 10;
   
   for (i = 0; i < tamanho_buffer; i++) {
-    inttostr(str, vetor[i]);
+    inttostr(str, buffer[i]);
     putstrxy(x+2+i,  y+8, str);
   }
 }
 
-void imprimeBuffer() {
+void print_buffer() {
   extern int demo_linha;
   int x = 56, y = demo_linha + 10;
   char str[20];
@@ -1031,82 +1028,83 @@ void imprimeBuffer() {
 
   /* representacao do buffer */
   putstrxy(x,    y+8, "³ ");
-  imprimeLista();
+  print_buffer_content();
   putstrxy(x+20, y+8, "  ³");
 
   /* Produtor e Consumidor*/
-  inttostr(str,  tempoProdutor);
+  inttostr(str,  prod_time);
   putstrxy(x,    y+9 , "³ Produtor:           ³");
   putstrxy(x+12, y+9, str);
 
-  inttostr(str,  tempoConsumidor);
+  inttostr(str,  cons_time);
   putstrxy(x,    y+10, "³ Consumidor:         ³");
   putstrxy(x+14, y+10, str);
 
   putstrxy(x, y+11,"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ");
 }
 
-void inicializaLista () {
+void start_buffer() {
   int i;
 
   for (i = 0; i < tamanho_buffer; i++) {
-    vetor[i] = 0;
+    buffer[i] = 0;
   }
   
 }
 
-int avanca(int posicaoAtual) {
-  if (posicaoAtual == tamanho_buffer - 1) {
+int avanca(int posicao_atual) {
+  if (posicao_atual == tamanho_buffer - 1) {
     return 0;
   } else {
-    return posicaoAtual + 1;
+    return posicao_atual + 1;
   }
 }
 
-void produz () {
+int produz (prod_pos) {
   minisleep();
-  vetor[posicaoProdutor] = 1;
-  posicaoProdutor = avanca(posicaoProdutor);
-  imprimeBuffer();
+  buffer[prod_pos] = 1;
+  print_buffer();
+  return avanca(prod_pos);
 }
 
 
-void consome () {
+int consome (cons_pos) {
   minisleep();
-  vetor[posicaoConsumidor] = 0;
-  posicaoConsumidor = avanca(posicaoConsumidor);
-  imprimeBuffer();
+  buffer[cons_pos] = 0;
+  print_buffer();
+  return avanca(cons_pos);
 }
 
 
 void produtor()
 {
+  int prod_pos = 0;
   while(1) {
     semdown(vazio);
     semdown(mutex);
-    produz();
+    prod_pos = produz(prod_pos);
     semup(mutex);
     semup(cheio);
 
-    sleep(tempoProdutor);
+    sleep(prod_time);
   }
 }
 
 void consumidor()
 {
+  int cons_pos = 0;
   while(1) {
     semdown(cheio);
     semdown(mutex);
-    consome();
+    cons_pos = consome(cons_pos);
     semup(mutex);
     semup(vazio);
 
-    sleep(tempoConsumidor);
+    sleep(cons_time);
   }
 }
 
 /*
-usar sleep e minisleep como funcoes da lib
 melhorar nome das variaveis
 melhorar a declaracao das variaveis na hora de printar
 */
@@ -1118,7 +1116,7 @@ int cmd_tprod(int argc, char far *argv[]) {
 		return 1;
 	}
 	
-	tempoProdutor   = atoi(argv[1]);
+	prod_time = atoi(argv[1]);
 }
 
 int cmd_tcons(int argc, char far *argv[]) {
@@ -1128,7 +1126,7 @@ int cmd_tcons(int argc, char far *argv[]) {
 		return 1;
 	}
 	
-	tempoConsumidor = atoi(argv[1]);
+	cons_time = atoi(argv[1]);
 }
 
 int cmd_prodcons(int argc, char far *argv[])
@@ -1139,9 +1137,9 @@ int cmd_prodcons(int argc, char far *argv[])
 		return 1;
 	}
 	
-	/* Get arguments     */
-	tempoProdutor   = atoi(argv[1]);
-	tempoConsumidor = atoi(argv[2]);
+	/* Get arguments */
+	prod_time   = atoi(argv[1]);
+	cons_time = atoi(argv[2]);
 	tamanho_buffer  = atoi(argv[3]);
 	
     mutex = semcreate(1);
@@ -1149,17 +1147,19 @@ int cmd_prodcons(int argc, char far *argv[])
     cheio = semcreate(0);
 	
     
-    // Inicializa Vetor
-    inicializaLista();
+    // Inicializa Buffer
+    start_buffer();
     
     // Printa Buffer
-    imprimeBuffer();
+    print_buffer();
     
-    /* Criar consumidor e produtor*/
+    /* Cria o processo do produtor */
     if	(fork(produtor)==miniSO_ERROR)  {
 	    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
 	    return 1;
     }
+    
+    /* Cria o processo do consumidor */
     if	(fork(consumidor)==miniSO_ERROR)  {
 	    putstr("Erro em prodcons: fork() nao conseguiu criar thread!\n");
 	    return 1;

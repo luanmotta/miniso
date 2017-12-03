@@ -671,10 +671,10 @@ void minisleep () {
 }
 
 /* Função sleep */
-void sleep (int segundos) {
+void sleep (int seconds) {
     long i;
     long j;
-    for (i = 0; i < segundos; i++) {
+    for (i = 0; i < seconds; i++) {
         for (j = 0; j < 490000; j++);
     }
 }

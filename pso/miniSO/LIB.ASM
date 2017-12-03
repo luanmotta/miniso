@@ -14,9 +14,9 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "lib.c"
-	?debug	C E999A3834B056C69622E63
+	?debug	C E945A4834B056C69622E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
-	?debug	C E9E2A3834B056C69622E68
+	?debug	C E941A4834B056C69622E68
 	?debug	C E90BAD6C4B077363616C6C2E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
@@ -2421,7 +2421,7 @@ _minisleep	proc	near
 	ret	
 _minisleep	endp
    ;	
-   ;	void sleep (int segundos) {
+   ;	void sleep (int seconds) {
    ;	
 	assume	cs:_TEXT
 _sleep	proc	near
@@ -2431,7 +2431,7 @@ _sleep	proc	near
    ;	
    ;	    long i;
    ;	    long j;
-   ;	    for (i = 0; i < segundos; i++) {
+   ;	    for (i = 0; i < seconds; i++) {
    ;	
 	mov	word ptr [bp-2],0
 	mov	word ptr [bp-4],0

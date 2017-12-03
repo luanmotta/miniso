@@ -14,10 +14,10 @@ $comm	macro	name,dist,size,count
 	endif
 	?debug	V 300h
 	?debug	S "command.c"
-	?debug	C E994A3834B09636F6D6D616E642E63
+	?debug	C E943A6834B09636F6D6D616E642E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E96AA3834B09636F6D6D616E642E68
-	?debug	C E9E2A3834B056C69622E68
+	?debug	C E941A4834B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -5071,19 +5071,13 @@ _DATA	segment word public 'DATA'
 tamanho_buffer	label	word
 	db	0
 	db	0
-posicaoProdutor	label	word
-	db	0
-	db	0
-posicaoConsumidor	label	word
-	db	0
-	db	0
 _DATA	ends
 _TEXT	segment byte public 'CODE'
    ;	
-   ;	void imprimeLista () {
+   ;	void print_buffer_content () {
    ;	
 	assume	cs:_TEXT
-_imprimeLista	proc	near
+_print_buffer_content	proc	near
 	push	bp
 	mov	bp,sp
 	sub	sp,6
@@ -5105,11 +5099,11 @@ _imprimeLista	proc	near
 	jmp	short @35@114
 @35@58:
    ;	
-   ;	    inttostr(str, vetor[i]);
+   ;	    inttostr(str, buffer[i]);
    ;	
 	mov	bx,si
 	shl	bx,1
-	push	word ptr DGROUP:vetor[bx]
+	push	word ptr DGROUP:buffer[bx]
 	push	ss
 	lea	ax,word ptr [bp-2]
 	push	ax
@@ -5142,12 +5136,12 @@ _imprimeLista	proc	near
 	mov	sp,bp
 	pop	bp
 	ret	
-_imprimeLista	endp
+_print_buffer_content	endp
    ;	
-   ;	void imprimeBuffer() {
+   ;	void print_buffer() {
    ;	
 	assume	cs:_TEXT
-_imprimeBuffer	proc	near
+_print_buffer	proc	near
 	push	bp
 	mov	bp,sp
 	sub	sp,20
@@ -5252,9 +5246,9 @@ _imprimeBuffer	proc	near
 	call	near ptr _putstrxy
 	add	sp,8
    ;	
-   ;	  imprimeLista();
+   ;	  print_buffer_content();
    ;	
-	call	near ptr _imprimeLista
+	call	near ptr _print_buffer_content
    ;	
    ;	  putstrxy(x+20, y+8, "  ³");
    ;	
@@ -5272,9 +5266,9 @@ _imprimeBuffer	proc	near
    ;	
    ;	
    ;	  /* Produtor e Consumidor*/
-   ;	  inttostr(str,  tempoProdutor);
+   ;	  inttostr(str,  prod_time);
    ;	
-	push	word ptr DGROUP:tempoProdutor
+	push	word ptr DGROUP:prod_time
 	push	ss
 	lea	ax,word ptr [bp-20]
 	push	ax
@@ -5308,9 +5302,9 @@ _imprimeBuffer	proc	near
 	add	sp,8
    ;	
    ;	
-   ;	  inttostr(str,  tempoConsumidor);
+   ;	  inttostr(str,  cons_time);
    ;	
-	push	word ptr DGROUP:tempoConsumidor
+	push	word ptr DGROUP:cons_time
 	push	ss
 	lea	ax,word ptr [bp-20]
 	push	ax
@@ -5363,12 +5357,12 @@ _imprimeBuffer	proc	near
 	mov	sp,bp
 	pop	bp
 	ret	
-_imprimeBuffer	endp
+_print_buffer	endp
    ;	
-   ;	void inicializaLista () {
+   ;	void start_buffer() {
    ;	
 	assume	cs:_TEXT
-_inicializaLista	proc	near
+_start_buffer	proc	near
 	push	bp
 	mov	bp,sp
    ;	
@@ -5380,11 +5374,11 @@ _inicializaLista	proc	near
 	jmp	short @37@114
 @37@58:
    ;	
-   ;	    vetor[i] = 0;
+   ;	    buffer[i] = 0;
    ;	
 	mov	bx,dx
 	shl	bx,1
-	mov	word ptr DGROUP:vetor[bx],0
+	mov	word ptr DGROUP:buffer[bx],0
 	inc	dx
 @37@114:
 	cmp	dx,word ptr DGROUP:tamanho_buffer
@@ -5396,9 +5390,9 @@ _inicializaLista	proc	near
    ;	
 	pop	bp
 	ret	
-_inicializaLista	endp
+_start_buffer	endp
    ;	
-   ;	int avanca(int posicaoAtual) {
+   ;	int avanca(int posicao_atual) {
    ;	
 	assume	cs:_TEXT
 _avanca	proc	near
@@ -5406,7 +5400,7 @@ _avanca	proc	near
 	mov	bp,sp
 	mov	dx,word ptr [bp+4]
    ;	
-   ;	  if (posicaoAtual == tamanho_buffer - 1) {
+   ;	  if (posicao_atual == tamanho_buffer - 1) {
    ;	
 	mov	ax,word ptr DGROUP:tamanho_buffer
 	dec	ax
@@ -5424,7 +5418,7 @@ _avanca	proc	near
 	jmp	short @38@170
 @38@142:
    ;	
-   ;	    return posicaoAtual + 1;
+   ;	    return posicao_atual + 1;
    ;	
 	mov	ax,dx
 	inc	ax
@@ -5438,70 +5432,78 @@ _avanca	proc	near
 	ret	
 _avanca	endp
    ;	
-   ;	void produz () {
+   ;	int produz (prod_pos) {
    ;	
 	assume	cs:_TEXT
 _produz	proc	near
 	push	bp
 	mov	bp,sp
+	push	si
+	mov	si,word ptr [bp+4]
    ;	
    ;	  minisleep();
    ;	
 	call	near ptr _minisleep
    ;	
-   ;	  vetor[posicaoProdutor] = 1;
+   ;	  buffer[prod_pos] = 1;
    ;	
-	mov	bx,word ptr DGROUP:posicaoProdutor
+	mov	bx,si
 	shl	bx,1
-	mov	word ptr DGROUP:vetor[bx],1
+	mov	word ptr DGROUP:buffer[bx],1
    ;	
-   ;	  posicaoProdutor = avanca(posicaoProdutor);
+   ;	  print_buffer();
    ;	
-	push	word ptr DGROUP:posicaoProdutor
+	call	near ptr _print_buffer
+   ;	
+   ;	  return avanca(prod_pos);
+   ;	
+	push	si
 	call	near ptr _avanca
 	pop	cx
-	mov	word ptr DGROUP:posicaoProdutor,ax
-   ;	
-   ;	  imprimeBuffer();
-   ;	
-	call	near ptr _imprimeBuffer
+	jmp	short @39@58
+@39@58:
    ;	
    ;	}
    ;	
+	pop	si
 	pop	bp
 	ret	
 _produz	endp
    ;	
-   ;	void consome () {
+   ;	int consome (cons_pos) {
    ;	
 	assume	cs:_TEXT
 _consome	proc	near
 	push	bp
 	mov	bp,sp
+	push	si
+	mov	si,word ptr [bp+4]
    ;	
    ;	  minisleep();
    ;	
 	call	near ptr _minisleep
    ;	
-   ;	  vetor[posicaoConsumidor] = 0;
+   ;	  buffer[cons_pos] = 0;
    ;	
-	mov	bx,word ptr DGROUP:posicaoConsumidor
+	mov	bx,si
 	shl	bx,1
-	mov	word ptr DGROUP:vetor[bx],0
+	mov	word ptr DGROUP:buffer[bx],0
    ;	
-   ;	  posicaoConsumidor = avanca(posicaoConsumidor);
+   ;	  print_buffer();
    ;	
-	push	word ptr DGROUP:posicaoConsumidor
+	call	near ptr _print_buffer
+   ;	
+   ;	  return avanca(cons_pos);
+   ;	
+	push	si
 	call	near ptr _avanca
 	pop	cx
-	mov	word ptr DGROUP:posicaoConsumidor,ax
-   ;	
-   ;	  imprimeBuffer();
-   ;	
-	call	near ptr _imprimeBuffer
+	jmp	short @40@58
+@40@58:
    ;	
    ;	}
    ;	
+	pop	si
 	pop	bp
 	ret	
 _consome	endp
@@ -5512,9 +5514,14 @@ _consome	endp
 _produtor	proc	near
 	push	bp
 	mov	bp,sp
-@41@30:
+	push	si
    ;	
    ;	{
+   ;	  int prod_pos = 0;
+   ;	
+	xor	si,si
+@41@58:
+   ;	
    ;	  while(1) {
    ;	    semdown(vazio);
    ;	
@@ -5528,9 +5535,12 @@ _produtor	proc	near
 	call	near ptr _semdown
 	pop	cx
    ;	
-   ;	    produz();
+   ;	    prod_pos = produz(prod_pos);
    ;	
+	push	si
 	call	near ptr _produz
+	pop	cx
+	mov	si,ax
    ;	
    ;	    semup(mutex);
    ;	
@@ -5545,16 +5555,17 @@ _produtor	proc	near
 	pop	cx
    ;	
    ;	
-   ;	    sleep(tempoProdutor);
+   ;	    sleep(prod_time);
    ;	
-	push	word ptr DGROUP:tempoProdutor
+	push	word ptr DGROUP:prod_time
 	call	near ptr _sleep
 	pop	cx
-	jmp	short @41@30
+	jmp	short @41@58
    ;	
    ;	  }
    ;	}
    ;	
+	pop	si
 	pop	bp
 	ret	
 _produtor	endp
@@ -5565,9 +5576,14 @@ _produtor	endp
 _consumidor	proc	near
 	push	bp
 	mov	bp,sp
-@42@30:
+	push	si
    ;	
    ;	{
+   ;	  int cons_pos = 0;
+   ;	
+	xor	si,si
+@42@58:
+   ;	
    ;	  while(1) {
    ;	    semdown(cheio);
    ;	
@@ -5581,9 +5597,12 @@ _consumidor	proc	near
 	call	near ptr _semdown
 	pop	cx
    ;	
-   ;	    consome();
+   ;	    cons_pos = consome(cons_pos);
    ;	
+	push	si
 	call	near ptr _consome
+	pop	cx
+	mov	si,ax
    ;	
    ;	    semup(mutex);
    ;	
@@ -5598,16 +5617,17 @@ _consumidor	proc	near
 	pop	cx
    ;	
    ;	
-   ;	    sleep(tempoConsumidor);
+   ;	    sleep(cons_time);
    ;	
-	push	word ptr DGROUP:tempoConsumidor
+	push	word ptr DGROUP:cons_time
 	call	near ptr _sleep
 	pop	cx
-	jmp	short @42@30
+	jmp	short @42@58
    ;	
    ;	  }
    ;	}
    ;	
+	pop	si
 	pop	bp
 	ret	
 _consumidor	endp
@@ -5642,7 +5662,7 @@ _cmd_tprod	proc	near
    ;	
    ;		}
    ;		
-   ;		tempoProdutor   = atoi(argv[1]);
+   ;		prod_time = atoi(argv[1]);
    ;	
 	mov	bx,word ptr [bp+6]
 	push	word ptr [bx+6]
@@ -5650,7 +5670,7 @@ _cmd_tprod	proc	near
 	call	near ptr _atoi
 	pop	cx
 	pop	cx
-	mov	word ptr DGROUP:tempoProdutor,ax
+	mov	word ptr DGROUP:prod_time,ax
 @43@114:
    ;	
    ;	}
@@ -5689,7 +5709,7 @@ _cmd_tcons	proc	near
    ;	
    ;		}
    ;		
-   ;		tempoConsumidor = atoi(argv[1]);
+   ;		cons_time = atoi(argv[1]);
    ;	
 	mov	bx,word ptr [bp+6]
 	push	word ptr [bx+6]
@@ -5697,7 +5717,7 @@ _cmd_tcons	proc	near
 	call	near ptr _atoi
 	pop	cx
 	pop	cx
-	mov	word ptr DGROUP:tempoConsumidor,ax
+	mov	word ptr DGROUP:cons_time,ax
 @44@114:
    ;	
    ;	}
@@ -5741,24 +5761,24 @@ _cmd_prodcons	proc	near
    ;	
    ;		}
    ;		
-   ;		/* Get arguments     */
-   ;		tempoProdutor   = atoi(argv[1]);
+   ;		/* Get arguments */
+   ;		prod_time   = atoi(argv[1]);
    ;	
 	push	word ptr [si+6]
 	push	word ptr [si+4]
 	call	near ptr _atoi
 	pop	cx
 	pop	cx
-	mov	word ptr DGROUP:tempoProdutor,ax
+	mov	word ptr DGROUP:prod_time,ax
    ;	
-   ;		tempoConsumidor = atoi(argv[2]);
+   ;		cons_time = atoi(argv[2]);
    ;	
 	push	word ptr [si+10]
 	push	word ptr [si+8]
 	call	near ptr _atoi
 	pop	cx
 	pop	cx
-	mov	word ptr DGROUP:tempoConsumidor,ax
+	mov	word ptr DGROUP:cons_time,ax
    ;	
    ;		tamanho_buffer  = atoi(argv[3]);
    ;	
@@ -5795,19 +5815,19 @@ _cmd_prodcons	proc	near
    ;	
    ;		
    ;	    
-   ;	    // Inicializa Vetor
-   ;	    inicializaLista();
+   ;	    // Inicializa Buffer
+   ;	    start_buffer();
    ;	
-	call	near ptr _inicializaLista
+	call	near ptr _start_buffer
    ;	
    ;	    
    ;	    // Printa Buffer
-   ;	    imprimeBuffer();
+   ;	    print_buffer();
    ;	
-	call	near ptr _imprimeBuffer
+	call	near ptr _print_buffer
    ;	
    ;	    
-   ;	    /* Criar consumidor e produtor*/
+   ;	    /* Cria o processo do produtor */
    ;	    if	(fork(produtor)==miniSO_ERROR)  {
    ;	
 	mov	ax,offset _produtor
@@ -5826,6 +5846,8 @@ _cmd_prodcons	proc	near
    ;	
    ;		    return 1;
    ;	    }
+   ;	    
+   ;	    /* Cria o processo do consumidor */
    ;	    if	(fork(consumidor)==miniSO_ERROR)  {
    ;	
 	mov	ax,offset _consumidor
@@ -5865,11 +5887,11 @@ vazio	label	word
 	db	2 dup (?)
 mutex	label	word
 	db	2 dup (?)
-tempoConsumidor	label	word
+cons_time	label	word
 	db	2 dup (?)
-tempoProdutor	label	word
+prod_time	label	word
 	db	2 dup (?)
-vetor	label	word
+buffer	label	word
 	db	40 dup (?)
 _semid	label	word
 	db	2 dup (?)
@@ -6466,17 +6488,15 @@ _TEXT	ends
 	public	_consome
 	public	_produz
 	public	_avanca
-	public	_inicializaLista
-	public	_imprimeBuffer
-	public	_imprimeLista
+	public	_start_buffer
+	public	_print_buffer
+	public	_print_buffer_content
 _cheio	equ	cheio
 _vazio	equ	vazio
 _mutex	equ	mutex
-_tempoConsumidor	equ	tempoConsumidor
-_tempoProdutor	equ	tempoProdutor
-_posicaoConsumidor	equ	posicaoConsumidor
-_posicaoProdutor	equ	posicaoProdutor
-_vetor	equ	vetor
+_cons_time	equ	cons_time
+_prod_time	equ	prod_time
+_buffer	equ	buffer
 _tamanho_buffer	equ	tamanho_buffer
 	public	_sem_aplic
 	public	_semid

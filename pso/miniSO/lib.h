@@ -58,5 +58,5 @@ extern	int		   semdestroy	     	 (semid_t s);		        /*S*/
 extern  int        stop              (pid_t pid);
 extern  int        resume            (pid_t pid);
 extern  void       minisleep         ();
-extern  int        resume            (int segundos);
+extern  int        resume            (int seconds);
 

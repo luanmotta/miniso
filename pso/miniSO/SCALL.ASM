@@ -17,7 +17,7 @@ $comm	macro	name,dist,size,count
 	?debug	C E977AF6C4B077363616C6C2E63
 	?debug	C E94FAE6C4B086D696E69534F2E68
 	?debug	C E90BAD6C4B077363616C6C2E68
-	?debug	C E9E2A3834B056C69622E68
+	?debug	C E941A4834B056C69622E68
 _TEXT	segment byte public 'CODE'
 _TEXT	ends
 DGROUP	group	_DATA,_BSS
@@ -1775,7 +1775,7 @@ _sc_fork	proc	near
    ;	
 	sub	word ptr [bp-6],2
 	les	bx,dword ptr [bp-6]
-	mov	word ptr es:[bx],2968
+	mov	word ptr es:[bx],2969
    ;	
    ;		*(--stack)=0;             /* SI */
    ;	
